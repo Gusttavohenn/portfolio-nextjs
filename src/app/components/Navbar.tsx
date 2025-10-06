@@ -8,7 +8,7 @@ export default function Navbar() {
   useEffect(() => {
     // Lógica para definir o tema inicial
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    let currentTheme = localStorage.getItem('theme');
+    const currentTheme = localStorage.getItem('theme');
     
     if (currentTheme === 'light' || (currentTheme === null && prefersLight)) {
         document.body.classList.add('light-mode');
