@@ -43,7 +43,7 @@ export default function Home() {
         const filter = button.dataset.filter;
         projectCards.forEach(card => {
             const tags = card.dataset.tags;
-            if (filter === '*' || (tags && tags.includes(filter))) {
+            if (filter === '*' || (tags && filter && tags.includes(filter))) {
                 card.classList.remove('hide');
             } else {
                 card.classList.add('hide');
