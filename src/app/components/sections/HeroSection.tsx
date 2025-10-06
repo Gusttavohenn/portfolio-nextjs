@@ -5,7 +5,7 @@ export default function HeroSection() {
       <p>Seja bem-vindo ao meu portfólio :)</p>
       <div className="button-group">
         <a href="#projetos" className="cta-button">EXPLORAR PROJETOS</a>
-        <a href="/seu-cv.pdf" download className="cta-button secondary">DOWNLOAD CV</a>
+        <a href="/Gustavo_Oliveira.pdf" download className="cta-button secondary">DOWNLOAD CURRÍCULO</a>
       </div>
     </section>
   );
