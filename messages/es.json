@@ -1,0 +1,18 @@
+{
+  "Navbar": {
+    "inicio": "Inicio",
+    "sobre": "Sobre mí",
+    "skills": "Habilidades",
+    "projetos": "Proyectos",
+    "contato": "Contacto"
+  },
+  "HeroSection": {
+    "titulo": "DESARROLLADOR JR.",
+    "saudacao": "Bienvenido a mi portafolio :)",
+    "explorar": "EXPLORAR PROYECTOS",
+    "downloadCV": "DESCARGAR CV"
+  },
+  "TimelineSection": {
+    "titulo": "Mi Trayectoria"
+  }
+}

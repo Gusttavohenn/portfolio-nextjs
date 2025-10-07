@@ -1,8 +1,7 @@
-"use client"; // Animações são interações do lado do cliente
+"use client";
 
 import { motion } from 'framer-motion';
 
-// Este componente irá "embrulhar" todas as suas páginas (page.tsx)
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <motion.div

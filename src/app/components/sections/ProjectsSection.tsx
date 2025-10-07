@@ -1,27 +1,58 @@
-import Link from 'next/link'; // 1. Importe o Link
+"use client";
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
+import { projects } from '@/lib/projects-data';
 
 export default function ProjectsSection() {
+  const locale = useLocale();
+  const [activeFilter, setActiveFilter] = useState('*');
+
+  const filteredProjects = activeFilter === '*' 
+    ? projects 
+    : projects.filter(project => project.tags.includes(activeFilter.toLowerCase()));
+
+  const allTags = ['*', ...Array.from(new Set(projects.flatMap(p => p.tags)))];
+
   return (
     <section id="projetos" className="section">
       <h2 className="section-title">Projetos</h2>
       <div className="filter-buttons">
-        <button className="filter-btn active" data-filter="*">Todos</button>
-        <button className="filter-btn" data-filter="react">React</button>
-        <button className="filter-btn" data-filter="nodejs">Node.js</button>
-        <button className="filter-btn" data-filter="python">Python</button>
+        {allTags.map(tag => (
+          <button 
+            key={tag}
+            className={`filter-btn ${activeFilter === tag ? 'active' : ''}`}
+            onClick={() => setActiveFilter(tag)}
+          >
+            {tag === '*' ? 'Todos' : tag}
+          </button>
+        ))}
       </div>
       <div className="project-grid">
-        {/* 2. Envolva o card com o Link e remova o data-modal-target */}
-        <Link href="/projects/plataforma-ecommerce" className="project-card" data-tags="react nodejs mongodb">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070" alt="Projeto E-commerce" loading="lazy" />
-          <div className="card-info"><h4>Plataforma E-commerce</h4><p>REACT, NODE.JS, MONGODB</p></div>
-        </Link>
-        
-        {/* 3. Faça o mesmo para o outro projeto */}
-        <Link href="/projects/app-mobile-produtividade" className="project-card" data-tags="react firebase">
-          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070" alt="App Mobile" loading="lazy" />
-          <div className="card-info"><h4>App Mobile</h4><p>REACT NATIVE, FIREBASE</p></div>
-        </Link>
+        {filteredProjects.map(project => (
+          <Link 
+            key={project.slug}
+            href={`/${locale}/projects/${project.slug}`} 
+            className="project-card"
+          >
+            <div className="project-image-container">
+              <img src={project.imageUrl} alt={project.title} loading="lazy" />
+              <div className="project-hover-overlay">
+                <span>Ver Projeto</span>
+              </div>
+            </div>
+            <div className="card-info">
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <div className="project-techs">
+                {project.tags.map((tech) => (
+                  <span key={tech} className="tech-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );

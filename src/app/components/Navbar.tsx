@@ -26,7 +26,6 @@ export default function Navbar() {
 
     themeToggle?.addEventListener('click', handleThemeToggle);
 
-    // Cleanup para remover o event listener
     return () => {
         themeToggle?.removeEventListener('click', handleThemeToggle);
     }

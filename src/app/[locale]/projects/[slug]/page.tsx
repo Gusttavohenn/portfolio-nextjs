@@ -1,13 +1,10 @@
 import { projects } from '@/lib/projects-data';
 import Link from 'next/link';
 
-// Esta função recebe os parâmetros da URL, neste caso, o "slug" do projeto
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   
-  // Encontramos o projeto correto na nossa lista de dados
   const project = projects.find(p => p.slug === params.slug);
 
-  // Se o projeto não for encontrado, mostramos uma mensagem
   if (!project) {
     return (
       <div className="section">
@@ -17,7 +14,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     );
   }
 
-  // Se encontramos, renderizamos a página com os detalhes dele
   return (
     <article className="case-study-container section">
       <div className="case-study-header">
@@ -30,11 +26,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <section className="case-study-section">
           <h3><i className="fa-solid fa-bullseye"></i> O Problema</h3>
           <p>{project.problem}</p>
-        </section>
-
-        <section className="case-study-section">
-          <h3><i className="fa-solid fa-laptop-code"></i> Desafios e Aprendizados</h3>
-          <p>{project.challenges}</p>
         </section>
 
         <div className="button-group">

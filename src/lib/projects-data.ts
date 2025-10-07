@@ -1,39 +1,37 @@
-// Definimos a estrutura de um objeto de projeto com TypeScript
 export interface Project {
-  slug: string; // ID único para a URL, ex: "plataforma-ecommerce"
+  slug: string;
   title: string;
   shortDescription: string;
+  description: string;
   tags: string[];
   imageUrl: string;
   problem: string;
-  challenges: string;
-  liveUrl?: string; // O '?' torna o campo opcional
+  liveUrl?: string; 
   codeUrl?: string;
 }
 
-// Criamos uma lista com todos os seus projetos
 export const projects: Project[] = [
   {
-    slug: "plataforma-ecommerce",
-    title: "Plataforma E-commerce",
-    shortDescription: "REACT, NODE.JS, MONGODB",
-    tags: ["react", "nodejs", "mongodb"],
-    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070",
-    problem: "O desafio era criar uma plataforma de vendas online robusta, escalável e com uma experiência de usuário intuitiva, desde a vitrine de produtos até o checkout seguro.",
-    challenges: "O maior desafio foi integrar o sistema de pagamentos de forma segura, garantindo a conformidade com as normas de segurança. Aprendi muito sobre arquitetura de microserviços, segurança de APIs e gerenciamento de estado complexo no frontend.",
-    liveUrl: "#", // [SUA VEZ] Substitua pelo link real
-    codeUrl: "#", // [SUA VEZ] Substitua pelo link real
+    slug: "plataforma-nexo",
+    title: "Nexo - Plataforma Financeira",
+    shortDescription: "NODE.JS, POSTGRESQL, API RESTful",
+    description: "O NEXO é um dashboard financeiro pessoal que construí do zero, projetado para ajudar no controle de receitas e despesas de forma simples, visual e totalmente online", // <-- TEXTO ADICIONADO
+    tags: ["node.js", "html5", "mongodb", "express.js", "css3", "javascript", "postgreSql"],
+    imageUrl: "/nexo.png",
+    problem: "O desafio era criar uma plataforma na qual pudesse registrar toda minha receita para melhor controle financeiro.",
+    liveUrl: "https://nexo-financeiro.vercel.app/login", // link projeto
+    codeUrl: "https://github.com/Gusttavohenn/finandash-fullstack", //link github
   },
   {
-    slug: "app-mobile-produtividade",
-    title: "App Mobile de Produtividade",
-    shortDescription: "REACT NATIVE, FIREBASE",
-    tags: ["react", "firebase"],
+    slug: "robo-de-precos ",
+    title: "Bot de alerta - EM PROGRESSO",
+    shortDescription: "Python, Seleium, Flask",
+    description: "Este robô monitora o preço de um produto específico em um site (como Amazon ou Mercado Livre) e envia uma notificação (por e-mail ou Telegram) quando o preço cai abaixo de um valor que você definiu.", // <-- TEXTO ADICIONADO
+    tags: ["Python", "Flask"],
     imageUrl: "https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070",
-    problem: "A necessidade era desenvolver um aplicativo de produtividade multiplataforma com sincronização de tarefas em tempo real entre diferentes dispositivos logados na mesma conta.",
-    challenges: "Otimizar o uso de dados em tempo real com Firebase Realtime Database foi o principal desafio técnico. Foi um grande aprendizado sobre bancos de dados NoSQL, listeners de eventos e gerenciamento de estado global em React Native para garantir uma UI consistente.",
+    problem: "Acompanhar em tempo real os preços dos produtos",
     liveUrl: "#",
     codeUrl: "#",
   },
-  // Adicione mais projetos aqui no futuro
+  // +projetos
 ];

@@ -1,0 +1,18 @@
+{
+  "Navbar": {
+    "inicio": "Home",
+    "sobre": "About",
+    "skills": "Skills",
+    "projetos": "Projects",
+    "contato": "Contact"
+  },
+  "HeroSection": {
+    "titulo": "JUNIOR DEVELOPER",
+    "saudacao": "Welcome to my portfolio :)",
+    "explorar": "EXPLORE PROJECTS",
+    "downloadCV": "DOWNLOAD RESUME"
+  },
+  "TimelineSection": {
+    "titulo": "My Journey"
+  }
+}
