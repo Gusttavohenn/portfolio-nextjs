@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 // Importação de Componentes
 import Navbar from "../components/Navbar";
@@ -28,20 +29,20 @@ export const metadata: Metadata = {
 };
 
 // Componente de Layout Principal
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { locale }
-}: Readonly<{
+}: {
   children: React.ReactNode;
   params: { locale: string };
-}>) {
-  // Pega as mensagens de tradução para o locale atual
-  const messages = useMessages();
+}) {
+  // Pega as mensagens de tradução para o locale atual (server-side)
+  const messages = await getMessages();
 
   return (
     <html lang={locale}>
       <body className={poppins.className}>
-                <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="blob"></div>
           <Navbar />
           <main>
@@ -54,8 +55,7 @@ export default function RootLayout({
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" strategy="afterInteractive" />
-        
-          </body>
+      </body>
     </html>
   );
 }
