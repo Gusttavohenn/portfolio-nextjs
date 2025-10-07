@@ -73,16 +73,6 @@ export default function Home() {
       });
     });
 
-
-    // Cleanup function para remover event listeners
-    return () => {
-        filterButtons.forEach(button => button.removeEventListener('click', handleFilterClick));
-        form.removeEventListener('submit', handleFormSubmit);
-        // Limpa os triggers do ScrollTrigger para evitar vazamento de memória
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
   return (
     <>
       <HeroSection />
