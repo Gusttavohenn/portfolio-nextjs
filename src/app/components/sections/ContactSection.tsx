@@ -65,7 +65,7 @@ export default function ContactSection() {
       <form id="contact-form" action="https://formspree.io/f/xyzndejv" method="POST" className="contact-form">
         <input type="text" name="name" placeholder="Seu Nome" required />
         <input type="email" name="email" placeholder="Seu E-mail" required />
-        <input type="number" name="telefone" placeholder="Telefone/Whastapp | (DDD) 9999-9999" required />
+        <input type="tel" name="telefone" placeholder="Telefone/Whastapp | (DDD) 9999-9999" required />
         <textarea name="message" placeholder="Sua Mensagem" required></textarea>
         <button type="submit" className="cta-button form-button"><span className="button-text">ENVIAR MENSAGEM</span></button>
       </form>
