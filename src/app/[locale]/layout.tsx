@@ -31,12 +31,15 @@ export const metadata: Metadata = {
 // Componente de Layout Principal
 export default async function RootLayout({
   children,
-  params: { locale }
+  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  // Pega as mensagens de tradução para o locale atual (server-side)
+  // Resolve a Promise do params
+  const { locale } = await params;
+  
+  // Pega as mensagens de tradução para o locale atual
   const messages = await getMessages();
 
   return (
