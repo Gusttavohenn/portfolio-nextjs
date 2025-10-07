@@ -73,13 +73,6 @@ export default function Home() {
       });
     });
 
-    // LÓGICA DO FORMULÁRIO
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    const handleFormSubmit = (e: Event) => {
-      e.preventDefault();
-      // ... (lógica de envio do formulário)
-    };
-    form.addEventListener('submit', handleFormSubmit);
 
     // Cleanup function para remover event listeners
     return () => {
