@@ -23,15 +23,15 @@ export const projects: Project[] = [
     codeUrl: "https://github.com/Gusttavohenn/finandash-fullstack", //link github
   },
   {
-    slug: "robo-de-precos ",
-    title: "Bot de alerta - EM PROGRESSO",
-    shortDescription: "Python, Seleium, Flask",
-    description: "Este robô monitora o preço de um produto específico em um site (como Amazon ou Mercado Livre) e envia uma notificação (por e-mail ou Telegram) quando o preço cai abaixo de um valor que você definiu.", // <-- TEXTO ADICIONADO
-    tags: ["Python", "Flask"],
-    imageUrl: "https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070",
-    problem: "Acompanhar em tempo real os preços dos produtos",
-    liveUrl: "#",
-    codeUrl: "#",
+    slug: "API-carteira-digital-JAVA",
+    title: "API Carteira Digital",
+    shortDescription: "JAVA, SPRING BOOT",
+    description: "uma API RESTful para um sistema de transações financeiras simplificado, desenvolvida com Java e Spring Boot. O projeto simula operações de uma carteira digital, permitindo cadastro de usuários, consulta de saldo e transferências entre contas, com validações robustas de segurança e regras de negócio. A jornada de desenvolvimento incluiu a resolução de desafios do mundo real, como o tratamento de exceções de comunicação com serviços externos (erros de certificado SSL e 404), garantindo que a API seja resiliente e pronta para produção.", // <-- TEXTO ADICIONADO
+    tags: ["Java", "Spring Boot"],
+    imageUrl: "/api-carteira-digital-java.png",
+    problem: "Necessidade de uma API de carteira digital",
+    //liveUrl: "#",
+    codeUrl: "https://github.com/Gusttavohenn/api-carteira-digital-java",
   },
   // +projetos
 ];

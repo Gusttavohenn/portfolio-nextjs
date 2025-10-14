@@ -19,7 +19,7 @@ const poppins = Poppins({
 
 // Metadados da Página 
 export const metadata: Metadata = {
-  title: "Gustavo Oliveira | Desenvolvedor",
+  title: "Gustavo Oliveira | Portfólio",
   description: "Portfólio de Gustavo Oliveira, um desenvolvedor júnior apaixonado por criar soluções web modernas e funcionais.",
   openGraph: {
     title: "Gustavo Oliveira | Desenvolvedor",
