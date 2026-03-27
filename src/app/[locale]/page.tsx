@@ -6,9 +6,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import HeroSection from '../components/sections/HeroSection';
+import AboutSection from '../components/sections/AboutSection';
 import TimelineSection from '../components/sections/TimelineSection';
 import SkillsSection from '../components/sections/SkillsSection';
 import ProjectsSection from '../components/sections/ProjectsSection';
+import CertificatesSection from '../components/sections/CertificatesSection';
 import ContactSection from '../components/sections/ContactSection';
 
 export default function Home() {
@@ -30,25 +32,6 @@ export default function Home() {
         const type = () => { if (index < textToType.length) { typingText.textContent += textToType.charAt(index); index++; setTimeout(type, 150); } };
         setTimeout(type, 1000);
     }
-
-    // LÓGICA DO FILTRO DE PROJETOS
-    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-    const projectCards = document.querySelectorAll<HTMLDivElement>('.project-card');
-    const handleFilterClick = (event: MouseEvent) => {
-        const button = event.currentTarget as HTMLButtonElement;
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        const filter = button.dataset.filter;
-        projectCards.forEach(card => {
-            const tags = card.dataset.tags;
-            if (filter === '*' || (tags && filter && tags.includes(filter))) {
-                card.classList.remove('hide');
-            } else {
-                card.classList.add('hide');
-            }
-        });
-    };
-    filterButtons.forEach(button => button.addEventListener('click', handleFilterClick));
 
     // LÓGICA DO ACTIVE LINK NA NAVBAR COM SCROLL
     const sections = gsap.utils.toArray<HTMLElement>('.section');
@@ -73,18 +56,8 @@ export default function Home() {
       });
     });
 
-    // LÓGICA DO FORMULÁRIO
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    const handleFormSubmit = (e: Event) => {
-      e.preventDefault();
-      // ... (lógica de envio do formulário)
-    };
-    form.addEventListener('submit', handleFormSubmit);
-
     // Cleanup function para remover event listeners
     return () => {
-        filterButtons.forEach(button => button.removeEventListener('click', handleFilterClick));
-        form.removeEventListener('submit', handleFormSubmit);
         // Limpa os triggers do ScrollTrigger para evitar vazamento de memória
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -93,9 +66,11 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <AboutSection />
       <TimelineSection />
       <SkillsSection />
       <ProjectsSection />
+      <CertificatesSection />
       <ContactSection />
       
       </>

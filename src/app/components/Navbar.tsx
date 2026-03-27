@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
+  const t = useTranslations('Navbar');
   const [themeIcon, setThemeIcon] = useState('fa-moon');
 
   useEffect(() => {
@@ -36,16 +39,20 @@ export default function Navbar() {
       <div className="logo">GUSTAVO OLIVEIRA</div>
       <nav>
         <ul>
-          <li><a href="#home">Início</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="#home">{t('inicio')}</a></li>
+          <li><a href="#sobre">{t('sobre')}</a></li>
+          <li><a href="#skills">{t('skills')}</a></li>
+          <li><a href="#projetos">{t('projetos')}</a></li>
+          <li><a href="#certificados">{t('certificados')}</a></li>
+          <li><a href="#contato">{t('contato')}</a></li>
         </ul>
       </nav>
-      <button id="theme-toggle" className="theme-toggle" aria-label="Mudar tema">
-        <i className={`fa-solid ${themeIcon}`}></i>
-      </button>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <LanguageSwitcher />
+        <button id="theme-toggle" className="theme-toggle" aria-label="Mudar tema">
+          <i className={`fa-solid ${themeIcon}`}></i>
+        </button>
+      </div>
     </header>
   );
 }

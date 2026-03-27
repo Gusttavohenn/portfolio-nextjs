@@ -4,6 +4,7 @@
     "sobre": "About",
     "skills": "Skills",
     "projetos": "Projects",
+    "certificados": "Certificates",
     "contato": "Contact"
   },
   "HeroSection": {
@@ -12,7 +13,33 @@
     "explorar": "EXPLORE PROJECTS",
     "downloadCV": "DOWNLOAD RESUME"
   },
+  "AboutSection": {
+    "titulo": "About Me",
+    "bio1": "Passionate about software development, I have been directing my professional growth toward continuous improvement in programming, code best practices, and system architecture.",
+    "bio2": "Drawing on my background in infrastructure and systems analysis, I developed a comprehensive view of the application lifecycle. I am transitioning into full-stack development, focusing on Blazor, React, TypeScript, and C# with the goal of becoming a versatile, results-driven developer.",
+    "localLabel": "Location",
+    "educacaoLabel": "Education",
+    "idiomasLabel": "Languages",
+    "focoLabel": "Current focus"
+  },
   "TimelineSection": {
     "titulo": "My Journey"
+  },
+  "CertificatesSection": {
+    "titulo": "Certificates",
+    "subtitulo": "Courses and certifications completed throughout my journey."
+  },
+  "ContactSection": {
+    "titulo": "Contact",
+    "subtitulo": "Ready to build something extraordinary together?",
+    "nomePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "telefonePlaceholder": "Phone/WhatsApp | (area code) 9999-9999",
+    "mensagemPlaceholder": "Your Message",
+    "enviar": "SEND MESSAGE",
+    "enviando": "Sending...",
+    "enviado": "Sent!",
+    "sucessoMsg": "Thank you for reaching out!",
+    "erroMsg": "Oops! There was a problem sending your message."
   }
 }

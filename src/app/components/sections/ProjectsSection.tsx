@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { projects } from '@/lib/projects-data';
 
@@ -37,7 +38,7 @@ export default function ProjectsSection() {
             className="project-card"
           >
             <div className="project-image-container">
-              <img src={project.imageUrl} alt={project.title} loading="lazy" />
+              <Image src={project.imageUrl} alt={project.title} fill style={{ objectFit: 'cover' }} />
               <div className="project-hover-overlay">
                 <span>Ver Projeto</span>
               </div>

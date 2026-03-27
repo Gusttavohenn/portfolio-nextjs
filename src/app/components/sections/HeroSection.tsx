@@ -20,14 +20,18 @@ export default function HeroSection() {
 
       <div className="button-group">
         <a href="#projetos" className="cta-button">{t('explorar')}</a>
-        <a 
-          href={`/${cvFile}`} 
-          download 
+        <a
+          href={`/${cvFile}`}
+          download
           className="cta-button secondary"
         >
           {t('downloadCV')}
         </a>
       </div>
+
+      <a href="#sobre" className="scroll-indicator" aria-label="Rolar para baixo">
+        <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
+      </a>
     </section>
   );
 }

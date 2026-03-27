@@ -1,75 +1,76 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ContactSection() {
+  const t = useTranslations('ContactSection');
+  const [buttonText, setButtonText] = useState<string | null>(null);
+  const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [statusMsg, setStatusMsg] = useState('');
+  const [statusType, setStatusType] = useState('');
 
-  useEffect(() => {
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-    const formButton = form.querySelector('.form-button') as HTMLButtonElement;
-    const formButtonText = form.querySelector('.button-text') as HTMLSpanElement;
-    const formStatus = document.getElementById('form-status') as HTMLParagraphElement;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setButtonState('sending');
+    setButtonText(t('enviando'));
+    setStatusMsg('');
+    setStatusType('');
 
-    if (!form) return;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
 
-    const handleFormSubmit = (e: Event) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        formButton.disabled = true;
-        formButton.classList.add('sending');
-        formButtonText.textContent = 'Enviando...';
-        formStatus.textContent = '';
+      if (!response.ok) throw new Error();
 
-        fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                formButton.classList.remove('sending');
-                formButton.classList.add('success');
-                formButtonText.textContent = 'Enviado!';
-                formStatus.textContent = 'Obrigado pelo seu contato!';
-                formStatus.classList.add('success');
-                form.reset();
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        }).catch(error => {
-            formButton.classList.remove('sending');
-            formStatus.textContent = 'Oops! Houve um problema ao enviar.';
-            formStatus.classList.add('error');
-        }).finally(() => {
-            setTimeout(() => {
-                formButton.disabled = false;
-                formButton.classList.remove('success');
-                formButtonText.textContent = 'ENVIAR MENSAGEM';
-                formStatus.textContent = '';
-                formStatus.className = '';
-            }, 3000);
-        });
-    };
-
-    form.addEventListener('submit', handleFormSubmit);
-
-    // 
-    return () => {
-      form.removeEventListener('submit', handleFormSubmit);
-    };
-  }, []);
+      setButtonState('success');
+      setButtonText(t('enviado'));
+      setStatusMsg(t('sucessoMsg'));
+      setStatusType('success');
+      form.reset();
+    } catch {
+      setButtonState('idle');
+      setButtonText(null);
+      setStatusMsg(t('erroMsg'));
+      setStatusType('error');
+    } finally {
+      setTimeout(() => {
+        setButtonState('idle');
+        setButtonText(null);
+        setStatusMsg('');
+        setStatusType('');
+      }, 3000);
+    }
+  };
 
   return (
     <section id="contato" className="section">
-      <h2 className="section-title">Contato</h2>
-      <p>Pronto para criar algo extraordinário juntos?</p>
-      <form id="contact-form" action="https://formspree.io/f/xyzndejv" method="POST" className="contact-form">
-        <input type="text" name="name" placeholder="Seu Nome" required />
-        <input type="email" name="email" placeholder="Seu E-mail" required />
-        <input type="tel" name="telefone" placeholder="Telefone/Whastapp | (DDD) 9999-9999" required />
-        <textarea name="message" placeholder="Sua Mensagem" required></textarea>
-        <button type="submit" className="cta-button form-button"><span className="button-text">ENVIAR MENSAGEM</span></button>
+      <h2 className="section-title">{t('titulo')}</h2>
+      <p>{t('subtitulo')}</p>
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/xyzndejv"
+        method="POST"
+        className="contact-form"
+        onSubmit={handleSubmit}
+      >
+        <input type="text" name="name" placeholder={t('nomePlaceholder')} required />
+        <input type="email" name="email" placeholder={t('emailPlaceholder')} required />
+        <input type="tel" name="telefone" placeholder={t('telefonePlaceholder')} required />
+        <textarea name="message" placeholder={t('mensagemPlaceholder')} required></textarea>
+        <button
+          type="submit"
+          className={`cta-button form-button ${buttonState !== 'idle' ? buttonState : ''}`}
+          disabled={buttonState !== 'idle'}
+        >
+          <span className="button-text">{buttonText ?? t('enviar')}</span>
+        </button>
       </form>
-      <p id="form-status"></p>
+      {statusMsg && <p id="form-status" className={statusType}>{statusMsg}</p>}
     </section>
   );
 }

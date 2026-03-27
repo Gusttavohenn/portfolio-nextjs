@@ -4,6 +4,7 @@
     "sobre": "Sobre mí",
     "skills": "Habilidades",
     "projetos": "Proyectos",
+    "certificados": "Certificados",
     "contato": "Contacto"
   },
   "HeroSection": {
@@ -12,7 +13,33 @@
     "explorar": "EXPLORAR PROYECTOS",
     "downloadCV": "DESCARGAR CV"
   },
+  "AboutSection": {
+    "titulo": "Sobre Mí",
+    "bio1": "Apasionado por el desarrollo de software, he estado dirigiendo mi evolución profesional hacia la mejora continua en programación, buenas prácticas de código y arquitectura de sistemas.",
+    "bio2": "Con base en mi experiencia en infraestructura y análisis de sistemas, desarrollé una visión completa del ciclo de vida de las aplicaciones. Estoy en transición hacia el desarrollo full-stack, explorando Blazor, React, TypeScript y C# con el objetivo de consolidarme como desarrollador versátil y orientado a resultados.",
+    "localLabel": "Ubicación",
+    "educacaoLabel": "Formación",
+    "idiomasLabel": "Idiomas",
+    "focoLabel": "Enfoque actual"
+  },
   "TimelineSection": {
     "titulo": "Mi Trayectoria"
+  },
+  "CertificatesSection": {
+    "titulo": "Certificados",
+    "subtitulo": "Cursos y certificaciones completados a lo largo de mi trayectoria."
+  },
+  "ContactSection": {
+    "titulo": "Contacto",
+    "subtitulo": "¿Listo para crear algo extraordinario juntos?",
+    "nomePlaceholder": "Tu Nombre",
+    "emailPlaceholder": "Tu Correo Electrónico",
+    "telefonePlaceholder": "Teléfono/WhatsApp | (código) 9999-9999",
+    "mensagemPlaceholder": "Tu Mensaje",
+    "enviar": "ENVIAR MENSAJE",
+    "enviando": "Enviando...",
+    "enviado": "¡Enviado!",
+    "sucessoMsg": "¡Gracias por contactarme!",
+    "erroMsg": "¡Ups! Hubo un problema al enviar tu mensaje."
   }
 }
