@@ -23,16 +23,6 @@ export default function Home() {
     gsap.utils.toArray<HTMLElement>(".timeline-item").forEach(item => { gsap.from(item, { x: item.offsetLeft > 0 ? 100 : -100, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 80%", toggleActions: "play none none none" } }); });
     gsap.utils.toArray<HTMLElement>(".skill-category").forEach(category => { gsap.from(category, { y: 50, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: category, start: "top 85%", toggleActions: "play none none none" } }); });
 
-    // ANIMAÇÃO DE DIGITAÇÃO
-    const typingText = document.querySelector('.typing-text') as HTMLElement;
-    if (typingText) {
-        const textToType = typingText.dataset.text || "";
-        let index = 0;
-        typingText.textContent = '';
-        const type = () => { if (index < textToType.length) { typingText.textContent += textToType.charAt(index); index++; setTimeout(type, 150); } };
-        setTimeout(type, 1000);
-    }
-
     // LÓGICA DO ACTIVE LINK NA NAVBAR COM SCROLL
     const sections = gsap.utils.toArray<HTMLElement>('.section');
     const navLinks = gsap.utils.toArray<HTMLAnchorElement>('.navbar nav a');

@@ -1,20 +1,36 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 
 export default function HeroSection() {
-  // Hook para buscar as traduções do arquivo .json
   const t = useTranslations('HeroSection');
-  
-  // Hook para descobrir o idioma atual (ex: 'pt', 'en', 'es')
   const locale = useLocale();
 
-  // Cria o nome do arquivo do CV dinamicamente com base no idioma
   const cvFile = `Gustavo_Oliveira_${locale.toUpperCase()}.pdf`;
+  const fullText = t('titulo');
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    setDisplayedText('');
+    let index = 0;
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        if (index < fullText.length) {
+          setDisplayedText(fullText.slice(0, index + 1));
+          index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 150);
+      return () => clearInterval(interval);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [fullText]);
 
   return (
     <section id="home" className="hero section">
-      <h1 className="typing-text" data-text={t('titulo')}></h1>
+      <h1 className="typing-text">{displayedText}</h1>
 
       <p>{t('saudacao')}</p>
 
