@@ -37,7 +37,7 @@ export default function AboutSection() {
             <div>
               <span className="about-card-label">{t('educacaoLabel')}</span>
               <span className="about-card-value">ADS · Eng. de Software</span>
-              <span className="about-card-sub">Em andamento</span>
+              <span className="about-card-sub">{t('emAndamento')}</span>
             </div>
           </div>
           <div className="about-card">

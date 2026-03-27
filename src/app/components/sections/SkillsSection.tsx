@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 // Importe todos os ícones necessários dos pacotes corretos
 import {
   SiNextdotjs, SiTypescript, SiMongodb, SiGrafana, SiCisco,
@@ -6,14 +8,16 @@ import {
 import { VscTerminalPowershell } from "react-icons/vsc"; // Ícone corrigido para PowerShell
 
 export default function SkillsSection() {
+  const t = useTranslations('SkillsSection');
+
   return (
     <section id="skills" className="section">
-      <h2 className="section-title">Minhas Skills</h2>
+      <h2 className="section-title">{t('titulo')}</h2>
       <div className="skills-container">
 
         {/* --- Categoria Frontend --- */}
         <div className="skill-category">
-          <h3><i className="fa-solid fa-code" aria-hidden="true"></i> Frontend</h3>
+          <h3><i className="fa-solid fa-code" aria-hidden="true"></i> {t('catFrontend')}</h3>
           <div className="skills-list">
             <span className="skill-item"><i className="fab fa-html5" aria-hidden="true"></i> HTML5</span>
             <span className="skill-item"><i className="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
@@ -26,7 +30,7 @@ export default function SkillsSection() {
 
         {/* --- Categoria Backend --- */}
         <div className="skill-category">
-          <h3><i className="fa-solid fa-server" aria-hidden="true"></i> Backend</h3>
+          <h3><i className="fa-solid fa-server" aria-hidden="true"></i> {t('catBackend')}</h3>
           <div className="skills-list">
             <span className="skill-item"><i className="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
             <span className="skill-item"><i className="fab fa-php" aria-hidden="true"></i> PHP</span>
@@ -38,7 +42,7 @@ export default function SkillsSection() {
 
         {/* --- Categoria Ferramentas & DB --- */}
         <div className="skill-category">
-          <h3><i className="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Ferramentas & DB</h3>
+          <h3><i className="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> {t('catTools')}</h3>
           <div className="skills-list">
             <span className="skill-item"><i className="fab fa-git-alt" aria-hidden="true"></i> Git</span>
             <span className="skill-item"><i className="fab fa-github" aria-hidden="true"></i> GitHub</span>
@@ -51,7 +55,7 @@ export default function SkillsSection() {
 
         {/* --- Categoria TI & Infraestrutura --- */}
         <div className="skill-category">
-            <h3><i className="fa-solid fa-network-wired" aria-hidden="true"></i> TI & Infraestrutura</h3>
+            <h3><i className="fa-solid fa-network-wired" aria-hidden="true"></i> {t('catInfra')}</h3>
             <div className="skills-list">
                 <span className="skill-item"><i className="fa-solid fa-chart-line" aria-hidden="true"></i> Zabbix</span>
                 <span className="skill-item"><SiGrafana aria-hidden="true" /> Grafana</span>

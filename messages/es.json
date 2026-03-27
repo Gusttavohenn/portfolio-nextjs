@@ -13,6 +13,13 @@
     "explorar": "EXPLORAR PROYECTOS",
     "downloadCV": "DESCARGAR CV"
   },
+  "SkillsSection": {
+    "titulo": "Mis Habilidades",
+    "catFrontend": "Frontend",
+    "catBackend": "Backend",
+    "catTools": "Herramientas & DB",
+    "catInfra": "TI e Infraestructura"
+  },
   "AboutSection": {
     "titulo": "Sobre Mí",
     "bio1": "Apasionado por el desarrollo de software, he estado dirigiendo mi evolución profesional hacia la mejora continua en programación, buenas prácticas de código y arquitectura de sistemas.",
@@ -20,14 +27,36 @@
     "localLabel": "Ubicación",
     "educacaoLabel": "Formación",
     "idiomasLabel": "Idiomas",
-    "focoLabel": "Enfoque actual"
+    "focoLabel": "Enfoque actual",
+    "emAndamento": "En curso"
   },
   "TimelineSection": {
-    "titulo": "Mi Trayectoria"
+    "titulo": "Mi Trayectoria",
+    "job1Title": "Prácticas en TI — Prefectura de Itaúna-MG",
+    "job1Period": "5 meses · 2021",
+    "job1Desc": "Soporte de hardware y usuario, mantenimiento de red y configuración de Raspberry Pi para soluciones internas de la prefectura.",
+    "job2Title": "Analista de Sistemas — HTF",
+    "job2Period": "6 meses · 2021–2022",
+    "job2Desc": "Instalación y soporte en entornos Linux y Windows, backup y restore de bases de datos, scripts de flujograma, Docker Compose, Ruby y soporte al cliente.",
+    "job3Title": "Analista de ERP — Mercantil Fonte Boa Distribuição",
+    "job3Period": "Abr 2022 – Feb 2024",
+    "job3Desc": "Seguimiento y optimización del ERP Consinco (TOTVS), gestión de bases de datos Oracle, control de accesos y automatización de procesos con scripts Python.",
+    "job4Title": "Desarrollador Front-end — SGBras",
+    "job4Period": "Feb 2024 – Oct 2024",
+    "job4Desc": "Desarrollé un sistema interno de tickets desde cero, creé dashboards, trabajé con arquitectura MVC en Laravel y di soporte a plataformas de rastreo vehicular con GALILEOSKY.",
+    "job5Title": "TI V — Grupo Minas Port",
+    "job5Period": "Feb 2025 – presente",
+    "job5Desc": "Administración de redes (Cisco, MikroTik, Sophos), firewalls (pfSense, Fortinet), VPNs, Windows Server con AD/GPO, monitorización con Zabbix y Grafana, y backup corporativo con Veeam y rsync. En transición hacia el desarrollo con Blazor, React, TypeScript y C#.",
+    "job5SubLabel": "Inicio como Desarrollador Junior"
   },
   "CertificatesSection": {
     "titulo": "Certificados",
-    "subtitulo": "Cursos y certificaciones completados a lo largo de mi trayectoria."
+    "subtitulo": "Cursos y certificaciones completados a lo largo de mi trayectoria.",
+    "catFrontend": "Frontend",
+    "catDatabase": "Base de Datos",
+    "catTools": "Herramientas & DevOps",
+    "catCsharp": "C# / .NET",
+    "catAI": "Inteligencia Artificial"
   },
   "ContactSection": {
     "titulo": "Contacto",

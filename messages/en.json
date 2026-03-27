@@ -13,6 +13,13 @@
     "explorar": "EXPLORE PROJECTS",
     "downloadCV": "DOWNLOAD RESUME"
   },
+  "SkillsSection": {
+    "titulo": "My Skills",
+    "catFrontend": "Frontend",
+    "catBackend": "Backend",
+    "catTools": "Tools & DB",
+    "catInfra": "IT & Infrastructure"
+  },
   "AboutSection": {
     "titulo": "About Me",
     "bio1": "Passionate about software development, I have been directing my professional growth toward continuous improvement in programming, code best practices, and system architecture.",
@@ -20,14 +27,36 @@
     "localLabel": "Location",
     "educacaoLabel": "Education",
     "idiomasLabel": "Languages",
-    "focoLabel": "Current focus"
+    "focoLabel": "Current focus",
+    "emAndamento": "In progress"
   },
   "TimelineSection": {
-    "titulo": "My Journey"
+    "titulo": "My Journey",
+    "job1Title": "IT Intern — Itaúna City Hall",
+    "job1Period": "5 months · 2021",
+    "job1Desc": "Hardware and user support, network maintenance, and Raspberry Pi configuration for internal city hall solutions.",
+    "job2Title": "Systems Analyst — HTF",
+    "job2Period": "6 months · 2021–2022",
+    "job2Desc": "Installation and support in Linux and Windows environments, database backup and restore, flowchart scripts, Docker Compose, Ruby, and customer support.",
+    "job3Title": "ERP Analyst — Mercantil Fonte Boa Distribuição",
+    "job3Period": "Apr 2022 – Feb 2024",
+    "job3Desc": "Monitoring and optimizing the Consinco ERP (TOTVS), Oracle database management, access control, and process automation with Python scripts.",
+    "job4Title": "Front-end Developer — SGBras",
+    "job4Period": "Feb 2024 – Oct 2024",
+    "job4Desc": "Built an internal ticketing system from scratch, created dashboards, worked with Laravel MVC architecture, and provided support for vehicle tracking platforms with GALILEOSKY.",
+    "job5Title": "IT V — Grupo Minas Port",
+    "job5Period": "Feb 2025 – present",
+    "job5Desc": "Network administration (Cisco, MikroTik, Sophos), firewalls (pfSense, Fortinet), VPNs, Windows Server with AD/GPO, monitoring via Zabbix and Grafana, and corporate backup with Veeam and rsync. Transitioning to development with Blazor, React, TypeScript, and C#.",
+    "job5SubLabel": "Starting as Junior Developer"
   },
   "CertificatesSection": {
     "titulo": "Certificates",
-    "subtitulo": "Courses and certifications completed throughout my journey."
+    "subtitulo": "Courses and certifications completed throughout my journey.",
+    "catFrontend": "Frontend",
+    "catDatabase": "Database",
+    "catTools": "Tools & DevOps",
+    "catCsharp": "C# / .NET",
+    "catAI": "Artificial Intelligence"
   },
   "ContactSection": {
     "titulo": "Contact",

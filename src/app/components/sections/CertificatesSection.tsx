@@ -9,63 +9,39 @@ interface Certificate {
   hours: string;
 }
 
-interface Category {
-  id: string;
-  label: string;
-  icon: string;
-  certificates: Certificate[];
-}
+const certsByCategory: Record<string, Certificate[]> = {
+  frontend: [
+    { title: "Front End & UX/UI Design",                          platform: "Origamid", hours: "82h" },
+    { title: "Tipografia Avançada",                               platform: "Origamid", hours: "24h" },
+    { title: "JavaScript e jQuery",                               platform: "Origamid", hours: "18h" },
+    { title: "UX Design Heurísticas",                             platform: "Origamid", hours: "16h" },
+    { title: "Bootstrap 4",                                       platform: "Origamid", hours: "10h" },
+    { title: "Introdução a Criação de Websites com HTML5 e CSS3", platform: "DIO",      hours: "6h"  },
+    { title: "WordPress REST API",                                platform: "Origamid", hours: "4h"  },
+    { title: "WordPress REST API Dogs",                           platform: "Origamid", hours: "4h"  },
+    { title: "Posicionando Elementos com Flexbox em CSS",         platform: "DIO",      hours: "4h"  },
+  ],
+  database: [
+    { title: "O Curso Completo de Banco de Dados e SQL", platform: "Udemy", hours: "58,5h" },
+  ],
+  tools: [
+    { title: "Introdução ao Git e ao GitHub", platform: "DIO", hours: "5h" },
+  ],
+  csharp: [
+    { title: "Sintaxe e Tipos de Dados em C#", platform: "DIO", hours: "3h" },
+  ],
+  ai: [
+    { title: "Introduction to Subagents", platform: "Anthropic", hours: "2025" },
+    { title: "Claude Code in Action",     platform: "Anthropic", hours: "2025" },
+  ],
+};
 
-const categories: Category[] = [
-  {
-    id: "frontend",
-    label: "Frontend",
-    icon: "fa-solid fa-display",
-    certificates: [
-      { title: "Front End & UX/UI Design",                          platform: "Origamid", hours: "82h" },
-      { title: "Tipografia Avançada",                               platform: "Origamid", hours: "24h" },
-      { title: "JavaScript e jQuery",                               platform: "Origamid", hours: "18h" },
-      { title: "UX Design Heurísticas",                             platform: "Origamid", hours: "16h" },
-      { title: "Bootstrap 4",                                       platform: "Origamid", hours: "10h" },
-      { title: "Introdução a Criação de Websites com HTML5 e CSS3", platform: "DIO",      hours: "6h" },
-      { title: "WordPress REST API",                                platform: "Origamid", hours: "4h" },
-      { title: "WordPress REST API Dogs",                           platform: "Origamid", hours: "4h" },
-      { title: "Posicionando Elementos com Flexbox em CSS",         platform: "DIO",      hours: "4h" },
-    ],
-  },
-  {
-    id: "banco-de-dados",
-    label: "Banco de Dados",
-    icon: "fa-solid fa-database",
-    certificates: [
-      { title: "O Curso Completo de Banco de Dados e SQL", platform: "Udemy", hours: "58,5h" },
-    ],
-  },
-  {
-    id: "ferramentas",
-    label: "Ferramentas & DevOps",
-    icon: "fa-solid fa-screwdriver-wrench",
-    certificates: [
-      { title: "Introdução ao Git e ao GitHub", platform: "DIO", hours: "5h" },
-    ],
-  },
-  {
-    id: "csharp",
-    label: "C# / .NET",
-    icon: "fa-solid fa-code",
-    certificates: [
-      { title: "Sintaxe e Tipos de Dados em C#", platform: "DIO", hours: "3h" },
-    ],
-  },
-  {
-    id: "ia",
-    label: "Inteligência Artificial",
-    icon: "fa-solid fa-robot",
-    certificates: [
-      { title: "Introduction to Subagents",  platform: "Anthropic", hours: "2025" },
-      { title: "Claude Code in Action",      platform: "Anthropic", hours: "2025" },
-    ],
-  },
+const categoryMeta: { id: string; labelKey: string; icon: string }[] = [
+  { id: "frontend",  labelKey: "catFrontend", icon: "fa-solid fa-display"            },
+  { id: "database",  labelKey: "catDatabase", icon: "fa-solid fa-database"           },
+  { id: "tools",     labelKey: "catTools",    icon: "fa-solid fa-screwdriver-wrench" },
+  { id: "csharp",    labelKey: "catCsharp",   icon: "fa-solid fa-code"               },
+  { id: "ai",        labelKey: "catAI",       icon: "fa-solid fa-robot"              },
 ];
 
 const platformColors: Record<string, string> = {
@@ -87,35 +63,38 @@ export default function CertificatesSection() {
       <p className="section-subtitle">{t('subtitulo')}</p>
 
       <div className="cert-accordion">
-        {categories.map(cat => (
-          <div key={cat.id} className={`cert-group ${openId === cat.id ? 'open' : ''}`}>
-            <button className="cert-group-header" onClick={() => toggle(cat.id)} aria-expanded={openId === cat.id}>
-              <span className="cert-group-title">
-                <i className={cat.icon} aria-hidden="true"></i>
-                {cat.label}
-                <span className="cert-count">{cat.certificates.length}</span>
-              </span>
-              <i className="fa-solid fa-chevron-down cert-chevron" aria-hidden="true"></i>
-            </button>
+        {categoryMeta.map(({ id, labelKey, icon }) => {
+          const certs = certsByCategory[id] ?? [];
+          return (
+            <div key={id} className={`cert-group ${openId === id ? 'open' : ''}`}>
+              <button className="cert-group-header" onClick={() => toggle(id)} aria-expanded={openId === id}>
+                <span className="cert-group-title">
+                  <i className={icon} aria-hidden="true"></i>
+                  {t(labelKey as Parameters<typeof t>[0])}
+                  <span className="cert-count">{certs.length}</span>
+                </span>
+                <i className="fa-solid fa-chevron-down cert-chevron" aria-hidden="true"></i>
+              </button>
 
-            <div className="cert-group-body">
-              <div className="certificates-grid">
-                {cat.certificates.map(cert => (
-                  <div key={cert.title} className="certificate-card">
-                    <span
-                      className="certificate-platform"
-                      style={{ backgroundColor: platformColors[cert.platform] ?? '#555' }}
-                    >
-                      {cert.platform}
-                    </span>
-                    <h3 className="certificate-title">{cert.title}</h3>
-                    <span className="certificate-hours">{cert.hours}</span>
-                  </div>
-                ))}
+              <div className="cert-group-body">
+                <div className="certificates-grid">
+                  {certs.map(cert => (
+                    <div key={cert.title} className="certificate-card">
+                      <span
+                        className="certificate-platform"
+                        style={{ backgroundColor: platformColors[cert.platform] ?? '#555' }}
+                      >
+                        {cert.platform}
+                      </span>
+                      <h3 className="certificate-title">{cert.title}</h3>
+                      <span className="certificate-hours">{cert.hours}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
