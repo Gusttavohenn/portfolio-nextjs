@@ -19,16 +19,23 @@ export default function Home() {
     gsap.registerPlugin(ScrollTrigger);
 
     // ANIMAÇÕES DE ENTRADA COM GSAP
-    gsap.from(".hero p, .hero .button-group", { delay: 0.5, duration: 1, y: 30, opacity: 0, stagger: 0.2, ease: "power3.out" });
+    gsap.from(".hero h1, .hero p, .hero .button-group", { delay: 0.5, duration: 1, y: 30, opacity: 0, stagger: 0.2, ease: "power3.out" });
     gsap.utils.toArray<HTMLElement>(".timeline-item").forEach(item => { gsap.from(item, { x: item.offsetLeft > 0 ? 100 : -100, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 80%", toggleActions: "play none none none" } }); });
     gsap.utils.toArray<HTMLElement>(".skill-category").forEach(category => { gsap.from(category, { y: 50, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: category, start: "top 85%", toggleActions: "play none none none" } }); });
+
+    // ANIMAÇÃO DE DIGITAÇÃO
+    const typingText = document.querySelector('.typing-text') as HTMLElement;
+    if (typingText) {
+        const textToType = typingText.dataset.text || "";
+        let index = 0;
+        typingText.textContent = '';
+        const type = () => { if (index < textToType.length) { typingText.textContent += textToType.charAt(index); index++; setTimeout(type, 150); } };
+        setTimeout(type, 1000);
+    }
 
     // LÓGICA DO ACTIVE LINK NA NAVBAR COM SCROLL
     const sections = gsap.utils.toArray<HTMLElement>('.section');
     const navLinks = gsap.utils.toArray<HTMLAnchorElement>('.navbar nav a');
-
-    // Mapeia seções sem link no nav para o link mais próximo
-    const sectionNavMap: Record<string, string> = { jornada: 'sobre' };
 
     sections.forEach(section => {
       ScrollTrigger.create({
@@ -37,8 +44,7 @@ export default function Home() {
         end: "bottom center",
         onToggle: self => {
           if (self.isActive) {
-            const rawId = section.getAttribute('id') ?? '';
-            const id = sectionNavMap[rawId] ?? rawId;
+            const id = section.getAttribute('id');
             navLinks.forEach(link => {
               link.classList.remove('active');
               if (link.getAttribute('href') === `#${id}`) {

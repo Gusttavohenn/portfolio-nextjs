@@ -89,10 +89,8 @@ export default async function RootLayout({
           <Footer />
         </NextIntlClientProvider>
         
-        {/* Font Awesome — só solid e brands (evita carregar variantes não usadas) */}
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/fontawesome.min.js" strategy="afterInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/solid.min.js" strategy="afterInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/brands.min.js" strategy="afterInteractive" />
+        {/* Font Awesome via CDN — ícones usados em todo o site */}
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" strategy="afterInteractive" />
       </body>
     </html>
   );
