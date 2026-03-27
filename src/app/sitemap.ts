@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { projects } from '@/lib/projects-data';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://portfolio-nextjs-4u6bratup-gustavo-oliveiras-projects-eefa4d93.vercel.app';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://portfolio-nextjs-4u6bratup-gustavo-oliveiras-projects-eefa4d93.vercel.app';
 const locales = ['pt', 'en', 'es'];
 
 export default function sitemap(): MetadataRoute.Sitemap {

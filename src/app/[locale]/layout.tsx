@@ -20,7 +20,7 @@ const poppins = Poppins({
 // Metadados por locale
 const metadataByLocale: Record<string, Metadata> = {
   pt: {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://portfolio-nextjs-4u6bratup-gustavo-oliveiras-projects-eefa4d93.vercel.app'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
     title: "Gustavo Oliveira | Portfólio",
     description: "Portfólio de Gustavo Oliveira, desenvolvedor júnior apaixonado por criar soluções web modernas e funcionais.",
     openGraph: {
@@ -31,7 +31,7 @@ const metadataByLocale: Record<string, Metadata> = {
     },
   },
   en: {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://portfolio-nextjs-4u6bratup-gustavo-oliveiras-projects-eefa4d93.vercel.app'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
     title: "Gustavo Oliveira | Portfolio",
     description: "Portfolio of Gustavo Oliveira, a junior developer passionate about building modern and functional web solutions.",
     openGraph: {
@@ -42,7 +42,7 @@ const metadataByLocale: Record<string, Metadata> = {
     },
   },
   es: {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://portfolio-nextjs-4u6bratup-gustavo-oliveiras-projects-eefa4d93.vercel.app'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
     title: "Gustavo Oliveira | Portafolio",
     description: "Portafolio de Gustavo Oliveira, desarrollador junior apasionado por crear soluciones web modernas y funcionales.",
     openGraph: {
