@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
+import { socialLinks } from '@/lib/social-links';
 
 export default function AboutSection() {
   const t = useTranslations('AboutSection');
@@ -16,10 +17,10 @@ export default function AboutSection() {
         </div>
 
         <div className="about-socials">
-          <a href="https://github.com/Gusttavohenn" target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="GitHub">
+          <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="GitHub">
             <i className="fab fa-github" aria-hidden="true"></i> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/gustavo-oliveira-0a96b022a/" target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="LinkedIn">
+          <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="LinkedIn">
             <i className="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
           </a>
         </div>

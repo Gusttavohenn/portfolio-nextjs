@@ -58,6 +58,11 @@
     "catCsharp": "C# / .NET",
     "catAI": "Inteligencia Artificial"
   },
+  "NotFound": {
+    "titulo": "Página no encontrada",
+    "descricao": "La página que buscas no existe o ha sido movida.",
+    "voltar": "Volver al inicio"
+  },
   "ContactSection": {
     "titulo": "Contacto",
     "subtitulo": "¿Listo para crear algo extraordinario juntos?",

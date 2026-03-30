@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server';
 // Importação de Componentes
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import BackToTop from "../components/BackToTop";
 
 // Importação do CSS Global
 import "../styles/style.css";
@@ -60,7 +61,19 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return metadataByLocale[locale] ?? metadataByLocale.pt;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
+  const base = metadataByLocale[locale] ?? metadataByLocale.pt;
+  return {
+    ...base,
+    alternates: {
+      canonical: `${baseUrl}/${locale}`,
+      languages: {
+        'pt-BR': `${baseUrl}/pt`,
+        'en-US': `${baseUrl}/en`,
+        'es-ES': `${baseUrl}/es`,
+      },
+    },
+  };
 }
 
 // Componente de Layout Principal
@@ -77,16 +90,40 @@ export default async function RootLayout({
   // Pega as mensagens de tradução para o locale atual
   const messages = await getMessages();
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Gustavo Oliveira',
+    url: `${baseUrl}/${locale}`,
+    sameAs: [
+      'https://github.com/Gusttavohenn',
+      'https://www.linkedin.com/in/gustavo-oliveira-0a96b022a/',
+    ],
+    jobTitle: 'Junior Developer',
+    knowsAbout: ['React', 'TypeScript', 'Next.js', 'C#', 'Blazor', 'SQL'],
+  };
+
   return (
     <html lang={locale}>
+      <head>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={poppins.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <a href="#main-content" className="skip-link">Pular para o conteúdo</a>
           <div className="blob"></div>
           <Navbar />
-          <main>
+          <main id="main-content">
             {children}
           </main>
           <Footer />
+          <BackToTop />
         </NextIntlClientProvider>
         
         {/* Font Awesome via CDN — ícones usados em todo o site */}

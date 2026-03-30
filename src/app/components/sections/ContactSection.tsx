@@ -66,6 +66,7 @@ export default function ContactSection() {
           type="submit"
           className={`cta-button form-button ${buttonState !== 'idle' ? buttonState : ''}`}
           disabled={buttonState !== 'idle'}
+          aria-describedby="form-status"
         >
           <span className="button-text">{buttonText ?? t('enviar')}</span>
         </button>

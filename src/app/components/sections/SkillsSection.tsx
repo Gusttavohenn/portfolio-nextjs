@@ -37,6 +37,8 @@ export default function SkillsSection() {
             <span className="skill-item"><i className="fab fa-laravel" aria-hidden="true"></i> Laravel</span>
             <span className="skill-item"><i className="fab fa-python" aria-hidden="true"></i> Python</span>
             <span className="skill-item"><i className="fab fa-java" aria-hidden="true"></i> Java</span>
+            <span className="skill-item"><i className="fab fa-csharp" aria-hidden="true"></i> C#</span>
+
           </div>
         </div>
 
