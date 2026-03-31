@@ -3,6 +3,7 @@
     "inicio": "Inicio",
     "sobre": "Sobre mí",
     "skills": "Habilidades",
+    "jornada": "Trayectoria",
     "projetos": "Proyectos",
     "certificados": "Certificados",
     "contato": "Contacto"
@@ -58,10 +59,31 @@
     "catCsharp": "C# / .NET",
     "catAI": "Inteligencia Artificial"
   },
+  "ProjectsSection": {
+    "titulo": "Proyectos",
+    "todos": "Todos",
+    "verProjeto": "Ver Proyecto",
+    "verDemo": "Demo",
+    "verCodigo": "Código"
+  },
+  "ProjectDetail": {
+    "voltar": "Volver a proyectos",
+    "problema": "El Problema",
+    "solucao": "La Solución",
+    "aprendizados": "Aprendizajes",
+    "tecnologias": "Tecnologías",
+    "verAoVivo": "VER EN VIVO",
+    "verCodigo": "VER CÓDIGO",
+    "anterior": "Anterior",
+    "proximo": "Siguiente"
+  },
   "NotFound": {
     "titulo": "Página no encontrada",
     "descricao": "La página que buscas no existe o ha sido movida.",
     "voltar": "Volver al inicio"
+  },
+  "Footer": {
+    "direitos": "Todos los derechos reservados."
   },
   "ContactSection": {
     "titulo": "Contacto",

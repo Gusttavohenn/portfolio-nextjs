@@ -3,6 +3,7 @@
     "inicio": "Home",
     "sobre": "About",
     "skills": "Skills",
+    "jornada": "Journey",
     "projetos": "Projects",
     "certificados": "Certificates",
     "contato": "Contact"
@@ -58,10 +59,31 @@
     "catCsharp": "C# / .NET",
     "catAI": "Artificial Intelligence"
   },
+  "ProjectsSection": {
+    "titulo": "Projects",
+    "todos": "All",
+    "verProjeto": "View Project",
+    "verDemo": "Demo",
+    "verCodigo": "Code"
+  },
+  "ProjectDetail": {
+    "voltar": "Back to projects",
+    "problema": "The Problem",
+    "solucao": "The Solution",
+    "aprendizados": "Learnings",
+    "tecnologias": "Technologies",
+    "verAoVivo": "VIEW LIVE",
+    "verCodigo": "VIEW CODE",
+    "anterior": "Previous",
+    "proximo": "Next"
+  },
   "NotFound": {
     "titulo": "Page not found",
     "descricao": "The page you are looking for does not exist or has been moved.",
     "voltar": "Back to home"
+  },
+  "Footer": {
+    "direitos": "All rights reserved."
   },
   "ContactSection": {
     "titulo": "Contact",

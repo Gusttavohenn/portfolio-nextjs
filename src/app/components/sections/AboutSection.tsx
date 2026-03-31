@@ -23,6 +23,9 @@ export default function AboutSection() {
           <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="LinkedIn">
             <i className="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
           </a>
+          <a href={`mailto:${socialLinks.email}`} className="about-social-link" aria-label="E-mail">
+            <i className="fa-solid fa-envelope" aria-hidden="true"></i> E-mail
+          </a>
         </div>
 
         <div className="about-cards">
@@ -30,7 +33,7 @@ export default function AboutSection() {
             <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
             <div>
               <span className="about-card-label">{t('localLabel')}</span>
-              <span className="about-card-value">Itaúna, MG</span>
+              <span className="about-card-value">Itaúna, MG · Brasil</span>
             </div>
           </div>
           <div className="about-card">

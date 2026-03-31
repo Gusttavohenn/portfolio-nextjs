@@ -472,6 +472,95 @@ footer p {
   text-transform: uppercase;
 }
 
+/* --- Card Link e Actions --- */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-card-actions {
+  display: flex;
+  border-top: 1px solid var(--border-color);
+}
+
+.project-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.project-action-btn:hover {
+  color: var(--accent-color);
+  background-color: var(--bg-primary);
+}
+
+.project-action-btn + .project-action-btn {
+  border-left: 1px solid var(--border-color);
+}
+
+/* --- Página de Detalhe: Navegação entre projetos --- */
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.project-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+  max-width: 45%;
+}
+
+.project-nav-link:hover {
+  color: var(--accent-color);
+}
+
+.project-nav-link span:first-child {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-nav-link span:last-child {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.project-nav-link:hover span:last-child {
+  color: var(--accent-color);
+}
+
+.project-nav-link.next {
+  text-align: right;
+  margin-left: auto;
+}
+
+/* --- Página de Detalhe: Tech chips --- */
+.case-study-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
 /* --- Sobre Mim --- */
 .about-container {
   display: flex;
@@ -769,4 +858,18 @@ footer p {
 }
 .back-to-top:hover {
   transform: translateY(-3px);
+}
+
+/* --- Back Link (página de projeto) --- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: gap 0.2s;
+}
+.back-link:hover {
+  gap: 0.75rem;
 }

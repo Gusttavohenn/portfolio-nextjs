@@ -28,8 +28,16 @@ const metadataByLocale: Record<string, Metadata> = {
       title: "Gustavo Oliveira | Desenvolvedor",
       description: "Explore meus projetos e minha jornada no mundo do desenvolvimento web.",
       locale: "pt_BR",
+      type: "website",
       images: [{ url: "/nexo.png", width: 1200, height: 630, alt: "Gustavo Oliveira Portfolio" }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: "Gustavo Oliveira | Desenvolvedor",
+      description: "Explore meus projetos e minha jornada no mundo do desenvolvimento web.",
+      images: ["/nexo.png"],
+    },
+    other: { "theme-color": "#0d0d0d" },
   },
   en: {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
@@ -39,8 +47,16 @@ const metadataByLocale: Record<string, Metadata> = {
       title: "Gustavo Oliveira | Developer",
       description: "Explore my projects and my journey in the world of web development.",
       locale: "en_US",
+      type: "website",
       images: [{ url: "/nexo.png", width: 1200, height: 630, alt: "Gustavo Oliveira Portfolio" }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: "Gustavo Oliveira | Developer",
+      description: "Explore my projects and my journey in the world of web development.",
+      images: ["/nexo.png"],
+    },
+    other: { "theme-color": "#0d0d0d" },
   },
   es: {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
@@ -50,8 +66,16 @@ const metadataByLocale: Record<string, Metadata> = {
       title: "Gustavo Oliveira | Desarrollador",
       description: "Explora mis proyectos y mi trayectoria en el mundo del desarrollo web.",
       locale: "es_ES",
+      type: "website",
       images: [{ url: "/nexo.png", width: 1200, height: 630, alt: "Gustavo Oliveira Portfolio" }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: "Gustavo Oliveira | Desarrollador",
+      description: "Explora mis proyectos y mi trayectoria en el mundo del desarrollo web.",
+      images: ["/nexo.png"],
+    },
+    other: { "theme-color": "#0d0d0d" },
   },
 };
 

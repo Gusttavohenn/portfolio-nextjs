@@ -3,7 +3,8 @@ import { useTranslations } from 'next-intl';
 // Importe todos os ícones necessários dos pacotes corretos
 import {
   SiNextdotjs, SiTypescript, SiMongodb, SiGrafana, SiCisco,
-  SiMikrotik, SiPfsense, SiFortinet, SiGnubash, SiMysql, SiVeeam,
+  SiMikrotik, SiPfsense, SiFortinet, SiGnubash, SiMysql, SiVeeam, SiBlazor,
+  SiDotnet, SiSharp,
 } from "react-icons/si";
 import { VscTerminalPowershell } from "react-icons/vsc"; // Ícone corrigido para PowerShell
 
@@ -25,6 +26,7 @@ export default function SkillsSection() {
             <span className="skill-item"><i className="fab fa-react" aria-hidden="true"></i> React</span>
             <span className="skill-item"><SiNextdotjs aria-hidden="true" /> Next.js</span>
             <span className="skill-item"><SiTypescript aria-hidden="true" /> TypeScript</span>
+            <span className="skill-item"><SiBlazor aria-hidden="true" /> Blazor</span>
           </div>
         </div>
 
@@ -37,8 +39,8 @@ export default function SkillsSection() {
             <span className="skill-item"><i className="fab fa-laravel" aria-hidden="true"></i> Laravel</span>
             <span className="skill-item"><i className="fab fa-python" aria-hidden="true"></i> Python</span>
             <span className="skill-item"><i className="fab fa-java" aria-hidden="true"></i> Java</span>
-            <span className="skill-item"><i className="fab fa-csharp" aria-hidden="true"></i> C#</span>
-
+            <span className="skill-item"><SiSharp aria-hidden="true" /> C#</span>
+            <span className="skill-item"><SiDotnet aria-hidden="true" /> .NET</span>
           </div>
         </div>
 

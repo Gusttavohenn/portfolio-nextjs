@@ -42,6 +42,7 @@ export default function Navbar() {
           <li><a href="#home">{t('inicio')}</a></li>
           <li><a href="#sobre">{t('sobre')}</a></li>
           <li><a href="#skills">{t('skills')}</a></li>
+          <li><a href="#jornada">{t('jornada')}</a></li>
           <li><a href="#projetos">{t('projetos')}</a></li>
           <li><a href="#certificados">{t('certificados')}</a></li>
           <li><a href="#contato">{t('contato')}</a></li>

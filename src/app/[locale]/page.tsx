@@ -22,6 +22,7 @@ export default function Home() {
     gsap.from(".hero h1, .hero p, .hero .button-group", { delay: 0.5, duration: 1, y: 30, opacity: 0, stagger: 0.2, ease: "power3.out" });
     gsap.utils.toArray<HTMLElement>(".timeline-item").forEach(item => { gsap.from(item, { x: item.offsetLeft > 0 ? 100 : -100, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 80%", toggleActions: "play none none none" } }); });
     gsap.utils.toArray<HTMLElement>(".skill-category").forEach(category => { gsap.from(category, { y: 50, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: category, start: "top 85%", toggleActions: "play none none none" } }); });
+    gsap.from(".project-card", { y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: ".project-grid", start: "top 80%", toggleActions: "play none none none" } });
 
     // LÓGICA DO ACTIVE LINK NA NAVBAR COM SCROLL
     const sections = gsap.utils.toArray<HTMLElement>('.section');
