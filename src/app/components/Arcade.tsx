@@ -6,11 +6,13 @@ import type { IconType } from "react-icons";
 import {
   SiPhp, SiLaravel, SiPython, SiDocker, SiLinux, SiGit, SiReact, SiMysql,
 } from "react-icons/si";
+import { TbHash, TbCards, TbDeviceGamepad2, TbQuestionMark, TbX } from "react-icons/tb";
+import { FaHandRock, FaHandPaper, FaHandScissors } from "react-icons/fa";
 import RobotSprite from "./RobotSprite";
 
 /*
  * Fliperama do Deploy: jogo da velha, memória e pedra-papel-tesoura.
- * Abre pelo botão 🎮 da navbar, pelo rodapé ou pelo comando "jogar" no terminal
+ * Abre pelo botão de controle da navbar, pelo rodapé ou pelo comando "jogar" no terminal
  * (evento global "open-arcade").
  */
 
@@ -51,10 +53,10 @@ export default function Arcade() {
 
   if (!open) return null;
 
-  const games: { id: Exclude<Game, "menu">; icon: string }[] = [
-    { id: "velha", icon: "#" },
-    { id: "memoria", icon: "▣" },
-    { id: "ppt", icon: "✊" },
+  const games: { id: Exclude<Game, "menu">; Icon: IconType }[] = [
+    { id: "velha", Icon: TbHash },
+    { id: "memoria", Icon: TbCards },
+    { id: "ppt", Icon: FaHandRock },
   ];
 
   return (
@@ -63,8 +65,8 @@ export default function Arcade() {
         <header className="arcade-head">
           {game !== "menu"
             ? <button className="arcade-back" onClick={() => { setGame("menu"); react(t("escolha"), "idle"); }}>{t("voltar")}</button>
-            : <span className="arcade-title">🎮 {t("titulo")}</span>}
-          <button className="arcade-close" onClick={() => setOpen(false)} aria-label={t("fechar")}>✕</button>
+            : <span className="arcade-title"><TbDeviceGamepad2 aria-hidden="true" /> {t("titulo")}</span>}
+          <button className="arcade-close" onClick={() => setOpen(false)} aria-label={t("fechar")}><TbX aria-hidden="true" /></button>
         </header>
 
         <div className="arcade-deploy">
@@ -77,7 +79,7 @@ export default function Arcade() {
             <div className="arcade-menu">
               {games.map((g) => (
                 <button key={g.id} className="arcade-card" onClick={() => { setGame(g.id); react(t(`${g.id}Desc`), "idle"); }}>
-                  <span className="arcade-card-icon" aria-hidden="true">{g.icon}</span>
+                  <span className="arcade-card-icon" aria-hidden="true"><g.Icon /></span>
                   <span className="arcade-card-name">{t(g.id)}</span>
                   <span className="arcade-card-desc">{t(`${g.id}Desc`)}</span>
                 </button>
@@ -216,7 +218,7 @@ function Memory({ react }: { react: ReactFn }) {
         if (record) { store.set("deploy-memory-best", m); setBest(m); }
         react(t("fimMemoria", { n: m }) + (record ? ` ${t("novoRecorde")}` : ""), "happy");
       } else {
-        react(`${deck[a].name}! ✓`, "happy");
+        react(`${deck[a].name}!`, "happy");
       }
     } else {
       lock.current = true;
@@ -258,7 +260,7 @@ function Memory({ react }: { react: ReactFn }) {
 
 const HANDS = ["pedra", "papel", "tesoura"] as const;
 type Hand = typeof HANDS[number];
-const EMOJI: Record<Hand, string> = { pedra: "✊", papel: "✋", tesoura: "✌️" };
+const HAND_ICON: Record<Hand, IconType> = { pedra: FaHandRock, papel: FaHandPaper, tesoura: FaHandScissors };
 const BEATS: Record<Hand, Hand> = { pedra: "tesoura", papel: "pedra", tesoura: "papel" };
 
 function RockPaperScissors({ react }: { react: ReactFn }) {
@@ -269,7 +271,7 @@ function RockPaperScissors({ react }: { react: ReactFn }) {
   const play = (me: Hand) => {
     const bot = HANDS[Math.floor(Math.random() * 3)];
     setLast({ me, bot });
-    const picked = t("escolheu", { x: `${EMOJI[bot]} ${t(bot)}` });
+    const picked = t("escolheu", { x: t(bot) });
     if (me === bot) { setScore((s) => ({ ...s, d: s.d + 1 })); react(`${picked} ${t("pptTie")}`, "idle"); }
     else if (BEATS[me] === bot) { setScore((s) => ({ ...s, x: s.x + 1 })); react(`${picked} ${t("pptWin")}`, "sad"); }
     else { setScore((s) => ({ ...s, o: s.o + 1 })); react(`${picked} ${t("pptLose")}`, "happy"); }
@@ -279,19 +281,24 @@ function RockPaperScissors({ react }: { react: ReactFn }) {
     <div className="game">
       <Scoreboard a={score.x} b={score.o} d={score.d} />
       <div className="ppt-arena" aria-hidden="true">
-        <span className="ppt-hand">{last ? EMOJI[last.me] : "❔"}</span>
+        <span className="ppt-hand">{last ? <Hand h={last.me} /> : <TbQuestionMark />}</span>
         <span className="ppt-vs">VS</span>
-        <span className="ppt-hand bot">{last ? EMOJI[last.bot] : "❔"}</span>
+        <span className="ppt-hand bot">{last ? <Hand h={last.bot} /> : <TbQuestionMark />}</span>
       </div>
       <div className="ppt-choices">
         {HANDS.map((h) => (
           <button key={h} className="ppt-btn" onClick={() => play(h)}>
-            <span aria-hidden="true">{EMOJI[h]}</span> {t(h)}
+            <Hand h={h} /> {t(h)}
           </button>
         ))}
       </div>
     </div>
   );
+}
+
+function Hand({ h }: { h: Hand }) {
+  const Icon = HAND_ICON[h];
+  return <Icon aria-hidden="true" />;
 }
 
 function Scoreboard({ a, b, d }: { a: number; b: number; d: number }) {

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { TbX } from "react-icons/tb";
 import RobotSprite from "./RobotSprite";
 import { socialLinks } from "@/lib/social-links";
 
@@ -85,7 +86,7 @@ export default function DeployChat() {
             <strong>{t("titulo")}</strong>
             <span>{t("sub")}</span>
           </div>
-          <button className="arcade-close" onClick={() => setOpen(false)} aria-label={t("fechar")}>✕</button>
+          <button className="arcade-close" onClick={() => setOpen(false)} aria-label={t("fechar")}><TbX aria-hidden="true" /></button>
         </header>
 
         <div className="chat-list" ref={listRef} aria-live="polite">

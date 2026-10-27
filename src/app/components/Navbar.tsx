@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
+import { TbDeviceGamepad2 } from 'react-icons/tb';
 
 export default function Navbar() {
   const t = useTranslations('Navbar');
@@ -53,9 +54,9 @@ export default function Navbar() {
           className="theme-toggle arcade-toggle"
           onClick={() => window.dispatchEvent(new Event('open-arcade'))}
           aria-label="Jogar com o Deploy"
-          title="Jogar com o Deploy 🎮"
+          title="Jogar com o Deploy"
         >
-          <span aria-hidden="true">🎮</span>
+          <TbDeviceGamepad2 aria-hidden="true" />
         </button>
         <button id="theme-toggle" className="theme-toggle" aria-label="Mudar tema">
           <i className={`fa-solid ${themeIcon}`}></i>

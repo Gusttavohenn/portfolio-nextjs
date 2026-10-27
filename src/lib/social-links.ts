@@ -1,6 +1,6 @@
 // Número no formato internacional (Brasil +55, DDD 37)
 const WHATSAPP_NUMBER = '5537998730908';
-const WHATSAPP_TEXT = encodeURIComponent('Olá, Gustavo! Vim pelo seu portfólio 👋');
+const WHATSAPP_TEXT = encodeURIComponent('Olá, Gustavo! Vim pelo seu portfólio');
 
 export const socialLinks = {
   github: 'https://github.com/Gusttavohenn',

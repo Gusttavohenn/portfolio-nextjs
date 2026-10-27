@@ -1897,3 +1897,31 @@ body:has(.notfound-page) .mascot { display: none; }
   .send-btn, .send-label, .send-plane, .send-check path, .send-progress { animation: none !important; transition: none; }
   .send-check path { stroke-dashoffset: 0; }
 }
+
+/* ícones no lugar de emojis */
+.arcade-toggle { display: inline-grid; place-items: center; font-size: 1.25rem; }
+.arcade-title { display: inline-flex; align-items: center; gap: 0.5rem; }
+.arcade-title svg { color: var(--accent-color); font-size: 1.3rem; }
+.arcade-close { display: inline-grid; place-items: center; font-size: 1rem; }
+.footer-terminal-btn { display: inline-flex; align-items: center; gap: 0.35rem; vertical-align: middle; }
+.footer-terminal-btn svg { font-size: 1rem; }
+.ppt-hand { display: inline-grid; place-items: center; width: 64px; height: 64px; font-size: 2.6rem; color: var(--text-primary); }
+.ppt-hand.bot { color: var(--accent-color); }
+.ppt-btn { display: inline-flex; align-items: center; gap: 0.5rem; }
+.ppt-btn svg { font-size: 1.15rem; color: var(--accent-color); }
+
+/* seletor de idioma em texto (sem bandeiras-emoji) */
+.lang-btn {
+  font-size: 0.78rem !important;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary) !important;
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: 6px;
+  opacity: 1 !important;
+  filter: none !important;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.lang-btn:hover { color: var(--text-primary) !important; }
+.lang-btn.active { color: var(--accent-color) !important; background: rgba(139, 92, 246, 0.12); }

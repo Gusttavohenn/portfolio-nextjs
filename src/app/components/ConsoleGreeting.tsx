@@ -25,8 +25,8 @@ export default function ConsoleGreeting() {
     const green = "color:#25d366;font-weight:700;font-size:13px";
 
     console.log(`%c${robot}`, purple);
-    console.log("%cOpa, dev curioso! 👋", title);
-    console.log("%cProcurando bugs? Me chama no WhatsApp 😄", text);
+    console.log("%cOpa, dev curioso!", title);
+    console.log("%cProcurando bugs? Me chama no WhatsApp", text);
     console.log(`%c${socialLinks.whatsapp.split("?")[0]}`, green);
     console.log("%cDica: aperte  /  no site pra abrir o terminal secreto.", text);
   }, []);

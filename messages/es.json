@@ -72,29 +72,29 @@
     "direitos": "Todos los derechos reservados."
   },
   "Mascot": {
-    "greetFirst": "¡Hola! Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio 👋",
-    "greetBack": "¿Ah, tú otra vez? Ya me conoces, ¡sigamos! 😄",
-    "party": "¡Encontraste un easter egg! 🎉",
+    "greetFirst": "¡Hola! Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio",
+    "greetBack": "¿Ah, tú otra vez? Ya me conoces, ¡sigamos!",
+    "party": "¡Encontraste un easter egg!",
     "frases": [
-      "¡Pregúntame lo que quieras sobre Gu! Haz doble clic en mí 💬",
+      "¡Pregúntame lo que quieras sobre Gu! Haz doble clic en mí",
       "Funciono solo, igual que los sistemas de Gu.",
-      "¿Jugamos? ¡Haz clic en el 🎮 de arriba!",
+      "¿Jugamos? ¡Haz clic en el control de arriba!",
       "0 bugs saltados hasta ahora. Bueno... casi.",
       "Psst: presiona / para abrir la terminal secreta.",
       "¿Ya probaste el Konami Code? ↑↑↓↓←→←→ B A",
       "Haz clic 5 veces rapidito en mí...",
       "while (vivo) { aprender(); }",
       "No soy un cron job, pero también trabajo de madrugada.",
-      "¿Te gustó? Hablemos, el botón verde está ahí abajo 💬",
+      "¿Te gustó? Hablemos, el botón verde está ahí abajo",
       "El 404 es mi lugar favorito. ¿Ya lo viste?"
     ],
     "secao": {
       "sobre": "Ese es Gu, mi maestro. Buena gente, lo prometo.",
       "jornada": "De la Municipalidad hasta Gox... ¡qué subida!",
       "skills": "PHP, C#, Python... habla más lenguajes que yo.",
-      "projetos": "Este Fang lo hizo Gu desde cero 🛡️",
+      "projetos": "Este Fang lo hizo Gu desde cero",
       "certificados": "Este no para de estudiar.",
-      "contato": "¡Última parada! Saluda a Gu 👇"
+      "contato": "¡Última parada! Saluda a Gu"
     },
     "aria": "Deploy, la mascota — haz clic para que salte",
     "title": "¡Soy Deploy! Haz clic en mí :)"
@@ -135,13 +135,13 @@
     "empates": "Empates",
     "suaVez": "¡Tu turno!",
     "pensando": "Deploy pensando...",
-    "venceu": "¡Ganaste! Se lo voy a contar a Gu... 😤",
-    "perdeu": "¡Gané! Bip bop 🤖",
+    "venceu": "¡Ganaste! Se lo voy a contar a Gu...",
+    "perdeu": "¡Gané! Bip bop",
     "empate": "¡Empate! Juegas bien, eh.",
     "deNovo": "Jugar de nuevo",
     "jogadas": "Jugadas",
     "recorde": "Récord",
-    "fimMemoria": "¡Terminaste en {n} jugadas! 🎉",
+    "fimMemoria": "¡Terminaste en {n} jugadas!",
     "novoRecorde": "¡Nuevo récord!",
     "pedra": "Piedra",
     "papel": "Papel",
@@ -155,7 +155,7 @@
     "titulo": "Pregúntale a Deploy",
     "sub": "IA entrenada con el currículum de Gu",
     "abrir": "Pregúntale a Deploy sobre mí",
-    "oi": "¡Hola! Soy Deploy 🤖 Pregúntame lo que quieras sobre Gu: experiencia, tecnologías, proyectos...",
+    "oi": "¡Hola! Soy Deploy Pregúntame lo que quieras sobre Gu: experiencia, tecnologías, proyectos...",
     "placeholder": "Pregunta algo sobre Gu...",
     "enviar": "Enviar",
     "pensando": "Deploy está pensando",
@@ -167,9 +167,9 @@
       "¿Ya trabajó con Azure?",
       "¿Cómo hablo con él?"
     ],
-    "offline": "Me quedé sin batería 🔋 ¡Habla directo con Gu por WhatsApp, responde rapidito!",
-    "limite": "¡Uf, muchas preguntas! Espera un poco y vuelve a intentar — o escríbele a Gu por WhatsApp 😄",
-    "erro": "Hubo un cortocircuito aquí 🤯 Intenta de nuevo en un momento.",
+    "offline": "Me quedé sin batería ¡Habla directo con Gu por WhatsApp, responde rapidito!",
+    "limite": "¡Uf, muchas preguntas! Espera un poco y vuelve a intentar — o escríbele a Gu por WhatsApp",
+    "erro": "Hubo un cortocircuito aquí Intenta de nuevo en un momento.",
     "whats": "Escribir por WhatsApp",
     "aviso": "Respuestas generadas por IA a partir del currículum; pueden contener errores."
   }

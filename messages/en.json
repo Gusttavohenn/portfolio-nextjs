@@ -72,29 +72,29 @@
     "direitos": "All rights reserved."
   },
   "Mascot": {
-    "greetFirst": "Hi! I'm Deploy, a robot built by my master Gu, and I'll walk you through the site 👋",
-    "greetBack": "Oh, you again? You already know me, let's keep going! 😄",
-    "party": "You found an easter egg! 🎉",
+    "greetFirst": "Hi! I'm Deploy, a robot built by my master Gu, and I'll walk you through the site",
+    "greetBack": "Oh, you again? You already know me, let's keep going!",
+    "party": "You found an easter egg!",
     "frases": [
-      "Ask me anything about Gu! Double-click me 💬",
+      "Ask me anything about Gu! Double-click me",
       "I run on my own, just like Gu's systems.",
-      "Wanna play with me? Hit the 🎮 up top!",
+      "Wanna play with me? Hit the controller up top!",
       "0 bugs jumped so far. Well... almost.",
       "Psst: press / to open the secret terminal.",
       "Have you tried the Konami Code? ↑↑↓↓←→←→ B A",
       "Click me 5 times real quick...",
       "while (alive) { learn(); }",
       "I'm not a cron job, but I also work at night.",
-      "Liked it? Let's talk, the green button is right down there 💬",
+      "Liked it? Let's talk, the green button is right down there",
       "404 is my favorite place. Seen it yet?"
     ],
     "secao": {
       "sobre": "That's Gu, my master. Good guy, I promise.",
       "jornada": "From City Hall all the way to Gox... what a climb!",
       "skills": "PHP, C#, Python... he speaks more languages than me.",
-      "projetos": "Gu built this Fang one from scratch 🛡️",
+      "projetos": "Gu built this Fang one from scratch",
       "certificados": "This guy never stops studying.",
-      "contato": "Last stop! Say hi to Gu 👇"
+      "contato": "Last stop! Say hi to Gu"
     },
     "aria": "Deploy, the mascot — click to make him jump",
     "title": "I'm Deploy! Click me :)"
@@ -135,13 +135,13 @@
     "empates": "Draws",
     "suaVez": "Your turn!",
     "pensando": "Deploy is thinking...",
-    "venceu": "You won! I'm telling Gu... 😤",
-    "perdeu": "I win! Beep boop 🤖",
+    "venceu": "You won! I'm telling Gu...",
+    "perdeu": "I win! Beep boop",
     "empate": "Draw! You're good, huh.",
     "deNovo": "Play again",
     "jogadas": "Moves",
     "recorde": "Best",
-    "fimMemoria": "Done in {n} moves! 🎉",
+    "fimMemoria": "Done in {n} moves!",
     "novoRecorde": "New record!",
     "pedra": "Rock",
     "papel": "Paper",
@@ -155,7 +155,7 @@
     "titulo": "Ask Deploy",
     "sub": "AI trained on Gu's résumé",
     "abrir": "Ask Deploy about me",
-    "oi": "Hi! I'm Deploy 🤖 Ask me anything about Gu: experience, tech stack, projects...",
+    "oi": "Hi! I'm Deploy Ask me anything about Gu: experience, tech stack, projects...",
     "placeholder": "Ask something about Gu...",
     "enviar": "Send",
     "pensando": "Deploy is thinking",
@@ -167,9 +167,9 @@
       "Has he worked with Azure?",
       "How do I contact him?"
     ],
-    "offline": "My battery is dead right now 🔋 Talk to Gu directly on WhatsApp, he answers fast!",
-    "limite": "Phew, lots of questions! Give it a minute and try again — or message Gu on WhatsApp 😄",
-    "erro": "Short circuit over here 🤯 Try again in a moment.",
+    "offline": "My battery is dead right now Talk to Gu directly on WhatsApp, he answers fast!",
+    "limite": "Phew, lots of questions! Give it a minute and try again — or message Gu on WhatsApp",
+    "erro": "Short circuit over here Try again in a moment.",
     "whats": "Message on WhatsApp",
     "aviso": "AI-generated answers based on the résumé; they may contain mistakes."
   }
