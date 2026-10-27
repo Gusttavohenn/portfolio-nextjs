@@ -9,22 +9,23 @@
     "contato": "Contato"
   },
   "HeroSection": {
-    "titulo": "DESENVOLVEDOR JR.",
-    "saudacao": "Seja bem-vindo ao meu portfólio :)",
-    "explorar": "EXPLORAR PROJETOS",
-    "downloadCV": "DOWNLOAD CURRICULO"
+    "titulo": "Dev Back-end",
+    "subtitulo": "Automação & Integrações com IA",
+    "saudacao": "Transformo processo manual em sistema que roda sozinho.",
+    "explorar": "VER PROJETOS",
+    "downloadCV": "BAIXAR CV"
   },
   "SkillsSection": {
     "titulo": "Minhas Skills",
-    "catFrontend": "Frontend",
-    "catBackend": "Backend",
-    "catTools": "Ferramentas & DB",
-    "catInfra": "TI & Infraestrutura"
+    "catBackend": "Back-end & Linguagens",
+    "catFrontend": "Front-end",
+    "catTools": "Banco de Dados & DevOps",
+    "catInfra": "Infraestrutura & Redes"
   },
   "AboutSection": {
     "titulo": "Sobre Mim",
-    "bio1": "Apaixonado por desenvolvimento de software, venho direcionando minha evolução profissional para o aperfeiçoamento contínuo em programação, boas práticas de código e arquitetura de sistemas.",
-    "bio2": "Com base na minha experiência em infraestrutura e análise de sistemas, desenvolvi uma visão completa do ciclo de vida de aplicações. Estou em transição para desenvolvimento full-stack, explorando Blazor, React, TypeScript e C# com o objetivo de me consolidar como desenvolvedor versátil e orientado a resultados.",
+    "bio1": "Sou desenvolvedor back-end focado em automação e integração de sistemas. Hoje, como Analista de Sistemas na Gox Internet, trabalho com o ERP do provedor (IXC) e assistentes de IA no WhatsApp, desenvolvo plugins para o GLPI e crio ferramentas internas que tiram trabalho manual das equipes de atendimento, RH e TI.",
+    "bio2": "Vim de infraestrutura, front-end e ERP, então enxergo o sistema de ponta a ponta: servidor, banco e a pessoa que usa a tela. Estou sempre buscando aprender e evoluir, com interesse crescente em IA aplicada a processos reais.",
     "localLabel": "Localização",
     "educacaoLabel": "Formação",
     "idiomasLabel": "Idiomas",
@@ -33,22 +34,7 @@
   },
   "TimelineSection": {
     "titulo": "Minha Jornada",
-    "job1Title": "Estágio em TI — Prefeitura de Itaúna-MG",
-    "job1Period": "5 meses · 2021",
-    "job1Desc": "Suporte de hardware e ao usuário, manutenção de rede e configuração de Raspberry Pi para soluções internas da prefeitura.",
-    "job2Title": "Analista de Sistemas — HTF",
-    "job2Period": "6 meses · 2021–2022",
-    "job2Desc": "Instalação e suporte em ambientes Linux e Windows, backup e restore de bancos de dados, scripts de fluxograma, Docker Compose, Ruby e suporte ao cliente.",
-    "job3Title": "Analista de ERP — Mercantil Fonte Boa Distribuição",
-    "job3Period": "Abr 2022 – Fev 2024",
-    "job3Desc": "Acompanhamento e otimização do ERP Consinco (TOTVS), gerenciamento de bancos de dados Oracle, controle de acessos e automação de processos com scripts Python.",
-    "job4Title": "Desenvolvedor Front-end — SGBras",
-    "job4Period": "Fev 2024 – Out 2024",
-    "job4Desc": "Desenvolvi sistema interno de chamados (tickets) do zero, criei dashboards, trabalhei com arquitetura MVC em Laravel e dei suporte a plataformas de rastreamento veicular com GALILEOSKY.",
-    "job5Title": "TI V — Grupo Minas Port",
-    "job5Period": "Fev 2025 – atual",
-    "job5Desc": "Administração de redes (Cisco, MikroTik, Sophos), firewalls (pfSense, Fortinet), VPNs, Windows Server com AD/GPO, monitoramento via Zabbix e Grafana, e backup corporativo com Veeam e rsync. Em transição para desenvolvimento com Blazor, React, TypeScript e C#.",
-    "job5SubLabel": "Início como Desenvolvedor Júnior"
+    "atual": "Atual"
   },
   "CertificatesSection": {
     "titulo": "Certificados",
@@ -78,24 +64,133 @@
     "proximo": "Próximo"
   },
   "NotFound": {
-    "titulo": "Página não encontrada",
-    "descricao": "A página que você está procurando não existe ou foi movida.",
-    "voltar": "Voltar ao início"
+    "titulo": "Ops! Me perdi por aqui...",
+    "descricao": "Procurei em todo canto e essa página não existe (ou mudou de lugar). Bora voltar pro início?",
+    "voltar": "VOLTAR AO INÍCIO"
   },
   "Footer": {
     "direitos": "Todos os direitos reservados."
   },
+  "Mascot": {
+    "greetFirst": "Oi! Eu sou o Deploy, robô desenvolvido pelo meu mestre Gu, e vou te acompanhar pelo site",
+    "greetBack": "Ah, você de novo? Você já me conhece, vamos continuar!",
+    "party": "Você achou um easter egg!",
+    "frases": [
+      "Me pergunta qualquer coisa sobre o Gu! Clica duas vezes em mim",
+      "Rodo sozinho, igual aos sistemas do Gu.",
+      "Quer jogar comigo? Clica no controle lá em cima!",
+      "Pulei 0 bugs até agora. Quer dizer... quase.",
+      "Psiu: aperta / pra abrir o terminal secreto.",
+      "Já tentou o Konami Code? ↑↑↓↓←→←→ B A",
+      "Clica 5 vezes rapidinho em mim...",
+      "while (vivo) { aprender(); }",
+      "Não sou cron job, mas também trabalho de madrugada.",
+      "Gostou? Bora conversar, o botão verde tá ali embaixo",
+      "404 é meu lugar favorito. Já viu?"
+    ],
+    "secao": {
+      "sobre": "Esse é o Gu, meu mestre. Gente boa, prometo.",
+      "jornada": "Daqui da Prefeitura até a Gox... que subida!",
+      "skills": "PHP, C#, Python... ele fala mais língua que eu.",
+      "projetos": "Esse Fang aqui o Gu fez do zero",
+      "certificados": "Estudando sem parar, esse aí.",
+      "contato": "Última parada! Manda um oi pro Gu"
+    },
+    "aria": "Deploy, o mascote — clique para ele pular",
+    "title": "Eu sou o Deploy! Clica em mim :)"
+  },
   "ContactSection": {
     "titulo": "Contato",
-    "subtitulo": "Pronto para criar algo extraordinário juntos?",
+    "subtitulo": "Tem um projeto, uma vaga ou um processo pra automatizar? Bora conversar.",
     "nomePlaceholder": "Seu Nome",
     "emailPlaceholder": "Seu E-mail",
     "telefonePlaceholder": "Telefone/WhatsApp | (DDD) 9999-9999",
     "mensagemPlaceholder": "Sua Mensagem",
     "enviar": "ENVIAR MENSAGEM",
-    "enviando": "Enviando...",
-    "enviado": "Enviado!",
+    "enviando": "ENVIANDO...",
+    "enviado": "ENVIADO!",
     "sucessoMsg": "Obrigado pelo seu contato!",
-    "erroMsg": "Oops! Houve um problema ao enviar."
+    "erroMsg": "Oops! Houve um problema ao enviar.",
+    "disponivel": "Disponível para novas oportunidades",
+    "local": "Itaúna, MG · presencial, híbrido ou remoto",
+    "terminalTitle": "nova-mensagem.sh",
+    "prompt": "enviar --para gustavo",
+    "whatsValue": "Resposta mais rápida",
+    "tentarNovamente": "TENTAR DE NOVO"
+  },
+  "Arcade": {
+    "titulo": "Fliperama do Deploy",
+    "abrir": "Jogar com o Deploy",
+    "fechar": "Fechar",
+    "voltar": "← Jogos",
+    "escolha": "Escolhe um jogo e me desafia!",
+    "velha": "Jogo da Velha",
+    "velhaDesc": "Você é o X. Duvido ganhar de mim.",
+    "memoria": "Jogo da Memória",
+    "memoriaDesc": "Ache os pares das tecnologias do Gu.",
+    "ppt": "Pedra, Papel e Tesoura",
+    "pptDesc": "Melhor de quantas você quiser.",
+    "voce": "Você",
+    "deploy": "Deploy",
+    "empates": "Empates",
+    "suaVez": "Sua vez!",
+    "pensando": "Deploy pensando...",
+    "venceu": "Você venceu! Vou contar pro Gu...",
+    "perdeu": "Ganhei! Bip bop",
+    "empate": "Empate! Tá jogando bem, hein.",
+    "deNovo": "Jogar de novo",
+    "jogadas": "Jogadas",
+    "recorde": "Recorde",
+    "fimMemoria": "Terminou em {n} jogadas!",
+    "novoRecorde": "Novo recorde!",
+    "pedra": "Pedra",
+    "papel": "Papel",
+    "tesoura": "Tesoura",
+    "escolheu": "Eu escolhi {x}.",
+    "pptWin": "Você ganhou essa!",
+    "pptLose": "Essa foi minha!",
+    "pptTie": "Pensamos igual!"
+  },
+  "Chat": {
+    "titulo": "Pergunte ao Deploy",
+    "sub": "IA treinada no currículo do Gu",
+    "abrir": "Pergunte ao Deploy sobre mim",
+    "oi": "Oi! Sou o Deploy Pode me perguntar qualquer coisa sobre o Gu: experiência, tecnologias, projetos...",
+    "placeholder": "Pergunte algo sobre o Gu...",
+    "enviar": "Enviar",
+    "pensando": "Deploy está pensando",
+    "fechar": "Fechar",
+    "sugestoes": [
+      "Onde ele trabalha hoje?",
+      "Quais tecnologias ele usa?",
+      "Me conta sobre o Fang",
+      "Ele já trabalhou com Azure?",
+      "Como falo com ele?"
+    ],
+    "offline": "Estou sem bateria agora Fala direto com o Gu pelo WhatsApp, ele responde rapidinho!",
+    "limite": "Ufa, muitas perguntas! Dá um tempinho e tenta de novo — ou chama o Gu no WhatsApp",
+    "erro": "Deu um curto-circuito aqui Tenta de novo em instantes.",
+    "whats": "Chamar no WhatsApp",
+    "aviso": "Respostas geradas por IA a partir do currículo; podem conter erros."
+  },
+  "Resumo": {
+    "botao": "Resumo em 30s",
+    "titulo": "Gustavo em 30 segundos",
+    "disponivel": "Disponível",
+    "anos": "{n}+ anos em TI",
+    "cargoAtual": "Cargo atual",
+    "desde": "desde",
+    "skills": "Principais skills",
+    "destaques": "Destaques",
+    "trajetoria": "Trajetória",
+    "formacao": "Formação",
+    "idiomas": "Idiomas",
+    "cv": "Baixar CV",
+    "whats": "WhatsApp",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "verTudo": "Ver o site completo",
+    "fechar": "Fechar",
+    "tempo": "Pronto! Deu tempo de ler tudo?"
   }
 }

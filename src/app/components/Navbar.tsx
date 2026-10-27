@@ -3,17 +3,18 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
+import { TbDeviceGamepad2, TbClockHour4 } from 'react-icons/tb';
 
 export default function Navbar() {
   const t = useTranslations('Navbar');
+  const tr = useTranslations('Resumo');
   const [themeIcon, setThemeIcon] = useState('fa-moon');
 
   useEffect(() => {
-    // Lógica para definir o tema inicial
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    // Tema padrão: ESCURO (combina com a identidade). Só fica claro se o usuário escolher.
     const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme === 'light' || (currentTheme === null && prefersLight)) {
+
+    if (currentTheme === 'light') {
         document.body.classList.add('light-mode');
         setThemeIcon('fa-sun');
     }
@@ -49,7 +50,22 @@ export default function Navbar() {
         </ul>
       </nav>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <button
+          className="qs-nav-btn"
+          aria-label={tr('botao')}
+          onClick={() => window.dispatchEvent(new Event('open-summary'))}
+        >
+          <TbClockHour4 aria-hidden="true" /> <span>{tr('botao')}</span>
+        </button>
         <LanguageSwitcher />
+        <button
+          className="theme-toggle arcade-toggle"
+          onClick={() => window.dispatchEvent(new Event('open-arcade'))}
+          aria-label="Jogar com o Deploy"
+          title="Jogar com o Deploy"
+        >
+          <TbDeviceGamepad2 aria-hidden="true" />
+        </button>
         <button id="theme-toggle" className="theme-toggle" aria-label="Mudar tema">
           <i className={`fa-solid ${themeIcon}`}></i>
         </button>

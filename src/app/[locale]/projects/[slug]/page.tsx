@@ -2,6 +2,7 @@ import { projects } from '@/lib/projects-data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
@@ -9,14 +10,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const projectIndex = projects.findIndex(p => p.slug === slug);
   const project = projects[projectIndex];
 
-  if (!project) {
-    return (
-      <div className="section">
-        <h2>Projeto não encontrado!</h2>
-        <Link href={`/${locale}`} className="cta-button">Voltar para o Início</Link>
-      </div>
-    );
-  }
+  if (!project) notFound();
 
   const prev = projectIndex > 0 ? projects[projectIndex - 1] : null;
   const next = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;

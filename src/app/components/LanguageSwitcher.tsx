@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const locales = [
-  { code: 'pt', flag: '🇧🇷', label: 'Português' },
-  { code: 'en', flag: '🇺🇸', label: 'English' },
-  { code: 'es', flag: '🇪🇸', label: 'Español' },
+  { code: 'pt', label: 'Português' },
+  { code: 'en', label: 'English' },
+  { code: 'es', label: 'Español' },
 ];
 
 export default function LanguageSwitcher() {
@@ -27,15 +27,16 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="language-switcher">
-      {locales.map(({ code, flag, label }) => (
+      {locales.map(({ code, label }) => (
         <Link
           key={code}
           href={getLocalePath(code)}
-          className={`flag-btn ${currentLocale === code ? 'active' : ''}`}
+          className={`flag-btn lang-btn ${currentLocale === code ? 'active' : ''}`}
+          aria-current={currentLocale === code ? 'true' : undefined}
           title={label}
           aria-label={label}
         >
-          {flag}
+          {code.toUpperCase()}
         </Link>
       ))}
     </div>

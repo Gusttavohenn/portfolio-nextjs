@@ -9,22 +9,23 @@
     "contato": "Contact"
   },
   "HeroSection": {
-    "titulo": "JUNIOR DEVELOPER",
-    "saudacao": "Welcome to my portfolio :)",
-    "explorar": "EXPLORE PROJECTS",
-    "downloadCV": "DOWNLOAD RESUME"
+    "titulo": "Back-end Dev",
+    "subtitulo": "Automation & AI Integrations",
+    "saudacao": "I turn manual processes into systems that run on their own.",
+    "explorar": "VIEW PROJECTS",
+    "downloadCV": "DOWNLOAD CV"
   },
   "SkillsSection": {
     "titulo": "My Skills",
-    "catFrontend": "Frontend",
-    "catBackend": "Backend",
-    "catTools": "Tools & DB",
-    "catInfra": "IT & Infrastructure"
+    "catBackend": "Back-end & Languages",
+    "catFrontend": "Front-end",
+    "catTools": "Databases & DevOps",
+    "catInfra": "Infrastructure & Networks"
   },
   "AboutSection": {
     "titulo": "About Me",
-    "bio1": "Passionate about software development, I have been directing my professional growth toward continuous improvement in programming, code best practices, and system architecture.",
-    "bio2": "Drawing on my background in infrastructure and systems analysis, I developed a comprehensive view of the application lifecycle. I am transitioning into full-stack development, focusing on Blazor, React, TypeScript, and C# with the goal of becoming a versatile, results-driven developer.",
+    "bio1": "I'm a back-end developer focused on automation and systems integration. As a Systems Analyst at Gox Internet, I work with the ISP's ERP (IXC) and AI-powered WhatsApp assistants, build GLPI plugins, and create internal tools that remove manual work from the support, HR and IT teams.",
+    "bio2": "My background spans infrastructure, front-end and ERP, so I see systems end to end: server, database and the person using the screen. I'm always eager to learn and grow, with a growing interest in AI applied to real-world processes.",
     "localLabel": "Location",
     "educacaoLabel": "Education",
     "idiomasLabel": "Languages",
@@ -33,28 +34,13 @@
   },
   "TimelineSection": {
     "titulo": "My Journey",
-    "job1Title": "IT Intern — Itaúna City Hall",
-    "job1Period": "5 months · 2021",
-    "job1Desc": "Hardware and user support, network maintenance, and Raspberry Pi configuration for internal city hall solutions.",
-    "job2Title": "Systems Analyst — HTF",
-    "job2Period": "6 months · 2021–2022",
-    "job2Desc": "Installation and support in Linux and Windows environments, database backup and restore, flowchart scripts, Docker Compose, Ruby, and customer support.",
-    "job3Title": "ERP Analyst — Mercantil Fonte Boa Distribuição",
-    "job3Period": "Apr 2022 – Feb 2024",
-    "job3Desc": "Monitoring and optimizing the Consinco ERP (TOTVS), Oracle database management, access control, and process automation with Python scripts.",
-    "job4Title": "Front-end Developer — SGBras",
-    "job4Period": "Feb 2024 – Oct 2024",
-    "job4Desc": "Built an internal ticketing system from scratch, created dashboards, worked with Laravel MVC architecture, and provided support for vehicle tracking platforms with GALILEOSKY.",
-    "job5Title": "IT V — Grupo Minas Port",
-    "job5Period": "Feb 2025 – present",
-    "job5Desc": "Network administration (Cisco, MikroTik, Sophos), firewalls (pfSense, Fortinet), VPNs, Windows Server with AD/GPO, monitoring via Zabbix and Grafana, and corporate backup with Veeam and rsync. Transitioning to development with Blazor, React, TypeScript, and C#.",
-    "job5SubLabel": "Starting as Junior Developer"
+    "atual": "Current"
   },
   "CertificatesSection": {
     "titulo": "Certificates",
     "subtitulo": "Courses and certifications completed throughout my journey.",
     "catFrontend": "Frontend",
-    "catDatabase": "Database",
+    "catDatabase": "Databases",
     "catTools": "Tools & DevOps",
     "catCsharp": "C# / .NET",
     "catAI": "Artificial Intelligence"
@@ -78,24 +64,133 @@
     "proximo": "Next"
   },
   "NotFound": {
-    "titulo": "Page not found",
-    "descricao": "The page you are looking for does not exist or has been moved.",
-    "voltar": "Back to home"
+    "titulo": "Oops! I got lost...",
+    "descricao": "I searched everywhere and this page doesn't exist (or it moved). Shall we head back home?",
+    "voltar": "BACK TO HOME"
   },
   "Footer": {
     "direitos": "All rights reserved."
   },
+  "Mascot": {
+    "greetFirst": "Hi! I'm Deploy, a robot built by my master Gu, and I'll walk you through the site",
+    "greetBack": "Oh, you again? You already know me, let's keep going!",
+    "party": "You found an easter egg!",
+    "frases": [
+      "Ask me anything about Gu! Double-click me",
+      "I run on my own, just like Gu's systems.",
+      "Wanna play with me? Hit the controller up top!",
+      "0 bugs jumped so far. Well... almost.",
+      "Psst: press / to open the secret terminal.",
+      "Have you tried the Konami Code? ↑↑↓↓←→←→ B A",
+      "Click me 5 times real quick...",
+      "while (alive) { learn(); }",
+      "I'm not a cron job, but I also work at night.",
+      "Liked it? Let's talk, the green button is right down there",
+      "404 is my favorite place. Seen it yet?"
+    ],
+    "secao": {
+      "sobre": "That's Gu, my master. Good guy, I promise.",
+      "jornada": "From City Hall all the way to Gox... what a climb!",
+      "skills": "PHP, C#, Python... he speaks more languages than me.",
+      "projetos": "Gu built this Fang one from scratch",
+      "certificados": "This guy never stops studying.",
+      "contato": "Last stop! Say hi to Gu"
+    },
+    "aria": "Deploy, the mascot — click to make him jump",
+    "title": "I'm Deploy! Click me :)"
+  },
   "ContactSection": {
     "titulo": "Contact",
-    "subtitulo": "Ready to build something extraordinary together?",
+    "subtitulo": "Got a project, a role or a process to automate? Let's talk.",
     "nomePlaceholder": "Your Name",
     "emailPlaceholder": "Your Email",
-    "telefonePlaceholder": "Phone/WhatsApp | (area code) 9999-9999",
+    "telefonePlaceholder": "Phone/WhatsApp | +00 (00) 90000-0000",
     "mensagemPlaceholder": "Your Message",
     "enviar": "SEND MESSAGE",
-    "enviando": "Sending...",
-    "enviado": "Sent!",
+    "enviando": "SENDING...",
+    "enviado": "SENT!",
     "sucessoMsg": "Thank you for reaching out!",
-    "erroMsg": "Oops! There was a problem sending your message."
+    "erroMsg": "Oops! There was a problem sending.",
+    "disponivel": "Open to new opportunities",
+    "local": "Itaúna, MG, Brazil · on-site, hybrid or remote",
+    "terminalTitle": "new-message.sh",
+    "prompt": "send --to gustavo",
+    "whatsValue": "Fastest reply",
+    "tentarNovamente": "TRY AGAIN"
+  },
+  "Arcade": {
+    "titulo": "Deploy's Arcade",
+    "abrir": "Play with Deploy",
+    "fechar": "Close",
+    "voltar": "← Games",
+    "escolha": "Pick a game and challenge me!",
+    "velha": "Tic-Tac-Toe",
+    "velhaDesc": "You're X. Bet you can't beat me.",
+    "memoria": "Memory Game",
+    "memoriaDesc": "Match the pairs of Gu's tech stack.",
+    "ppt": "Rock, Paper, Scissors",
+    "pptDesc": "Best of however many you want.",
+    "voce": "You",
+    "deploy": "Deploy",
+    "empates": "Draws",
+    "suaVez": "Your turn!",
+    "pensando": "Deploy is thinking...",
+    "venceu": "You won! I'm telling Gu...",
+    "perdeu": "I win! Beep boop",
+    "empate": "Draw! You're good, huh.",
+    "deNovo": "Play again",
+    "jogadas": "Moves",
+    "recorde": "Best",
+    "fimMemoria": "Done in {n} moves!",
+    "novoRecorde": "New record!",
+    "pedra": "Rock",
+    "papel": "Paper",
+    "tesoura": "Scissors",
+    "escolheu": "I picked {x}.",
+    "pptWin": "You got this one!",
+    "pptLose": "That one's mine!",
+    "pptTie": "Great minds think alike!"
+  },
+  "Chat": {
+    "titulo": "Ask Deploy",
+    "sub": "AI trained on Gu's résumé",
+    "abrir": "Ask Deploy about me",
+    "oi": "Hi! I'm Deploy Ask me anything about Gu: experience, tech stack, projects...",
+    "placeholder": "Ask something about Gu...",
+    "enviar": "Send",
+    "pensando": "Deploy is thinking",
+    "fechar": "Close",
+    "sugestoes": [
+      "Where does he work now?",
+      "What tech does he use?",
+      "Tell me about Fang",
+      "Has he worked with Azure?",
+      "How do I contact him?"
+    ],
+    "offline": "My battery is dead right now Talk to Gu directly on WhatsApp, he answers fast!",
+    "limite": "Phew, lots of questions! Give it a minute and try again — or message Gu on WhatsApp",
+    "erro": "Short circuit over here Try again in a moment.",
+    "whats": "Message on WhatsApp",
+    "aviso": "AI-generated answers based on the résumé; they may contain mistakes."
+  },
+  "Resumo": {
+    "botao": "30-second summary",
+    "titulo": "Gustavo in 30 seconds",
+    "disponivel": "Available",
+    "anos": "{n}+ years in IT",
+    "cargoAtual": "Current role",
+    "desde": "since",
+    "skills": "Top skills",
+    "destaques": "Highlights",
+    "trajetoria": "Career",
+    "formacao": "Education",
+    "idiomas": "Languages",
+    "cv": "Download CV",
+    "whats": "WhatsApp",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "verTudo": "See the full site",
+    "fechar": "Close",
+    "tempo": "Done! Did you have time to read it all?"
   }
 }

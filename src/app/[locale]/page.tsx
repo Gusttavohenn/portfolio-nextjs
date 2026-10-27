@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import HeroSection from '../components/sections/HeroSection';
+import TechMarquee from '../components/TechMarquee';
 import AboutSection from '../components/sections/AboutSection';
 import TimelineSection from '../components/sections/TimelineSection';
 import SkillsSection from '../components/sections/SkillsSection';
@@ -19,7 +20,7 @@ export default function Home() {
     gsap.registerPlugin(ScrollTrigger);
 
     // ANIMAÇÕES DE ENTRADA COM GSAP
-    gsap.from(".hero h1, .hero p, .hero .button-group", { delay: 0.5, duration: 1, y: 30, opacity: 0, stagger: 0.2, ease: "power3.out" });
+    gsap.from(".hero-name, .hero-role, .hero-tagline, .hero .button-group", { delay: 0.3, duration: 1, y: 30, opacity: 0, stagger: 0.15, ease: "power3.out" });
     gsap.utils.toArray<HTMLElement>(".timeline-item").forEach(item => { gsap.from(item, { x: item.offsetLeft > 0 ? 100 : -100, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 80%", toggleActions: "play none none none" } }); });
     gsap.utils.toArray<HTMLElement>(".skill-category").forEach(category => { gsap.from(category, { y: 50, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: category, start: "top 85%", toggleActions: "play none none none" } }); });
     gsap.from(".project-card", { y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", scrollTrigger: { trigger: ".project-grid", start: "top 80%", toggleActions: "play none none none" } });
@@ -57,6 +58,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <TechMarquee />
       <AboutSection />
       <TimelineSection />
       <SkillsSection />

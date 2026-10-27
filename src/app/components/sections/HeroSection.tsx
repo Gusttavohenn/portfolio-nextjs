@@ -1,48 +1,44 @@
 "use client";
 
-import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
+import ParticleField from '../ParticleField';
 
 export default function HeroSection() {
   const t = useTranslations('HeroSection');
+  const tc = useTranslations('Chat');
   const locale = useLocale();
 
   const cvFile = `Gustavo_Oliveira_${locale.toUpperCase()}.pdf`;
-  const fullText = t('titulo');
-  const [displayedText, setDisplayedText] = useState('');
-
-  useEffect(() => {
-    setDisplayedText('');
-    let index = 0;
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        if (index < fullText.length) {
-          setDisplayedText(fullText.slice(0, index + 1));
-          index++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 150);
-      return () => clearInterval(interval);
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, [fullText]);
 
   return (
     <section id="home" className="hero section">
-      <h1 className="typing-text">{displayedText}</h1>
+      <div className="hero-particle-wrap" aria-hidden="true">
+        <ParticleField color="#8b5cf6" />
+      </div>
 
-      <p>{t('saudacao')}</p>
+      <div className="hero-content">
+        <h1 className="hero-name">GUSTAVO OLIVEIRA</h1>
+        <p className="hero-role">{t('subtitulo')}</p>
+        <p className="hero-tagline">{t('saudacao')}</p>
 
-      <div className="button-group">
-        <a href="#projetos" className="cta-button">{t('explorar')}</a>
-        <a
-          href={`/${cvFile}`}
-          download
-          className="cta-button secondary"
+        <div className="button-group">
+          <a href="#projetos" className="cta-button">{t('explorar')}</a>
+          <a
+            href={`/${cvFile}`}
+            download
+            className="cta-button secondary"
+          >
+            {t('downloadCV')}
+          </a>
+        </div>
+
+        <button
+          className="hero-chat-btn"
+          onClick={() => window.dispatchEvent(new Event('open-chat'))}
         >
-          {t('downloadCV')}
-        </a>
+          <span className="hero-chat-dot" aria-hidden="true"></span>
+          {tc('abrir')}
+        </button>
       </div>
 
       <a href="#sobre" className="scroll-indicator" aria-label="Rolar para baixo">

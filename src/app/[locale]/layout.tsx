@@ -8,6 +8,13 @@ import { getMessages } from 'next-intl/server';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
+import MascotPixel from "../components/MascotPixel";
+import WhatsAppButton from "../components/WhatsAppButton";
+import HiddenTerminal from "../components/HiddenTerminal";
+import ConsoleGreeting from "../components/ConsoleGreeting";
+import Arcade from "../components/Arcade";
+import DeployChat from "../components/DeployChat";
+import QuickSummary from "../components/QuickSummary";
 
 // Importação do CSS Global
 import "../styles/style.css";
@@ -23,7 +30,7 @@ const metadataByLocale: Record<string, Metadata> = {
   pt: {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
     title: "Gustavo Oliveira | Portfólio",
-    description: "Portfólio de Gustavo Oliveira, desenvolvedor júnior apaixonado por criar soluções web modernas e funcionais.",
+    description: "Portfólio de Gustavo Oliveira, desenvolvedor back-end focado em automação, integrações e IA.",
     openGraph: {
       title: "Gustavo Oliveira | Desenvolvedor",
       description: "Explore meus projetos e minha jornada no mundo do desenvolvimento web.",
@@ -42,7 +49,7 @@ const metadataByLocale: Record<string, Metadata> = {
   en: {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
     title: "Gustavo Oliveira | Portfolio",
-    description: "Portfolio of Gustavo Oliveira, a junior developer passionate about building modern and functional web solutions.",
+    description: "Portfolio of Gustavo Oliveira, a back-end developer focused on automation, integrations and AI.",
     openGraph: {
       title: "Gustavo Oliveira | Developer",
       description: "Explore my projects and my journey in the world of web development.",
@@ -61,7 +68,7 @@ const metadataByLocale: Record<string, Metadata> = {
   es: {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
     title: "Gustavo Oliveira | Portafolio",
-    description: "Portafolio de Gustavo Oliveira, desarrollador junior apasionado por crear soluciones web modernas y funcionales.",
+    description: "Portafolio de Gustavo Oliveira, desarrollador back-end enfocado en automatización, integraciones e IA.",
     openGraph: {
       title: "Gustavo Oliveira | Desarrollador",
       description: "Explora mis proyectos y mi trayectoria en el mundo del desarrollo web.",
@@ -125,8 +132,8 @@ export default async function RootLayout({
       'https://github.com/Gusttavohenn',
       'https://www.linkedin.com/in/gustavo-oliveira-0a96b022a/',
     ],
-    jobTitle: 'Junior Developer',
-    knowsAbout: ['React', 'TypeScript', 'Next.js', 'C#', 'Blazor', 'SQL'],
+    jobTitle: 'Systems Analyst / Back-end Developer',
+    knowsAbout: ['PHP', 'Laravel', 'C#', '.NET', 'Python', 'SQL', 'Automação', 'IA', 'APIs REST', 'Docker'],
   };
 
   return (
@@ -148,6 +155,13 @@ export default async function RootLayout({
           </main>
           <Footer />
           <BackToTop />
+          <MascotPixel />
+          <WhatsAppButton />
+          <HiddenTerminal />
+          <ConsoleGreeting />
+          <Arcade />
+          <DeployChat />
+          <QuickSummary />
         </NextIntlClientProvider>
         
         {/* Font Awesome via CDN — ícones usados em todo o site */}
