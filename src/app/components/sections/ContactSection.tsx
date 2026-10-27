@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { socialLinks } from '@/lib/social-links';
 
 export default function ContactSection() {
   const t = useTranslations('ContactSection');
@@ -51,6 +52,18 @@ export default function ContactSection() {
     <section id="contato" className="section">
       <h2 className="section-title">{t('titulo')}</h2>
       <p>{t('subtitulo')}</p>
+
+      <a
+        href={socialLinks.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-cta"
+      >
+        <i className="fab fa-whatsapp" aria-hidden="true"></i> {t('whatsappBtn')}
+      </a>
+
+      <div className="contact-divider"><span>{t('ou')}</span></div>
+
       <form
         id="contact-form"
         action="https://formspree.io/f/xyzndejv"

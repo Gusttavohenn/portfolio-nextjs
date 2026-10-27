@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 import MascotPixel from "../components/MascotPixel";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 // Importação do CSS Global
 import "../styles/style.css";
@@ -150,6 +151,7 @@ export default async function RootLayout({
           <Footer />
           <BackToTop />
           <MascotPixel />
+          <WhatsAppButton />
         </NextIntlClientProvider>
         
         {/* Font Awesome via CDN — ícones usados em todo o site */}

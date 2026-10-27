@@ -108,6 +108,8 @@
     "enviando": "Enviando...",
     "enviado": "Enviado!",
     "sucessoMsg": "Obrigado pelo seu contato!",
-    "erroMsg": "Oops! Houve um problema ao enviar."
+    "erroMsg": "Oops! Houve um problema ao enviar.",
+    "whatsappBtn": "CHAMAR NO WHATSAPP",
+    "ou": "ou preencha o formulário"
   }
 }

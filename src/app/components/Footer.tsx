@@ -11,6 +11,7 @@ export default function Footer() {
             <div className="social-links">
                 <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fab fa-github"></i></a>
                 <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
             </div>
             <p>&copy; {new Date().getFullYear()} Gustavo Oliveira. {t('direitos')}</p>
         </footer>

@@ -108,6 +108,8 @@
     "enviando": "Sending...",
     "enviado": "Sent!",
     "sucessoMsg": "Thank you for reaching out!",
-    "erroMsg": "Oops! There was a problem sending."
+    "erroMsg": "Oops! There was a problem sending.",
+    "whatsappBtn": "MESSAGE ON WHATSAPP",
+    "ou": "or fill out the form"
   }
 }
