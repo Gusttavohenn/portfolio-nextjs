@@ -192,5 +192,24 @@
     "verTudo": "Ver el sitio completo",
     "fechar": "Cerrar",
     "tempo": "¡Listo! ¿Te dio tiempo de leer todo?"
+  },
+  "Common": {
+    "rolar": "Desplazarse hacia abajo",
+    "jogar": "jugar",
+    "jogarDeploy": "Jugar con Deploy",
+    "terminal": "Abrir terminal",
+    "terminalAtalho": "Abrir terminal (atajo: /)",
+    "tema": "Cambiar tema",
+    "whats": "Escribir por WhatsApp",
+    "topo": "Volver arriba",
+    "techs": "Tecnologías que uso",
+    "pular": "Saltar al contenido",
+    "imagem": "Imagen del proyecto {nome}",
+    "local": "Itaúna, MG · Brasil",
+    "formacao": "Ing. de Software · ADS",
+    "foco": "Automatización · IA · Back-end",
+    "apis": "APIs REST",
+    "automacao": "Automatización & IA",
+    "suporte": "Soporte Nivel 2"
   }
 }

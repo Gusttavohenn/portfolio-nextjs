@@ -6,6 +6,7 @@ import { TbDeviceGamepad2 } from 'react-icons/tb';
 
 export default function Footer() {
     const t = useTranslations('Footer');
+    const c = useTranslations('Common');
 
     return (
         <footer>
@@ -18,18 +19,18 @@ export default function Footer() {
             <button
                 className="footer-terminal-btn"
                 onClick={() => window.dispatchEvent(new Event('open-terminal'))}
-                aria-label="Abrir terminal"
-                title="Abrir terminal (atalho: /)"
+                aria-label={c('terminal')}
+                title={c('terminalAtalho')}
             >
                 &gt;_
             </button>
             <button
                 className="footer-terminal-btn"
                 onClick={() => window.dispatchEvent(new Event('open-arcade'))}
-                aria-label="Jogar com o Deploy"
-                title="Jogar com o Deploy"
+                aria-label={c('jogarDeploy')}
+                title={c('jogarDeploy')}
             >
-                <TbDeviceGamepad2 aria-hidden="true" /> jogar
+                <TbDeviceGamepad2 aria-hidden="true" /> {c('jogar')}
             </button>
         </footer>
     );

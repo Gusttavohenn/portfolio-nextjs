@@ -8,6 +8,7 @@ import { TbDeviceGamepad2, TbClockHour4 } from 'react-icons/tb';
 export default function Navbar() {
   const t = useTranslations('Navbar');
   const tr = useTranslations('Resumo');
+  const c = useTranslations('Common');
   const [themeIcon, setThemeIcon] = useState('fa-moon');
 
   useEffect(() => {
@@ -61,12 +62,12 @@ export default function Navbar() {
         <button
           className="theme-toggle arcade-toggle"
           onClick={() => window.dispatchEvent(new Event('open-arcade'))}
-          aria-label="Jogar com o Deploy"
-          title="Jogar com o Deploy"
+          aria-label={c('jogarDeploy')}
+          title={c('jogarDeploy')}
         >
           <TbDeviceGamepad2 aria-hidden="true" />
         </button>
-        <button id="theme-toggle" className="theme-toggle" aria-label="Mudar tema">
+        <button id="theme-toggle" className="theme-toggle" aria-label={c('tema')}>
           <i className={`fa-solid ${themeIcon}`}></i>
         </button>
       </div>

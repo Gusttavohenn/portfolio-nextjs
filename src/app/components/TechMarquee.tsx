@@ -1,4 +1,5 @@
 import type { IconType } from "react-icons";
+import { useTranslations } from "next-intl";
 import {
   SiPhp, SiLaravel, SiDotnet, SiSharp, SiPython, SiNodedotjs, SiOpenjdk,
   SiMysql, SiPostgresql, SiMongodb, SiMariadb, SiDocker, SiLinux, SiGit,
@@ -39,10 +40,11 @@ const techs: { name: string; Icon: IconType }[] = [
 ];
 
 export default function TechMarquee() {
+  const c = useTranslations("Common");
   // the list is rendered twice so the loop is seamless
   const row = [...techs, ...techs];
   return (
-    <div className="tech-marquee" aria-label="Tecnologias que eu uso">
+    <div className="tech-marquee" aria-label={c("techs")}>
       <ul className="tech-marquee-track">
         {row.map(({ name, Icon }, i) => (
           <li key={`${name}-${i}`} className="tech-marquee-item" aria-hidden={i >= techs.length}>

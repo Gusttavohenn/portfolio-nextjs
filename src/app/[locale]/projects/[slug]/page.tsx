@@ -3,10 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { toLang } from '@/lib/cv';
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
+  const lang = toLang(locale);
   const t = await getTranslations('ProjectDetail');
+  const c = await getTranslations('Common');
   const projectIndex = projects.findIndex(p => p.slug === slug);
   const project = projects[projectIndex];
 
@@ -22,11 +25,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </Link>
 
       <div className="case-study-header">
-        <h1>{project.title}</h1>
-        <p className="short-description">{project.shortDescription}</p>
+        <h1>{project.title[lang]}</h1>
+        <p className="short-description">{project.shortDescription[lang]}</p>
         <Image
           src={project.imageUrl}
-          alt={`Imagem do projeto ${project.title}`}
+          alt={c('imagem', { nome: project.title[lang] })}
           width={900}
           height={0}
           style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 10px 30px var(--shadow-color)' }}
@@ -47,19 +50,19 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {/* O Problema */}
         <section className="case-study-section">
           <h3><i className="fa-solid fa-bullseye" aria-hidden="true"></i> {t('problema')}</h3>
-          <p>{project.problem}</p>
+          <p>{project.problem[lang]}</p>
         </section>
 
         {/* A Solução */}
         <section className="case-study-section">
           <h3><i className="fa-solid fa-lightbulb" aria-hidden="true"></i> {t('solucao')}</h3>
-          <p>{project.solution}</p>
+          <p>{project.solution[lang]}</p>
         </section>
 
         {/* Aprendizados */}
         <section className="case-study-section">
           <h3><i className="fa-solid fa-graduation-cap" aria-hidden="true"></i> {t('aprendizados')}</h3>
-          <p>{project.learnings}</p>
+          <p>{project.learnings[lang]}</p>
         </section>
 
         <div className="button-group">
@@ -84,13 +87,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {prev ? (
             <Link href={`/${locale}/projects/${prev.slug}`} className="project-nav-link prev">
               <span><i className="fa-solid fa-arrow-left" aria-hidden="true"></i> {t('anterior')}</span>
-              <span>{prev.title}</span>
+              <span>{prev.title[lang]}</span>
             </Link>
           ) : <div />}
           {next ? (
             <Link href={`/${locale}/projects/${next.slug}`} className="project-nav-link next">
               <span>{t('proximo')} <i className="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
-              <span>{next.title}</span>
+              <span>{next.title[lang]}</span>
             </Link>
           ) : <div />}
         </nav>
