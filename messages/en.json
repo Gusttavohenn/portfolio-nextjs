@@ -125,7 +125,7 @@
     "voltar": "← Games",
     "escolha": "Pick a game and challenge me!",
     "velha": "Tic-Tac-Toe",
-    "velhaDesc": "You're X. Bet you can't beat me.",
+    "velhaDesc": "You're X. On hard, I can't be beaten.",
     "memoria": "Memory Game",
     "memoriaDesc": "Match the pairs of Gu's tech stack.",
     "ppt": "Rock, Paper, Scissors",
@@ -149,7 +149,13 @@
     "escolheu": "I picked {x}.",
     "pptWin": "You got this one!",
     "pptLose": "That one's mine!",
-    "pptTie": "Great minds think alike!"
+    "pptTie": "Great minds think alike!",
+    "nivel": "Difficulty",
+    "facil": "Easy",
+    "medio": "Medium",
+    "dificil": "Hard",
+    "deployComeca": "My turn to start...",
+    "voceComeca": "You start. Good luck!"
   },
   "Chat": {
     "titulo": "Ask Deploy",

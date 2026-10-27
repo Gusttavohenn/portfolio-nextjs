@@ -125,7 +125,7 @@
     "voltar": "← Jogos",
     "escolha": "Escolhe um jogo e me desafia!",
     "velha": "Jogo da Velha",
-    "velhaDesc": "Você é o X. Duvido ganhar de mim.",
+    "velhaDesc": "Você é o X. No difícil eu sou imbatível.",
     "memoria": "Jogo da Memória",
     "memoriaDesc": "Ache os pares das tecnologias do Gu.",
     "ppt": "Pedra, Papel e Tesoura",
@@ -149,7 +149,13 @@
     "escolheu": "Eu escolhi {x}.",
     "pptWin": "Você ganhou essa!",
     "pptLose": "Essa foi minha!",
-    "pptTie": "Pensamos igual!"
+    "pptTie": "Pensamos igual!",
+    "nivel": "Dificuldade",
+    "facil": "Fácil",
+    "medio": "Médio",
+    "dificil": "Difícil",
+    "deployComeca": "Agora eu começo...",
+    "voceComeca": "Você começa. Boa sorte!"
   },
   "Chat": {
     "titulo": "Pergunte ao Deploy",
