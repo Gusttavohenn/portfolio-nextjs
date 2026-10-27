@@ -41,7 +41,7 @@ function knowledge(): string {
   const langs = cv.languages.map((l) => `${l.name.pt} (${l.level.pt})`).join(', ');
   const certs = cv.certifications.map((c) => `${c.title} (${c.platform})`).join('; ');
   const projs = projects
-    .map((p) => `- ${p.title}: ${p.description} Tecnologias: ${p.tags.join(', ')}.${p.liveUrl ? ` Site: ${p.liveUrl}.` : ''}${p.codeUrl ? ` Código: ${p.codeUrl}.` : ''}`)
+    .map((p) => `- ${p.title.pt}: ${p.description.pt} Tecnologias: ${p.tags.join(', ')}.${p.liveUrl ? ` Site: ${p.liveUrl}.` : ''}${p.codeUrl ? ` Código: ${p.codeUrl}.` : ''}`)
     .join('\n');
 
   return `NOME: ${cv.name} (apelido: Gu)

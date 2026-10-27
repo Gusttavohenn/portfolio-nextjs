@@ -10,6 +10,7 @@ import { VscTerminalPowershell } from "react-icons/vsc"; // Ícone corrigido par
 
 export default function SkillsSection() {
   const t = useTranslations('SkillsSection');
+  const c = useTranslations('Common');
 
   return (
     <section id="skills" className="section">
@@ -27,8 +28,8 @@ export default function SkillsSection() {
             <span className="skill-item"><i className="fab fa-python" aria-hidden="true"></i> Python</span>
             <span className="skill-item"><i className="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
             <span className="skill-item"><i className="fab fa-java" aria-hidden="true"></i> Java</span>
-            <span className="skill-item"><i className="fa-solid fa-plug" aria-hidden="true"></i> APIs REST</span>
-            <span className="skill-item"><i className="fa-solid fa-robot" aria-hidden="true"></i> Automação & IA</span>
+            <span className="skill-item"><i className="fa-solid fa-plug" aria-hidden="true"></i> {c('apis')}</span>
+            <span className="skill-item"><i className="fa-solid fa-robot" aria-hidden="true"></i> {c('automacao')}</span>
           </div>
         </div>
 
@@ -79,7 +80,7 @@ export default function SkillsSection() {
                 <span className="skill-item"><VscTerminalPowershell aria-hidden="true" /> PowerShell</span>
                 <span className="skill-item"><SiVeeam aria-hidden="true" /> Veeam Backup</span>
                 <span className="skill-item"><i className="fa-solid fa-arrows-rotate" aria-hidden="true"></i> rsync</span>
-                <span className="skill-item"><i className="fa-solid fa-headset" aria-hidden="true"></i> Suporte Nível 2</span>
+                <span className="skill-item"><i className="fa-solid fa-headset" aria-hidden="true"></i> {c('suporte')}</span>
             </div>
         </div>
 

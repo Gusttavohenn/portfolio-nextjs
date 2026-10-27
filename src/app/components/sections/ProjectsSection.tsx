@@ -5,9 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { projects } from '@/lib/projects-data';
+import { toLang } from '@/lib/cv';
 
 export default function ProjectsSection() {
   const locale = useLocale();
+  const lang = toLang(locale);
   const t = useTranslations('ProjectsSection');
   const [activeFilter, setActiveFilter] = useState('*');
 
@@ -37,14 +39,14 @@ export default function ProjectsSection() {
           <div key={project.slug} className="project-card">
             <Link href={`/${locale}/projects/${project.slug}`} className="project-card-link">
               <div className="project-image-container">
-                <Image src={project.imageUrl} alt={project.title} fill style={{ objectFit: 'cover' }} />
+                <Image src={project.imageUrl} alt={project.title[lang]} fill style={{ objectFit: 'cover' }} />
                 <div className="project-hover-overlay">
                   <span>{t('verProjeto')}</span>
                 </div>
               </div>
               <div className="card-info">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
+                <h3 className="project-title">{project.title[lang]}</h3>
+                <p className="project-description">{project.description[lang]}</p>
                 <div className="project-techs">
                   {project.tags.map((tech) => (
                     <span key={tech} className="tech-tag">{tech}</span>

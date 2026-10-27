@@ -192,5 +192,24 @@
     "verTudo": "See the full site",
     "fechar": "Close",
     "tempo": "Done! Did you have time to read it all?"
+  },
+  "Common": {
+    "rolar": "Scroll down",
+    "jogar": "play",
+    "jogarDeploy": "Play with Deploy",
+    "terminal": "Open terminal",
+    "terminalAtalho": "Open terminal (shortcut: /)",
+    "tema": "Toggle theme",
+    "whats": "Message on WhatsApp",
+    "topo": "Back to top",
+    "techs": "Technologies I use",
+    "pular": "Skip to content",
+    "imagem": "{nome} project image",
+    "local": "Itaúna, MG · Brazil",
+    "formacao": "Software Eng. · Systems Analysis",
+    "foco": "Automation · AI · Back-end",
+    "apis": "REST APIs",
+    "automacao": "Automation & AI",
+    "suporte": "Level 2 Support"
   }
 }

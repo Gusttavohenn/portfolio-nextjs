@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 
 // Importação de Componentes
 import Navbar from "../components/Navbar";
@@ -120,6 +120,7 @@ export default async function RootLayout({
   
   // Pega as mensagens de tradução para o locale atual
   const messages = await getMessages();
+  const c = await getTranslations({ locale, namespace: 'Common' });
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
 
@@ -147,7 +148,7 @@ export default async function RootLayout({
       </head>
       <body className={poppins.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <a href="#main-content" className="skip-link">Pular para o conteúdo</a>
+          <a href="#main-content" className="skip-link">{c('pular')}</a>
           <div className="blob"></div>
           <Navbar />
           <main id="main-content">

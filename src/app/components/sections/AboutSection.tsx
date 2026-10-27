@@ -5,6 +5,7 @@ import { socialLinks } from '@/lib/social-links';
 
 export default function AboutSection() {
   const t = useTranslations('AboutSection');
+  const c = useTranslations('Common');
 
   return (
     <section id="sobre" className="section">
@@ -36,14 +37,14 @@ export default function AboutSection() {
             <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
             <div>
               <span className="about-card-label">{t('localLabel')}</span>
-              <span className="about-card-value">Itaúna, MG · Brasil</span>
+              <span className="about-card-value">{c('local')}</span>
             </div>
           </div>
           <div className="about-card">
             <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
             <div>
               <span className="about-card-label">{t('educacaoLabel')}</span>
-              <span className="about-card-value">Eng. de Software · ADS</span>
+              <span className="about-card-value">{c('formacao')}</span>
               <span className="about-card-sub">{t('emAndamento')}</span>
             </div>
           </div>
@@ -58,7 +59,7 @@ export default function AboutSection() {
             <i className="fa-solid fa-code" aria-hidden="true"></i>
             <div>
               <span className="about-card-label">{t('focoLabel')}</span>
-              <span className="about-card-value">Automação · IA · Back-end</span>
+              <span className="about-card-value">{c('foco')}</span>
             </div>
           </div>
         </div>
