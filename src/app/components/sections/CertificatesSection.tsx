@@ -47,13 +47,6 @@ const categoryMeta: { id: string; labelKey: string; icon: string }[] = [
   { id: "ai",        labelKey: "catAI",       icon: "fa-solid fa-robot"              },
 ];
 
-const platformColors: Record<string, string> = {
-  Origamid:  "#e05a3a",
-  Udemy:     "#a435f0",
-  DIO:       "#00aaff",
-  Anthropic: "#cc785c",
-};
-
 export default function CertificatesSection() {
   const t = useTranslations('CertificatesSection');
   const [openId, setOpenId] = useState<string | null>(null);
@@ -92,7 +85,6 @@ export default function CertificatesSection() {
                     >
                       <span
                         className="certificate-platform"
-                        style={{ backgroundColor: platformColors[cert.platform] ?? '#555' }}
                       >
                         {cert.platform}
                       </span>
