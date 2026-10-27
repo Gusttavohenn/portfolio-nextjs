@@ -76,6 +76,7 @@
     "greetBack": "Oh, you again? You already know me, let's keep going! 😄",
     "party": "You found an easter egg! 🎉",
     "frases": [
+      "Ask me anything about Gu! Double-click me 💬",
       "I run on my own, just like Gu's systems.",
       "Wanna play with me? Hit the 🎮 up top!",
       "0 bugs jumped so far. Well... almost.",
@@ -106,15 +107,16 @@
     "telefonePlaceholder": "Phone/WhatsApp | +00 (00) 90000-0000",
     "mensagemPlaceholder": "Your Message",
     "enviar": "SEND MESSAGE",
-    "enviando": "Sending...",
-    "enviado": "Sent!",
+    "enviando": "SENDING...",
+    "enviado": "SENT!",
     "sucessoMsg": "Thank you for reaching out!",
     "erroMsg": "Oops! There was a problem sending.",
     "disponivel": "Open to new opportunities",
     "local": "Itaúna, MG, Brazil · on-site, hybrid or remote",
     "terminalTitle": "new-message.sh",
     "prompt": "send --to gustavo",
-    "whatsValue": "Fastest reply"
+    "whatsValue": "Fastest reply",
+    "tentarNovamente": "TRY AGAIN"
   },
   "Arcade": {
     "titulo": "Deploy's Arcade",
@@ -148,5 +150,27 @@
     "pptWin": "You got this one!",
     "pptLose": "That one's mine!",
     "pptTie": "Great minds think alike!"
+  },
+  "Chat": {
+    "titulo": "Ask Deploy",
+    "sub": "AI trained on Gu's résumé",
+    "abrir": "Ask Deploy about me",
+    "oi": "Hi! I'm Deploy 🤖 Ask me anything about Gu: experience, tech stack, projects...",
+    "placeholder": "Ask something about Gu...",
+    "enviar": "Send",
+    "pensando": "Deploy is thinking",
+    "fechar": "Close",
+    "sugestoes": [
+      "Where does he work now?",
+      "What tech does he use?",
+      "Tell me about Fang",
+      "Has he worked with Azure?",
+      "How do I contact him?"
+    ],
+    "offline": "My battery is dead right now 🔋 Talk to Gu directly on WhatsApp, he answers fast!",
+    "limite": "Phew, lots of questions! Give it a minute and try again — or message Gu on WhatsApp 😄",
+    "erro": "Short circuit over here 🤯 Try again in a moment.",
+    "whats": "Message on WhatsApp",
+    "aviso": "AI-generated answers based on the résumé; they may contain mistakes."
   }
 }

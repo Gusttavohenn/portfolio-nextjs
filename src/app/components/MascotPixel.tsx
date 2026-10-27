@@ -343,6 +343,7 @@ export default function MascotPixel() {
       <button
         className="mascot-btn"
         onClick={onClick}
+        onDoubleClick={() => window.dispatchEvent(new Event("open-chat"))}
         aria-label={t("aria")}
         title={t("title")}
       >

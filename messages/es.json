@@ -76,6 +76,7 @@
     "greetBack": "¿Ah, tú otra vez? Ya me conoces, ¡sigamos! 😄",
     "party": "¡Encontraste un easter egg! 🎉",
     "frases": [
+      "¡Pregúntame lo que quieras sobre Gu! Haz doble clic en mí 💬",
       "Funciono solo, igual que los sistemas de Gu.",
       "¿Jugamos? ¡Haz clic en el 🎮 de arriba!",
       "0 bugs saltados hasta ahora. Bueno... casi.",
@@ -106,15 +107,16 @@
     "telefonePlaceholder": "Teléfono/WhatsApp | +00 (00) 90000-0000",
     "mensagemPlaceholder": "Tu Mensaje",
     "enviar": "ENVIAR MENSAJE",
-    "enviando": "Enviando...",
-    "enviado": "¡Enviado!",
+    "enviando": "ENVIANDO...",
+    "enviado": "¡ENVIADO!",
     "sucessoMsg": "¡Gracias por tu contacto!",
     "erroMsg": "¡Ups! Hubo un problema al enviar.",
     "disponivel": "Disponible para nuevas oportunidades",
     "local": "Itaúna, MG, Brasil · presencial, híbrido o remoto",
     "terminalTitle": "nuevo-mensaje.sh",
     "prompt": "enviar --a gustavo",
-    "whatsValue": "Respuesta más rápida"
+    "whatsValue": "Respuesta más rápida",
+    "tentarNovamente": "INTENTAR DE NUEVO"
   },
   "Arcade": {
     "titulo": "Arcade de Deploy",
@@ -148,5 +150,27 @@
     "pptWin": "¡Esta es tuya!",
     "pptLose": "¡Esta es mía!",
     "pptTie": "¡Pensamos igual!"
+  },
+  "Chat": {
+    "titulo": "Pregúntale a Deploy",
+    "sub": "IA entrenada con el currículum de Gu",
+    "abrir": "Pregúntale a Deploy sobre mí",
+    "oi": "¡Hola! Soy Deploy 🤖 Pregúntame lo que quieras sobre Gu: experiencia, tecnologías, proyectos...",
+    "placeholder": "Pregunta algo sobre Gu...",
+    "enviar": "Enviar",
+    "pensando": "Deploy está pensando",
+    "fechar": "Cerrar",
+    "sugestoes": [
+      "¿Dónde trabaja hoy?",
+      "¿Qué tecnologías usa?",
+      "Cuéntame sobre Fang",
+      "¿Ya trabajó con Azure?",
+      "¿Cómo hablo con él?"
+    ],
+    "offline": "Me quedé sin batería 🔋 ¡Habla directo con Gu por WhatsApp, responde rapidito!",
+    "limite": "¡Uf, muchas preguntas! Espera un poco y vuelve a intentar — o escríbele a Gu por WhatsApp 😄",
+    "erro": "Hubo un cortocircuito aquí 🤯 Intenta de nuevo en un momento.",
+    "whats": "Escribir por WhatsApp",
+    "aviso": "Respuestas generadas por IA a partir del currículum; pueden contener errores."
   }
 }

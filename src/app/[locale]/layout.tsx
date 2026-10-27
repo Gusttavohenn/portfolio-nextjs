@@ -13,6 +13,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import HiddenTerminal from "../components/HiddenTerminal";
 import ConsoleGreeting from "../components/ConsoleGreeting";
 import Arcade from "../components/Arcade";
+import DeployChat from "../components/DeployChat";
 
 // Importação do CSS Global
 import "../styles/style.css";
@@ -158,6 +159,7 @@ export default async function RootLayout({
           <HiddenTerminal />
           <ConsoleGreeting />
           <Arcade />
+          <DeployChat />
         </NextIntlClientProvider>
         
         {/* Font Awesome via CDN — ícones usados em todo o site */}

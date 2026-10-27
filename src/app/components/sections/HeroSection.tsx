@@ -5,6 +5,7 @@ import ParticleField from '../ParticleField';
 
 export default function HeroSection() {
   const t = useTranslations('HeroSection');
+  const tc = useTranslations('Chat');
   const locale = useLocale();
 
   const cvFile = `Gustavo_Oliveira_${locale.toUpperCase()}.pdf`;
@@ -30,6 +31,14 @@ export default function HeroSection() {
             {t('downloadCV')}
           </a>
         </div>
+
+        <button
+          className="hero-chat-btn"
+          onClick={() => window.dispatchEvent(new Event('open-chat'))}
+        >
+          <span className="hero-chat-dot" aria-hidden="true"></span>
+          {tc('abrir')}
+        </button>
       </div>
 
       <a href="#sobre" className="scroll-indicator" aria-label="Rolar para baixo">

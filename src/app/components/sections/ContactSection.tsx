@@ -6,8 +6,7 @@ import { socialLinks } from '@/lib/social-links';
 
 export default function ContactSection() {
   const t = useTranslations('ContactSection');
-  const [buttonText, setButtonText] = useState<string | null>(null);
-  const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [statusMsg, setStatusMsg] = useState('');
   const [statusType, setStatusType] = useState('');
 
@@ -15,7 +14,6 @@ export default function ContactSection() {
     e.preventDefault();
     const form = e.currentTarget;
     setButtonState('sending');
-    setButtonText(t('enviando'));
     setStatusMsg('');
     setStatusType('');
 
@@ -29,19 +27,16 @@ export default function ContactSection() {
       if (!response.ok) throw new Error();
 
       setButtonState('success');
-      setButtonText(t('enviado'));
       setStatusMsg(t('sucessoMsg'));
       setStatusType('success');
       form.reset();
     } catch {
-      setButtonState('idle');
-      setButtonText(null);
+      setButtonState('error');
       setStatusMsg(t('erroMsg'));
       setStatusType('error');
     } finally {
       setTimeout(() => {
         setButtonState('idle');
-        setButtonText(null);
         setStatusMsg('');
         setStatusType('');
       }, 3000);
@@ -150,11 +145,23 @@ export default function ContactSection() {
             <textarea id="cf-msg" name="message" placeholder={t('mensagemPlaceholder')} required></textarea>
             <button
               type="submit"
-              className={`cta-button form-button ${buttonState !== 'idle' ? buttonState : ''}`}
-              disabled={buttonState !== 'idle'}
+              className={`send-btn is-${buttonState}`}
+              disabled={buttonState === 'sending' || buttonState === 'success'}
               aria-describedby="form-status"
             >
-              <span className="button-content">{buttonText ?? t('enviar')}</span>
+              <span className="send-label" key={buttonState}>
+                {{ idle: t('enviar'), sending: t('enviando'), success: t('enviado'), error: t('tentarNovamente') }[buttonState]}
+              </span>
+              <span className="send-icon" aria-hidden="true">
+                {buttonState === 'success' ? (
+                  <svg viewBox="0 0 24 24" className="send-check"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+                ) : buttonState === 'error' ? (
+                  <svg viewBox="0 0 24 24" className="send-x"><path d="M7 7l10 10M17 7L7 17" /></svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" className="send-plane"><path d="M3 11.5L21 3l-7.5 18-2.5-7.5L3 11.5z" /><path d="M11 13.5L21 3" /></svg>
+                )}
+              </span>
+              <span className="send-progress" aria-hidden="true"></span>
             </button>
             {statusMsg && <p id="form-status" className={statusType}>{statusMsg}</p>}
           </form>
