@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { socialLinks } from "@/lib/social-links";
+import { cv, loc, yearsPeriod } from "@/lib/cv";
 
 /*
  * Terminal escondido: aperte "/" em qualquer lugar do site (ou clique em ">_" no rodapé).
@@ -39,14 +40,6 @@ const TEXT: Record<Lang, Record<string, string>> = {
       "dados      MySQL · SQL Server · PostgreSQL · MariaDB · MongoDB",
       "devops     Docker · Linux · Azure · Git",
       "ia         assistentes no WhatsApp (OPA Suite) · Claude · OpenAI",
-    ].join("\n"),
-    experiencia: [
-      "2026–hoje  Analista de Sistemas IV ........ Gox Internet",
-      "2025–2026  Analista de Infra de TI V ...... Grupo Minas Port",
-      "2024       Desenvolvedor .................. SGBras Telemetria",
-      "2022–2024  Analista de Sistemas ERP ....... Mercantil Fonte Boa",
-      "2021–2022  Helpdesk ....................... HTF Apps",
-      "2021       Estágio em TI .................. Prefeitura de Itaúna",
     ].join("\n"),
     projetos: [
       "fang/      Scanner de segurança web (Python · Flask)",
@@ -96,14 +89,6 @@ const TEXT: Record<Lang, Record<string, string>> = {
       "devops     Docker · Linux · Azure · Git",
       "ai         WhatsApp assistants (OPA Suite) · Claude · OpenAI",
     ].join("\n"),
-    experiencia: [
-      "2026–now   Systems Analyst IV ............. Gox Internet",
-      "2025–2026  IT Infrastructure Analyst V .... Grupo Minas Port",
-      "2024       Developer ...................... SGBras Telemetry",
-      "2022–2024  ERP Systems Analyst ............ Mercantil Fonte Boa",
-      "2021–2022  Helpdesk ....................... HTF Apps",
-      "2021       IT Intern ...................... Itaúna City Hall",
-    ].join("\n"),
     projetos: [
       "fang/      Web security scanner (Python · Flask)",
       "nexo/      Finance platform (Node.js · PostgreSQL)",
@@ -151,14 +136,6 @@ const TEXT: Record<Lang, Record<string, string>> = {
       "datos      MySQL · SQL Server · PostgreSQL · MariaDB · MongoDB",
       "devops     Docker · Linux · Azure · Git",
       "ia         asistentes en WhatsApp (OPA Suite) · Claude · OpenAI",
-    ].join("\n"),
-    experiencia: [
-      "2026–hoy   Analista de Sistemas IV ........ Gox Internet",
-      "2025–2026  Analista de Infra de TI V ...... Grupo Minas Port",
-      "2024       Desarrollador .................. SGBras Telemetría",
-      "2022–2024  Analista de Sistemas ERP ....... Mercantil Fonte Boa",
-      "2021–2022  Helpdesk ....................... HTF Apps",
-      "2021       Pasantía en TI ................. Municipalidad de Itaúna",
     ].join("\n"),
     projetos: [
       "fang/      Escáner de seguridad web (Python · Flask)",
@@ -230,6 +207,10 @@ export default function HiddenTerminal() {
     bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight });
   }, [lines]);
 
+  // gerado de content/cv.json (mesma fonte do site e dos PDFs)
+  const experienceText = () =>
+    cv.experience.map((e) => `${yearsPeriod(e, lang).padEnd(13)} ${e.role[lang]} — ${loc(e.company, lang)}`).join("\n");
+
   const openUrl = (url: string, label: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
     return `${T.opening} ${label}...`;
@@ -256,7 +237,7 @@ export default function HiddenTerminal() {
       case "skills": case "stack":
         push(T.skills); break;
       case "experiencia": case "experience": case "xp": case "jornada":
-        push(T.experiencia); break;
+        push(experienceText()); break;
       case "projetos": case "projects": case "proyectos":
         push(T.projetos); break;
       case "contato": case "contact": case "contacto":
@@ -280,7 +261,7 @@ export default function HiddenTerminal() {
       case "cat":
         if (rest.startsWith("sobre") || rest.startsWith("about")) push(T.whoami);
         else if (rest.startsWith("skills")) push(T.skills);
-        else if (rest.startsWith("experi")) push(T.experiencia);
+        else if (rest.startsWith("experi")) push(experienceText());
         else if (rest.startsWith("contat") || rest.startsWith("contact")) push(T.contato);
         else push(T.hint, "err");
         break;

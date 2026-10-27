@@ -1,0 +1,469 @@
+{
+  "_info": "FONTE ÚNICA do currículo. Editou aqui -> o site (Jornada), os PDFs (PT/EN/ES) e o Deploy com IA se atualizam. Os PDFs são gerados pelo GitHub Action 'Gerar currículos' (ou localmente com: npm run cv).",
+  "name": "Gustavo Henrique Oliveira",
+  "shortName": "Gustavo Oliveira",
+  "email": "gustavo_oliveira02@icloud.com",
+  "phone": "(37) 99873-0908",
+  "location": {
+    "pt": "Itaúna, MG",
+    "en": "Itaúna, MG, Brazil",
+    "es": "Itaúna, MG, Brasil"
+  },
+  "links": {
+    "portfolio": "https://portfolio-gusttavohenn.vercel.app",
+    "linkedin": "https://www.linkedin.com/in/gustavo-oliveira-0a96b022a/",
+    "github": "https://github.com/Gusttavohenn"
+  },
+  "title": {
+    "pt": "Analista de Sistemas · Desenvolvedor Back-end · Automação & IA",
+    "en": "Systems Analyst · Back-end Developer · Automation & AI",
+    "es": "Analista de Sistemas · Desarrollador Back-end · Automatización & IA"
+  },
+  "summary": {
+    "pt": "Desenvolvedor back-end focado em automação e integração de sistemas. Hoje, como Analista de Sistemas na Gox Internet, trabalho com o ERP do provedor (IXC) e assistentes de IA no WhatsApp, desenvolvo plugins para o GLPI e crio ferramentas internas que tiram trabalho manual das equipes de atendimento, RH e TI. Vim de infraestrutura, front-end e ERP, o que me dá uma visão de ponta a ponta: servidor, banco de dados e a pessoa que usa a tela.",
+    "en": "Back-end developer focused on automation and systems integration. As a Systems Analyst at Gox Internet, I work with the ISP's ERP (IXC) and AI-powered WhatsApp assistants, build GLPI plugins and create internal tools that remove manual work from the support, HR and IT teams. My background spans infrastructure, front-end and ERP, which gives me an end-to-end view: server, database and the person using the screen.",
+    "es": "Desarrollador back-end enfocado en automatización e integración de sistemas. Como Analista de Sistemas en Gox Internet, trabajo con el ERP del proveedor (IXC) y asistentes de IA en WhatsApp, desarrollo plugins para GLPI y creo herramientas internas que quitan trabajo manual a los equipos de atención, RR.HH. y TI. Vengo de infraestructura, front-end y ERP, lo que me da una visión de punta a punta: servidor, base de datos y la persona que usa la pantalla."
+  },
+  "experience": [
+    {
+      "company": "Gox Internet",
+      "role": {
+        "pt": "Analista de Sistemas IV",
+        "en": "Systems Analyst IV",
+        "es": "Analista de Sistemas IV"
+      },
+      "start": "2026-05",
+      "end": null,
+      "summary": {
+        "pt": "Automação e integração no provedor: trabalho com o ERP IXC e assistentes de IA no WhatsApp (OPA Suite), desenvolvi o Gox Assina (assinatura eletrônica de contratos), plugins para o GLPI e um agente de diagnóstico automatizado para a rede.",
+        "en": "Automation and integration at the ISP: I work with the IXC ERP and AI-powered WhatsApp assistants (OPA Suite), built Gox Assina (electronic contract signing), GLPI plugins and an automated network diagnostic agent.",
+        "es": "Automatización e integración en el proveedor: trabajo con el ERP IXC y asistentes de IA en WhatsApp (OPA Suite), desarrollé Gox Assina (firma electrónica de contratos), plugins para GLPI y un agente de diagnóstico automatizado para la red."
+      },
+      "bullets": {
+        "pt": [
+          "Desenvolvi o Gox Assina, plataforma de assinatura eletrônica de contratos",
+          "Otimizei os prompts e o roteamento de intenção dos assistentes de IA no WhatsApp (OPA Suite), propondo arquitetura com sub-assistentes por categoria",
+          "Criei verificação facial por selfie (CompreFace) na confirmação de contratos pelo WhatsApp",
+          "Desenvolvi plugins para o GLPI: portal simplificado de abertura de chamados e fluxo de revogação de acessos em férias",
+          "Construí um agente de diagnóstico automatizado para reclamações de instabilidade de rede usando ACS"
+        ],
+        "en": [
+          "Built Gox Assina, an electronic contract signing platform",
+          "Optimized prompts and intent routing for the AI-powered WhatsApp assistants (OPA Suite), proposing an architecture with sub-assistants per category",
+          "Created selfie-based facial verification (CompreFace) for contract confirmation over WhatsApp",
+          "Developed GLPI plugins: a simplified ticket-opening portal and a workflow to revoke employee access during vacations",
+          "Built an automated diagnostic agent for network instability complaints using ACS"
+        ],
+        "es": [
+          "Desarrollé Gox Assina, plataforma de firma electrónica de contratos",
+          "Optimicé los prompts y el enrutamiento de intención de los asistentes de IA en WhatsApp (OPA Suite), proponiendo una arquitectura con subasistentes por categoría",
+          "Creé verificación facial por selfie (CompreFace) en la confirmación de contratos por WhatsApp",
+          "Desarrollé plugins para GLPI: un portal simplificado para abrir tickets y un flujo de revocación de accesos en vacaciones",
+          "Construí un agente de diagnóstico automatizado para reclamos de inestabilidad de red usando ACS"
+        ]
+      }
+    },
+    {
+      "company": "Grupo Minas Port",
+      "role": {
+        "pt": "Analista de Infraestrutura de TI V",
+        "en": "IT Infrastructure Analyst V",
+        "es": "Analista de Infraestructura de TI V"
+      },
+      "start": "2025-02",
+      "end": "2026-05",
+      "summary": {
+        "pt": "Suporte N2, desenvolvimento e manutenção do sistema interno da empresa em C# e .NET, e participação na migração dos servidores físicos para o Microsoft Azure.",
+        "en": "N2 support, development and maintenance of the company's internal system in C# and .NET, and took part in migrating the physical servers to Microsoft Azure.",
+        "es": "Soporte N2, desarrollo y mantenimiento del sistema interno de la empresa en C# y .NET, y participación en la migración de los servidores físicos a Microsoft Azure."
+      },
+      "bullets": {
+        "pt": [
+          "Desenvolvimento e manutenção do sistema próprio da empresa em C# e .NET",
+          "Participei da migração dos servidores físicos para o Microsoft Azure",
+          "Suporte N2 a usuários, resolvendo chamados escalados do primeiro nível",
+          "Redes, firewalls e VPNs (Cisco, MikroTik, Sophos, pfSense, Fortinet) e Windows Server (AD, GPO)",
+          "Monitoramento com Zabbix e Grafana, backups com Veeam e rsync, scripts em Bash e PowerShell"
+        ],
+        "en": [
+          "Development and maintenance of the company's own system in C# and .NET",
+          "Took part in migrating the physical servers to Microsoft Azure",
+          "N2 user support, resolving tickets escalated from first level",
+          "Networks, firewalls and VPNs (Cisco, MikroTik, Sophos, pfSense, Fortinet) and Windows Server (AD, GPO)",
+          "Monitoring with Zabbix and Grafana, backups with Veeam and rsync, Bash and PowerShell scripts"
+        ],
+        "es": [
+          "Desarrollo y mantenimiento del sistema propio de la empresa en C# y .NET",
+          "Participé en la migración de los servidores físicos a Microsoft Azure",
+          "Soporte N2 a usuarios, resolviendo tickets escalados del primer nivel",
+          "Redes, firewalls y VPNs (Cisco, MikroTik, Sophos, pfSense, Fortinet) y Windows Server (AD, GPO)",
+          "Monitoreo con Zabbix y Grafana, backups con Veeam y rsync, scripts en Bash y PowerShell"
+        ]
+      }
+    },
+    {
+      "company": "SGBras Telemetria",
+      "role": {
+        "pt": "Desenvolvedor Front-end",
+        "en": "Front-end Developer",
+        "es": "Desarrollador Front-end"
+      },
+      "start": "2024-02",
+      "end": "2024-09",
+      "summary": {
+        "pt": "Desenvolvimento web com PHP e Laravel na plataforma de rastreamento veicular. Construí uma plataforma de chamados do zero e trabalhei com dados de rastreadores Galileosky e sensores de fadiga do motorista.",
+        "en": "Web development with PHP and Laravel on the vehicle tracking platform. Built a ticketing platform from scratch and worked with Galileosky tracker data and driver fatigue sensors.",
+        "es": "Desarrollo web con PHP y Laravel en la plataforma de rastreo vehicular. Construí una plataforma de tickets desde cero y trabajé con datos de rastreadores Galileosky y sensores de fatiga del conductor."
+      },
+      "bullets": {
+        "pt": [
+          "Desenvolvi do zero uma plataforma de chamados para o suporte (PHP, Laravel, MySQL)",
+          "Evolução da plataforma de rastreamento em Laravel (MVC), com dashboards e consultas em MySQL",
+          "Trabalho com dados de rastreadores Galileosky e sensores de fadiga do motorista",
+          "Debug da plataforma, análise de logs e suporte aos clientes"
+        ],
+        "en": [
+          "Built a support ticketing platform from scratch (PHP, Laravel, MySQL)",
+          "Evolved the Laravel (MVC) tracking platform, with dashboards and MySQL queries",
+          "Worked with Galileosky tracker data and driver fatigue sensors",
+          "Platform debugging, log analysis and customer support"
+        ],
+        "es": [
+          "Desarrollé desde cero una plataforma de tickets para soporte (PHP, Laravel, MySQL)",
+          "Evolución de la plataforma de rastreo en Laravel (MVC), con dashboards y consultas en MySQL",
+          "Trabajo con datos de rastreadores Galileosky y sensores de fatiga del conductor",
+          "Debug de la plataforma, análisis de logs y soporte a clientes"
+        ]
+      }
+    },
+    {
+      "company": "Mercantil Fonte Boa",
+      "role": {
+        "pt": "Analista de Sistemas ERP",
+        "en": "ERP Systems Analyst",
+        "es": "Analista de Sistemas ERP"
+      },
+      "start": "2022-04",
+      "end": "2024-02",
+      "summary": {
+        "pt": "Sustentação e parametrização do ERP Consinco (TOTVS), gerenciamento de banco Oracle, controle de acessos e automação de processos com scripts em Python.",
+        "en": "Support and setup of the Consinco (TOTVS) ERP, Oracle database management, access control and process automation with Python scripts.",
+        "es": "Soporte y parametrización del ERP Consinco (TOTVS), gestión de base de datos Oracle, control de accesos y automatización de procesos con scripts en Python."
+      },
+      "bullets": {
+        "pt": [
+          "Sustentação, parametrização e atualizações do ERP Consinco (TOTVS)",
+          "Gerenciamento de bancos de dados Oracle e controle de acessos",
+          "Automação de processos com scripts em Python",
+          "Suporte aos usuários das áreas de negócio"
+        ],
+        "en": [
+          "Support, setup and updates of the Consinco (TOTVS) ERP",
+          "Oracle database management and access control",
+          "Process automation with Python scripts",
+          "Support for business area users"
+        ],
+        "es": [
+          "Soporte, parametrización y actualizaciones del ERP Consinco (TOTVS)",
+          "Gestión de bases de datos Oracle y control de accesos",
+          "Automatización de procesos con scripts en Python",
+          "Soporte a los usuarios de las áreas de negocio"
+        ]
+      }
+    },
+    {
+      "company": "HTF Apps",
+      "role": {
+        "pt": "Helpdesk",
+        "en": "Helpdesk",
+        "es": "Helpdesk"
+      },
+      "start": "2021-09",
+      "end": "2022-04",
+      "summary": {
+        "pt": "Suporte técnico N1 e implantação de soluções de gestão de documentos com Alfresco Community, Tomcat 7 e PostgreSQL em servidores Linux e Docker. Montagem de fluxos para impressoras e migração de ambientes de Windows para Linux.",
+        "en": "N1 technical support and deployment of document management solutions with Alfresco Community, Tomcat 7 and PostgreSQL on Linux servers and Docker. Built printer workflows and migrated environments from Windows to Linux.",
+        "es": "Soporte técnico N1 e implementación de soluciones de gestión documental con Alfresco Community, Tomcat 7 y PostgreSQL en servidores Linux y Docker. Armado de flujos para impresoras y migración de entornos de Windows a Linux."
+      },
+      "bullets": {
+        "pt": [
+          "Suporte técnico N1 por telefone, chat e acesso remoto",
+          "Implantação de gestão de documentos com Alfresco Community, Tomcat 7 e PostgreSQL em Linux e Docker",
+          "Montagem de fluxos de trabalho para impressoras",
+          "Migração de ambientes de clientes de Windows para Linux"
+        ],
+        "en": [
+          "N1 technical support by phone, chat and remote access",
+          "Deployed document management with Alfresco Community, Tomcat 7 and PostgreSQL on Linux and Docker",
+          "Built workflows for printers",
+          "Migrated customer environments from Windows to Linux"
+        ],
+        "es": [
+          "Soporte técnico N1 por teléfono, chat y acceso remoto",
+          "Implementación de gestión documental con Alfresco Community, Tomcat 7 y PostgreSQL en Linux y Docker",
+          "Armado de flujos de trabajo para impresoras",
+          "Migración de entornos de clientes de Windows a Linux"
+        ]
+      }
+    },
+    {
+      "company": {
+        "pt": "Prefeitura de Itaúna/MG",
+        "en": "Itaúna/MG City Hall",
+        "es": "Municipalidad de Itaúna/MG"
+      },
+      "role": {
+        "pt": "Estágio em TI",
+        "en": "IT Intern",
+        "es": "Pasantía en TI"
+      },
+      "start": "2021",
+      "end": "2021",
+      "summary": {
+        "pt": "Suporte de hardware e ao usuário, manutenção de rede e configuração de Raspberry Pi para soluções internas da prefeitura.",
+        "en": "Hardware and user support, network maintenance and Raspberry Pi setup for the city hall's internal solutions.",
+        "es": "Soporte de hardware y al usuario, mantenimiento de red y configuración de Raspberry Pi para soluciones internas de la municipalidad."
+      },
+      "bullets": {
+        "pt": [
+          "Suporte de hardware e ao usuário e manutenção de rede",
+          "Configuração de Raspberry Pi para soluções internas"
+        ],
+        "en": [
+          "Hardware and user support and network maintenance",
+          "Raspberry Pi setup for internal solutions"
+        ],
+        "es": [
+          "Soporte de hardware y al usuario y mantenimiento de red",
+          "Configuración de Raspberry Pi para soluciones internas"
+        ]
+      }
+    }
+  ],
+  "education": [
+    {
+      "course": {
+        "pt": "Bacharelado em Engenharia de Software",
+        "en": "Bachelor's in Software Engineering",
+        "es": "Licenciatura en Ingeniería de Software"
+      },
+      "school": "Anhanguera",
+      "start": "2025",
+      "end": "2029",
+      "status": {
+        "pt": "Em andamento · EAD",
+        "en": "In progress · online",
+        "es": "En curso · a distancia"
+      }
+    },
+    {
+      "course": {
+        "pt": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+        "en": "Associate degree in Systems Analysis and Development",
+        "es": "Tecnicatura en Análisis y Desarrollo de Sistemas"
+      },
+      "school": "Uninter",
+      "start": "2025",
+      "end": "2027",
+      "status": {
+        "pt": "Em andamento · EAD",
+        "en": "In progress · online",
+        "es": "En curso · a distancia"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "group": {
+        "pt": "Back-end",
+        "en": "Back-end",
+        "es": "Back-end"
+      },
+      "items": [
+        "PHP",
+        "Laravel",
+        "C#",
+        ".NET",
+        "Python",
+        "Node.js",
+        "Java",
+        {
+          "pt": "APIs REST",
+          "en": "REST APIs",
+          "es": "APIs REST"
+        }
+      ]
+    },
+    {
+      "group": {
+        "pt": "Dados",
+        "en": "Data",
+        "es": "Datos"
+      },
+      "items": [
+        "MySQL",
+        "SQL Server",
+        "PostgreSQL",
+        "MariaDB",
+        "MongoDB",
+        "Oracle"
+      ]
+    },
+    {
+      "group": {
+        "pt": "Infra & DevOps",
+        "en": "Infra & DevOps",
+        "es": "Infra & DevOps"
+      },
+      "items": [
+        "Docker",
+        "Linux",
+        "Microsoft Azure",
+        "Windows Server",
+        "Git",
+        "Zabbix",
+        "Grafana"
+      ]
+    },
+    {
+      "group": {
+        "pt": "IA & Automação",
+        "en": "AI & Automation",
+        "es": "IA & Automatización"
+      },
+      "items": [
+        {
+          "pt": "Assistentes de IA no WhatsApp (OPA Suite)",
+          "en": "AI-powered WhatsApp assistants (OPA Suite)",
+          "es": "Asistentes de IA en WhatsApp (OPA Suite)"
+        },
+        "Claude",
+        "OpenAI",
+        {
+          "pt": "Integrações via API",
+          "en": "API integrations",
+          "es": "Integraciones vía API"
+        },
+        "IXC Provedor",
+        "GLPI"
+      ]
+    },
+    {
+      "group": {
+        "pt": "Front-end",
+        "en": "Front-end",
+        "es": "Front-end"
+      },
+      "items": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ]
+    }
+  ],
+  "softSkills": {
+    "pt": [
+      "Proatividade",
+      "Comunicação",
+      "Trabalho em equipe",
+      "Gestão do tempo",
+      "Atenção aos detalhes",
+      "Adaptabilidade"
+    ],
+    "en": [
+      "Proactivity",
+      "Communication",
+      "Teamwork",
+      "Time management",
+      "Attention to detail",
+      "Adaptability"
+    ],
+    "es": [
+      "Proactividad",
+      "Comunicación",
+      "Trabajo en equipo",
+      "Gestión del tiempo",
+      "Atención al detalle",
+      "Adaptabilidad"
+    ]
+  },
+  "languages": [
+    {
+      "name": {
+        "pt": "Português",
+        "en": "Portuguese",
+        "es": "Portugués"
+      },
+      "level": {
+        "pt": "Nativo",
+        "en": "Native",
+        "es": "Nativo"
+      }
+    },
+    {
+      "name": {
+        "pt": "Inglês",
+        "en": "English",
+        "es": "Inglés"
+      },
+      "level": {
+        "pt": "Intermediário",
+        "en": "Intermediate",
+        "es": "Intermedio"
+      }
+    },
+    {
+      "name": {
+        "pt": "Espanhol",
+        "en": "Spanish",
+        "es": "Español"
+      },
+      "level": {
+        "pt": "Básico",
+        "en": "Basic",
+        "es": "Básico"
+      }
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Claude Code in Action",
+      "platform": "Anthropic"
+    },
+    {
+      "title": "Introduction to Subagents",
+      "platform": "Anthropic"
+    },
+    {
+      "title": "Claude 101",
+      "platform": "Anthropic"
+    },
+    {
+      "title": "O Curso Completo de Banco de Dados e SQL",
+      "platform": "Udemy",
+      "hours": "58,5h"
+    },
+    {
+      "title": "Front End & UX/UI Design",
+      "platform": "Origamid",
+      "hours": "82h"
+    },
+    {
+      "title": "JavaScript e jQuery",
+      "platform": "Origamid",
+      "hours": "18h"
+    },
+    {
+      "title": "Construindo um Sistema para um Estacionamento com C#",
+      "platform": "DIO"
+    },
+    {
+      "title": "Introdução ao Git e ao GitHub",
+      "platform": "DIO",
+      "hours": "5h"
+    }
+  ]
+}
