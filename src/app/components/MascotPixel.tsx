@@ -5,11 +5,16 @@ import { useTranslations } from "next-intl";
 import RobotSprite from "./RobotSprite";
 
 /*
- * Mascote de plataforma: anda em cima dos títulos, cards e botões da página.
+ * Deploy — o mascote de plataforma: anda em cima dos títulos, cards e botões da página.
  * Quando a plataforma em que ele está sai da tela (porque você rolou),
  * ele pula para o próximo texto visível, como num jogo 2D.
  * Clique nele: ele pula e fala. 5 cliques rápidos ou o Konami Code: festa.
+ * Ao pousar numa seção nova ele comenta sobre ela (uma vez por seção).
+ * Visitante que volta (mesmo navegador) recebe outro cumprimento — guardado
+ * só no navegador da pessoa (localStorage), sem IP nem dado pessoal.
  */
+
+const VISITED_KEY = "deploy-visited";
 
 const W = 40;            // largura do sprite (px)
 const H = 50;            // altura do sprite (px)
@@ -49,6 +54,9 @@ export default function MascotPixel() {
   const [bubble, setBubble] = useState<string | null>(null);
   const [hue, setHue] = useState(258);
   const bubbleTimer = useRef<number | undefined>(undefined);
+  const bubbleActive = useRef(false);
+  const commented = useRef<Set<string>>(new Set());
+  const greetDone = useRef(false);
 
   // physics state lives in a ref so the loop never re-renders React
   const s = useRef({
@@ -67,17 +75,21 @@ export default function MascotPixel() {
   const hintIndex = useRef(0);
   const konamiPos = useRef(0);
 
-  const showBubble = (text: string, ms = 3200) => {
+  const showBubble = (text: string, ms = 3400) => {
     setBubble(text);
+    bubbleActive.current = true;
     window.clearTimeout(bubbleTimer.current);
-    bubbleTimer.current = window.setTimeout(() => setBubble(null), ms);
+    bubbleTimer.current = window.setTimeout(() => {
+      setBubble(null);
+      bubbleActive.current = false;
+    }, ms);
   };
 
   const party = () => {
     const st = s.current;
     if (st.party) return;
     st.party = true;
-    showBubble(t("hint3"), 4000);
+    showBubble(t("party"), 4000);
     let h = 0;
     const spin = window.setInterval(() => {
       h = (h + 40) % 360;
@@ -230,6 +242,11 @@ export default function MascotPixel() {
             st.y = floorY;
           }
           if (st.mode === "ground") {
+            const section = st.plat?.closest("section[id]")?.id;
+            if (section && greetDone.current && !bubbleActive.current && !commented.current.has(section) && t.has(`secao.${section}`)) {
+              commented.current.add(section);
+              showBubble(t(`secao.${section}`), 3600);
+            }
             st.vx = 0;
             st.vy = 0;
             st.squashUntil = now + 140;
@@ -275,7 +292,18 @@ export default function MascotPixel() {
     const onParty = () => party();
     window.addEventListener("mascot-party", onParty);
 
-    const greet = window.setTimeout(() => showBubble(t("hint1"), 3600), 2200);
+    // first visit vs. returning visitor (remembered only in this browser)
+    let returning = false;
+    try {
+      returning = window.localStorage.getItem(VISITED_KEY) === "1";
+      window.localStorage.setItem(VISITED_KEY, "1");
+    } catch {
+      /* storage blocked: treat as first visit */
+    }
+    const greet = window.setTimeout(() => {
+      showBubble(returning ? t("greetBack") : t("greetFirst"), returning ? 3800 : 5600);
+      window.setTimeout(() => { greetDone.current = true; }, returning ? 3900 : 5700);
+    }, 1800);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -304,7 +332,7 @@ export default function MascotPixel() {
       party();
       return;
     }
-    const hints = [t("hint1"), t("hint7"), t("hint2"), t("hint6"), t("hint4"), t("hint5")];
+    const hints = t.raw("frases") as string[];
     showBubble(hints[hintIndex.current % hints.length]);
     hintIndex.current += 1;
   };
@@ -315,8 +343,8 @@ export default function MascotPixel() {
       <button
         className="mascot-btn"
         onClick={onClick}
-        aria-label="Mascote — clique para ele pular"
-        title="Clica em mim :)"
+        aria-label={t("aria")}
+        title={t("title")}
       >
         <div ref={bodyRef} className="mascot-body">
           <RobotSprite hue={hue} />

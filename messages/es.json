@@ -90,13 +90,31 @@
     "direitos": "Todos los derechos reservados."
   },
   "Mascot": {
-    "hint1": "¡Hola! Voy saltando por los textos contigo 👋",
-    "hint2": "Prueba el Konami Code...",
-    "hint3": "¡Encontraste un easter egg!",
-    "hint4": "¿Hablamos? ¡Escríbeme en contacto!",
-    "hint5": "while(vivo) { aprender(); }",
-    "hint6": "Haz clic 5 veces rapidito en mí...",
-    "hint7": "Psst: presiona / en el teclado para abrir mi terminal secreta"
+    "greetFirst": "¡Hola! Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio 👋",
+    "greetBack": "¿Ah, tú otra vez? Ya me conoces, ¡sigamos! 😄",
+    "party": "¡Encontraste un easter egg! 🎉",
+    "frases": [
+      "Funciono solo, igual que los sistemas de Gu.",
+      "¿Jugamos? ¡Haz clic en el 🎮 de arriba!",
+      "0 bugs saltados hasta ahora. Bueno... casi.",
+      "Psst: presiona / para abrir la terminal secreta.",
+      "¿Ya probaste el Konami Code? ↑↑↓↓←→←→ B A",
+      "Haz clic 5 veces rapidito en mí...",
+      "while (vivo) { aprender(); }",
+      "No soy un cron job, pero también trabajo de madrugada.",
+      "¿Te gustó? Hablemos, el botón verde está ahí abajo 💬",
+      "El 404 es mi lugar favorito. ¿Ya lo viste?"
+    ],
+    "secao": {
+      "sobre": "Ese es Gu, mi maestro. Buena gente, lo prometo.",
+      "jornada": "De la Municipalidad hasta Gox... ¡qué subida!",
+      "skills": "PHP, C#, Python... habla más lenguajes que yo.",
+      "projetos": "Este Fang lo hizo Gu desde cero 🛡️",
+      "certificados": "Este no para de estudiar.",
+      "contato": "¡Última parada! Saluda a Gu 👇"
+    },
+    "aria": "Deploy, la mascota — haz clic para que salte",
+    "title": "¡Soy Deploy! Haz clic en mí :)"
   },
   "ContactSection": {
     "titulo": "Contacto",
@@ -115,5 +133,38 @@
     "terminalTitle": "nuevo-mensaje.sh",
     "prompt": "enviar --a gustavo",
     "whatsValue": "Respuesta más rápida"
+  },
+  "Arcade": {
+    "titulo": "Arcade de Deploy",
+    "abrir": "Jugar con Deploy",
+    "fechar": "Cerrar",
+    "voltar": "← Juegos",
+    "escolha": "¡Elige un juego y desafíame!",
+    "velha": "Tres en Raya",
+    "velhaDesc": "Eres la X. A que no me ganas.",
+    "memoria": "Juego de Memoria",
+    "memoriaDesc": "Encuentra los pares de las tecnologías de Gu.",
+    "ppt": "Piedra, Papel o Tijera",
+    "pptDesc": "Al mejor de las que quieras.",
+    "voce": "Tú",
+    "deploy": "Deploy",
+    "empates": "Empates",
+    "suaVez": "¡Tu turno!",
+    "pensando": "Deploy pensando...",
+    "venceu": "¡Ganaste! Se lo voy a contar a Gu... 😤",
+    "perdeu": "¡Gané! Bip bop 🤖",
+    "empate": "¡Empate! Juegas bien, eh.",
+    "deNovo": "Jugar de nuevo",
+    "jogadas": "Jugadas",
+    "recorde": "Récord",
+    "fimMemoria": "¡Terminaste en {n} jugadas! 🎉",
+    "novoRecorde": "¡Nuevo récord!",
+    "pedra": "Piedra",
+    "papel": "Papel",
+    "tesoura": "Tijera",
+    "escolheu": "Yo elegí {x}.",
+    "pptWin": "¡Esta es tuya!",
+    "pptLose": "¡Esta es mía!",
+    "pptTie": "¡Pensamos igual!"
   }
 }

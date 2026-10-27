@@ -90,13 +90,31 @@
     "direitos": "Todos os direitos reservados."
   },
   "Mascot": {
-    "hint1": "Oi! Vou pulando pelos textos com você 👋",
-    "hint2": "Tenta o Konami Code...",
-    "hint3": "Você achou um easter egg!",
-    "hint4": "Bora conversar? Chama no contato!",
-    "hint5": "while(vivo) { aprender(); }",
-    "hint6": "Clica 5 vezes rapidinho em mim...",
-    "hint7": "Psiu: aperta / no teclado pra abrir meu terminal secreto"
+    "greetFirst": "Oi! Eu sou o Deploy, robô desenvolvido pelo meu mestre Gu, e vou te acompanhar pelo site 👋",
+    "greetBack": "Ah, você de novo? Você já me conhece, vamos continuar! 😄",
+    "party": "Você achou um easter egg! 🎉",
+    "frases": [
+      "Rodo sozinho, igual aos sistemas do Gu.",
+      "Quer jogar comigo? Clica no 🎮 lá em cima!",
+      "Pulei 0 bugs até agora. Quer dizer... quase.",
+      "Psiu: aperta / pra abrir o terminal secreto.",
+      "Já tentou o Konami Code? ↑↑↓↓←→←→ B A",
+      "Clica 5 vezes rapidinho em mim...",
+      "while (vivo) { aprender(); }",
+      "Não sou cron job, mas também trabalho de madrugada.",
+      "Gostou? Bora conversar, o botão verde tá ali embaixo 💬",
+      "404 é meu lugar favorito. Já viu?"
+    ],
+    "secao": {
+      "sobre": "Esse é o Gu, meu mestre. Gente boa, prometo.",
+      "jornada": "Daqui da Prefeitura até a Gox... que subida!",
+      "skills": "PHP, C#, Python... ele fala mais língua que eu.",
+      "projetos": "Esse Fang aqui o Gu fez do zero 🛡️",
+      "certificados": "Estudando sem parar, esse aí.",
+      "contato": "Última parada! Manda um oi pro Gu 👇"
+    },
+    "aria": "Deploy, o mascote — clique para ele pular",
+    "title": "Eu sou o Deploy! Clica em mim :)"
   },
   "ContactSection": {
     "titulo": "Contato",
@@ -115,5 +133,38 @@
     "terminalTitle": "nova-mensagem.sh",
     "prompt": "enviar --para gustavo",
     "whatsValue": "Resposta mais rápida"
+  },
+  "Arcade": {
+    "titulo": "Fliperama do Deploy",
+    "abrir": "Jogar com o Deploy",
+    "fechar": "Fechar",
+    "voltar": "← Jogos",
+    "escolha": "Escolhe um jogo e me desafia!",
+    "velha": "Jogo da Velha",
+    "velhaDesc": "Você é o X. Duvido ganhar de mim.",
+    "memoria": "Jogo da Memória",
+    "memoriaDesc": "Ache os pares das tecnologias do Gu.",
+    "ppt": "Pedra, Papel e Tesoura",
+    "pptDesc": "Melhor de quantas você quiser.",
+    "voce": "Você",
+    "deploy": "Deploy",
+    "empates": "Empates",
+    "suaVez": "Sua vez!",
+    "pensando": "Deploy pensando...",
+    "venceu": "Você venceu! Vou contar pro Gu... 😤",
+    "perdeu": "Ganhei! Bip bop 🤖",
+    "empate": "Empate! Tá jogando bem, hein.",
+    "deNovo": "Jogar de novo",
+    "jogadas": "Jogadas",
+    "recorde": "Recorde",
+    "fimMemoria": "Terminou em {n} jogadas! 🎉",
+    "novoRecorde": "Novo recorde!",
+    "pedra": "Pedra",
+    "papel": "Papel",
+    "tesoura": "Tesoura",
+    "escolheu": "Eu escolhi {x}.",
+    "pptWin": "Você ganhou essa!",
+    "pptLose": "Essa foi minha!",
+    "pptTie": "Pensamos igual!"
   }
 }

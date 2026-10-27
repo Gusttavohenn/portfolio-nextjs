@@ -90,13 +90,31 @@
     "direitos": "All rights reserved."
   },
   "Mascot": {
-    "hint1": "Hi! I'll hop along the page with you 👋",
-    "hint2": "Try the Konami Code...",
-    "hint3": "You found an easter egg!",
-    "hint4": "Let's talk? Hit me up in contact!",
-    "hint5": "while(alive) { learn(); }",
-    "hint6": "Click me 5 times real quick...",
-    "hint7": "Psst: press / on your keyboard to open my secret terminal"
+    "greetFirst": "Hi! I'm Deploy, a robot built by my master Gu, and I'll walk you through the site 👋",
+    "greetBack": "Oh, you again? You already know me, let's keep going! 😄",
+    "party": "You found an easter egg! 🎉",
+    "frases": [
+      "I run on my own, just like Gu's systems.",
+      "Wanna play with me? Hit the 🎮 up top!",
+      "0 bugs jumped so far. Well... almost.",
+      "Psst: press / to open the secret terminal.",
+      "Have you tried the Konami Code? ↑↑↓↓←→←→ B A",
+      "Click me 5 times real quick...",
+      "while (alive) { learn(); }",
+      "I'm not a cron job, but I also work at night.",
+      "Liked it? Let's talk, the green button is right down there 💬",
+      "404 is my favorite place. Seen it yet?"
+    ],
+    "secao": {
+      "sobre": "That's Gu, my master. Good guy, I promise.",
+      "jornada": "From City Hall all the way to Gox... what a climb!",
+      "skills": "PHP, C#, Python... he speaks more languages than me.",
+      "projetos": "Gu built this Fang one from scratch 🛡️",
+      "certificados": "This guy never stops studying.",
+      "contato": "Last stop! Say hi to Gu 👇"
+    },
+    "aria": "Deploy, the mascot — click to make him jump",
+    "title": "I'm Deploy! Click me :)"
   },
   "ContactSection": {
     "titulo": "Contact",
@@ -115,5 +133,38 @@
     "terminalTitle": "new-message.sh",
     "prompt": "send --to gustavo",
     "whatsValue": "Fastest reply"
+  },
+  "Arcade": {
+    "titulo": "Deploy's Arcade",
+    "abrir": "Play with Deploy",
+    "fechar": "Close",
+    "voltar": "← Games",
+    "escolha": "Pick a game and challenge me!",
+    "velha": "Tic-Tac-Toe",
+    "velhaDesc": "You're X. Bet you can't beat me.",
+    "memoria": "Memory Game",
+    "memoriaDesc": "Match the pairs of Gu's tech stack.",
+    "ppt": "Rock, Paper, Scissors",
+    "pptDesc": "Best of however many you want.",
+    "voce": "You",
+    "deploy": "Deploy",
+    "empates": "Draws",
+    "suaVez": "Your turn!",
+    "pensando": "Deploy is thinking...",
+    "venceu": "You won! I'm telling Gu... 😤",
+    "perdeu": "I win! Beep boop 🤖",
+    "empate": "Draw! You're good, huh.",
+    "deNovo": "Play again",
+    "jogadas": "Moves",
+    "recorde": "Best",
+    "fimMemoria": "Done in {n} moves! 🎉",
+    "novoRecorde": "New record!",
+    "pedra": "Rock",
+    "papel": "Paper",
+    "tesoura": "Scissors",
+    "escolheu": "I picked {x}.",
+    "pptWin": "You got this one!",
+    "pptLose": "That one's mine!",
+    "pptTie": "Great minds think alike!"
   }
 }

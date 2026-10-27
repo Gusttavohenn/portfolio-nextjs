@@ -22,6 +22,14 @@ export default function Footer() {
             >
                 &gt;_
             </button>
+            <button
+                className="footer-terminal-btn"
+                onClick={() => window.dispatchEvent(new Event('open-arcade'))}
+                aria-label="Jogar com o Deploy"
+                title="Jogar com o Deploy"
+            >
+                🎮 jogar
+            </button>
         </footer>
     );
 }

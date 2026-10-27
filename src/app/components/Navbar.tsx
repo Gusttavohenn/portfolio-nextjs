@@ -49,6 +49,14 @@ export default function Navbar() {
       </nav>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
         <LanguageSwitcher />
+        <button
+          className="theme-toggle arcade-toggle"
+          onClick={() => window.dispatchEvent(new Event('open-arcade'))}
+          aria-label="Jogar com o Deploy"
+          title="Jogar com o Deploy 🎮"
+        >
+          <span aria-hidden="true">🎮</span>
+        </button>
         <button id="theme-toggle" className="theme-toggle" aria-label="Mudar tema">
           <i className={`fa-solid ${themeIcon}`}></i>
         </button>
