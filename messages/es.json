@@ -82,9 +82,9 @@
     "proximo": "Siguiente"
   },
   "NotFound": {
-    "titulo": "Página no encontrada",
-    "descricao": "La página que buscas no existe o fue movida.",
-    "voltar": "Volver al inicio"
+    "titulo": "¡Ups! Me perdí por aquí...",
+    "descricao": "Busqué por todas partes y esta página no existe (o se movió). ¿Volvemos al inicio?",
+    "voltar": "VOLVER AL INICIO"
   },
   "Footer": {
     "direitos": "Todos los derechos reservados."
@@ -95,7 +95,8 @@
     "hint3": "¡Encontraste un easter egg!",
     "hint4": "¿Hablamos? ¡Escríbeme en contacto!",
     "hint5": "while(vivo) { aprender(); }",
-    "hint6": "Haz clic 5 veces rapidito en mí..."
+    "hint6": "Haz clic 5 veces rapidito en mí...",
+    "hint7": "Psst: presiona / en el teclado para abrir mi terminal secreta"
   },
   "ContactSection": {
     "titulo": "Contacto",

@@ -14,6 +14,14 @@ export default function Footer() {
                 <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
             </div>
             <p>&copy; {new Date().getFullYear()} Gustavo Oliveira. {t('direitos')}</p>
+            <button
+                className="footer-terminal-btn"
+                onClick={() => window.dispatchEvent(new Event('open-terminal'))}
+                aria-label="Abrir terminal"
+                title="Abrir terminal (atalho: /)"
+            >
+                &gt;_
+            </button>
         </footer>
     );
 }
