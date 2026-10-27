@@ -125,7 +125,7 @@
     "voltar": "← Juegos",
     "escolha": "¡Elige un juego y desafíame!",
     "velha": "Tres en Raya",
-    "velhaDesc": "Eres la X. A que no me ganas.",
+    "velhaDesc": "Eres la X. En difícil soy imbatible.",
     "memoria": "Juego de Memoria",
     "memoriaDesc": "Encuentra los pares de las tecnologías de Gu.",
     "ppt": "Piedra, Papel o Tijera",
@@ -149,7 +149,13 @@
     "escolheu": "Yo elegí {x}.",
     "pptWin": "¡Esta es tuya!",
     "pptLose": "¡Esta es mía!",
-    "pptTie": "¡Pensamos igual!"
+    "pptTie": "¡Pensamos igual!",
+    "nivel": "Dificultad",
+    "facil": "Fácil",
+    "medio": "Medio",
+    "dificil": "Difícil",
+    "deployComeca": "Ahora empiezo yo...",
+    "voceComeca": "Empiezas tú. ¡Suerte!"
   },
   "Chat": {
     "titulo": "Pregúntale a Deploy",

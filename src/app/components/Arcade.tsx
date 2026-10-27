@@ -99,39 +99,107 @@ type ReactFn = (text: string, m: Mood) => void;
 
 /* ---------------- Jogo da velha ---------------- */
 
+type Cell = "X" | "O" | null;
+type Level = "facil" | "medio" | "dificil";
 const LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-function winnerOf(b: (string | null)[]): string | null {
+
+function winnerOf(b: Cell[]): "X" | "O" | "draw" | null {
   for (const [a, c, d] of LINES) if (b[a] && b[a] === b[c] && b[a] === b[d]) return b[a];
   return b.every(Boolean) ? "draw" : null;
 }
-function minimax(b: (string | null)[], turn: "O" | "X"): { score: number; move: number } {
+
+// Minimax com profundidade: prefere vencer rápido e perder o mais tarde possível.
+function score(b: Cell[], turn: "O" | "X", depth: number): number {
   const w = winnerOf(b);
-  if (w === "O") return { score: 1, move: -1 };
-  if (w === "X") return { score: -1, move: -1 };
-  if (w === "draw") return { score: 0, move: -1 };
-  let best = { score: turn === "O" ? -2 : 2, move: -1 };
-  b.forEach((cell, i) => {
-    if (cell) return;
+  if (w === "O") return 10 - depth;
+  if (w === "X") return depth - 10;
+  if (w === "draw") return 0;
+  let best = turn === "O" ? -Infinity : Infinity;
+  for (let i = 0; i < 9; i++) {
+    if (b[i]) continue;
     b[i] = turn;
-    const r = minimax(b, turn === "O" ? "X" : "O");
+    const v = score(b, turn === "O" ? "X" : "O", depth + 1);
     b[i] = null;
-    if (turn === "O" ? r.score > best.score : r.score < best.score) best = { score: r.score, move: i };
-  });
+    best = turn === "O" ? Math.max(best, v) : Math.min(best, v);
+  }
   return best;
+}
+
+const free = (b: Cell[]) => b.map((c, i) => (c ? -1 : i)).filter((i) => i >= 0);
+const pickRandom = (xs: number[]) => xs[Math.floor(Math.random() * xs.length)];
+
+// a jogada que completa uma linha para "who" (para ganhar ou para bloquear)
+function finishingMove(b: Cell[], who: "X" | "O"): number | null {
+  for (const i of free(b)) {
+    b[i] = who;
+    const w = winnerOf(b) === who;
+    b[i] = null;
+    if (w) return i;
+  }
+  return null;
+}
+
+function bestMove(b: Cell[]): number {
+  const moves = free(b);
+  if (moves.length === 9) return pickRandom([0, 2, 4, 6, 8]); // abre num canto ou no centro
+  let best = -Infinity;
+  let options: number[] = [];
+  for (const i of moves) {
+    b[i] = "O";
+    const v = score(b, "X", 1);
+    b[i] = null;
+    if (v > best) { best = v; options = [i]; }
+    else if (v === best) options.push(i);
+  }
+  return pickRandom(options); // varia entre jogadas igualmente boas
+}
+
+function deployMove(b: Cell[], level: Level): number {
+  const moves = free(b);
+  if (level === "dificil") return bestMove([...b]);
+  const win = finishingMove([...b], "O");
+  if (win !== null) return win;                         // nunca perde a chance de ganhar
+  if (level === "medio") {
+    const block = finishingMove([...b], "X");
+    if (block !== null) return block;                   // sempre bloqueia
+    return Math.random() < 0.3 ? pickRandom(moves) : bestMove([...b]);
+  }
+  // fácil: bloqueia às vezes, joga meio solto
+  const block = finishingMove([...b], "X");
+  if (block !== null && Math.random() < 0.5) return block;
+  return Math.random() < 0.6 ? pickRandom(moves) : bestMove([...b]);
 }
 
 function TicTacToe({ react }: { react: ReactFn }) {
   const t = useTranslations("Arcade");
-  const [board, setBoard] = useState<(string | null)[]>(Array(9).fill(null));
+  const [level, setLevel] = useState<Level>("dificil");
+  const [board, setBoard] = useState<Cell[]>(Array(9).fill(null));
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState<string | null>(null);
   const [score, setScore] = useState({ x: 0, o: 0, d: 0 });
+  const [deployStarts, setDeployStarts] = useState(false);
+  const [winLine, setWinLine] = useState<number[] | null>(null);
 
-  const finish = (w: string) => {
+  const finish = (b: Cell[], w: "X" | "O" | "draw") => {
     setDone(w);
+    setWinLine(LINES.find(([a, c, d]) => b[a] && b[a] === b[c] && b[a] === b[d]) ?? null);
     if (w === "X") { setScore((s) => ({ ...s, x: s.x + 1 })); react(t("venceu"), "sad"); }
     else if (w === "O") { setScore((s) => ({ ...s, o: s.o + 1 })); react(t("perdeu"), "happy"); }
     else { setScore((s) => ({ ...s, d: s.d + 1 })); react(t("empate"), "idle"); }
+  };
+
+  const deployPlays = (b: Cell[]) => {
+    setBusy(true);
+    react(t("pensando"), "think");
+    window.setTimeout(() => {
+      const next = [...b];
+      next[deployMove(next, level)] = "O";
+      setBoard(next);
+      setBusy(false);
+      const w = winnerOf(next);
+      if (w) finish(next, w);
+      else react(t("suaVez"), "idle");
+    }, 550);
   };
 
   const play = (i: number) => {
@@ -140,35 +208,64 @@ function TicTacToe({ react }: { react: ReactFn }) {
     b[i] = "X";
     setBoard(b);
     const w = winnerOf(b);
-    if (w) return finish(w);
-    setBusy(true);
-    react(t("pensando"), "think");
-    window.setTimeout(() => {
-      const free = b.map((c, k) => (c ? -1 : k)).filter((k) => k >= 0);
-      // Deploy é bom, mas às vezes se distrai (25%) — dá pra ganhar dele
-      const move = Math.random() < 0.25 ? free[Math.floor(Math.random() * free.length)] : minimax([...b], "O").move;
-      b[move] = "O";
-      setBoard([...b]);
-      setBusy(false);
-      const w2 = winnerOf(b);
-      if (w2) finish(w2);
-      else react(t("suaVez"), "idle");
-    }, 550);
+    if (w) return finish(b, w);
+    deployPlays(b);
   };
 
-  const reset = () => { setBoard(Array(9).fill(null)); setDone(null); react(t("suaVez"), "idle"); };
+  const newRound = (starts: boolean, lvl: Level = level) => {
+    const empty: Cell[] = Array(9).fill(null);
+    setBoard(empty);
+    setDone(null);
+    setWinLine(null);
+    setDeployStarts(starts);
+    if (starts) {
+      // o Deploy abre a rodada
+      setBusy(true);
+      react(t("deployComeca"), "think");
+      window.setTimeout(() => {
+        const next = [...empty];
+        next[deployMove(next, lvl)] = "O";
+        setBoard(next);
+        setBusy(false);
+        react(t("suaVez"), "idle");
+      }, 650);
+    } else {
+      react(t("voceComeca"), "idle");
+    }
+  };
+
+  const changeLevel = (lvl: Level) => {
+    setLevel(lvl);
+    setScore({ x: 0, o: 0, d: 0 });
+    newRound(false, lvl);
+  };
+
+  const levels: Level[] = ["facil", "medio", "dificil"];
 
   return (
     <div className="game">
+      <div className="ttt-levels" role="group" aria-label={t("nivel")}>
+        {levels.map((l) => (
+          <button key={l} className={`ttt-level ${level === l ? "active" : ""}`} aria-pressed={level === l} onClick={() => changeLevel(l)}>
+            {t(l)}
+          </button>
+        ))}
+      </div>
       <Scoreboard a={score.x} b={score.o} d={score.d} />
       <div className="ttt-grid">
         {board.map((c, i) => (
-          <button key={i} className={`ttt-cell ${c ? `is-${c}` : ""}`} onClick={() => play(i)} disabled={!!c || !!done || busy} aria-label={`Casa ${i + 1}${c ? `: ${c}` : ""}`}>
+          <button
+            key={i}
+            className={`ttt-cell ${c ? `is-${c}` : ""} ${winLine?.includes(i) ? "win" : ""}`}
+            onClick={() => play(i)}
+            disabled={!!c || !!done || busy}
+            aria-label={`${i + 1}${c ? `: ${c}` : ""}`}
+          >
             {c}
           </button>
         ))}
       </div>
-      {done && <button className="game-again" onClick={reset}>{t("deNovo")}</button>}
+      {done && <button className="game-again" onClick={() => newRound(!deployStarts)}>{t("deNovo")}</button>}
     </div>
   );
 }
