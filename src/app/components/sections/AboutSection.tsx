@@ -40,7 +40,7 @@ export default function AboutSection() {
             <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
             <div>
               <span className="about-card-label">{t('educacaoLabel')}</span>
-              <span className="about-card-value">ADS · Eng. de Software</span>
+              <span className="about-card-value">Eng. de Software · ADS</span>
               <span className="about-card-sub">{t('emAndamento')}</span>
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function AboutSection() {
             <i className="fa-solid fa-code" aria-hidden="true"></i>
             <div>
               <span className="about-card-label">{t('focoLabel')}</span>
-              <span className="about-card-value">Blazor · React · C# · TS</span>
+              <span className="about-card-value">Automação · IA · Back-end</span>
             </div>
           </div>
         </div>

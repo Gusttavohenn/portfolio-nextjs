@@ -9,11 +9,10 @@ export default function Navbar() {
   const [themeIcon, setThemeIcon] = useState('fa-moon');
 
   useEffect(() => {
-    // Lógica para definir o tema inicial
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    // Tema padrão: ESCURO (combina com a identidade). Só fica claro se o usuário escolher.
     const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme === 'light' || (currentTheme === null && prefersLight)) {
+
+    if (currentTheme === 'light') {
         document.body.classList.add('light-mode');
         setThemeIcon('fa-sun');
     }

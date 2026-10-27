@@ -9,22 +9,23 @@
     "contato": "Contact"
   },
   "HeroSection": {
-    "titulo": "JUNIOR DEVELOPER",
-    "saudacao": "Welcome to my portfolio :)",
-    "explorar": "EXPLORE PROJECTS",
-    "downloadCV": "DOWNLOAD RESUME"
+    "titulo": "Back-end Dev",
+    "subtitulo": "Automation & AI Integrations",
+    "saudacao": "I turn manual processes into systems that run on their own.",
+    "explorar": "VIEW PROJECTS",
+    "downloadCV": "DOWNLOAD CV"
   },
   "SkillsSection": {
     "titulo": "My Skills",
-    "catFrontend": "Frontend",
-    "catBackend": "Backend",
-    "catTools": "Tools & DB",
-    "catInfra": "IT & Infrastructure"
+    "catBackend": "Back-end & Languages",
+    "catFrontend": "Front-end",
+    "catTools": "Databases & DevOps",
+    "catInfra": "Infrastructure & Networks"
   },
   "AboutSection": {
     "titulo": "About Me",
-    "bio1": "Passionate about software development, I have been directing my professional growth toward continuous improvement in programming, code best practices, and system architecture.",
-    "bio2": "Drawing on my background in infrastructure and systems analysis, I developed a comprehensive view of the application lifecycle. I am transitioning into full-stack development, focusing on Blazor, React, TypeScript, and C# with the goal of becoming a versatile, results-driven developer.",
+    "bio1": "I'm a back-end developer focused on automation and systems integration. As a Systems Analyst at Gox Internet, I work with the ISP's ERP (IXC) and AI-powered WhatsApp assistants, build GLPI plugins, and create internal tools that remove manual work from the support, HR and IT teams.",
+    "bio2": "My background spans infrastructure, front-end and ERP, so I see systems end to end: server, database and the person using the screen. I'm always eager to learn and grow, with a growing interest in AI applied to real-world processes.",
     "localLabel": "Location",
     "educacaoLabel": "Education",
     "idiomasLabel": "Languages",
@@ -33,28 +34,31 @@
   },
   "TimelineSection": {
     "titulo": "My Journey",
-    "job1Title": "IT Intern — Itaúna City Hall",
-    "job1Period": "5 months · 2021",
-    "job1Desc": "Hardware and user support, network maintenance, and Raspberry Pi configuration for internal city hall solutions.",
-    "job2Title": "Systems Analyst — HTF",
-    "job2Period": "6 months · 2021–2022",
-    "job2Desc": "Installation and support in Linux and Windows environments, database backup and restore, flowchart scripts, Docker Compose, Ruby, and customer support.",
-    "job3Title": "ERP Analyst — Mercantil Fonte Boa Distribuição",
-    "job3Period": "Apr 2022 – Feb 2024",
-    "job3Desc": "Monitoring and optimizing the Consinco ERP (TOTVS), Oracle database management, access control, and process automation with Python scripts.",
-    "job4Title": "Front-end Developer — SGBras",
-    "job4Period": "Feb 2024 – Oct 2024",
-    "job4Desc": "Built an internal ticketing system from scratch, created dashboards, worked with Laravel MVC architecture, and provided support for vehicle tracking platforms with GALILEOSKY.",
-    "job5Title": "IT V — Grupo Minas Port",
-    "job5Period": "Feb 2025 – present",
-    "job5Desc": "Network administration (Cisco, MikroTik, Sophos), firewalls (pfSense, Fortinet), VPNs, Windows Server with AD/GPO, monitoring via Zabbix and Grafana, and corporate backup with Veeam and rsync. Transitioning to development with Blazor, React, TypeScript, and C#.",
-    "job5SubLabel": "Starting as Junior Developer"
+    "job1Title": "IT Intern — Itaúna/MG City Hall",
+    "job1Period": "2021",
+    "job1Desc": "Hardware and user support, network maintenance and Raspberry Pi setup for the city hall's internal solutions.",
+    "job2Title": "Helpdesk — HTF Apps",
+    "job2Period": "2021 – 2022",
+    "job2Desc": "N1 technical support and deployment of document management solutions with Alfresco Community, Tomcat 7 and PostgreSQL on Linux servers and Docker. Built printer workflows and migrated environments from Windows to Linux.",
+    "job3Title": "ERP Systems Analyst — Mercantil Fonte Boa",
+    "job3Period": "2022 – 2024",
+    "job3Desc": "Support and setup of the Consinco (TOTVS) ERP, Oracle database management, access control and process automation with Python scripts.",
+    "job4Title": "Developer — SGBras Telemetry",
+    "job4Period": "2024",
+    "job4Desc": "Web development with PHP and Laravel on the vehicle tracking platform. Built a ticketing platform from scratch and worked with Galileosky tracker data and driver fatigue sensors.",
+    "job5Title": "IT Infrastructure Analyst V — Grupo Minas Port",
+    "job5Period": "2025 – 2026",
+    "job5Desc": "N2 support, development and maintenance of the company's internal system in C# and .NET, and took part in migrating the physical servers to Microsoft Azure.",
+    "job6Title": "Systems Analyst IV — Gox Internet",
+    "job6Period": "2026 – present",
+    "job6Desc": "Automation and integration at the ISP: I work with the IXC ERP and AI-powered WhatsApp assistants (OPA Suite), built Gox Assina (electronic contract signing), GLPI plugins and an automated network diagnostic agent.",
+    "atual": "Current"
   },
   "CertificatesSection": {
     "titulo": "Certificates",
     "subtitulo": "Courses and certifications completed throughout my journey.",
     "catFrontend": "Frontend",
-    "catDatabase": "Database",
+    "catDatabase": "Databases",
     "catTools": "Tools & DevOps",
     "catCsharp": "C# / .NET",
     "catAI": "Artificial Intelligence"
@@ -79,23 +83,30 @@
   },
   "NotFound": {
     "titulo": "Page not found",
-    "descricao": "The page you are looking for does not exist or has been moved.",
+    "descricao": "The page you're looking for doesn't exist or has been moved.",
     "voltar": "Back to home"
   },
   "Footer": {
     "direitos": "All rights reserved."
+  },
+  "Mascot": {
+    "hint1": "Hi! Drag me around or click me :)",
+    "hint2": "Try the Konami Code...",
+    "hint3": "You found an easter egg!",
+    "hint4": "Let's talk? Hit me up in contact!",
+    "hint5": "while(alive) { learn(); }"
   },
   "ContactSection": {
     "titulo": "Contact",
     "subtitulo": "Ready to build something extraordinary together?",
     "nomePlaceholder": "Your Name",
     "emailPlaceholder": "Your Email",
-    "telefonePlaceholder": "Phone/WhatsApp | (area code) 9999-9999",
+    "telefonePlaceholder": "Phone/WhatsApp | +00 (00) 90000-0000",
     "mensagemPlaceholder": "Your Message",
     "enviar": "SEND MESSAGE",
     "enviando": "Sending...",
     "enviado": "Sent!",
     "sucessoMsg": "Thank you for reaching out!",
-    "erroMsg": "Oops! There was a problem sending your message."
+    "erroMsg": "Oops! There was a problem sending."
   }
 }

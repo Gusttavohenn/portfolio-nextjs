@@ -1,30 +1,31 @@
 {
   "Navbar": {
     "inicio": "Inicio",
-    "sobre": "Sobre mí",
-    "skills": "Habilidades",
+    "sobre": "Sobre",
+    "skills": "Skills",
     "jornada": "Trayectoria",
     "projetos": "Proyectos",
     "certificados": "Certificados",
     "contato": "Contacto"
   },
   "HeroSection": {
-    "titulo": "DESARROLLADOR JR.",
-    "saudacao": "Bienvenido a mi portafolio :)",
-    "explorar": "EXPLORAR PROYECTOS",
+    "titulo": "Dev Back-end",
+    "subtitulo": "Automatización & Integraciones con IA",
+    "saudacao": "Convierto procesos manuales en sistemas que funcionan solos.",
+    "explorar": "VER PROYECTOS",
     "downloadCV": "DESCARGAR CV"
   },
   "SkillsSection": {
-    "titulo": "Mis Habilidades",
-    "catFrontend": "Frontend",
-    "catBackend": "Backend",
-    "catTools": "Herramientas & DB",
-    "catInfra": "TI e Infraestructura"
+    "titulo": "Mis Skills",
+    "catBackend": "Back-end & Lenguajes",
+    "catFrontend": "Front-end",
+    "catTools": "Bases de Datos & DevOps",
+    "catInfra": "Infraestructura & Redes"
   },
   "AboutSection": {
     "titulo": "Sobre Mí",
-    "bio1": "Apasionado por el desarrollo de software, he estado dirigiendo mi evolución profesional hacia la mejora continua en programación, buenas prácticas de código y arquitectura de sistemas.",
-    "bio2": "Con base en mi experiencia en infraestructura y análisis de sistemas, desarrollé una visión completa del ciclo de vida de las aplicaciones. Estoy en transición hacia el desarrollo full-stack, explorando Blazor, React, TypeScript y C# con el objetivo de consolidarme como desarrollador versátil y orientado a resultados.",
+    "bio1": "Soy desarrollador back-end enfocado en automatización e integración de sistemas. Como Analista de Sistemas en Gox Internet, trabajo con el ERP del proveedor (IXC) y asistentes de IA en WhatsApp, desarrollo plugins para GLPI y creo herramientas internas que quitan trabajo manual a los equipos de atención, RR.HH. y TI.",
+    "bio2": "Vengo de infraestructura, front-end y ERP, así que veo el sistema de punta a punta: servidor, base de datos y la persona que usa la pantalla. Siempre busco aprender y evolucionar, con un interés creciente en la IA aplicada a procesos reales.",
     "localLabel": "Ubicación",
     "educacaoLabel": "Formación",
     "idiomasLabel": "Idiomas",
@@ -33,28 +34,31 @@
   },
   "TimelineSection": {
     "titulo": "Mi Trayectoria",
-    "job1Title": "Prácticas en TI — Prefectura de Itaúna-MG",
-    "job1Period": "5 meses · 2021",
-    "job1Desc": "Soporte de hardware y usuario, mantenimiento de red y configuración de Raspberry Pi para soluciones internas de la prefectura.",
-    "job2Title": "Analista de Sistemas — HTF",
-    "job2Period": "6 meses · 2021–2022",
-    "job2Desc": "Instalación y soporte en entornos Linux y Windows, backup y restore de bases de datos, scripts de flujograma, Docker Compose, Ruby y soporte al cliente.",
-    "job3Title": "Analista de ERP — Mercantil Fonte Boa Distribuição",
-    "job3Period": "Abr 2022 – Feb 2024",
-    "job3Desc": "Seguimiento y optimización del ERP Consinco (TOTVS), gestión de bases de datos Oracle, control de accesos y automatización de procesos con scripts Python.",
-    "job4Title": "Desarrollador Front-end — SGBras",
-    "job4Period": "Feb 2024 – Oct 2024",
-    "job4Desc": "Desarrollé un sistema interno de tickets desde cero, creé dashboards, trabajé con arquitectura MVC en Laravel y di soporte a plataformas de rastreo vehicular con GALILEOSKY.",
-    "job5Title": "TI V — Grupo Minas Port",
-    "job5Period": "Feb 2025 – presente",
-    "job5Desc": "Administración de redes (Cisco, MikroTik, Sophos), firewalls (pfSense, Fortinet), VPNs, Windows Server con AD/GPO, monitorización con Zabbix y Grafana, y backup corporativo con Veeam y rsync. En transición hacia el desarrollo con Blazor, React, TypeScript y C#.",
-    "job5SubLabel": "Inicio como Desarrollador Junior"
+    "job1Title": "Pasantía en TI — Municipalidad de Itaúna/MG",
+    "job1Period": "2021",
+    "job1Desc": "Soporte de hardware y al usuario, mantenimiento de red y configuración de Raspberry Pi para soluciones internas de la municipalidad.",
+    "job2Title": "Helpdesk — HTF Apps",
+    "job2Period": "2021 – 2022",
+    "job2Desc": "Soporte técnico N1 e implementación de soluciones de gestión documental con Alfresco Community, Tomcat 7 y PostgreSQL en servidores Linux y Docker. Armado de flujos para impresoras y migración de entornos de Windows a Linux.",
+    "job3Title": "Analista de Sistemas ERP — Mercantil Fonte Boa",
+    "job3Period": "2022 – 2024",
+    "job3Desc": "Soporte y parametrización del ERP Consinco (TOTVS), gestión de base de datos Oracle, control de accesos y automatización de procesos con scripts en Python.",
+    "job4Title": "Desarrollador — SGBras Telemetría",
+    "job4Period": "2024",
+    "job4Desc": "Desarrollo web con PHP y Laravel en la plataforma de rastreo vehicular. Construí una plataforma de tickets desde cero y trabajé con datos de rastreadores Galileosky y sensores de fatiga del conductor.",
+    "job5Title": "Analista de Infraestructura de TI V — Grupo Minas Port",
+    "job5Period": "2025 – 2026",
+    "job5Desc": "Soporte N2, desarrollo y mantenimiento del sistema interno de la empresa en C# y .NET, y participación en la migración de los servidores físicos a Microsoft Azure.",
+    "job6Title": "Analista de Sistemas IV — Gox Internet",
+    "job6Period": "2026 – actual",
+    "job6Desc": "Automatización e integración en el proveedor: trabajo con el ERP IXC y asistentes de IA en WhatsApp (OPA Suite), desarrollé Gox Assina (firma electrónica de contratos), plugins para GLPI y un agente de diagnóstico automatizado para la red.",
+    "atual": "Actual"
   },
   "CertificatesSection": {
     "titulo": "Certificados",
     "subtitulo": "Cursos y certificaciones completados a lo largo de mi trayectoria.",
     "catFrontend": "Frontend",
-    "catDatabase": "Base de Datos",
+    "catDatabase": "Bases de Datos",
     "catTools": "Herramientas & DevOps",
     "catCsharp": "C# / .NET",
     "catAI": "Inteligencia Artificial"
@@ -79,23 +83,30 @@
   },
   "NotFound": {
     "titulo": "Página no encontrada",
-    "descricao": "La página que buscas no existe o ha sido movida.",
+    "descricao": "La página que buscas no existe o fue movida.",
     "voltar": "Volver al inicio"
   },
   "Footer": {
     "direitos": "Todos los derechos reservados."
   },
+  "Mascot": {
+    "hint1": "¡Hola! Arrástrame o haz clic en mí :)",
+    "hint2": "Prueba el Konami Code...",
+    "hint3": "¡Encontraste un easter egg!",
+    "hint4": "¿Hablamos? ¡Escríbeme en contacto!",
+    "hint5": "while(vivo) { aprender(); }"
+  },
   "ContactSection": {
     "titulo": "Contacto",
     "subtitulo": "¿Listo para crear algo extraordinario juntos?",
     "nomePlaceholder": "Tu Nombre",
-    "emailPlaceholder": "Tu Correo Electrónico",
-    "telefonePlaceholder": "Teléfono/WhatsApp | (código) 9999-9999",
+    "emailPlaceholder": "Tu Correo",
+    "telefonePlaceholder": "Teléfono/WhatsApp | +00 (00) 90000-0000",
     "mensagemPlaceholder": "Tu Mensaje",
     "enviar": "ENVIAR MENSAJE",
     "enviando": "Enviando...",
     "enviado": "¡Enviado!",
-    "sucessoMsg": "¡Gracias por contactarme!",
-    "erroMsg": "¡Ups! Hubo un problema al enviar tu mensaje."
+    "sucessoMsg": "¡Gracias por tu contacto!",
+    "erroMsg": "¡Ups! Hubo un problema al enviar."
   }
 }

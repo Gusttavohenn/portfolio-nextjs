@@ -9,22 +9,23 @@
     "contato": "Contato"
   },
   "HeroSection": {
-    "titulo": "DESENVOLVEDOR JR.",
-    "saudacao": "Seja bem-vindo ao meu portfólio :)",
-    "explorar": "EXPLORAR PROJETOS",
-    "downloadCV": "DOWNLOAD CURRICULO"
+    "titulo": "Dev Back-end",
+    "subtitulo": "Automação & Integrações com IA",
+    "saudacao": "Transformo processo manual em sistema que roda sozinho.",
+    "explorar": "VER PROJETOS",
+    "downloadCV": "BAIXAR CV"
   },
   "SkillsSection": {
     "titulo": "Minhas Skills",
-    "catFrontend": "Frontend",
-    "catBackend": "Backend",
-    "catTools": "Ferramentas & DB",
-    "catInfra": "TI & Infraestrutura"
+    "catBackend": "Back-end & Linguagens",
+    "catFrontend": "Front-end",
+    "catTools": "Banco de Dados & DevOps",
+    "catInfra": "Infraestrutura & Redes"
   },
   "AboutSection": {
     "titulo": "Sobre Mim",
-    "bio1": "Apaixonado por desenvolvimento de software, venho direcionando minha evolução profissional para o aperfeiçoamento contínuo em programação, boas práticas de código e arquitetura de sistemas.",
-    "bio2": "Com base na minha experiência em infraestrutura e análise de sistemas, desenvolvi uma visão completa do ciclo de vida de aplicações. Estou em transição para desenvolvimento full-stack, explorando Blazor, React, TypeScript e C# com o objetivo de me consolidar como desenvolvedor versátil e orientado a resultados.",
+    "bio1": "Sou desenvolvedor back-end focado em automação e integração de sistemas. Hoje, como Analista de Sistemas na Gox Internet, trabalho com o ERP do provedor (IXC) e assistentes de IA no WhatsApp, desenvolvo plugins para o GLPI e crio ferramentas internas que tiram trabalho manual das equipes de atendimento, RH e TI.",
+    "bio2": "Vim de infraestrutura, front-end e ERP, então enxergo o sistema de ponta a ponta: servidor, banco e a pessoa que usa a tela. Estou sempre buscando aprender e evoluir, com interesse crescente em IA aplicada a processos reais.",
     "localLabel": "Localização",
     "educacaoLabel": "Formação",
     "idiomasLabel": "Idiomas",
@@ -33,22 +34,25 @@
   },
   "TimelineSection": {
     "titulo": "Minha Jornada",
-    "job1Title": "Estágio em TI — Prefeitura de Itaúna-MG",
-    "job1Period": "5 meses · 2021",
+    "job1Title": "Estágio em TI — Prefeitura de Itaúna/MG",
+    "job1Period": "2021",
     "job1Desc": "Suporte de hardware e ao usuário, manutenção de rede e configuração de Raspberry Pi para soluções internas da prefeitura.",
-    "job2Title": "Analista de Sistemas — HTF",
-    "job2Period": "6 meses · 2021–2022",
-    "job2Desc": "Instalação e suporte em ambientes Linux e Windows, backup e restore de bancos de dados, scripts de fluxograma, Docker Compose, Ruby e suporte ao cliente.",
-    "job3Title": "Analista de ERP — Mercantil Fonte Boa Distribuição",
-    "job3Period": "Abr 2022 – Fev 2024",
-    "job3Desc": "Acompanhamento e otimização do ERP Consinco (TOTVS), gerenciamento de bancos de dados Oracle, controle de acessos e automação de processos com scripts Python.",
-    "job4Title": "Desenvolvedor Front-end — SGBras",
-    "job4Period": "Fev 2024 – Out 2024",
-    "job4Desc": "Desenvolvi sistema interno de chamados (tickets) do zero, criei dashboards, trabalhei com arquitetura MVC em Laravel e dei suporte a plataformas de rastreamento veicular com GALILEOSKY.",
-    "job5Title": "TI V — Grupo Minas Port",
-    "job5Period": "Fev 2025 – atual",
-    "job5Desc": "Administração de redes (Cisco, MikroTik, Sophos), firewalls (pfSense, Fortinet), VPNs, Windows Server com AD/GPO, monitoramento via Zabbix e Grafana, e backup corporativo com Veeam e rsync. Em transição para desenvolvimento com Blazor, React, TypeScript e C#.",
-    "job5SubLabel": "Início como Desenvolvedor Júnior"
+    "job2Title": "Helpdesk — HTF Apps",
+    "job2Period": "2021 – 2022",
+    "job2Desc": "Suporte técnico N1 e implantação de soluções de gestão de documentos com Alfresco Community, Tomcat 7 e PostgreSQL em servidores Linux e Docker. Montagem de fluxos para impressoras e migração de ambientes de Windows para Linux.",
+    "job3Title": "Analista de Sistemas ERP — Mercantil Fonte Boa",
+    "job3Period": "2022 – 2024",
+    "job3Desc": "Sustentação e parametrização do ERP Consinco (TOTVS), gerenciamento de banco Oracle, controle de acessos e automação de processos com scripts em Python.",
+    "job4Title": "Desenvolvedor — SGBras Telemetria",
+    "job4Period": "2024",
+    "job4Desc": "Desenvolvimento web com PHP e Laravel na plataforma de rastreamento veicular. Construí uma plataforma de chamados do zero e trabalhei com dados de rastreadores Galileosky e sensores de fadiga do motorista.",
+    "job5Title": "Analista de Infraestrutura de TI V — Grupo Minas Port",
+    "job5Period": "2025 – 2026",
+    "job5Desc": "Suporte N2, desenvolvimento e manutenção do sistema interno da empresa em C# e .NET, e participação na migração dos servidores físicos para o Microsoft Azure.",
+    "job6Title": "Analista de Sistemas IV — Gox Internet",
+    "job6Period": "2026 – atual",
+    "job6Desc": "Automação e integração no provedor: trabalho com o ERP IXC e assistentes de IA no WhatsApp (OPA Suite), desenvolvi o Gox Assina (assinatura eletrônica de contratos), plugins para o GLPI e um agente de diagnóstico automatizado para a rede.",
+    "atual": "Atual"
   },
   "CertificatesSection": {
     "titulo": "Certificados",
@@ -84,6 +88,13 @@
   },
   "Footer": {
     "direitos": "Todos os direitos reservados."
+  },
+  "Mascot": {
+    "hint1": "Oi! Me arrasta ou clica em mim :)",
+    "hint2": "Tenta o Konami Code...",
+    "hint3": "Você achou um easter egg!",
+    "hint4": "Bora conversar? Chama no contato!",
+    "hint5": "while(vivo) { aprender(); }"
   },
   "ContactSection": {
     "titulo": "Contato",

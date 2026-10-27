@@ -16,44 +16,48 @@ export default function SkillsSection() {
       <h2 className="section-title">{t('titulo')}</h2>
       <div className="skills-container">
 
-        {/* --- Categoria Frontend --- */}
-        <div className="skill-category">
-          <h3><i className="fa-solid fa-code" aria-hidden="true"></i> {t('catFrontend')}</h3>
-          <div className="skills-list">
-            <span className="skill-item"><i className="fab fa-html5" aria-hidden="true"></i> HTML5</span>
-            <span className="skill-item"><i className="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
-            <span className="skill-item"><i className="fab fa-js" aria-hidden="true"></i> JavaScript</span>
-            <span className="skill-item"><i className="fab fa-react" aria-hidden="true"></i> React</span>
-            <span className="skill-item"><SiNextdotjs aria-hidden="true" /> Next.js</span>
-            <span className="skill-item"><SiTypescript aria-hidden="true" /> TypeScript</span>
-            <span className="skill-item"><SiBlazor aria-hidden="true" /> Blazor</span>
-          </div>
-        </div>
-
         {/* --- Categoria Backend --- */}
         <div className="skill-category">
           <h3><i className="fa-solid fa-server" aria-hidden="true"></i> {t('catBackend')}</h3>
           <div className="skills-list">
-            <span className="skill-item"><i className="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
             <span className="skill-item"><i className="fab fa-php" aria-hidden="true"></i> PHP</span>
             <span className="skill-item"><i className="fab fa-laravel" aria-hidden="true"></i> Laravel</span>
-            <span className="skill-item"><i className="fab fa-python" aria-hidden="true"></i> Python</span>
-            <span className="skill-item"><i className="fab fa-java" aria-hidden="true"></i> Java</span>
             <span className="skill-item"><SiSharp aria-hidden="true" /> C#</span>
             <span className="skill-item"><SiDotnet aria-hidden="true" /> .NET</span>
+            <span className="skill-item"><i className="fab fa-python" aria-hidden="true"></i> Python</span>
+            <span className="skill-item"><i className="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
+            <span className="skill-item"><i className="fab fa-java" aria-hidden="true"></i> Java</span>
+            <span className="skill-item"><i className="fa-solid fa-plug" aria-hidden="true"></i> APIs REST</span>
+            <span className="skill-item"><i className="fa-solid fa-robot" aria-hidden="true"></i> Automação & IA</span>
           </div>
         </div>
 
-        {/* --- Categoria Ferramentas & DB --- */}
+        {/* --- Categoria Frontend --- */}
         <div className="skill-category">
-          <h3><i className="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> {t('catTools')}</h3>
+          <h3><i className="fa-solid fa-code" aria-hidden="true"></i> {t('catFrontend')}</h3>
           <div className="skills-list">
+            <span className="skill-item"><i className="fab fa-react" aria-hidden="true"></i> React</span>
+            <span className="skill-item"><SiNextdotjs aria-hidden="true" /> Next.js</span>
+            <span className="skill-item"><SiTypescript aria-hidden="true" /> TypeScript</span>
+            <span className="skill-item"><i className="fab fa-js" aria-hidden="true"></i> JavaScript</span>
+            <span className="skill-item"><i className="fab fa-html5" aria-hidden="true"></i> HTML5</span>
+            <span className="skill-item"><i className="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
+            <span className="skill-item"><SiBlazor aria-hidden="true" /> Blazor</span>
+          </div>
+        </div>
+
+        {/* --- Categoria Banco de Dados & DevOps --- */}
+        <div className="skill-category">
+          <h3><i className="fa-solid fa-database" aria-hidden="true"></i> {t('catTools')}</h3>
+          <div className="skills-list">
+            <span className="skill-item"><SiMysql aria-hidden="true" /> MySQL</span>
+            <span className="skill-item"><i className="fa-solid fa-database" aria-hidden="true"></i> SQL Server</span>
+            <span className="skill-item"><i className="fa-solid fa-database" aria-hidden="true"></i> PostgreSQL</span>
+            <span className="skill-item"><i className="fa-solid fa-database" aria-hidden="true"></i> MariaDB</span>
+            <span className="skill-item"><SiMongodb aria-hidden="true" /> MongoDB</span>
+            <span className="skill-item"><i className="fab fa-docker" aria-hidden="true"></i> Docker</span>
             <span className="skill-item"><i className="fab fa-git-alt" aria-hidden="true"></i> Git</span>
             <span className="skill-item"><i className="fab fa-github" aria-hidden="true"></i> GitHub</span>
-            <span className="skill-item"><i className="fab fa-docker" aria-hidden="true"></i> Docker</span>
-            <span className="skill-item"><SiMongodb aria-hidden="true" /> MongoDB</span>
-            <span className="skill-item"><SiMysql aria-hidden="true" /> MySQL</span>
-            <span className="skill-item"><i className="fa-solid fa-file-waveform" aria-hidden="true"></i> Análise de Logs</span>
           </div>
         </div>
 
