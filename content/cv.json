@@ -465,5 +465,49 @@
       "platform": "DIO",
       "hours": "5h"
     }
-  ]
+  ],
+  "highlights": {
+    "skills": [
+      "PHP",
+      "Laravel",
+      "C# / .NET",
+      "Python",
+      "SQL",
+      {
+        "pt": "APIs REST",
+        "en": "REST APIs",
+        "es": "APIs REST"
+      },
+      "Docker",
+      "Azure",
+      "Linux",
+      {
+        "pt": "IA & Automação",
+        "en": "AI & Automation",
+        "es": "IA & Automatización"
+      }
+    ],
+    "achievements": {
+      "pt": [
+        "Criou o Gox Assina, plataforma de assinatura eletrônica de contratos",
+        "Trabalha com assistentes de IA no WhatsApp e plugins para o GLPI",
+        "Participou da migração de servidores físicos para o Microsoft Azure"
+      ],
+      "en": [
+        "Built Gox Assina, an electronic contract signing platform",
+        "Works with AI-powered WhatsApp assistants and GLPI plugins",
+        "Took part in migrating physical servers to Microsoft Azure"
+      ],
+      "es": [
+        "Creó Gox Assina, plataforma de firma electrónica de contratos",
+        "Trabaja con asistentes de IA en WhatsApp y plugins para GLPI",
+        "Participó en la migración de servidores físicos a Microsoft Azure"
+      ]
+    },
+    "availability": {
+      "pt": "Presencial, híbrido ou remoto",
+      "en": "On-site, hybrid or remote",
+      "es": "Presencial, híbrido o remoto"
+    }
+  }
 }

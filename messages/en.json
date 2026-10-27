@@ -172,5 +172,25 @@
     "erro": "Short circuit over here Try again in a moment.",
     "whats": "Message on WhatsApp",
     "aviso": "AI-generated answers based on the résumé; they may contain mistakes."
+  },
+  "Resumo": {
+    "botao": "30-second summary",
+    "titulo": "Gustavo in 30 seconds",
+    "disponivel": "Available",
+    "anos": "{n}+ years in IT",
+    "cargoAtual": "Current role",
+    "desde": "since",
+    "skills": "Top skills",
+    "destaques": "Highlights",
+    "trajetoria": "Career",
+    "formacao": "Education",
+    "idiomas": "Languages",
+    "cv": "Download CV",
+    "whats": "WhatsApp",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "verTudo": "See the full site",
+    "fechar": "Close",
+    "tempo": "Done! Did you have time to read it all?"
   }
 }

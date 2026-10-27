@@ -28,6 +28,7 @@ const TEXT: Record<Lang, Record<string, string>> = {
       "  linkedin      abre meu LinkedIn",
       "  github        abre meu GitHub",
       "  cv            baixa meu currículo",
+      "  resumo        o Gu em 30 segundos",
       "  perguntar     conversa com o Deploy (IA)",
       "  jogar         joga comigo (Deploy)",
       "  festa         modo festa do Deploy",
@@ -77,6 +78,7 @@ const TEXT: Record<Lang, Record<string, string>> = {
       "  linkedin      open my LinkedIn",
       "  github        open my GitHub",
       "  cv            download my résumé",
+      "  summary       Gu in 30 seconds",
       "  ask           chat with Deploy (AI)",
       "  play          play with me (Deploy)",
       "  party         Deploy party mode",
@@ -126,6 +128,7 @@ const TEXT: Record<Lang, Record<string, string>> = {
       "  linkedin      abre mi LinkedIn",
       "  github        abre mi GitHub",
       "  cv            descarga mi currículum",
+      "  resumen       Gu en 30 segundos",
       "  preguntar     habla con Deploy (IA)",
       "  jugar         juega conmigo (Deploy)",
       "  fiesta        modo fiesta de Deploy",
@@ -276,6 +279,10 @@ export default function HiddenTerminal() {
         window.dispatchEvent(new Event("mascot-party"));
         push(T.festa);
         break;
+      case "resumo": case "summary": case "resumen": case "tldr":
+        setOpen(false);
+        window.dispatchEvent(new Event("open-summary"));
+        return;
       case "perguntar": case "ask": case "preguntar": case "chat": case "ia": case "ai":
         setOpen(false);
         window.dispatchEvent(new Event("open-chat"));

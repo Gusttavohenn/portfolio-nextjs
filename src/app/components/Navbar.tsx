@@ -3,10 +3,11 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
-import { TbDeviceGamepad2 } from 'react-icons/tb';
+import { TbDeviceGamepad2, TbClockHour4 } from 'react-icons/tb';
 
 export default function Navbar() {
   const t = useTranslations('Navbar');
+  const tr = useTranslations('Resumo');
   const [themeIcon, setThemeIcon] = useState('fa-moon');
 
   useEffect(() => {
@@ -49,6 +50,13 @@ export default function Navbar() {
         </ul>
       </nav>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <button
+          className="qs-nav-btn"
+          aria-label={tr('botao')}
+          onClick={() => window.dispatchEvent(new Event('open-summary'))}
+        >
+          <TbClockHour4 aria-hidden="true" /> <span>{tr('botao')}</span>
+        </button>
         <LanguageSwitcher />
         <button
           className="theme-toggle arcade-toggle"

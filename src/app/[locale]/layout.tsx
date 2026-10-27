@@ -14,6 +14,7 @@ import HiddenTerminal from "../components/HiddenTerminal";
 import ConsoleGreeting from "../components/ConsoleGreeting";
 import Arcade from "../components/Arcade";
 import DeployChat from "../components/DeployChat";
+import QuickSummary from "../components/QuickSummary";
 
 // Importação do CSS Global
 import "../styles/style.css";
@@ -160,6 +161,7 @@ export default async function RootLayout({
           <ConsoleGreeting />
           <Arcade />
           <DeployChat />
+          <QuickSummary />
         </NextIntlClientProvider>
         
         {/* Font Awesome via CDN — ícones usados em todo o site */}

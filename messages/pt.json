@@ -172,5 +172,25 @@
     "erro": "Deu um curto-circuito aqui Tenta de novo em instantes.",
     "whats": "Chamar no WhatsApp",
     "aviso": "Respostas geradas por IA a partir do currículo; podem conter erros."
+  },
+  "Resumo": {
+    "botao": "Resumo em 30s",
+    "titulo": "Gustavo em 30 segundos",
+    "disponivel": "Disponível",
+    "anos": "{n}+ anos em TI",
+    "cargoAtual": "Cargo atual",
+    "desde": "desde",
+    "skills": "Principais skills",
+    "destaques": "Destaques",
+    "trajetoria": "Trajetória",
+    "formacao": "Formação",
+    "idiomas": "Idiomas",
+    "cv": "Baixar CV",
+    "whats": "WhatsApp",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "verTudo": "Ver o site completo",
+    "fechar": "Fechar",
+    "tempo": "Pronto! Deu tempo de ler tudo?"
   }
 }

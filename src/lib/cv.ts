@@ -30,6 +30,7 @@ export const cv = cvData as unknown as {
   softSkills: Record<Lang, string[]>;
   languages: { name: Localized; level: Localized }[];
   certifications: { title: string; platform: string; hours?: string }[];
+  highlights: { skills: MaybeLocalized[]; achievements: Record<Lang, string[]>; availability: Localized };
 };
 
 export const toLang = (locale: string): Lang => (locale === 'en' || locale === 'es' ? locale : 'pt');
@@ -48,3 +49,9 @@ export function yearsPeriod(e: Pick<Experience, 'start' | 'end'>, lang: Lang): s
 
 /** Experiências da mais antiga para a mais recente (ordem da linha do tempo). */
 export const experienceChrono = (): Experience[] => [...cv.experience].reverse();
+
+/** Anos de experiência em TI, contados a partir do primeiro emprego. */
+export function yearsOfExperience(now = new Date()): number {
+  const first = Math.min(...cv.experience.map((e) => Number(e.start.slice(0, 4))));
+  return now.getFullYear() - first;
+}

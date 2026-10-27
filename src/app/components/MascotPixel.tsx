@@ -20,7 +20,7 @@ const W = 40;            // largura do sprite (px)
 const H = 50;            // altura do sprite (px)
 const G = 0.55;          // gravidade (px / frame²)
 const WALK = 1.1;        // velocidade andando (px / frame)
-const NAV_H = 84;        // altura da navbar fixa
+const NAV_FALLBACK = 84;  // altura padrão da navbar fixa (medida de verdade em runtime)
 const SELECTOR = [
   "h1", "h2", "h3",
   ".about-card", ".skill-category", ".project-card",
@@ -112,7 +112,7 @@ export default function MascotPixel() {
 
     // entrance: drop from the top on the right side
     st.x = window.innerWidth * 0.78;
-    st.y = NAV_H + 10;
+    st.y = NAV_FALLBACK + 10;
     st.mode = "air";
     st.nextHopAt = performance.now() + 9000;
 
@@ -120,7 +120,10 @@ export default function MascotPixel() {
     let frame = 0;
     let raf = 0;
 
+    let NAV_H = NAV_FALLBACK;
     const refresh = () => {
+      const nav = document.querySelector(".navbar");
+      NAV_H = nav && getComputedStyle(nav).position === "fixed" ? nav.getBoundingClientRect().bottom : 0;
       els = Array.from(document.querySelectorAll(SELECTOR)).filter(
         (el) => !el.closest(".navbar, footer, .mascot")
       );
