@@ -90,11 +90,12 @@
     "direitos": "Todos os direitos reservados."
   },
   "Mascot": {
-    "hint1": "Oi! Me arrasta ou clica em mim :)",
+    "hint1": "Oi! Me arrasta pra passear pelas seções :)",
     "hint2": "Tenta o Konami Code...",
     "hint3": "Você achou um easter egg!",
     "hint4": "Bora conversar? Chama no contato!",
-    "hint5": "while(vivo) { aprender(); }"
+    "hint5": "while(vivo) { aprender(); }",
+    "hint6": "Segura e puxa! 🚀"
   },
   "ContactSection": {
     "titulo": "Contato",

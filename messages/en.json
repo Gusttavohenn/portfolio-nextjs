@@ -90,11 +90,12 @@
     "direitos": "All rights reserved."
   },
   "Mascot": {
-    "hint1": "Hi! Drag me around or click me :)",
+    "hint1": "Hi! Drag me to glide through the sections :)",
     "hint2": "Try the Konami Code...",
     "hint3": "You found an easter egg!",
     "hint4": "Let's talk? Hit me up in contact!",
-    "hint5": "while(alive) { learn(); }"
+    "hint5": "while(alive) { learn(); }",
+    "hint6": "Hold and pull! 🚀"
   },
   "ContactSection": {
     "titulo": "Contact",

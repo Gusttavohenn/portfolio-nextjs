@@ -51,7 +51,7 @@ body {
 .cta-button:hover { background-color: var(--accent-color); color: var(--bg-secondary); }
 .cta-button.secondary { border-color: var(--text-secondary); color: var(--text-secondary); }
 .cta-button.secondary:hover { background-color: var(--text-secondary); color: var(--bg-color); }
-.blob { position: fixed; top: 50%; left: 50%; width: 400px; height: 400px; background: linear-gradient(180deg, var(--accent-color), #ec4899); border-radius: 50%; filter: blur(150px); opacity: 0.15; z-index: -1; animation: moveBlob 20s infinite alternate; }
+.blob { position: fixed; top: 50%; left: 50%; width: 400px; height: 400px; background: var(--accent-color); border-radius: 50%; filter: blur(150px); opacity: 0.15; z-index: -1; animation: moveBlob 20s infinite alternate; }
 @keyframes moveBlob { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -40%) rotate(180deg); } }
 
 /* --- Navbar e Tema --- */
@@ -159,11 +159,7 @@ body {
   width: 100%;
   height: inherit;
   border-radius: inherit;
-  background: linear-gradient(
-    82.3deg,
-    rgba(150, 93, 233, 1) 10.8%,
-    rgba(99, 88, 238, 1) 94.3%
-  );
+  background: var(--accent-color);
   transition: all 0.475s;
 }
 
@@ -890,14 +886,18 @@ footer p {
   border: 0;
 }
 
-/* --- Hero: canvas de partículas + textos --- */
+/* --- Hero: campo de partículas cobrindo a seção + nome legível --- */
 .hero.section {
-  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  gap: 0;
 }
 .hero-particle-wrap {
-  width: min(900px, 92vw);
-  height: clamp(160px, 26vh, 300px);
-  margin-bottom: 0.5rem;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   pointer-events: none;
 }
 .particle-canvas {
@@ -905,18 +905,36 @@ footer p {
   width: 100%;
   height: 100%;
 }
-.hero-role {
-  font-size: clamp(1.15rem, 3.2vw, 1.9rem);
-  font-weight: 700;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0 1rem;
+}
+.hero-name {
+  font-size: clamp(2.3rem, 8vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
+  margin: 0;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6);
+}
+.hero-role {
+  font-size: clamp(1.05rem, 3vw, 1.7rem);
+  font-weight: 700;
+  color: var(--accent-color);
   letter-spacing: 0.01em;
   margin: 0;
 }
 .hero-tagline {
-  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
   color: var(--text-secondary);
   max-width: 540px;
-  margin: 0.25rem auto 0;
+  margin: 0;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -929,20 +947,31 @@ footer p {
   justify-content: flex-start;
 }
 .timeline-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent-color), #ec4899);
+  color: var(--accent-color);
+  background: transparent;
+  border: 1px solid var(--accent-color);
   padding: 2px 10px;
   border-radius: 999px;
   white-space: nowrap;
-  animation: pulseBadge 2s infinite;
 }
-@keyframes pulseBadge {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.45); }
-  50% { box-shadow: 0 0 0 6px rgba(139, 92, 246, 0); }
+.timeline-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  animation: blinkDot 1.6s ease-in-out infinite;
+}
+@keyframes blinkDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 .timeline-item.current .timeline-dot {
   background: var(--accent-color);
@@ -971,13 +1000,21 @@ footer p {
   background: none;
   border: none;
   padding: 0;
-  cursor: pointer;
+  cursor: grab;
+  touch-action: none;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
   transition: transform 0.2s ease;
   animation: mascotIdle 3s ease-in-out infinite;
 }
 .mascot-btn:hover { transform: scale(1.12) rotate(-3deg); }
 .mascot-btn:active { transform: scale(0.95); }
+.mascot.dragging { transition: none; }
+.mascot.dragging .mascot-btn {
+  cursor: grabbing;
+  animation: none;
+  transform: scale(1.18);
+  filter: drop-shadow(0 8px 16px rgba(139,92,246,0.5));
+}
 @keyframes mascotIdle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
