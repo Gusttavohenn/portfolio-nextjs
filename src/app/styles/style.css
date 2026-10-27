@@ -2120,3 +2120,14 @@ html { overflow-x: clip; }
   .navbar nav ul { width: max-content; margin: 0 auto; gap: 24px; padding: 2px 4px; }
   .navbar nav a { white-space: nowrap; }
 }
+
+/* etiqueta da plataforma: neutra, sem competir com o roxo do site */
+.certificate-platform {
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.certificate-card:hover .certificate-platform { color: var(--accent-color); border-color: var(--accent-color); }
