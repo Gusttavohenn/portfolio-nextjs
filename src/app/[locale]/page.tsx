@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import HeroSection from '../components/sections/HeroSection';
+import TechMarquee from '../components/TechMarquee';
 import AboutSection from '../components/sections/AboutSection';
 import TimelineSection from '../components/sections/TimelineSection';
 import SkillsSection from '../components/sections/SkillsSection';
@@ -57,6 +58,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <TechMarquee />
       <AboutSection />
       <TimelineSection />
       <SkillsSection />

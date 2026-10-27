@@ -3,6 +3,33 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
+/*
+ * Mascote de plataforma: anda em cima dos títulos, cards e botões da página.
+ * Quando a plataforma em que ele está sai da tela (porque você rolou),
+ * ele pula para o próximo texto visível, como num jogo 2D.
+ * Clique nele: ele pula e fala. 5 cliques rápidos ou o Konami Code: festa.
+ */
+
+const W = 40;            // largura do sprite (px)
+const H = 50;            // altura do sprite (px)
+const G = 0.55;          // gravidade (px / frame²)
+const WALK = 1.1;        // velocidade andando (px / frame)
+const NAV_H = 84;        // altura da navbar fixa
+const SELECTOR = [
+  "h1", "h2", "h3",
+  ".about-card", ".skill-category", ".project-card",
+  ".cert-group-header", ".contact-card", ".contact-terminal", ".cta-button",
+  ".contact-form input", ".contact-form textarea",
+].join(", ");
+
+const KONAMI = [
+  "ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown",
+  "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight",
+  "b", "a",
+];
+
+type Plat = { el: Element; top: number; left: number; right: number };
+
 function RobotSprite({ hue }: { hue: number }) {
   const body = `hsl(${hue}, 70%, 62%)`;
   const bodyDark = `hsl(${hue}, 65%, 48%)`;
@@ -14,73 +41,57 @@ function RobotSprite({ hue }: { hue: number }) {
       <rect x="7" y="1" width="2" height="1" fill={glow} />
       <rect x="3" y="2" width="10" height="7" fill={body} />
       <rect x="3" y="8" width="10" height="1" fill={bodyDark} />
-      <rect x="5" y="4" width="2" height="2" fill={eye} />
-      <rect x="9" y="4" width="2" height="2" fill={eye} />
-      <rect x="5" y="4" width="1" height="1" fill={glow} />
-      <rect x="9" y="4" width="1" height="1" fill={glow} />
-      <rect x="6" y="7" width="4" height="1" fill={bodyDark} />
+      <rect x="6" y="4" width="2" height="2" fill={eye} />
+      <rect x="10" y="4" width="2" height="2" fill={eye} />
+      <rect x="6" y="4" width="1" height="1" fill={glow} />
+      <rect x="10" y="4" width="1" height="1" fill={glow} />
+      <rect x="7" y="7" width="4" height="1" fill={bodyDark} />
       <rect x="4" y="9" width="8" height="6" fill={body} />
       <rect x="4" y="14" width="8" height="1" fill={bodyDark} />
       <rect x="7" y="11" width="2" height="2" fill={glow} />
-      <rect x="2" y="9" width="2" height="5" fill={bodyDark} />
-      <rect x="12" y="9" width="2" height="5" fill={bodyDark} />
+      <rect className="arm arm-l" x="2" y="9" width="2" height="5" fill={bodyDark} />
+      <rect className="arm arm-r" x="12" y="9" width="2" height="5" fill={bodyDark} />
       <rect className="leg leg-l" x="5" y="15" width="2" height="4" fill={bodyDark} />
       <rect className="leg leg-r" x="9" y="15" width="2" height="4" fill={bodyDark} />
     </svg>
   );
 }
 
-const KONAMI = [
-  "ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown",
-  "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight",
-  "b", "a",
-];
-
-// vertical travel band of the mascot, as fractions of the viewport height
-const TOP_FRAC = 0.16;
-const BOTTOM_FRAC = 0.8;
+// Rect of what you actually see: for headings, the text itself (not the full-width block)
+function visibleRect(el: Element): DOMRect {
+  if (/^H[1-3]$/.test(el.tagName)) {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const r = range.getBoundingClientRect();
+    if (r.width > 0) return r;
+  }
+  return el.getBoundingClientRect();
+}
 
 export default function MascotPixel() {
   const t = useTranslations("Mascot");
-  const [progress, setProgress] = useState(0);
-  const [moving, setMoving] = useState(false);
-  const [dragging, setDragging] = useState(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const bodyRef = useRef<HTMLDivElement | null>(null);
   const [bubble, setBubble] = useState<string | null>(null);
   const [hue, setHue] = useState(258);
-  const [party, setParty] = useState(false);
-
-  const hintIndex = useRef(0);
-  const konamiPos = useRef(0);
-  const moveTimer = useRef<number | undefined>(undefined);
   const bubbleTimer = useRef<number | undefined>(undefined);
 
-  // drag bookkeeping
-  const isDown = useRef(false);
-  const draggedRef = useRef(false);
-  const startY = useRef(0);
-
-  const scrollTopFromProgress = (p: number) => {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    return p * h;
-  };
-
-  // Follow scroll (when not dragging)
-  useEffect(() => {
-    const onScroll = () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      const p = h > 0 ? window.scrollY / h : 0;
-      setProgress(Math.max(0, Math.min(1, p)));
-      setMoving(true);
-      window.clearTimeout(moveTimer.current);
-      moveTimer.current = window.setTimeout(() => setMoving(false), 180);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.clearTimeout(moveTimer.current);
-    };
-  }, []);
+  // physics state lives in a ref so the loop never re-renders React
+  const s = useRef({
+    x: 0, y: 0, vx: 0, vy: 0,
+    mode: "air" as "air" | "ground",
+    plat: null as Element | null,
+    onFloor: false,
+    targetX: 0,
+    idleUntil: 0,
+    facing: 1,
+    nextHopAt: 0,
+    squashUntil: 0,
+    party: false,
+  });
+  const clicks = useRef<number[]>([]);
+  const hintIndex = useRef(0);
+  const konamiPos = useRef(0);
 
   const showBubble = (text: string, ms = 3200) => {
     setBubble(text);
@@ -88,71 +99,10 @@ export default function MascotPixel() {
     bubbleTimer.current = window.setTimeout(() => setBubble(null), ms);
   };
 
-  // Map a pointer Y to a scroll position and scroll there ("pulling" the page)
-  const scrollFromPointer = (clientY: number) => {
-    const vh = window.innerHeight;
-    const top = TOP_FRAC * vh;
-    const bottom = BOTTOM_FRAC * vh;
-    let frac = (clientY - top) / (bottom - top);
-    frac = Math.max(0, Math.min(1, frac));
-    window.scrollTo({ top: scrollTopFromProgress(frac), behavior: "auto" });
-  };
-
-  const onPointerDown = (e: React.PointerEvent) => {
-    isDown.current = true;
-    draggedRef.current = false;
-    startY.current = e.clientY;
-    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-  };
-
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (!isDown.current) return;
-    if (!draggedRef.current && Math.abs(e.clientY - startY.current) > 6) {
-      draggedRef.current = true;
-      setDragging(true);
-      showBubble(t("hint6"), 1500);
-    }
-    if (draggedRef.current) {
-      e.preventDefault();
-      scrollFromPointer(e.clientY);
-    }
-  };
-
-  const endDrag = (e: React.PointerEvent) => {
-    if (!isDown.current) return;
-    isDown.current = false;
-    (e.target as HTMLElement).releasePointerCapture?.(e.pointerId);
-    if (draggedRef.current) {
-      setDragging(false);
-    } else {
-      // treated as a click → cycle hints
-      const hints = [t("hint1"), t("hint2"), t("hint4"), t("hint5")];
-      showBubble(hints[hintIndex.current % hints.length]);
-      hintIndex.current += 1;
-    }
-  };
-
-  // Konami code easter egg
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-      if (key === KONAMI[konamiPos.current]) {
-        konamiPos.current += 1;
-        if (konamiPos.current === KONAMI.length) {
-          konamiPos.current = 0;
-          triggerParty();
-        }
-      } else {
-        konamiPos.current = key === KONAMI[0] ? 1 : 0;
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const triggerParty = () => {
-    setParty(true);
+  const party = () => {
+    const st = s.current;
+    if (st.party) return;
+    st.party = true;
     showBubble(t("hint3"), 4000);
     let h = 0;
     const spin = window.setInterval(() => {
@@ -162,35 +112,238 @@ export default function MascotPixel() {
     window.setTimeout(() => {
       window.clearInterval(spin);
       setHue(258);
-      setParty(false);
+      st.party = false;
     }, 4000);
   };
 
-  // Initial greeting
   useEffect(() => {
-    const id = window.setTimeout(() => showBubble(t("hint1"), 3600), 2600);
-    return () => window.clearTimeout(id);
+    const root = rootRef.current;
+    const body = bodyRef.current;
+    if (!root || !body) return;
+
+    const st = s.current;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // entrance: drop from the top on the right side
+    st.x = window.innerWidth * 0.78;
+    st.y = NAV_H + 10;
+    st.mode = "air";
+    st.nextHopAt = performance.now() + 9000;
+
+    let els: Element[] = [];
+    let frame = 0;
+    let raf = 0;
+
+    const refresh = () => {
+      els = Array.from(document.querySelectorAll(SELECTOR)).filter(
+        (el) => !el.closest(".navbar, footer, .mascot")
+      );
+    };
+    refresh();
+
+    const visiblePlats = (vw: number, vh: number): Plat[] => {
+      const out: Plat[] = [];
+      for (const el of els) {
+        const r = visibleRect(el);
+        if (r.width < 50 || r.height < 4) continue;
+        if (r.top < NAV_H + 30 || r.top > vh - 40) continue;
+        if (r.right < 30 || r.left > vw - 30) continue;
+        out.push({ el, top: r.top, left: Math.max(r.left, 10), right: Math.min(r.right, vw - 10) });
+      }
+      return out;
+    };
+
+    const jumpTo = (tx: number, ty: number) => {
+      const dy = ty - st.y;
+      const peak = Math.max(28, -dy + 45);              // how high above the start it rises
+      const vy0 = -Math.sqrt(2 * G * peak);
+      const disc = vy0 * vy0 + 2 * G * dy;
+      const time = (-vy0 + Math.sqrt(Math.max(0, disc))) / G;
+      st.vy = vy0;
+      st.vx = (tx - st.x) / Math.max(time, 1);
+      st.mode = "air";
+      st.plat = null;
+      st.onFloor = false;
+      st.facing = tx >= st.x ? 1 : -1;
+    };
+
+    const pickTarget = (plats: Plat[], exclude: Element | null) => {
+      let best: Plat | null = null;
+      let bestScore = Infinity;
+      for (const p of plats) {
+        if (p.el === exclude) continue;
+        const cx = (p.left + p.right) / 2;
+        const score = Math.abs(p.top - st.y) + Math.abs(cx - st.x) * 0.35;
+        if (score < bestScore) { bestScore = score; best = p; }
+      }
+      return best;
+    };
+
+    const landX = (p: Plat) => {
+      const lo = p.left + W / 2;
+      const hi = p.right - W / 2;
+      if (hi <= lo) return (p.left + p.right) / 2;
+      return Math.min(hi, Math.max(lo, st.x + (Math.random() - 0.5) * 160));
+    };
+
+    const loop = (now: number) => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const floorY = vh - 14;
+      if (frame++ % 90 === 0) refresh();
+      const plats = visiblePlats(vw, vh);
+
+      if (st.mode === "ground") {
+        let lo = W / 2 + 6;
+        let hi = vw - W / 2 - 6;
+        let leave = false;
+
+        if (st.onFloor) {
+          st.y = floorY;
+          if (plats.length) leave = true;            // something to climb onto
+        } else if (st.plat) {
+          const r = visibleRect(st.plat);
+          st.y = r.top;                               // ride the platform as the page scrolls
+          lo = r.left + W / 2 - 4;
+          hi = r.right - W / 2 + 4;
+          if (r.top < NAV_H + 14 || r.top > vh - 24 || r.width === 0) leave = true;
+        }
+
+        if (leave) {
+          const target = pickTarget(plats, st.plat);
+          if (target) jumpTo(landX(target), target.top);
+          else if (!st.onFloor) jumpTo(Math.min(vw - 60, Math.max(60, st.x)), floorY);
+        } else if (now > st.nextHopAt && plats.length > 1) {
+          // spontaneous hop to a nearby text, just for fun
+          const near = plats.filter((p) => p.el !== st.plat && Math.abs(p.top - st.y) < 260);
+          const p = near[Math.floor(Math.random() * near.length)];
+          if (p) jumpTo(landX(p), p.top);
+          st.nextHopAt = now + 7000 + Math.random() * 7000;
+        } else if (now > st.idleUntil) {
+          // walk along the platform
+          if (hi <= lo) st.targetX = (lo + hi) / 2;
+          const dx = st.targetX - st.x;
+          if (Math.abs(dx) < 2) {
+            st.idleUntil = now + 700 + Math.random() * 2200;
+            st.targetX = lo + Math.random() * Math.max(0, hi - lo);
+          } else {
+            st.facing = dx > 0 ? 1 : -1;
+            st.x += Math.sign(dx) * Math.min(WALK * (st.party ? 3 : 1), Math.abs(dx));
+          }
+        }
+        st.x = Math.min(Math.max(st.x, lo), Math.max(lo, hi));
+      } else {
+        // airborne
+        const prevY = st.y;
+        st.vy = Math.min(st.vy + G, 22);
+        st.x += st.vx;
+        st.y += st.vy;
+        if (st.x < W / 2) { st.x = W / 2; st.vx = Math.abs(st.vx) * 0.3; }
+        if (st.x > vw - W / 2) { st.x = vw - W / 2; st.vx = -Math.abs(st.vx) * 0.3; }
+
+        if (st.vy > 0) {
+          for (const p of plats) {
+            if (prevY <= p.top + 3 && st.y >= p.top && st.x >= p.left + 6 && st.x <= p.right - 6) {
+              st.mode = "ground";
+              st.plat = p.el;
+              st.y = p.top;
+              break;
+            }
+          }
+          if (st.mode === "air" && st.y >= floorY) {
+            st.mode = "ground";
+            st.onFloor = true;
+            st.y = floorY;
+          }
+          if (st.mode === "ground") {
+            st.vx = 0;
+            st.vy = 0;
+            st.squashUntil = now + 140;
+            st.idleUntil = now + 350;
+            st.targetX = st.x;
+          }
+        }
+        // fell way off (e.g. resized): reset to the floor
+        if (st.y > vh + 200) { st.y = floorY; st.mode = "ground"; st.onFloor = true; }
+      }
+
+      // render
+      const walking = st.mode === "ground" && now > st.idleUntil && Math.abs(st.targetX - st.x) >= 2;
+      root.style.transform = `translate3d(${st.x - W / 2}px, ${st.y - H}px, 0)`;
+      root.classList.toggle("walking", walking);
+      root.classList.toggle("jumping", st.mode === "air");
+      root.classList.toggle("bubble-left", st.x > vw - 170);
+      root.classList.toggle("bubble-right", st.x < 170);
+      const squash = now < st.squashUntil ? 0.82 : 1;
+      body.style.transform = `scaleX(${st.facing}) scaleY(${squash})`;
+
+      raf = requestAnimationFrame(loop);
+    };
+
+    if (reduced) {
+      st.x = window.innerWidth - 50;
+      st.y = window.innerHeight - 14;
+      root.style.transform = `translate3d(${st.x - W / 2}px, ${st.y - H}px, 0)`;
+    } else {
+      raf = requestAnimationFrame(loop);
+    }
+
+    const onKey = (e: KeyboardEvent) => {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      if (key === KONAMI[konamiPos.current]) {
+        konamiPos.current += 1;
+        if (konamiPos.current === KONAMI.length) { konamiPos.current = 0; party(); }
+      } else {
+        konamiPos.current = key === KONAMI[0] ? 1 : 0;
+      }
+    };
+    window.addEventListener("keydown", onKey);
+
+    const greet = window.setTimeout(() => showBubble(t("hint1"), 3600), 2200);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("keydown", onKey);
+      window.clearTimeout(greet);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const top = (TOP_FRAC + progress * (BOTTOM_FRAC - TOP_FRAC)) * 100;
+  const onClick = () => {
+    const st = s.current;
+    // jump in place
+    if (st.mode === "ground") {
+      st.vy = -10;
+      st.vx = 0;
+      st.mode = "air";
+      st.plat = null;
+      st.onFloor = false;
+    }
+    // 5 quick clicks → party
+    const now = performance.now();
+    clicks.current = [...clicks.current.filter((c) => now - c < 2000), now];
+    if (clicks.current.length >= 5) {
+      clicks.current = [];
+      party();
+      return;
+    }
+    const hints = [t("hint1"), t("hint2"), t("hint6"), t("hint4"), t("hint5")];
+    showBubble(hints[hintIndex.current % hints.length]);
+    hintIndex.current += 1;
+  };
 
   return (
-    <div
-      className={`mascot ${moving ? "walking" : ""} ${party ? "party" : ""} ${dragging ? "dragging" : ""}`}
-      style={{ top: `${top}vh` }}
-    >
+    <div ref={rootRef} className="mascot">
       {bubble && <div className="mascot-bubble" role="status">{bubble}</div>}
       <button
         className="mascot-btn"
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        aria-label="Mascote — arraste para percorrer as seções, ou clique para interagir"
-        title="Me arrasta :)"
+        onClick={onClick}
+        aria-label="Mascote — clique para ele pular"
+        title="Clica em mim :)"
       >
-        <RobotSprite hue={hue} />
+        <div ref={bodyRef} className="mascot-body">
+          <RobotSprite hue={hue} />
+        </div>
       </button>
     </div>
   );

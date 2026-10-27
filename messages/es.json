@@ -90,16 +90,16 @@
     "direitos": "Todos los derechos reservados."
   },
   "Mascot": {
-    "hint1": "¡Hola! Arrástrame para pasear por las secciones :)",
+    "hint1": "¡Hola! Voy saltando por los textos contigo 👋",
     "hint2": "Prueba el Konami Code...",
     "hint3": "¡Encontraste un easter egg!",
     "hint4": "¿Hablamos? ¡Escríbeme en contacto!",
     "hint5": "while(vivo) { aprender(); }",
-    "hint6": "¡Sujeta y tira! 🚀"
+    "hint6": "Haz clic 5 veces rapidito en mí..."
   },
   "ContactSection": {
     "titulo": "Contacto",
-    "subtitulo": "¿Listo para crear algo extraordinario juntos?",
+    "subtitulo": "¿Tienes un proyecto, una vacante o un proceso para automatizar? Hablemos.",
     "nomePlaceholder": "Tu Nombre",
     "emailPlaceholder": "Tu Correo",
     "telefonePlaceholder": "Teléfono/WhatsApp | +00 (00) 90000-0000",
@@ -109,7 +109,10 @@
     "enviado": "¡Enviado!",
     "sucessoMsg": "¡Gracias por tu contacto!",
     "erroMsg": "¡Ups! Hubo un problema al enviar.",
-    "whatsappBtn": "ESCRÍBEME POR WHATSAPP",
-    "ou": "o rellena el formulario"
+    "disponivel": "Disponible para nuevas oportunidades",
+    "local": "Itaúna, MG, Brasil · presencial, híbrido o remoto",
+    "terminalTitle": "nuevo-mensaje.sh",
+    "prompt": "enviar --a gustavo",
+    "whatsValue": "Respuesta más rápida"
   }
 }

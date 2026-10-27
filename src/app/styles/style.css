@@ -981,100 +981,117 @@ footer p {
   border-color: var(--accent-color);
 }
 
-/* --- Mascote pixel interativo --- */
+/* --- Mascote de plataforma (anda e pula sobre os textos) --- */
 .mascot {
   position: fixed;
-  right: clamp(8px, 2vw, 28px);
-  z-index: 900;
-  width: clamp(44px, 5vw, 64px);
-  height: auto;
-  transition: top 0.25s ease-out;
-  will-change: top;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 50px;
+  z-index: 950;
+  pointer-events: none;
+  will-change: transform;
 }
 .mascot-btn {
-  width: clamp(44px, 5vw, 64px);
-  height: clamp(55px, 6.25vw, 80px);
+  display: block;
+  width: 40px;
+  height: 50px;
+  padding: 0;
   background: none;
   border: none;
-  padding: 0;
-  cursor: grab;
-  touch-action: none;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
-  transition: transform 0.2s ease;
-  animation: mascotIdle 3s ease-in-out infinite;
+  cursor: pointer;
+  pointer-events: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.45));
 }
-.mascot-btn:hover { transform: scale(1.12) rotate(-3deg); }
-.mascot-btn:active { transform: scale(0.95); }
-.mascot.dragging { transition: none; }
-.mascot.dragging .mascot-btn {
-  cursor: grabbing;
-  animation: none;
-  transform: scale(1.18);
-  filter: drop-shadow(0 8px 16px rgba(139,92,246,0.5));
+.mascot-body {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 100%;
+  transition: transform 0.08s linear;
 }
-@keyframes mascotIdle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-/* pernas andando quando rola a página */
-.mascot .leg { transform-box: fill-box; transform-origin: top center; }
-.mascot.walking .leg-l { animation: step 0.3s linear infinite; }
-.mascot.walking .leg-r { animation: step 0.3s linear infinite 0.15s; }
+.mascot .leg, .mascot .arm { transform-box: fill-box; transform-origin: top center; }
+.mascot.walking .leg-l { animation: step 0.32s linear infinite; }
+.mascot.walking .leg-r { animation: step 0.32s linear infinite 0.16s; }
+.mascot.walking .arm-l { animation: step 0.32s linear infinite 0.16s; }
+.mascot.walking .arm-r { animation: step 0.32s linear infinite; }
 @keyframes step {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(18deg); }
+  0%, 100% { transform: rotate(-16deg); }
+  50% { transform: rotate(16deg); }
 }
-.mascot.party .mascot-btn {
-  animation: partySpin 0.6s linear infinite;
-}
-@keyframes partySpin {
-  from { transform: rotate(0deg) scale(1.1); }
-  to { transform: rotate(360deg) scale(1.1); }
-}
+.mascot.jumping .leg { transform: translateY(-20%); }
+.mascot.jumping .arm { transform: rotate(150deg); }
+
 .mascot-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 200px;
   background: var(--bg-secondary);
   color: var(--text-primary);
   border: 1px solid var(--accent-color);
-  border-radius: 12px;
-  padding: 8px 12px;
-  font-size: 0.78rem;
+  border-radius: 10px;
+  padding: 7px 11px;
+  font-size: 0.76rem;
   line-height: 1.3;
-  max-width: 190px;
-  margin-bottom: 8px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-  position: relative;
-  animation: bubbleIn 0.25s ease-out;
+  text-align: left;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  pointer-events: none;
+  animation: bubbleIn 0.2s ease-out;
 }
-.mascot-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  right: 18px;
-  width: 12px; height: 12px;
-  background: var(--bg-secondary);
-  border-right: 1px solid var(--accent-color);
-  border-bottom: 1px solid var(--accent-color);
-  transform: rotate(45deg);
-}
+.mascot.bubble-left .mascot-bubble { left: auto; right: -4px; transform: none; }
+.mascot.bubble-right .mascot-bubble { left: -4px; transform: none; }
 @keyframes bubbleIn {
-  from { opacity: 0; transform: translateY(6px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* Em telas bem pequenas, mascote menor e sem balão largo */
-@media (max-width: 520px) {
-  .mascot-bubble { max-width: 150px; font-size: 0.72rem; }
+  from { opacity: 0; margin-bottom: -6px; }
+  to { opacity: 1; margin-bottom: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mascot-btn, .mascot.walking .leg-l, .mascot.walking .leg-r,
-  .timeline-badge, .mascot.party .mascot-btn {
-    animation: none !important;
-  }
+  .mascot.walking .leg, .mascot.walking .arm { animation: none; }
+}
+
+/* --- Faixa de tecnologias (marquee) --- */
+.tech-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  padding: 1.1rem 0;
+}
+.tech-marquee-track {
+  list-style: none;
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  animation: marquee 45s linear infinite;
+}
+.tech-marquee:hover .tech-marquee-track { animation-play-state: paused; }
+.tech-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-right: 3rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.tech-marquee-item svg { font-size: 1.35rem; }
+.tech-marquee-item:hover { color: var(--text-primary); }
+.tech-marquee-item:hover svg { color: var(--accent-color); }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee-track { animation: none; }
+  .tech-marquee { overflow-x: auto; }
 }
 
 /* --- WhatsApp: botão flutuante + CTA no contato --- */
@@ -1106,45 +1123,160 @@ footer p {
   50% { box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45), 0 0 0 10px rgba(37, 211, 102, 0); }
 }
 
-.whatsapp-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 1.5rem;
-  padding: 0.85rem 1.6rem;
-  background: #25d366;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-.whatsapp-cta i { font-size: 1.3rem; }
-.whatsapp-cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
-
-.contact-divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 500px;
-  margin: 1.75rem auto 0.5rem;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-}
-.contact-divider::before,
-.contact-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--border-color);
-}
-
 @media (max-width: 520px) {
   .whatsapp-fab { width: 50px; height: 50px; font-size: 1.6rem; bottom: 1.25rem; left: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .whatsapp-fab { animation: none; }
 }
+
+/* --- Seção de Contato (cards + janela de terminal) --- */
+.contact-section .section-subtitle { max-width: 560px; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1040px;
+  margin-top: 2.5rem;
+  text-align: left;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.contact-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--success-color);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.08);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--success-color);
+  animation: blinkDot 1.6s ease-in-out infinite;
+}
+
+.contact-cards {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.contact-card:hover { border-color: var(--accent-color); transform: translateX(4px); }
+.contact-card-icon {
+  flex: none;
+  width: 42px; height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+.contact-card.highlight { border-color: rgba(37, 211, 102, 0.5); }
+.contact-card.highlight .contact-card-icon { background: #25d366; color: #fff; font-size: 1.4rem; }
+.contact-card.highlight:hover { border-color: #25d366; }
+.contact-card-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.contact-card-label { font-weight: 700; font-size: 0.95rem; }
+.contact-card-value {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contact-card-arrow { color: var(--text-secondary); transition: transform 0.2s ease, color 0.2s ease; }
+.contact-card:hover .contact-card-arrow { color: var(--accent-color); transform: translateX(3px); }
+
+.contact-location {
+  margin-top: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+.contact-location i { color: var(--accent-color); margin-right: 0.35rem; }
+
+/* janela de terminal */
+.contact-terminal {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--bg-secondary);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-color);
+}
+.terminal-dot { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.terminal-dot:nth-child(2) { background: #febc2e; }
+.terminal-dot:nth-child(3) { background: #28c840; }
+.terminal-title {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 40px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+.contact-terminal .contact-form {
+  max-width: none;
+  margin: 0;
+  padding: 1.4rem;
+  gap: 0.8rem;
+}
+.terminal-prompt {
+  margin: 0 0 0.3rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.prompt-sign { color: var(--accent-color); font-weight: 700; }
+.prompt-cursor { color: var(--accent-color); animation: blinkDot 1s steps(1) infinite; }
+.contact-terminal .contact-form input,
+.contact-terminal .contact-form textarea {
+  background: var(--bg-color);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+.contact-terminal .contact-form input:focus,
+.contact-terminal .contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+.contact-terminal .contact-form textarea { min-height: 130px; }
+.contact-terminal .cta-button.form-button {
+  border-radius: 8px;
+  background: var(--accent-color);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.contact-terminal .cta-button.form-button::before { background: #7c3aed; }
