@@ -2149,3 +2149,53 @@ html { overflow-x: clip; }
 .ttt-level.active { background: var(--accent-color); color: #fff; }
 .ttt-cell.win { border-color: var(--accent-color); background: rgba(139, 92, 246, 0.14); }
 .ttt-cell.win.is-X { border-color: var(--success-color); background: rgba(34, 197, 94, 0.12); }
+
+/* --- Pedra, papel e tesoura: animação do jokenpô --- */
+.ppt-hand {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  transition: opacity 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+.ppt-hand.bot { transform: none; }
+.ppt-hand.bot svg { transform: scaleX(-1); }
+
+/* as duas mãos fechadas sobem e descem 3 vezes */
+.ppt-arena.shaking .ppt-hand { animation: pptShake 0.42s ease-in-out 3; }
+.ppt-arena.shaking .ppt-vs { animation: pptVs 0.42s ease-in-out 3; }
+@keyframes pptShake {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  45% { transform: translateY(-18px) rotate(-12deg); }
+  70% { transform: translateY(3px) rotate(4deg); }
+}
+.ppt-arena.shaking .ppt-hand.bot { animation-name: pptShakeBot; }
+@keyframes pptShakeBot {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  45% { transform: translateY(-18px) rotate(12deg); }
+  70% { transform: translateY(3px) rotate(-4deg); }
+}
+@keyframes pptVs { 50% { transform: scale(1.25); color: var(--accent-color); } }
+
+/* revelação: as jogadas "estouram" na tela */
+.ppt-arena.reveal .ppt-hand { animation: pptPop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1); }
+@keyframes pptPop { 0% { transform: scale(0.5); } 100% { transform: scale(1); } }
+
+.ppt-hand.winner {
+  border-color: var(--success-color);
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--success-color);
+  animation: pptPop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1), pptWin 0.9s 0.35s ease-in-out 2 !important;
+}
+@keyframes pptWin { 50% { transform: scale(1.12); } }
+.ppt-hand.loser { opacity: 0.35; }
+.ppt-arena.tie .ppt-hand { border-color: var(--text-secondary); animation: pptPop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1), pptTie 0.4s 0.35s ease-in-out 2; }
+@keyframes pptTie { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+
+.ppt-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+.ppt-btn.picked { border-color: var(--accent-color); background: rgba(139, 92, 246, 0.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ppt-arena .ppt-hand, .ppt-arena .ppt-vs, .ppt-hand.winner { animation: none !important; }
+}
