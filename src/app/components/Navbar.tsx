@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
+import SoundToggle from './SoundToggle';
 import { TbDeviceGamepad2, TbClockHour4 } from 'react-icons/tb';
 
 export default function Navbar() {
@@ -67,6 +68,7 @@ export default function Navbar() {
         >
           <TbDeviceGamepad2 aria-hidden="true" />
         </button>
+        <SoundToggle />
         <button id="theme-toggle" className="theme-toggle" aria-label={c('tema')}>
           <i className={`fa-solid ${themeIcon}`}></i>
         </button>

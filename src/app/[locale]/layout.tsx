@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-url";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 import { NextIntlClientProvider } from 'next-intl';
@@ -15,6 +16,7 @@ import ConsoleGreeting from "../components/ConsoleGreeting";
 import Arcade from "../components/Arcade";
 import DeployChat from "../components/DeployChat";
 import QuickSummary from "../components/QuickSummary";
+import Achievements from "../components/Achievements";
 
 // Importação do CSS Global
 import "../styles/style.css";
@@ -28,7 +30,7 @@ const poppins = Poppins({
 // Metadados por locale
 const metadataByLocale: Record<string, Metadata> = {
   pt: {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(SITE_URL),
     title: "Gustavo Oliveira | Portfólio",
     description: "Portfólio de Gustavo Oliveira, desenvolvedor back-end focado em automação, integrações e IA.",
     openGraph: {
@@ -36,18 +38,18 @@ const metadataByLocale: Record<string, Metadata> = {
       description: "Explore meus projetos e minha jornada no mundo do desenvolvimento web.",
       locale: "pt_BR",
       type: "website",
-      images: [{ url: "/nexo.png", width: 1200, height: 630, alt: "Gustavo Oliveira Portfolio" }],
+      images: [{ url: "/og-pt.png", width: 1200, height: 630, alt: "Gustavo Oliveira — portfólio" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Gustavo Oliveira | Desenvolvedor",
       description: "Explore meus projetos e minha jornada no mundo do desenvolvimento web.",
-      images: ["/nexo.png"],
+      images: ["/og-pt.png"],
     },
     other: { "theme-color": "#0d0d0d" },
   },
   en: {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(SITE_URL),
     title: "Gustavo Oliveira | Portfolio",
     description: "Portfolio of Gustavo Oliveira, a back-end developer focused on automation, integrations and AI.",
     openGraph: {
@@ -55,18 +57,18 @@ const metadataByLocale: Record<string, Metadata> = {
       description: "Explore my projects and my journey in the world of web development.",
       locale: "en_US",
       type: "website",
-      images: [{ url: "/nexo.png", width: 1200, height: 630, alt: "Gustavo Oliveira Portfolio" }],
+      images: [{ url: "/og-en.png", width: 1200, height: 630, alt: "Gustavo Oliveira — portfólio" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Gustavo Oliveira | Developer",
       description: "Explore my projects and my journey in the world of web development.",
-      images: ["/nexo.png"],
+      images: ["/og-en.png"],
     },
     other: { "theme-color": "#0d0d0d" },
   },
   es: {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(SITE_URL),
     title: "Gustavo Oliveira | Portafolio",
     description: "Portafolio de Gustavo Oliveira, desarrollador back-end enfocado en automatización, integraciones e IA.",
     openGraph: {
@@ -74,13 +76,13 @@ const metadataByLocale: Record<string, Metadata> = {
       description: "Explora mis proyectos y mi trayectoria en el mundo del desarrollo web.",
       locale: "es_ES",
       type: "website",
-      images: [{ url: "/nexo.png", width: 1200, height: 630, alt: "Gustavo Oliveira Portfolio" }],
+      images: [{ url: "/og-es.png", width: 1200, height: 630, alt: "Gustavo Oliveira — portfólio" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Gustavo Oliveira | Desarrollador",
       description: "Explora mis proyectos y mi trayectoria en el mundo del desarrollo web.",
-      images: ["/nexo.png"],
+      images: ["/og-es.png"],
     },
     other: { "theme-color": "#0d0d0d" },
   },
@@ -92,7 +94,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
+  const baseUrl = SITE_URL;
   const base = metadataByLocale[locale] ?? metadataByLocale.pt;
   return {
     ...base,
@@ -122,7 +124,7 @@ export default async function RootLayout({
   const messages = await getMessages();
   const c = await getTranslations({ locale, namespace: 'Common' });
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
+  const baseUrl = SITE_URL;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -163,6 +165,7 @@ export default async function RootLayout({
           <Arcade />
           <DeployChat />
           <QuickSummary />
+          <Achievements />
         </NextIntlClientProvider>
         
         {/* Font Awesome via CDN — ícones usados em todo o site */}

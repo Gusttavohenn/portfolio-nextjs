@@ -11,10 +11,10 @@ export default function RobotSprite({ hue = 258 }: { hue?: number }) {
       <rect x="7" y="1" width="2" height="1" fill={glow} />
       <rect x="3" y="2" width="10" height="7" fill={body} />
       <rect x="3" y="8" width="10" height="1" fill={bodyDark} />
-      <rect x="6" y="4" width="2" height="2" fill={eye} />
-      <rect x="10" y="4" width="2" height="2" fill={eye} />
-      <rect x="6" y="4" width="1" height="1" fill={glow} />
-      <rect x="10" y="4" width="1" height="1" fill={glow} />
+      <rect className="eye" x="6" y="4" width="2" height="2" fill={eye} />
+      <rect className="eye" x="10" y="4" width="2" height="2" fill={eye} />
+      <rect className="eye-glow" x="6" y="4" width="1" height="1" fill={glow} />
+      <rect className="eye-glow" x="10" y="4" width="1" height="1" fill={glow} />
       <rect x="7" y="7" width="4" height="1" fill={bodyDark} />
       <rect x="4" y="9" width="8" height="6" fill={body} />
       <rect x="4" y="14" width="8" height="1" fill={bodyDark} />

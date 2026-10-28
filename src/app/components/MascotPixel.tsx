@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import RobotSprite from "./RobotSprite";
+import { unlock } from "@/lib/achievements";
+import { play } from "@/lib/sound";
+import { dayPart, getCompany } from "@/lib/visit";
 
 /*
  * Deploy — o mascote de plataforma: anda em cima dos títulos, cards e botões da página.
@@ -20,6 +23,7 @@ const W = 40;            // largura do sprite (px)
 const H = 50;            // altura do sprite (px)
 const G = 0.55;          // gravidade (px / frame²)
 const WALK = 1.1;        // velocidade andando (px / frame)
+const SLEEP_AFTER_MS = 25000; // cochila depois de 25s sem nenhuma interação
 const NAV_FALLBACK = 84;  // altura padrão da navbar fixa (medida de verdade em runtime)
 const SELECTOR = [
   "h1", "h2", "h3",
@@ -70,6 +74,8 @@ export default function MascotPixel() {
     nextHopAt: 0,
     squashUntil: 0,
     party: false,
+    sleeping: false,
+    lastActive: 0,
   });
   const clicks = useRef<number[]>([]);
   const hintIndex = useRef(0);
@@ -89,6 +95,7 @@ export default function MascotPixel() {
     const st = s.current;
     if (st.party) return;
     st.party = true;
+    play("party");
     showBubble(t("party"), 4000);
     let h = 0;
     const spin = window.setInterval(() => {
@@ -198,7 +205,14 @@ export default function MascotPixel() {
           if (r.top < NAV_H + 14 || r.top > vh - 24 || r.width === 0) leave = true;
         }
 
-        if (leave) {
+        if (!st.sleeping && st.mode === "ground" && now - st.lastActive > SLEEP_AFTER_MS && !bubbleActive.current) {
+          st.sleeping = true;                         // ninguém mexe há um tempo: cochilo
+          root.classList.add("sleeping");
+        }
+
+        if (st.sleeping) {
+          // dormindo: só acompanha a plataforma
+        } else if (leave) {
           const target = pickTarget(plats, st.plat);
           if (target) jumpTo(landX(target), target.top);
           else if (!st.onFloor) jumpTo(Math.min(vw - 60, Math.max(60, st.x)), floorY);
@@ -286,7 +300,7 @@ export default function MascotPixel() {
       const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
       if (key === KONAMI[konamiPos.current]) {
         konamiPos.current += 1;
-        if (konamiPos.current === KONAMI.length) { konamiPos.current = 0; party(); }
+        if (konamiPos.current === KONAMI.length) { konamiPos.current = 0; party(); unlock("konami"); }
       } else {
         konamiPos.current = key === KONAMI[0] ? 1 : 0;
       }
@@ -294,6 +308,21 @@ export default function MascotPixel() {
     window.addEventListener("keydown", onKey);
     const onParty = () => party();
     window.addEventListener("mascot-party", onParty);
+
+    // qualquer interação conta como atividade; se ele estiver dormindo, acorda
+    st.lastActive = performance.now();
+    const onActivity = () => {
+      st.lastActive = performance.now();
+      if (!st.sleeping) return;
+      st.sleeping = false;
+      root.classList.remove("sleeping");
+      if (st.mode === "ground") { st.vy = -7; st.vx = 0; st.mode = "air"; st.plat = null; st.onFloor = false; }
+      play("wake");
+      showBubble(t("acordei"), 3000);
+      unlock("acordou");
+    };
+    const activityEvents = ["pointermove", "pointerdown", "keydown", "scroll", "touchstart", "wheel"] as const;
+    activityEvents.forEach((ev) => window.addEventListener(ev, onActivity, { passive: true }));
 
     // first visit vs. returning visitor (remembered only in this browser)
     let returning = false;
@@ -303,15 +332,26 @@ export default function MascotPixel() {
     } catch {
       /* storage blocked: treat as first visit */
     }
+    const company = getCompany();
+    const part = dayPart();
+    const saudacao = t(part === "madrugada" ? "noite" : part);
+    const late = part === "madrugada";
+    const hello = company
+      ? t("greetCompany", { saudacao, empresa: company })
+      : returning
+        ? (late ? t("greetBackLate") : t("greetBack", { saudacao }))
+        : (late ? t("greetLate") : t("greetFirst", { saudacao }));
+    const greetMs = returning && !company ? 3800 : 6000;
     const greet = window.setTimeout(() => {
-      showBubble(returning ? t("greetBack") : t("greetFirst"), returning ? 3800 : 5600);
-      window.setTimeout(() => { greetDone.current = true; }, returning ? 3900 : 5700);
+      showBubble(hello, greetMs);
+      window.setTimeout(() => { greetDone.current = true; }, greetMs + 100);
     }, 1800);
 
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("mascot-party", onParty);
+      activityEvents.forEach((ev) => window.removeEventListener(ev, onActivity));
       window.clearTimeout(greet);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -321,6 +361,7 @@ export default function MascotPixel() {
     const st = s.current;
     // jump in place
     if (st.mode === "ground") {
+      play("jump");
       st.vy = -10;
       st.vx = 0;
       st.mode = "air";
@@ -333,6 +374,7 @@ export default function MascotPixel() {
     if (clicks.current.length >= 5) {
       clicks.current = [];
       party();
+      unlock("festa");
       return;
     }
     const hints = t.raw("frases") as string[];
@@ -343,6 +385,7 @@ export default function MascotPixel() {
   return (
     <div ref={rootRef} className="mascot">
       {bubble && <div className="mascot-bubble" role="status">{bubble}</div>}
+      <span className="mascot-zzz" aria-hidden="true"><i>z</i><i>z</i><i>Z</i></span>
       <button
         className="mascot-btn"
         onClick={onClick}

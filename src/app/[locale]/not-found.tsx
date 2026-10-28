@@ -2,11 +2,14 @@
 
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
+import { useEffect } from 'react';
 import RobotSprite from '../components/RobotSprite';
+import { unlock } from '@/lib/achievements';
 
 export default function NotFound() {
   const t = useTranslations('NotFound');
   const locale = useLocale();
+  useEffect(() => { unlock('perdido'); }, []);
 
   return (
     <section className="notfound-page">
