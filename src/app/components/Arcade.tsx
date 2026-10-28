@@ -364,27 +364,64 @@ function RockPaperScissors({ react }: { react: ReactFn }) {
   const t = useTranslations("Arcade");
   const [score, setScore] = useState({ x: 0, o: 0, d: 0 });
   const [last, setLast] = useState<{ me: Hand; bot: Hand } | null>(null);
+  const [phase, setPhase] = useState<"idle" | "shaking" | "reveal">("idle");
+  const [result, setResult] = useState<"win" | "lose" | "tie" | null>(null);
+  const [picked, setPicked] = useState<Hand | null>(null);
+  const timers = useRef<number[]>([]);
+
+  useEffect(() => () => timers.current.forEach((id) => window.clearTimeout(id)), []);
+
+  const later = (ms: number, fn: () => void) => { timers.current.push(window.setTimeout(fn, ms)); };
+
+  const reveal = (me: Hand, bot: Hand) => {
+    setLast({ me, bot });
+    setPhase("reveal");
+    const said = t("escolheu", { x: t(bot) });
+    if (me === bot) { setResult("tie"); setScore((s) => ({ ...s, d: s.d + 1 })); react(`${said} ${t("pptTie")}`, "idle"); }
+    else if (BEATS[me] === bot) { setResult("win"); setScore((s) => ({ ...s, x: s.x + 1 })); react(`${said} ${t("pptWin")}`, "sad"); }
+    else { setResult("lose"); setScore((s) => ({ ...s, o: s.o + 1 })); react(`${said} ${t("pptLose")}`, "happy"); }
+  };
 
   const play = (me: Hand) => {
+    if (phase === "shaking") return;
     const bot = HANDS[Math.floor(Math.random() * 3)];
-    setLast({ me, bot });
-    const picked = t("escolheu", { x: t(bot) });
-    if (me === bot) { setScore((s) => ({ ...s, d: s.d + 1 })); react(`${picked} ${t("pptTie")}`, "idle"); }
-    else if (BEATS[me] === bot) { setScore((s) => ({ ...s, x: s.x + 1 })); react(`${picked} ${t("pptWin")}`, "sad"); }
-    else { setScore((s) => ({ ...s, o: s.o + 1 })); react(`${picked} ${t("pptLose")}`, "happy"); }
+    setPicked(me);
+    setResult(null);
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return reveal(me, bot);
+
+    // jo-ken-po: as duas mãos fechadas balançam 3 vezes enquanto o Deploy conta
+    setPhase("shaking");
+    react(`${t("pedra")}...`, "think");
+    later(420, () => react(`${t("papel")}...`, "think"));
+    later(840, () => react(`${t("tesoura")}!`, "think"));
+    later(1260, () => reveal(me, bot));
   };
+
+  const shaking = phase === "shaking";
+  const meClass = result === "win" ? "winner" : result === "lose" ? "loser" : "";
+  const botClass = result === "lose" ? "winner" : result === "win" ? "loser" : "";
 
   return (
     <div className="game">
       <Scoreboard a={score.x} b={score.o} d={score.d} />
-      <div className="ppt-arena" aria-hidden="true">
-        <span className="ppt-hand">{last ? <Hand h={last.me} /> : <TbQuestionMark />}</span>
+      <div className={`ppt-arena ${phase} ${result === "tie" ? "tie" : ""}`} aria-hidden="true" key={`${phase}-${score.x + score.o + score.d}`}>
+        <span className={`ppt-hand ${shaking ? "" : meClass}`}>
+          {shaking ? <Hand h="pedra" /> : last ? <Hand h={last.me} /> : <TbQuestionMark />}
+        </span>
         <span className="ppt-vs">VS</span>
-        <span className="ppt-hand bot">{last ? <Hand h={last.bot} /> : <TbQuestionMark />}</span>
+        <span className={`ppt-hand bot ${shaking ? "" : botClass}`}>
+          {shaking ? <Hand h="pedra" /> : last ? <Hand h={last.bot} /> : <TbQuestionMark />}
+        </span>
       </div>
       <div className="ppt-choices">
         {HANDS.map((h) => (
-          <button key={h} className="ppt-btn" onClick={() => play(h)}>
+          <button
+            key={h}
+            className={`ppt-btn ${picked === h && phase !== "idle" ? "picked" : ""}`}
+            onClick={() => play(h)}
+            disabled={shaking}
+          >
             <Hand h={h} /> {t(h)}
           </button>
         ))}
