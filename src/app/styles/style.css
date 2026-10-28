@@ -1651,7 +1651,6 @@ body:has(.notfound-page) .mascot { display: none; }
 
 /* pedra, papel e tesoura */
 .ppt-arena { display: flex; align-items: center; gap: 1.5rem; font-size: 3rem; }
-.ppt-hand.bot { transform: scaleX(-1); display: inline-block; }
 .ppt-vs { font-size: 1rem; font-weight: 800; color: var(--text-secondary); }
 .ppt-choices { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
 .ppt-btn {
@@ -2160,7 +2159,7 @@ html { overflow-x: clip; }
   transition: opacity 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 .ppt-hand.bot { transform: none; }
-.ppt-hand.bot svg { transform: scaleX(-1); }
+.ppt-hand.bot .hand-icon { transform: scaleX(-1); }  /* só a mão vira pro lado do Deploy, o "?" não */
 
 /* as duas mãos fechadas sobem e descem 3 vezes */
 .ppt-arena.shaking .ppt-hand { animation: pptShake 0.42s ease-in-out 3; }

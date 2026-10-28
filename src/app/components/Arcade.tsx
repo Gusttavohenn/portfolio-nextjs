@@ -432,7 +432,7 @@ function RockPaperScissors({ react }: { react: ReactFn }) {
 
 function Hand({ h }: { h: Hand }) {
   const Icon = HAND_ICON[h];
-  return <Icon aria-hidden="true" />;
+  return <Icon className="hand-icon" aria-hidden="true" />;
 }
 
 function Scoreboard({ a, b, d }: { a: number; b: number; d: number }) {
