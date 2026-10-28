@@ -6,7 +6,8 @@
     "jornada": "Trayectoria",
     "projetos": "Proyectos",
     "certificados": "Certificados",
-    "contato": "Contacto"
+    "contato": "Contacto",
+    "servicos": "Servicios"
   },
   "HeroSection": {
     "titulo": "Dev Back-end",
@@ -95,7 +96,8 @@
       "skills": "PHP, C#, Python... habla más lenguajes que yo.",
       "projetos": "Este Fang lo hizo Gu desde cero",
       "certificados": "Este no para de estudiar.",
-      "contato": "¡Última parada! Saluda a Gu"
+      "contato": "¡Última parada! Saluda a Gu",
+      "servicos": "Sitios, sistemas, apps, automatización... ¡Gu hace de todo!"
     },
     "aria": "Deploy, la mascota — haz clic para que salte",
     "title": "¡Soy Deploy! Haz clic en mí :)",
@@ -293,5 +295,12 @@
         "dica": "deja a Deploy solo un ratito"
       }
     }
+  },
+  "Servicos": {
+    "titulo": "Lo que construyo",
+    "subtitulo": "Del back-end a la app en el celular: entrego el proyecto completo funcionando.",
+    "orcamento": "Pedir presupuesto por WhatsApp",
+    "vaga": "Contratarme para un puesto",
+    "msgOrcamento": "¡Hola, Gustavo! Vi tu portafolio y quiero un presupuesto para un proyecto."
   }
 }

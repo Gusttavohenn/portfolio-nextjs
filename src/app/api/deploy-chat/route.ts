@@ -40,6 +40,7 @@ function knowledge(): string {
   const skills = cv.skills.map((g) => `- ${g.group.pt}: ${g.items.map((i) => loc(i, 'pt')).join(', ')}`).join('\n');
   const langs = cv.languages.map((l) => `${l.name.pt} (${l.level.pt})`).join(', ');
   const certs = cv.certifications.map((c) => `${c.title} (${c.platform})`).join('; ');
+  const services = cv.services.map((s) => `- ${s.title.pt}: ${s.desc.pt} (${s.tags.join(', ')})`).join('\n');
   const projs = projects
     .map((p) => `- ${p.title.pt}: ${p.description.pt} Tecnologias: ${p.tags.join(', ')}.${p.liveUrl ? ` Site: ${p.liveUrl}.` : ''}${p.codeUrl ? ` Código: ${p.codeUrl}.` : ''}`)
     .join('\n');
@@ -61,6 +62,9 @@ ${skills}
 IDIOMAS: ${langs}
 SOFT SKILLS: ${cv.softSkills.pt.join(', ')}
 CERTIFICAÇÕES: ${certs}
+
+O QUE O GU CONSTRÓI (aceita projetos freelance e também está aberto a vagas):
+${services}
 
 PROJETOS PESSOAIS NO PORTFÓLIO:
 ${projs}

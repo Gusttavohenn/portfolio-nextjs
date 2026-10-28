@@ -123,8 +123,8 @@ body {
 .filter-btn { background: none; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: all 0.3s; }
 .filter-btn.active, .filter-btn:hover { background-color: var(--accent-color); color: var(--bg-secondary); border-color: var(--accent-color); }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; max-width: 1100px; }
-.project-card { background-color: var(--bg-secondary); border-radius: 10px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s, opacity 0.4s, scale 0.4s; cursor: pointer; border: 1px solid var(--border-color); }
-.project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px var(--shadow-color); }
+.project-card { background-color: var(--bg-secondary); border-radius: 10px; overflow: hidden; transition: translate 0.3s ease, box-shadow 0.3s, opacity 0.4s, scale 0.4s; cursor: pointer; border: 1px solid var(--border-color); }
+.project-card:hover { translate: 0 -10px; box-shadow: 0 10px 30px var(--shadow-color); }
 .project-card.hide { opacity: 0; scale: 0.9; pointer-events: none; transform: translateY(0); }
 .project-card img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
 .project-card .card-info { padding: 1rem; text-align: left; }
@@ -368,11 +368,11 @@ footer p {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: translate 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  translate: 0 -10px;
   box-shadow: 0 10px 30px var(--shadow-color);
 }
 
@@ -2107,7 +2107,7 @@ body:has(.notfound-page) .mascot { display: none; }
 html { overflow-x: clip; }
 
 /* tablet/notebook pequeno: nome + botões em cima, faixa de links embaixo */
-@media (max-width: 1200px) and (min-width: 601px) {
+@media (max-width: 1519px) and (min-width: 601px) {
   .navbar { flex-wrap: wrap; row-gap: 8px; padding: 12px 24px; }
   .navbar nav {
     order: 3;
@@ -2330,3 +2330,60 @@ html { overflow-x: clip; }
 }
 /* espaço pro Deploy ficar em pé sobre o nome sem cobrir o selo da empresa */
 .hero-company { margin-bottom: 3rem; }
+
+/* --- O que eu construo --- */
+.services-grid {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+@media (max-width: 960px) { .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.4rem;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--bg-secondary);
+  transition: border-color 0.25s ease, translate 0.25s ease;
+}
+.service-card:hover { border-color: var(--accent-color); translate: 0 -4px; }
+.service-icon {
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.13);
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.service-card:hover .service-icon { background: var(--accent-color); color: #fff; }
+.service-card h3 { margin: 0.2rem 0 0; font-size: 1.1rem; color: var(--text-primary); }
+.service-card p { margin: 0; flex: 1; font-size: 0.92rem; line-height: 1.55; color: var(--text-secondary); }
+.service-tags { list-style: none; margin: 0.3rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.service-tags li {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+}
+.services-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
+.services-cta .qs-btn { padding: 0.8rem 1.3rem; font-size: 0.95rem; cursor: pointer; font-family: inherit; }
+
+/* o nome nunca quebra em duas linhas */
+.navbar .logo { white-space: nowrap; }
+
+/* ao clicar num link do menu, o título da seção não fica escondido atrás da barra fixa */
+section[id] { scroll-margin-top: 90px; }
+@media (max-width: 1519px) and (min-width: 601px) { section[id] { scroll-margin-top: 110px; } }
+@media (max-width: 600px) { section[id] { scroll-margin-top: 16px; } }
