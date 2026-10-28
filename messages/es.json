@@ -13,7 +13,8 @@
     "subtitulo": "Automatización & Integraciones con IA",
     "saudacao": "Convierto procesos manuales en sistemas que funcionan solos.",
     "explorar": "VER PROYECTOS",
-    "downloadCV": "DESCARGAR CV"
+    "downloadCV": "DESCARGAR CV",
+    "paraEmpresa": "Portafolio preparado para el equipo de {empresa}"
   },
   "SkillsSection": {
     "titulo": "Mis Skills",
@@ -72,8 +73,8 @@
     "direitos": "Todos los derechos reservados."
   },
   "Mascot": {
-    "greetFirst": "¡Hola! Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio",
-    "greetBack": "¿Ah, tú otra vez? Ya me conoces, ¡sigamos!",
+    "greetFirst": "¡{saudacao}! Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio",
+    "greetBack": "¡{saudacao}! ¿Ah, tú otra vez? Ya me conoces, ¡sigamos!",
     "party": "¡Encontraste un easter egg!",
     "frases": [
       "¡Pregúntame lo que quieras sobre Gu! Haz doble clic en mí",
@@ -97,7 +98,14 @@
       "contato": "¡Última parada! Saluda a Gu"
     },
     "aria": "Deploy, la mascota — haz clic para que salte",
-    "title": "¡Soy Deploy! Haz clic en mí :)"
+    "title": "¡Soy Deploy! Haz clic en mí :)",
+    "manha": "Buenos días",
+    "tarde": "Buenas tardes",
+    "noite": "Buenas noches",
+    "greetLate": "Trabajando hasta tarde, ¿eh? Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio",
+    "greetBackLate": "¿Tú otra vez, y de madrugada? Ya me conoces, ¡sigamos!",
+    "greetCompany": "¡{saudacao}, equipo de {empresa}! Soy Deploy, y Gu me pidió que les mostrara su trabajo.",
+    "acordei": "¡Ups! Me quedé dormido... ¿Seguimos?"
   },
   "ContactSection": {
     "titulo": "Contacto",
@@ -216,6 +224,74 @@
     "foco": "Automatización · IA · Back-end",
     "apis": "APIs REST",
     "automacao": "Automatización & IA",
-    "suporte": "Soporte Nivel 2"
+    "suporte": "Soporte Nivel 2",
+    "somLigar": "Activar sonidos",
+    "somDesligar": "Desactivar sonidos"
+  },
+  "Conquistas": {
+    "titulo": "Logros",
+    "desbloqueada": "Logro desbloqueado",
+    "segredos": "{n}/{total} secretos",
+    "todos": "¡Encontraste todos los secretos! Mándale una captura a Gu.",
+    "fechar": "Cerrar",
+    "bloqueada": "Bloqueado",
+    "dica": "Pista",
+    "itens": {
+      "konami": {
+        "nome": "Código secreto",
+        "desc": "Escribió el Konami Code",
+        "dica": "un código clásico de los videojuegos"
+      },
+      "festa": {
+        "nome": "¡Fiesta!",
+        "desc": "Hizo clic 5 veces rapidito en Deploy",
+        "dica": "a Deploy le gustan los clics rápidos"
+      },
+      "terminal": {
+        "nome": "Hacker",
+        "desc": "Abrió la terminal secreta",
+        "dica": "hay una tecla que abre algo escondido"
+      },
+      "sudo": {
+        "nome": "Contratado",
+        "desc": "Ejecutó 'sudo contratar' en la terminal",
+        "dica": "en la terminal, pide permiso de administrador"
+      },
+      "velha": {
+        "nome": "Le ganó a la máquina",
+        "desc": "Le ganó a Deploy en tres en raya",
+        "dica": "en difícil es imposible... prueba otro nivel"
+      },
+      "memoria": {
+        "nome": "Memoria de elefante",
+        "desc": "Completó el juego de memoria",
+        "dica": "encuentra todos los pares"
+      },
+      "ppt": {
+        "nome": "Piedra, papel...",
+        "desc": "Le ganó a Deploy en piedra, papel o tijera",
+        "dica": "la suerte también cuenta"
+      },
+      "resumo": {
+        "nome": "Sin tiempo",
+        "desc": "Abrió el resumen en 30 segundos",
+        "dica": "hay un botón para quien tiene prisa"
+      },
+      "chat": {
+        "nome": "Charla de robot",
+        "desc": "Conversó con Deploy",
+        "dica": "Deploy responde preguntas"
+      },
+      "perdido": {
+        "nome": "Perdido",
+        "desc": "Encontró la página que no existe",
+        "dica": "prueba una dirección que no existe"
+      },
+      "acordou": {
+        "nome": "Despertador",
+        "desc": "Despertó a Deploy de la siesta",
+        "dica": "deja a Deploy solo un ratito"
+      }
+    }
   }
 }

@@ -13,7 +13,8 @@
     "subtitulo": "Automation & AI Integrations",
     "saudacao": "I turn manual processes into systems that run on their own.",
     "explorar": "VIEW PROJECTS",
-    "downloadCV": "DOWNLOAD CV"
+    "downloadCV": "DOWNLOAD CV",
+    "paraEmpresa": "Portfolio prepared for the {empresa} team"
   },
   "SkillsSection": {
     "titulo": "My Skills",
@@ -72,8 +73,8 @@
     "direitos": "All rights reserved."
   },
   "Mascot": {
-    "greetFirst": "Hi! I'm Deploy, a robot built by my master Gu, and I'll walk you through the site",
-    "greetBack": "Oh, you again? You already know me, let's keep going!",
+    "greetFirst": "{saudacao}! I'm Deploy, a robot built by my master Gu, and I'll walk you through the site",
+    "greetBack": "{saudacao}! Oh, you again? You already know me, let's keep going!",
     "party": "You found an easter egg!",
     "frases": [
       "Ask me anything about Gu! Double-click me",
@@ -97,7 +98,14 @@
       "contato": "Last stop! Say hi to Gu"
     },
     "aria": "Deploy, the mascot — click to make him jump",
-    "title": "I'm Deploy! Click me :)"
+    "title": "I'm Deploy! Click me :)",
+    "manha": "Good morning",
+    "tarde": "Good afternoon",
+    "noite": "Good evening",
+    "greetLate": "Working late, huh? I'm Deploy, a robot built by my master Gu, and I'll walk you through the site",
+    "greetBackLate": "You again, and this late? You know me already, let's keep going!",
+    "greetCompany": "{saudacao}, {empresa} team! I'm Deploy, and Gu asked me to show you his work.",
+    "acordei": "Oops! I dozed off... Shall we keep going?"
   },
   "ContactSection": {
     "titulo": "Contact",
@@ -216,6 +224,74 @@
     "foco": "Automation · AI · Back-end",
     "apis": "REST APIs",
     "automacao": "Automation & AI",
-    "suporte": "Level 2 Support"
+    "suporte": "Level 2 Support",
+    "somLigar": "Turn sounds on",
+    "somDesligar": "Turn sounds off"
+  },
+  "Conquistas": {
+    "titulo": "Achievements",
+    "desbloqueada": "Achievement unlocked",
+    "segredos": "{n}/{total} secrets",
+    "todos": "You found every secret! Send Gu a screenshot.",
+    "fechar": "Close",
+    "bloqueada": "Locked",
+    "dica": "Hint",
+    "itens": {
+      "konami": {
+        "nome": "Secret code",
+        "desc": "Typed the Konami Code",
+        "dica": "a classic video game code"
+      },
+      "festa": {
+        "nome": "Party!",
+        "desc": "Clicked Deploy 5 times real quick",
+        "dica": "Deploy likes fast clicks"
+      },
+      "terminal": {
+        "nome": "Hacker",
+        "desc": "Opened the secret terminal",
+        "dica": "there's a key that opens something hidden"
+      },
+      "sudo": {
+        "nome": "Hired",
+        "desc": "Ran 'sudo hire' in the terminal",
+        "dica": "in the terminal, ask for admin rights"
+      },
+      "velha": {
+        "nome": "Beat the machine",
+        "desc": "Beat Deploy at tic-tac-toe",
+        "dica": "hard mode is impossible... try another level"
+      },
+      "memoria": {
+        "nome": "Elephant memory",
+        "desc": "Finished the memory game",
+        "dica": "find every pair"
+      },
+      "ppt": {
+        "nome": "Rock on",
+        "desc": "Beat Deploy at rock, paper, scissors",
+        "dica": "luck counts too"
+      },
+      "resumo": {
+        "nome": "No time",
+        "desc": "Opened the 30-second summary",
+        "dica": "there's a button for people in a hurry"
+      },
+      "chat": {
+        "nome": "Robot talk",
+        "desc": "Chatted with Deploy",
+        "dica": "Deploy answers questions"
+      },
+      "perdido": {
+        "nome": "Lost",
+        "desc": "Found the page that doesn't exist",
+        "dica": "try an address that doesn't exist"
+      },
+      "acordou": {
+        "nome": "Alarm clock",
+        "desc": "Woke Deploy up from a nap",
+        "dica": "leave Deploy alone for a little while"
+      }
+    }
   }
 }

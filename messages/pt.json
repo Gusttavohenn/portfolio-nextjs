@@ -13,7 +13,8 @@
     "subtitulo": "Automação & Integrações com IA",
     "saudacao": "Transformo processo manual em sistema que roda sozinho.",
     "explorar": "VER PROJETOS",
-    "downloadCV": "BAIXAR CV"
+    "downloadCV": "BAIXAR CV",
+    "paraEmpresa": "Portfólio preparado para a equipe da {empresa}"
   },
   "SkillsSection": {
     "titulo": "Minhas Skills",
@@ -72,8 +73,8 @@
     "direitos": "Todos os direitos reservados."
   },
   "Mascot": {
-    "greetFirst": "Oi! Eu sou o Deploy, robô desenvolvido pelo meu mestre Gu, e vou te acompanhar pelo site",
-    "greetBack": "Ah, você de novo? Você já me conhece, vamos continuar!",
+    "greetFirst": "{saudacao}! Eu sou o Deploy, robô desenvolvido pelo meu mestre Gu, e vou te acompanhar pelo site",
+    "greetBack": "{saudacao}! Ah, você de novo? Você já me conhece, vamos continuar!",
     "party": "Você achou um easter egg!",
     "frases": [
       "Me pergunta qualquer coisa sobre o Gu! Clica duas vezes em mim",
@@ -97,7 +98,14 @@
       "contato": "Última parada! Manda um oi pro Gu"
     },
     "aria": "Deploy, o mascote — clique para ele pular",
-    "title": "Eu sou o Deploy! Clica em mim :)"
+    "title": "Eu sou o Deploy! Clica em mim :)",
+    "manha": "Bom dia",
+    "tarde": "Boa tarde",
+    "noite": "Boa noite",
+    "greetLate": "Trabalhando até tarde, hein? Eu sou o Deploy, robô desenvolvido pelo meu mestre Gu, e vou te acompanhar pelo site",
+    "greetBackLate": "Você de novo, e de madrugada? Já me conhece, vamos continuar!",
+    "greetCompany": "{saudacao}, pessoal da {empresa}! Eu sou o Deploy, e o Gu me pediu pra mostrar o trabalho dele pra vocês.",
+    "acordei": "Opa! Cochilei aqui... Vamos continuar?"
   },
   "ContactSection": {
     "titulo": "Contato",
@@ -216,6 +224,74 @@
     "foco": "Automação · IA · Back-end",
     "apis": "APIs REST",
     "automacao": "Automação & IA",
-    "suporte": "Suporte Nível 2"
+    "suporte": "Suporte Nível 2",
+    "somLigar": "Ligar sons",
+    "somDesligar": "Desligar sons"
+  },
+  "Conquistas": {
+    "titulo": "Conquistas",
+    "desbloqueada": "Conquista desbloqueada",
+    "segredos": "{n}/{total} segredos",
+    "todos": "Você achou todos os segredos! Manda um print pro Gu.",
+    "fechar": "Fechar",
+    "bloqueada": "Bloqueada",
+    "dica": "Dica",
+    "itens": {
+      "konami": {
+        "nome": "Código secreto",
+        "desc": "Digitou o Konami Code",
+        "dica": "um código clássico dos videogames"
+      },
+      "festa": {
+        "nome": "Festa!",
+        "desc": "Clicou 5 vezes rapidinho no Deploy",
+        "dica": "o Deploy gosta de cliques rápidos"
+      },
+      "terminal": {
+        "nome": "Hacker",
+        "desc": "Abriu o terminal secreto",
+        "dica": "tem uma tecla que abre algo escondido"
+      },
+      "sudo": {
+        "nome": "Contratado",
+        "desc": "Rodou 'sudo contratar' no terminal",
+        "dica": "no terminal, peça permissão de administrador"
+      },
+      "velha": {
+        "nome": "Venceu a máquina",
+        "desc": "Ganhou do Deploy no jogo da velha",
+        "dica": "no difícil é impossível... tente outro nível"
+      },
+      "memoria": {
+        "nome": "Memória de elefante",
+        "desc": "Completou o jogo da memória",
+        "dica": "ache todos os pares"
+      },
+      "ppt": {
+        "nome": "Jokenpô",
+        "desc": "Ganhou do Deploy no pedra, papel e tesoura",
+        "dica": "sorte também conta"
+      },
+      "resumo": {
+        "nome": "Sem tempo",
+        "desc": "Abriu o resumo em 30 segundos",
+        "dica": "tem um botão pra quem está com pressa"
+      },
+      "chat": {
+        "nome": "Papo de robô",
+        "desc": "Conversou com o Deploy",
+        "dica": "o Deploy responde perguntas"
+      },
+      "perdido": {
+        "nome": "Perdido",
+        "desc": "Encontrou a página que não existe",
+        "dica": "tente um endereço que não existe"
+      },
+      "acordou": {
+        "nome": "Despertador",
+        "desc": "Acordou o Deploy do cochilo",
+        "dica": "deixe o Deploy sozinho um tempinho"
+      }
+    }
   }
 }

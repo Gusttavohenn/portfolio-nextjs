@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { socialLinks } from '@/lib/social-links';
 import { TbDeviceGamepad2 } from 'react-icons/tb';
+import { AchievementsCounter } from './Achievements';
 
 export default function Footer() {
     const t = useTranslations('Footer');
@@ -32,6 +33,7 @@ export default function Footer() {
             >
                 <TbDeviceGamepad2 aria-hidden="true" /> {c('jogar')}
             </button>
+            <AchievementsCounter />
         </footer>
     );
 }

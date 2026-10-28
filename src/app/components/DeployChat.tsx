@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { TbX } from "react-icons/tb";
 import RobotSprite from "./RobotSprite";
 import { socialLinks } from "@/lib/social-links";
+import { unlock } from "@/lib/achievements";
 
 /*
  * Chat com o Deploy (IA). Abre pelo evento global "open-chat":
@@ -46,6 +47,7 @@ export default function DeployChat() {
     if (!q || loading) return;
     const next: Msg[] = [...msgs, { role: "user", content: q }];
     setMsgs(next);
+    unlock("chat");
     setValue("");
     setLoading(true);
     try {

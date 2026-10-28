@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { socialLinks } from "@/lib/social-links";
 import { cv, loc, yearsPeriod } from "@/lib/cv";
+import { unlock } from "@/lib/achievements";
+import { play } from "@/lib/sound";
 
 /*
  * Terminal escondido: aperte "/" em qualquer lugar do site (ou clique em ">_" no rodapé).
@@ -203,6 +205,7 @@ export default function HiddenTerminal() {
 
   useEffect(() => {
     if (open) {
+      unlock("terminal");
       if (lines.length === 0) setLines([{ kind: "out", text: T.welcome }]);
       setTimeout(() => inputRef.current?.focus(), 30);
     }
@@ -298,6 +301,8 @@ export default function HiddenTerminal() {
           push(T.hire1);
           push(T.hire2);
           push(T.hire3);
+          unlock("sudo");
+          play("achievement");
           setTimeout(() => window.open(socialLinks.whatsapp, "_blank", "noopener,noreferrer"), 900);
         } else if (rest.startsWith("rm")) {
           push(T.rm, "err");

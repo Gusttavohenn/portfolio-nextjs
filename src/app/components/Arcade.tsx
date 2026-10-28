@@ -9,6 +9,8 @@ import {
 import { TbHash, TbCards, TbDeviceGamepad2, TbQuestionMark, TbX } from "react-icons/tb";
 import { FaHandRock, FaHandPaper, FaHandScissors } from "react-icons/fa";
 import RobotSprite from "./RobotSprite";
+import { unlock } from "@/lib/achievements";
+import { play as sfx } from "@/lib/sound";
 
 /*
  * Fliperama do Deploy: jogo da velha, memória e pedra-papel-tesoura.
@@ -183,9 +185,9 @@ function TicTacToe({ react }: { react: ReactFn }) {
   const finish = (b: Cell[], w: "X" | "O" | "draw") => {
     setDone(w);
     setWinLine(LINES.find(([a, c, d]) => b[a] && b[a] === b[c] && b[a] === b[d]) ?? null);
-    if (w === "X") { setScore((s) => ({ ...s, x: s.x + 1 })); react(t("venceu"), "sad"); }
-    else if (w === "O") { setScore((s) => ({ ...s, o: s.o + 1 })); react(t("perdeu"), "happy"); }
-    else { setScore((s) => ({ ...s, d: s.d + 1 })); react(t("empate"), "idle"); }
+    if (w === "X") { setScore((s) => ({ ...s, x: s.x + 1 })); react(t("venceu"), "sad"); sfx("win"); unlock("velha"); }
+    else if (w === "O") { setScore((s) => ({ ...s, o: s.o + 1 })); react(t("perdeu"), "happy"); sfx("lose"); }
+    else { setScore((s) => ({ ...s, d: s.d + 1 })); react(t("empate"), "idle"); sfx("draw"); }
   };
 
   const deployPlays = (b: Cell[]) => {
@@ -194,6 +196,7 @@ function TicTacToe({ react }: { react: ReactFn }) {
     window.setTimeout(() => {
       const next = [...b];
       next[deployMove(next, level)] = "O";
+      sfx("move");
       setBoard(next);
       setBusy(false);
       const w = winnerOf(next);
@@ -206,6 +209,7 @@ function TicTacToe({ react }: { react: ReactFn }) {
     if (busy || done || board[i]) return;
     const b = [...board];
     b[i] = "X";
+    sfx("click");
     setBoard(b);
     const w = winnerOf(b);
     if (w) return finish(b, w);
@@ -301,6 +305,7 @@ function Memory({ react }: { react: ReactFn }) {
     if (lock.current || flipped.includes(idx) || matched.has(deck[idx].name)) return;
     const next = [...flipped, idx];
     setFlipped(next);
+    sfx("flip");
     if (next.length < 2) return;
 
     const m = moves + 1;
@@ -314,8 +319,11 @@ function Memory({ react }: { react: ReactFn }) {
         const record = best === null || m < best;
         if (record) { store.set("deploy-memory-best", m); setBest(m); }
         react(t("fimMemoria", { n: m }) + (record ? ` ${t("novoRecorde")}` : ""), "happy");
+        sfx("win");
+        unlock("memoria");
       } else {
         react(`${deck[a].name}!`, "happy");
+        sfx("match");
       }
     } else {
       lock.current = true;
@@ -377,9 +385,10 @@ function RockPaperScissors({ react }: { react: ReactFn }) {
     setLast({ me, bot });
     setPhase("reveal");
     const said = t("escolheu", { x: t(bot) });
-    if (me === bot) { setResult("tie"); setScore((s) => ({ ...s, d: s.d + 1 })); react(`${said} ${t("pptTie")}`, "idle"); }
-    else if (BEATS[me] === bot) { setResult("win"); setScore((s) => ({ ...s, x: s.x + 1 })); react(`${said} ${t("pptWin")}`, "sad"); }
-    else { setResult("lose"); setScore((s) => ({ ...s, o: s.o + 1 })); react(`${said} ${t("pptLose")}`, "happy"); }
+    sfx("reveal");
+    if (me === bot) { setResult("tie"); setScore((s) => ({ ...s, d: s.d + 1 })); react(`${said} ${t("pptTie")}`, "idle"); sfx("draw"); }
+    else if (BEATS[me] === bot) { setResult("win"); setScore((s) => ({ ...s, x: s.x + 1 })); react(`${said} ${t("pptWin")}`, "sad"); sfx("win"); unlock("ppt"); }
+    else { setResult("lose"); setScore((s) => ({ ...s, o: s.o + 1 })); react(`${said} ${t("pptLose")}`, "happy"); sfx("lose"); }
   };
 
   const play = (me: Hand) => {
@@ -392,9 +401,9 @@ function RockPaperScissors({ react }: { react: ReactFn }) {
 
     // jo-ken-po: as duas mãos fechadas balançam 3 vezes enquanto o Deploy conta
     setPhase("shaking");
-    react(`${t("pedra")}...`, "think");
-    later(420, () => react(`${t("papel")}...`, "think"));
-    later(840, () => react(`${t("tesoura")}!`, "think"));
+    react(`${t("pedra")}...`, "think"); sfx("tick");
+    later(420, () => { react(`${t("papel")}...`, "think"); sfx("tick"); });
+    later(840, () => { react(`${t("tesoura")}!`, "think"); sfx("tick"); });
     later(1260, () => reveal(me, bot));
   };
 

@@ -8,6 +8,7 @@ import {
 } from "react-icons/tb";
 import { cv, loc, toLang, yearsOfExperience, yearsPeriod, type Lang } from "@/lib/cv";
 import { socialLinks } from "@/lib/social-links";
+import { unlock } from "@/lib/achievements";
 
 /*
  * "Resumo em 30s": uma tela só para o recrutador com pressa.
@@ -30,7 +31,7 @@ export default function QuickSummary() {
   const [timeUp, setTimeUp] = useState(false);
 
   useEffect(() => {
-    const onOpen = () => { setOpen(true); setTimeUp(false); };
+    const onOpen = () => { setOpen(true); setTimeUp(false); unlock("resumo"); };
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
     window.addEventListener("open-summary", onOpen);
     window.addEventListener("keydown", onKey);
