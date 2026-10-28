@@ -509,5 +509,115 @@
       "en": "On-site, hybrid or remote",
       "es": "Presencial, híbrido o remoto"
     }
-  }
+  },
+  "services": [
+    {
+      "id": "sites",
+      "title": {
+        "pt": "Sites e landing pages",
+        "en": "Websites & landing pages",
+        "es": "Sitios y landing pages"
+      },
+      "desc": {
+        "pt": "Sites rápidos, responsivos e prontos pro Google, do institucional à página de vendas.",
+        "en": "Fast, responsive, search-ready websites, from company sites to sales pages.",
+        "es": "Sitios rápidos, responsivos y listos para Google, desde el institucional hasta la página de ventas."
+      },
+      "tags": [
+        "Next.js",
+        "React",
+        "Laravel"
+      ]
+    },
+    {
+      "id": "sistemas",
+      "title": {
+        "pt": "Sistemas web e SaaS",
+        "en": "Web systems & SaaS",
+        "es": "Sistemas web y SaaS"
+      },
+      "desc": {
+        "pt": "Painéis, sistemas internos e plataformas com login, banco de dados e regras de negócio.",
+        "en": "Dashboards, internal systems and platforms with login, database and business rules.",
+        "es": "Paneles, sistemas internos y plataformas con login, base de datos y reglas de negocio."
+      },
+      "tags": [
+        "Laravel",
+        ".NET",
+        "Node.js",
+        "SQL"
+      ]
+    },
+    {
+      "id": "apps",
+      "title": {
+        "pt": "Apps para celular",
+        "en": "Mobile apps",
+        "es": "Apps para celular"
+      },
+      "desc": {
+        "pt": "Aplicativos para Android e iOS, integrados ao seu sistema e às suas APIs.",
+        "en": "Android and iOS apps, connected to your system and your APIs.",
+        "es": "Aplicaciones para Android e iOS, integradas a tu sistema y a tus APIs."
+      },
+      "tags": [
+        "Android",
+        "iOS"
+      ]
+    },
+    {
+      "id": "automacao",
+      "title": {
+        "pt": "Automação de processos",
+        "en": "Process automation",
+        "es": "Automatización de procesos"
+      },
+      "desc": {
+        "pt": "Rotinas que rodam sozinhas: relatórios, tarefas repetitivas e fluxos entre sistemas.",
+        "en": "Routines that run on their own: reports, repetitive tasks and flows between systems.",
+        "es": "Rutinas que funcionan solas: informes, tareas repetitivas y flujos entre sistemas."
+      },
+      "tags": [
+        "Python",
+        "n8n",
+        "Cron"
+      ]
+    },
+    {
+      "id": "ia",
+      "title": {
+        "pt": "IA e chatbots",
+        "en": "AI & chatbots",
+        "es": "IA y chatbots"
+      },
+      "desc": {
+        "pt": "Assistentes de IA no WhatsApp e em sites, usando os dados do seu negócio. O Deploy deste site é um exemplo.",
+        "en": "AI assistants on WhatsApp and websites, using your business data. Deploy, on this site, is an example.",
+        "es": "Asistentes de IA en WhatsApp y en sitios, usando los datos de tu negocio. Deploy, en este sitio, es un ejemplo."
+      },
+      "tags": [
+        "WhatsApp",
+        "Claude",
+        "OpenAI"
+      ]
+    },
+    {
+      "id": "integracoes",
+      "title": {
+        "pt": "APIs e integrações",
+        "en": "APIs & integrations",
+        "es": "APIs e integraciones"
+      },
+      "desc": {
+        "pt": "Conecto ERPs, sistemas de chamados e plataformas via API, pra os dados circularem sem retrabalho.",
+        "en": "I connect ERPs, ticketing systems and platforms via API, so data flows without rework.",
+        "es": "Conecto ERPs, sistemas de tickets y plataformas vía API, para que los datos circulen sin retrabajo."
+      },
+      "tags": [
+        "REST",
+        "IXC",
+        "GLPI"
+      ]
+    }
+  ]
 }

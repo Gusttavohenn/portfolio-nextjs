@@ -28,7 +28,7 @@ const NAV_FALLBACK = 84;  // altura padrão da navbar fixa (medida de verdade em
 const SELECTOR = [
   "h1", "h2", "h3",
   ".about-card", ".skill-category", ".project-card",
-  ".cert-group-header", ".contact-card", ".contact-terminal", ".cta-button",
+  ".cert-group-header", ".service-card", ".contact-card", ".contact-terminal", ".cta-button",
   ".contact-form input", ".contact-form textarea",
 ].join(", ");
 

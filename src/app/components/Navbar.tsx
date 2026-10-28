@@ -44,6 +44,7 @@ export default function Navbar() {
         <ul>
           <li><a href="#home">{t('inicio')}</a></li>
           <li><a href="#sobre">{t('sobre')}</a></li>
+          <li><a href="#servicos">{t('servicos')}</a></li>
           <li><a href="#skills">{t('skills')}</a></li>
           <li><a href="#jornada">{t('jornada')}</a></li>
           <li><a href="#projetos">{t('projetos')}</a></li>

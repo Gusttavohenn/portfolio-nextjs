@@ -31,6 +31,7 @@ export const cv = cvData as unknown as {
   languages: { name: Localized; level: Localized }[];
   certifications: { title: string; platform: string; hours?: string }[];
   highlights: { skills: MaybeLocalized[]; achievements: Record<Lang, string[]>; availability: Localized };
+  services: { id: string; title: Localized; desc: Localized; tags: string[] }[];
 };
 
 export const toLang = (locale: string): Lang => (locale === 'en' || locale === 'es' ? locale : 'pt');
