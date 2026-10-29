@@ -22,6 +22,8 @@ export default function ProcessSection() {
       <h2 className="section-title">{t("titulo")}</h2>
       <p className="section-subtitle">{t("subtitulo")}</p>
 
+      <div className="process-wrap">
+      <div className="process-track" aria-hidden="true"><i className="process-fill" /></div>
       <ol className="process-steps">
         {cv.process.map((step, i) => {
           const Icon = ICONS[step.id] ?? TbCode;
@@ -37,6 +39,7 @@ export default function ProcessSection() {
           );
         })}
       </ol>
+      </div>
 
       <div className="faq">
         <h3 className="faq-title">{t("faqTitulo")}</h3>
