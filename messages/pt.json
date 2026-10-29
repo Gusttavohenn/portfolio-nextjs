@@ -97,8 +97,9 @@
       "projetos": "Esse Fang aqui o Gu fez do zero",
       "certificados": "Estudando sem parar, esse aí.",
       "contato": "Última parada! Manda um oi pro Gu",
-      "servicos": "Site, sistema, app, automação... o Gu faz de tudo!",
-      "processo": "Sem enrolação: conversa, proposta, código e entrega."
+      "servicos": "Escolhe aí! Site, sistema, app... o Gu faz de tudo.",
+      "processo": "Sem enrolação: conversa, proposta, código e entrega.",
+      "faq": "Ficou com dúvida? Clica numa pergunta que eu abro pra você!"
     },
     "aria": "Deploy, o mascote — clique para ele pular",
     "title": "Eu sou o Deploy! Clica em mim :)",
@@ -108,7 +109,24 @@
     "greetLate": "Trabalhando até tarde, hein? Eu sou o Deploy, robô desenvolvido pelo meu mestre Gu, e vou te acompanhar pelo site",
     "greetBackLate": "Você de novo, e de madrugada? Já me conhece, vamos continuar!",
     "greetCompany": "{saudacao}, pessoal da {empresa}! Eu sou o Deploy, e o Gu me pediu pra mostrar o trabalho dele pra vocês.",
-    "acordei": "Opa! Cochilei aqui... Vamos continuar?"
+    "acordei": "Opa! Cochilei aqui... Vamos continuar?",
+    "falas": {
+      "svc": {
+        "sites": "Site rápido e que aparece no Google? É com o Gu.",
+        "sistemas": "Esse painel aí é só um gostinho do que ele faz.",
+        "apps": "App no celular, Android e iOS. Já imaginou o seu?",
+        "automacao": "Tarefa repetitiva? O Gu transforma em robô. Tipo eu!",
+        "ia": "Esse card aqui? Eu sou a prova viva.",
+        "integracoes": "Sistema que não conversa com o outro? Ele resolve."
+      },
+      "faqAbriu": [
+        "Boa pergunta!",
+        "Essa todo mundo pergunta.",
+        "Anota aí!",
+        "Pergunta de quem já tá quase fechando, hein?",
+        "O Gu respondeu essa com carinho."
+      ]
+    }
   },
   "ContactSection": {
     "titulo": "Contato",

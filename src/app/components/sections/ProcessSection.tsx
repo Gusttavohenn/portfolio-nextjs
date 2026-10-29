@@ -45,7 +45,15 @@ export default function ProcessSection() {
         <h3 className="faq-title">{t("faqTitulo")}</h3>
         <div className="faq-list">
           {cv.faq.map((f, i) => (
-            <details key={i} className="faq-item">
+            <details
+              key={i}
+              className="faq-item"
+              onToggle={(e) => {
+                if (e.currentTarget.open) {
+                  window.dispatchEvent(new CustomEvent("deploy-say", { detail: { key: "faqAbriu", pick: true, force: true } }));
+                }
+              }}
+            >
               <summary>
                 <span>{f.q[lang]}</span>
                 <span className="faq-plus" aria-hidden="true"><TbPlus /></span>

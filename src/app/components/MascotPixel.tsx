@@ -28,7 +28,7 @@ const NAV_FALLBACK = 84;  // altura padrão da navbar fixa (medida de verdade em
 const SELECTOR = [
   "h1", "h2", "h3",
   ".about-card", ".skill-category", ".project-card",
-  ".cert-group-header", ".service-card", ".process-step", ".contact-card", ".contact-terminal", ".cta-button",
+  ".cert-group-header", ".service-card", ".process-step", ".faq-item", ".contact-card", ".contact-terminal", ".cta-button",
   ".contact-form input", ".contact-form textarea",
 ].join(", ");
 
@@ -259,7 +259,8 @@ export default function MascotPixel() {
             st.y = floorY;
           }
           if (st.mode === "ground") {
-            const section = st.plat?.closest("section[id]")?.id;
+            // perguntas frequentes têm fala própria, separada da seção "Como eu trabalho"
+            const section = st.plat?.closest(".faq") ? "faq" : st.plat?.closest("section[id]")?.id;
             if (section && greetDone.current && !bubbleActive.current && !commented.current.has(section) && t.has(`secao.${section}`)) {
               commented.current.add(section);
               showBubble(t(`secao.${section}`), 3600);
@@ -306,6 +307,27 @@ export default function MascotPixel() {
       }
     };
     window.addEventListener("keydown", onKey);
+    // falas disparadas por outras partes do site: hover nos serviços, abrir uma pergunta...
+    let lastSay = 0;
+    const said = new Set<string>();
+    const onSay = (e: Event) => {
+      const { key, pick, force } = (e as CustomEvent<{ key: string; pick?: boolean; force?: boolean }>).detail ?? {};
+      if (!key || !greetDone.current || st.sleeping) return;
+      const now = performance.now();
+      if (!force && (bubbleActive.current || said.has(key) || now - lastSay < 4000)) return;
+      let text: string | undefined;
+      if (pick) {
+        const list = t.raw(`falas.${key}`) as string[] | undefined;
+        if (Array.isArray(list) && list.length) text = list[Math.floor(Math.random() * list.length)];
+      } else if (t.has(`falas.${key}`)) {
+        text = t(`falas.${key}`);
+      }
+      if (!text) return;
+      said.add(key);
+      lastSay = now;
+      showBubble(text, 3200);
+    };
+    window.addEventListener("deploy-say", onSay);
     const onParty = () => party();
     window.addEventListener("mascot-party", onParty);
 
@@ -351,6 +373,7 @@ export default function MascotPixel() {
       cancelAnimationFrame(raf);
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("mascot-party", onParty);
+      window.removeEventListener("deploy-say", onSay);
       activityEvents.forEach((ev) => window.removeEventListener(ev, onActivity));
       window.clearTimeout(greet);
     };

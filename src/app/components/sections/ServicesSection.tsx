@@ -22,6 +22,9 @@ const ICONS: Record<string, IconType> = {
 const ORDER = ["sistemas", "sites", "apps", "automacao", "integracoes", "ia"];
 const WIDE = new Set(["sistemas", "ia"]);
 
+// pede pro Deploy comentar (cada card fala uma vez, sem atropelar outras falas)
+const say = (key: string) => window.dispatchEvent(new CustomEvent("deploy-say", { detail: { key } }));
+
 const WHATSAPP_NUMBER = "5537998730908";
 const wa = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
@@ -77,7 +80,11 @@ export default function ServicesSection() {
           const Icon = ICONS[s.id] ?? TbLayoutDashboard;
           const wide = WIDE.has(s.id);
           return (
-            <li key={s.id} className={`service-card${wide ? " wide" : ""}`}>
+            <li
+              key={s.id}
+              className={`service-card${wide ? " wide" : ""}`}
+              onMouseEnter={() => say(`svc.${s.id}`)}
+            >
               <div className="service-link">
                 <div className="service-text">
                   <div className="service-head">
