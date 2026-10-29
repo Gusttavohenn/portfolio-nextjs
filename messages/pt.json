@@ -301,6 +301,11 @@
     "subtitulo": "Do back-end ao app no celular: eu entrego o projeto inteiro funcionando.",
     "orcamento": "Pedir orçamento no WhatsApp",
     "vaga": "Contratar para uma vaga",
-    "msgOrcamento": "Olá, Gustavo! Vim pelo seu portfólio e quero um orçamento para um projeto."
+    "msgOrcamento": "Olá, Gustavo! Vim pelo seu portfólio e quero um orçamento para um projeto.",
+    "demoPergunta": "Vocês fazem sistema sob medida?",
+    "demoResposta": "Fazemos sim! Quer falar com o Gu agora?",
+    "demoPainel": "Chamados hoje",
+    "ver": "Quero esse",
+    "msgServico": "Olá, Gustavo! Vim pelo seu portfólio e quero um orçamento de: {servico}."
   }
 }

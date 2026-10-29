@@ -301,6 +301,11 @@
     "subtitulo": "From back-end to mobile app: I deliver the whole project, working.",
     "orcamento": "Request a quote on WhatsApp",
     "vaga": "Hire me for a role",
-    "msgOrcamento": "Hi, Gustavo! I found your portfolio and I'd like a quote for a project."
+    "msgOrcamento": "Hi, Gustavo! I found your portfolio and I'd like a quote for a project.",
+    "demoPergunta": "Do you build custom systems?",
+    "demoResposta": "We sure do! Want to talk to Gu now?",
+    "demoPainel": "Tickets today",
+    "ver": "I want this",
+    "msgServico": "Hi, Gustavo! I found your portfolio and I'd like a quote for: {servico}."
   }
 }
