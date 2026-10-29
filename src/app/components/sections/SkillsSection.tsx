@@ -7,6 +7,7 @@ import {
   SiDotnet, SiSharp,
 } from "react-icons/si";
 import { VscTerminalPowershell } from "react-icons/vsc"; // Ícone corrigido para PowerShell
+import FaIcon from '../FaIcon';
 
 export default function SkillsSection() {
   const t = useTranslations('SkillsSection');
@@ -19,68 +20,68 @@ export default function SkillsSection() {
 
         {/* --- Categoria Backend --- */}
         <div className="skill-category">
-          <h3><i className="fa-solid fa-server" aria-hidden="true"></i> {t('catBackend')}</h3>
+          <h3><FaIcon name="fa-solid fa-server" /> {t('catBackend')}</h3>
           <div className="skills-list">
-            <span className="skill-item"><i className="fab fa-php" aria-hidden="true"></i> PHP</span>
-            <span className="skill-item"><i className="fab fa-laravel" aria-hidden="true"></i> Laravel</span>
+            <span className="skill-item"><FaIcon name="fab fa-php" /> PHP</span>
+            <span className="skill-item"><FaIcon name="fab fa-laravel" /> Laravel</span>
             <span className="skill-item"><SiSharp aria-hidden="true" /> C#</span>
             <span className="skill-item"><SiDotnet aria-hidden="true" /> .NET</span>
-            <span className="skill-item"><i className="fab fa-python" aria-hidden="true"></i> Python</span>
-            <span className="skill-item"><i className="fab fa-node-js" aria-hidden="true"></i> Node.js</span>
-            <span className="skill-item"><i className="fab fa-java" aria-hidden="true"></i> Java</span>
-            <span className="skill-item"><i className="fa-solid fa-plug" aria-hidden="true"></i> {c('apis')}</span>
-            <span className="skill-item"><i className="fa-solid fa-robot" aria-hidden="true"></i> {c('automacao')}</span>
+            <span className="skill-item"><FaIcon name="fab fa-python" /> Python</span>
+            <span className="skill-item"><FaIcon name="fab fa-node-js" /> Node.js</span>
+            <span className="skill-item"><FaIcon name="fab fa-java" /> Java</span>
+            <span className="skill-item"><FaIcon name="fa-solid fa-plug" /> {c('apis')}</span>
+            <span className="skill-item"><FaIcon name="fa-solid fa-robot" /> {c('automacao')}</span>
           </div>
         </div>
 
         {/* --- Categoria Frontend --- */}
         <div className="skill-category">
-          <h3><i className="fa-solid fa-code" aria-hidden="true"></i> {t('catFrontend')}</h3>
+          <h3><FaIcon name="fa-solid fa-code" /> {t('catFrontend')}</h3>
           <div className="skills-list">
-            <span className="skill-item"><i className="fab fa-react" aria-hidden="true"></i> React</span>
+            <span className="skill-item"><FaIcon name="fab fa-react" /> React</span>
             <span className="skill-item"><SiNextdotjs aria-hidden="true" /> Next.js</span>
             <span className="skill-item"><SiTypescript aria-hidden="true" /> TypeScript</span>
-            <span className="skill-item"><i className="fab fa-js" aria-hidden="true"></i> JavaScript</span>
-            <span className="skill-item"><i className="fab fa-html5" aria-hidden="true"></i> HTML5</span>
-            <span className="skill-item"><i className="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
+            <span className="skill-item"><FaIcon name="fab fa-js" /> JavaScript</span>
+            <span className="skill-item"><FaIcon name="fab fa-html5" /> HTML5</span>
+            <span className="skill-item"><FaIcon name="fab fa-css3-alt" /> CSS3</span>
             <span className="skill-item"><SiBlazor aria-hidden="true" /> Blazor</span>
           </div>
         </div>
 
         {/* --- Categoria Banco de Dados & DevOps --- */}
         <div className="skill-category">
-          <h3><i className="fa-solid fa-database" aria-hidden="true"></i> {t('catTools')}</h3>
+          <h3><FaIcon name="fa-solid fa-database" /> {t('catTools')}</h3>
           <div className="skills-list">
             <span className="skill-item"><SiMysql aria-hidden="true" /> MySQL</span>
-            <span className="skill-item"><i className="fa-solid fa-database" aria-hidden="true"></i> SQL Server</span>
-            <span className="skill-item"><i className="fa-solid fa-database" aria-hidden="true"></i> PostgreSQL</span>
-            <span className="skill-item"><i className="fa-solid fa-database" aria-hidden="true"></i> MariaDB</span>
+            <span className="skill-item"><FaIcon name="fa-solid fa-database" /> SQL Server</span>
+            <span className="skill-item"><FaIcon name="fa-solid fa-database" /> PostgreSQL</span>
+            <span className="skill-item"><FaIcon name="fa-solid fa-database" /> MariaDB</span>
             <span className="skill-item"><SiMongodb aria-hidden="true" /> MongoDB</span>
-            <span className="skill-item"><i className="fab fa-docker" aria-hidden="true"></i> Docker</span>
-            <span className="skill-item"><i className="fab fa-git-alt" aria-hidden="true"></i> Git</span>
-            <span className="skill-item"><i className="fab fa-github" aria-hidden="true"></i> GitHub</span>
+            <span className="skill-item"><FaIcon name="fab fa-docker" /> Docker</span>
+            <span className="skill-item"><FaIcon name="fab fa-git-alt" /> Git</span>
+            <span className="skill-item"><FaIcon name="fab fa-github" /> GitHub</span>
           </div>
         </div>
 
         {/* --- Categoria TI & Infraestrutura --- */}
         <div className="skill-category">
-            <h3><i className="fa-solid fa-network-wired" aria-hidden="true"></i> {t('catInfra')}</h3>
+            <h3><FaIcon name="fa-solid fa-network-wired" /> {t('catInfra')}</h3>
             <div className="skills-list">
-                <span className="skill-item"><i className="fa-solid fa-chart-line" aria-hidden="true"></i> Zabbix</span>
+                <span className="skill-item"><FaIcon name="fa-solid fa-chart-line" /> Zabbix</span>
                 <span className="skill-item"><SiGrafana aria-hidden="true" /> Grafana</span>
                 <span className="skill-item"><SiCisco aria-hidden="true" /> Cisco</span>
                 <span className="skill-item"><SiMikrotik aria-hidden="true" /> MikroTik</span>
-                <span className="skill-item"><i className="fa-solid fa-shield-halved" aria-hidden="true"></i> Sophos</span>
+                <span className="skill-item"><FaIcon name="fa-solid fa-shield-halved" /> Sophos</span>
                 <span className="skill-item"><SiPfsense aria-hidden="true" /> pfSense</span>
                 <span className="skill-item"><SiFortinet aria-hidden="true" /> Fortinet</span>
-                <span className="skill-item"><i className="fa-solid fa-user-secret" aria-hidden="true"></i> VPNs</span>
-                <span className="skill-item"><i className="fa-solid fa-shield-halved" aria-hidden="true"></i> Hardening</span>
-                <span className="skill-item"><i className="fab fa-windows" aria-hidden="true"></i> Windows Server</span>
+                <span className="skill-item"><FaIcon name="fa-solid fa-user-secret" /> VPNs</span>
+                <span className="skill-item"><FaIcon name="fa-solid fa-shield-halved" /> Hardening</span>
+                <span className="skill-item"><FaIcon name="fab fa-windows" /> Windows Server</span>
                 <span className="skill-item"><SiGnubash aria-hidden="true" /> Bash</span>
                 <span className="skill-item"><VscTerminalPowershell aria-hidden="true" /> PowerShell</span>
                 <span className="skill-item"><SiVeeam aria-hidden="true" /> Veeam Backup</span>
-                <span className="skill-item"><i className="fa-solid fa-arrows-rotate" aria-hidden="true"></i> rsync</span>
-                <span className="skill-item"><i className="fa-solid fa-headset" aria-hidden="true"></i> {c('suporte')}</span>
+                <span className="skill-item"><FaIcon name="fa-solid fa-arrows-rotate" /> rsync</span>
+                <span className="skill-item"><FaIcon name="fa-solid fa-headset" /> {c('suporte')}</span>
             </div>
         </div>
 

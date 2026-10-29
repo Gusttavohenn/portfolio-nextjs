@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { toLang } from '@/lib/cv';
+import FaIcon from '../../../components/FaIcon';
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
@@ -21,7 +22,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <article className="case-study-container section">
       <Link href={`/${locale}/#projetos`} className="back-link">
-        <i className="fa-solid fa-arrow-left" aria-hidden="true"></i> {t('voltar')}
+        <FaIcon name="fa-solid fa-arrow-left" /> {t('voltar')}
       </Link>
 
       <div className="case-study-header">
@@ -39,7 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="case-study-content">
         {/* Tecnologias */}
         <section className="case-study-section">
-          <h3><i className="fa-solid fa-layer-group" aria-hidden="true"></i> {t('tecnologias')}</h3>
+          <h3><FaIcon name="fa-solid fa-layer-group" /> {t('tecnologias')}</h3>
           <div className="case-study-techs">
             {project.tags.map(tag => (
               <span key={tag} className="tech-tag">{tag}</span>
@@ -49,32 +50,32 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         {/* O Problema */}
         <section className="case-study-section">
-          <h3><i className="fa-solid fa-bullseye" aria-hidden="true"></i> {t('problema')}</h3>
+          <h3><FaIcon name="fa-solid fa-bullseye" /> {t('problema')}</h3>
           <p>{project.problem[lang]}</p>
         </section>
 
         {/* A Solução */}
         <section className="case-study-section">
-          <h3><i className="fa-solid fa-lightbulb" aria-hidden="true"></i> {t('solucao')}</h3>
+          <h3><FaIcon name="fa-solid fa-lightbulb" /> {t('solucao')}</h3>
           <p>{project.solution[lang]}</p>
         </section>
 
         {/* Aprendizados */}
         <section className="case-study-section">
-          <h3><i className="fa-solid fa-graduation-cap" aria-hidden="true"></i> {t('aprendizados')}</h3>
+          <h3><FaIcon name="fa-solid fa-graduation-cap" /> {t('aprendizados')}</h3>
           <p>{project.learnings[lang]}</p>
         </section>
 
         <div className="button-group">
           {project.liveUrl && (
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="cta-button">
-              <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" style={{ marginRight: '0.5rem' }}></i>
+              <FaIcon name="fa-solid fa-arrow-up-right-from-square" style={{ marginRight: '0.5rem' }} />
               {t('verAoVivo')}
             </a>
           )}
           {project.codeUrl && (
             <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="cta-button secondary">
-              <i className="fab fa-github" aria-hidden="true" style={{ marginRight: '0.5rem' }}></i>
+              <FaIcon name="fab fa-github" style={{ marginRight: '0.5rem' }} />
               {t('verCodigo')}
             </a>
           )}
@@ -86,13 +87,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <nav className="project-nav">
           {prev ? (
             <Link href={`/${locale}/projects/${prev.slug}`} className="project-nav-link prev">
-              <span><i className="fa-solid fa-arrow-left" aria-hidden="true"></i> {t('anterior')}</span>
+              <span><FaIcon name="fa-solid fa-arrow-left" /> {t('anterior')}</span>
               <span>{prev.title[lang]}</span>
             </Link>
           ) : <div />}
           {next ? (
             <Link href={`/${locale}/projects/${next.slug}`} className="project-nav-link next">
-              <span>{t('proximo')} <i className="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              <span>{t('proximo')} <FaIcon name="fa-solid fa-arrow-right" /></span>
               <span>{next.title[lang]}</span>
             </Link>
           ) : <div />}

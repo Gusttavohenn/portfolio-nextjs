@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { TbSparkles } from 'react-icons/tb';
 import { getCompany } from '@/lib/visit';
 import ParticleField from '../ParticleField';
+import FaIcon from '../FaIcon';
 
 export default function HeroSection() {
   const t = useTranslations('HeroSection');
@@ -51,7 +52,7 @@ export default function HeroSection() {
       </div>
 
       <a href="#sobre" className="scroll-indicator" aria-label={c('rolar')}>
-        <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        <FaIcon name="fa-solid fa-chevron-down" />
       </a>
     </section>
   );

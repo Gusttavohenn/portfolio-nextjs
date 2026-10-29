@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { projects } from '@/lib/projects-data';
 import { toLang } from '@/lib/cv';
+import FaIcon from '../FaIcon';
 
 export default function ProjectsSection() {
   const locale = useLocale();
@@ -57,12 +58,12 @@ export default function ProjectsSection() {
             <div className="project-card-actions">
               {project.liveUrl && (
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-action-btn">
-                  <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> {t('verDemo')}
+                  <FaIcon name="fa-solid fa-arrow-up-right-from-square" /> {t('verDemo')}
                 </a>
               )}
               {project.codeUrl && (
                 <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="project-action-btn">
-                  <i className="fab fa-github" aria-hidden="true"></i> {t('verCodigo')}
+                  <FaIcon name="fab fa-github" /> {t('verCodigo')}
                 </a>
               )}
             </div>

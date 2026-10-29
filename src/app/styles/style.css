@@ -116,7 +116,7 @@ body {
 .skills-list { display: flex; flex-wrap: wrap; gap: 1rem; }
 .skill-item { display: inline-flex; align-items: center; gap: 8px; background-color: var(--bg-color); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--border-color); transition: transform 0.3s ease; }
 .skill-item:hover { transform: translateY(-3px); border-color: var(--accent-color); }
-.skill-item i { color: var(--accent-color); }
+.skill-item .fa-icon { color: var(--accent-color); }
 
 /* Projetos e Filtros */
 .filter-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
@@ -614,7 +614,7 @@ footer p {
   padding: 1rem 1.25rem;
 }
 
-.about-card i {
+.about-card .fa-icon {
   font-size: 1.25rem;
   color: var(--accent-color);
   flex-shrink: 0;
@@ -726,7 +726,7 @@ footer p {
   font-weight: 700;
 }
 
-.cert-group-title i {
+.cert-group-title .fa-icon {
   color: var(--accent-color);
   font-size: 1rem;
 }
@@ -1217,7 +1217,7 @@ footer p {
   color: var(--text-secondary);
   font-size: 0.88rem;
 }
-.contact-location i { color: var(--accent-color); margin-right: 0.35rem; }
+.contact-location .fa-icon { color: var(--accent-color); margin-right: 0.35rem; }
 
 /* janela de terminal */
 .contact-terminal {
@@ -2662,3 +2662,29 @@ section[id] { scroll-margin-top: 90px; }
   .process-fill { display: none; }
   .faq-item[open] p { animation: none; }
 }
+
+/* ícones (antes vinham do Font Awesome via CDN; agora são SVG embutidos) */
+.fa-icon { display: inline-block; height: 1em; width: auto; vertical-align: -0.125em; overflow: visible; flex-shrink: 0; }
+.page-enter { animation: pageEnter 0.75s ease-in-out backwards; }
+@keyframes pageEnter { from { translate: 0 20px; } to { translate: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .page-enter { animation: none; } }
+
+/* animação de entrada ao rolar (substitui o GSAP) */
+.reveal { opacity: 0; transition: opacity 0.8s cubic-bezier(.2,.8,.2,1), translate 0.8s cubic-bezier(.2,.8,.2,1); }
+.reveal-up { translate: 0 50px; }
+.reveal-left { translate: -100px 0; }
+.reveal-right { translate: 100px 0; }
+.reveal.in { opacity: 1; translate: 0 0; }
+
+/* entrada do topo: o nome aparece na hora (é o maior elemento da tela); o resto sobe em sequência */
+.hero-role, .hero-tagline, .hero .button-group { animation: heroIn 1s cubic-bezier(.2,.8,.2,1) backwards; }
+.hero-role { animation-delay: 0.3s; }
+.hero-tagline { animation-delay: 0.45s; }
+.hero .button-group { animation-delay: 0.6s; }
+.hero-name { animation: heroName 1s cubic-bezier(.2,.8,.2,1) backwards 0.15s; }
+@keyframes heroIn { from { opacity: 0; translate: 0 30px; } }
+@keyframes heroName { from { translate: 0 30px; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-role, .hero-tagline, .hero .button-group, .hero-name { animation: none; }
+}
+.blob { will-change: transform; }

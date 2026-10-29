@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { socialLinks } from '@/lib/social-links';
+import FaIcon from '../FaIcon';
 
 export default function AboutSection() {
   const t = useTranslations('AboutSection');
@@ -19,26 +20,26 @@ export default function AboutSection() {
 
         <div className="about-socials">
           <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="GitHub">
-            <i className="fab fa-github" aria-hidden="true"></i> GitHub
+            <FaIcon name="fab fa-github" /> GitHub
           </a>
           <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="LinkedIn">
-            <i className="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+            <FaIcon name="fab fa-linkedin-in" /> LinkedIn
           </a>
           <a href={`mailto:${socialLinks.email}`} className="about-social-link" aria-label="E-mail">
-            <i className="fa-solid fa-envelope" aria-hidden="true"></i> E-mail
+            <FaIcon name="fa-solid fa-envelope" /> E-mail
           </a>
         </div>
 
         <div className="about-cards">
           <div className="about-card">
-            <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <FaIcon name="fa-solid fa-location-dot" />
             <div>
               <span className="about-card-label">{t('localLabel')}</span>
               <span className="about-card-value">{c('local')}</span>
             </div>
           </div>
           <div className="about-card">
-            <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+            <FaIcon name="fa-solid fa-graduation-cap" />
             <div>
               <span className="about-card-label">{t('educacaoLabel')}</span>
               <span className="about-card-value">{c('formacao')}</span>
@@ -46,14 +47,14 @@ export default function AboutSection() {
             </div>
           </div>
           <div className="about-card">
-            <i className="fa-solid fa-language" aria-hidden="true"></i>
+            <FaIcon name="fa-solid fa-language" />
             <div>
               <span className="about-card-label">{t('idiomasLabel')}</span>
               <span className="about-card-value">PT · EN · ES</span>
             </div>
           </div>
           <div className="about-card">
-            <i className="fa-solid fa-code" aria-hidden="true"></i>
+            <FaIcon name="fa-solid fa-code" />
             <div>
               <span className="about-card-label">{t('focoLabel')}</span>
               <span className="about-card-value">{c('foco')}</span>
