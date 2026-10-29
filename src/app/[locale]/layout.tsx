@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from 'next/navigation';
 import { SITE_URL } from "@/lib/site-url";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
@@ -88,12 +89,15 @@ const metadataByLocale: Record<string, Metadata> = {
   },
 };
 
+
+const LOCALES = ['pt', 'en', 'es'];
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  if (!LOCALES.includes(locale)) notFound();
   const baseUrl = SITE_URL;
   const base = metadataByLocale[locale] ?? metadataByLocale.pt;
   return {
@@ -119,6 +123,8 @@ export default async function RootLayout({
 }) {
   // Resolve a Promise do params
   const { locale } = await params;
+  // caminho que não é idioma (ex.: /arquivo-qualquer.txt) vira 404, não erro 500
+  if (!LOCALES.includes(locale)) notFound();
   
   // Pega as mensagens de tradução para o locale atual
   const messages = await getMessages();
