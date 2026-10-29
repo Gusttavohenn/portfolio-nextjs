@@ -97,7 +97,8 @@
       "projetos": "Gu built this Fang one from scratch",
       "certificados": "This guy never stops studying.",
       "contato": "Last stop! Say hi to Gu",
-      "servicos": "Websites, systems, apps, automation... Gu does it all!"
+      "servicos": "Websites, systems, apps, automation... Gu does it all!",
+      "processo": "No fluff: chat, proposal, code and launch."
     },
     "aria": "Deploy, the mascot — click to make him jump",
     "title": "I'm Deploy! Click me :)",
@@ -307,5 +308,14 @@
     "demoPainel": "Tickets today",
     "ver": "I want this",
     "msgServico": "Hi, Gustavo! I found your portfolio and I'd like a quote for: {servico}."
+  },
+  "Processo": {
+    "titulo": "How I work",
+    "subtitulo": "From the first hello to the project going live, no surprises along the way.",
+    "faqTitulo": "FAQ",
+    "faqMais": "Still have a question?",
+    "faqBotao": "Ask on WhatsApp",
+    "msg": "Hi, Gustavo! I found your portfolio and I have a question about how you work.",
+    "etapa": "Step"
   }
 }

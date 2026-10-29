@@ -619,5 +619,133 @@
         "GLPI"
       ]
     }
+  ],
+  "process": [
+    {
+      "id": "conversa",
+      "title": {
+        "pt": "Conversa",
+        "en": "Chat",
+        "es": "Conversación"
+      },
+      "desc": {
+        "pt": "A gente conversa sobre a ideia, o problema que ela resolve e o prazo. Sem compromisso.",
+        "en": "We talk about the idea, the problem it solves and the timeline. No strings attached.",
+        "es": "Hablamos de la idea, el problema que resuelve y el plazo. Sin compromiso."
+      }
+    },
+    {
+      "id": "proposta",
+      "title": {
+        "pt": "Proposta",
+        "en": "Proposal",
+        "es": "Propuesta"
+      },
+      "desc": {
+        "pt": "Te mando por escrito o escopo, as etapas, o prazo e o valor. Tudo claro antes de começar.",
+        "en": "I send you the scope, milestones, timeline and price in writing. Everything clear before we start.",
+        "es": "Te envío por escrito el alcance, las etapas, el plazo y el valor. Todo claro antes de empezar."
+      }
+    },
+    {
+      "id": "desenvolvimento",
+      "title": {
+        "pt": "Desenvolvimento",
+        "en": "Development",
+        "es": "Desarrollo"
+      },
+      "desc": {
+        "pt": "Entregas toda semana: você acompanha, testa e dá opinião enquanto o projeto cresce.",
+        "en": "Weekly deliveries: you follow along, test and give feedback as the project grows.",
+        "es": "Entregas cada semana: acompañas, pruebas y opinas mientras el proyecto crece."
+      }
+    },
+    {
+      "id": "entrega",
+      "title": {
+        "pt": "Entrega e suporte",
+        "en": "Launch and support",
+        "es": "Entrega y soporte"
+      },
+      "desc": {
+        "pt": "Coloco no ar, te mostro como usar e continuo por perto para ajustes e melhorias.",
+        "en": "I put it live, show you how to use it and stay around for tweaks and improvements.",
+        "es": "Lo publico, te muestro cómo usarlo y sigo cerca para ajustes y mejoras."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "q": {
+        "pt": "Quanto tempo leva um projeto?",
+        "en": "How long does a project take?",
+        "es": "¿Cuánto tarda un proyecto?"
+      },
+      "a": {
+        "pt": "Depende do tamanho. Uma landing page sai em poucos dias; um sistema ou app leva algumas semanas. O prazo fica fechado na proposta.",
+        "en": "It depends on the size. A landing page takes a few days; a system or app takes a few weeks. The deadline is set in the proposal.",
+        "es": "Depende del tamaño. Una landing page sale en pocos días; un sistema o app lleva algunas semanas. El plazo queda cerrado en la propuesta."
+      }
+    },
+    {
+      "q": {
+        "pt": "Quanto custa?",
+        "en": "How much does it cost?",
+        "es": "¿Cuánto cuesta?"
+      },
+      "a": {
+        "pt": "Cada projeto tem um orçamento próprio, de acordo com o escopo. Me chama no WhatsApp que eu te passo um valor sem compromisso.",
+        "en": "Each project gets its own quote based on scope. Message me on WhatsApp and I will send you a price, no strings attached.",
+        "es": "Cada proyecto tiene su propio presupuesto según el alcance. Escríbeme por WhatsApp y te paso un valor sin compromiso."
+      }
+    },
+    {
+      "q": {
+        "pt": "Como funciona o pagamento?",
+        "en": "How does payment work?",
+        "es": "¿Cómo funciona el pago?"
+      },
+      "a": {
+        "pt": "Combinamos na proposta. Em geral, uma parte no início e o restante na entrega; projetos maiores podem ser divididos por etapa.",
+        "en": "We agree on it in the proposal. Usually part up front and the rest on delivery; bigger projects can be split by milestone.",
+        "es": "Lo acordamos en la propuesta. En general, una parte al inicio y el resto en la entrega; los proyectos grandes se pueden dividir por etapas."
+      }
+    },
+    {
+      "q": {
+        "pt": "Você faz manutenção depois da entrega?",
+        "en": "Do you offer maintenance after launch?",
+        "es": "¿Haces mantenimiento después de la entrega?"
+      },
+      "a": {
+        "pt": "Sim. Posso cuidar de ajustes, melhorias e da hospedagem, por demanda ou com um plano mensal.",
+        "en": "Yes. I can handle tweaks, improvements and hosting, on demand or with a monthly plan.",
+        "es": "Sí. Puedo encargarme de ajustes, mejoras y del hosting, por demanda o con un plan mensual."
+      }
+    },
+    {
+      "q": {
+        "pt": "Já tenho um sistema. Você mexe nele?",
+        "en": "I already have a system. Can you work on it?",
+        "es": "Ya tengo un sistema. ¿Puedes trabajar en él?"
+      },
+      "a": {
+        "pt": "Sim. Primeiro entendo como ele funciona hoje e depois corrijo, melhoro ou integro com outras ferramentas.",
+        "en": "Yes. First I learn how it works today, then I fix, improve or integrate it with other tools.",
+        "es": "Sí. Primero entiendo cómo funciona hoy y luego lo corrijo, mejoro o integro con otras herramientas."
+      }
+    },
+    {
+      "q": {
+        "pt": "Atende clientes de outras cidades?",
+        "en": "Do you work with clients from other cities?",
+        "es": "¿Atiendes clientes de otras ciudades?"
+      },
+      "a": {
+        "pt": "Sim, trabalho remoto com clientes de qualquer lugar. Na região de Itaúna também dá pra conversar pessoalmente.",
+        "en": "Yes, I work remotely with clients anywhere. Around Itaúna (Brazil) we can also meet in person.",
+        "es": "Sí, trabajo en remoto con clientes de cualquier lugar. En la región de Itaúna (Brasil) también podemos reunirnos en persona."
+      }
+    }
   ]
 }
