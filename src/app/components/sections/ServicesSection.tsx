@@ -4,7 +4,7 @@ import type { IconType } from "react-icons";
 import { useLocale, useTranslations } from "next-intl";
 import {
   TbWorldWww, TbLayoutDashboard, TbDeviceMobile, TbSettingsAutomation,
-  TbMessageChatbot, TbPlugConnected, TbBrandWhatsapp, TbBriefcase, TbArrowUpRight,
+  TbMessageChatbot, TbPlugConnected, TbBrandWhatsapp, TbBriefcase, TbArrowUpRight, TbArrowRight,
 } from "react-icons/tb";
 import { cv, toLang } from "@/lib/cv";
 
@@ -107,11 +107,23 @@ export default function ServicesSection() {
       </ul>
 
       <div className="services-cta">
-        <a className="qs-btn whats" href={wa(t("msgOrcamento"))} target="_blank" rel="noopener noreferrer">
-          <TbBrandWhatsapp aria-hidden="true" /> {t("orcamento")}
+        <a className="svc-cta freela" href={wa(t("msgOrcamento"))} target="_blank" rel="noopener noreferrer">
+          <span className="svc-cta-icon" aria-hidden="true"><TbBrandWhatsapp /></span>
+          <span className="svc-cta-text">
+            <small>{t("ctaFreelaTag")}</small>
+            <strong>{t("orcamento")}</strong>
+            <span>{t("ctaFreelaSub")}</span>
+          </span>
+          <TbArrowUpRight className="svc-cta-arrow" aria-hidden="true" />
         </a>
-        <button className="qs-btn" onClick={() => window.dispatchEvent(new Event("open-summary"))}>
-          <TbBriefcase aria-hidden="true" /> {t("vaga")}
+        <button type="button" className="svc-cta vaga" onClick={() => window.dispatchEvent(new Event("open-summary"))}>
+          <span className="svc-cta-icon" aria-hidden="true"><TbBriefcase /></span>
+          <span className="svc-cta-text">
+            <small>{t("ctaVagaTag")}</small>
+            <strong>{t("vaga")}</strong>
+            <span>{t("ctaVagaSub")}</span>
+          </span>
+          <TbArrowRight className="svc-cta-arrow" aria-hidden="true" />
         </button>
       </div>
     </section>

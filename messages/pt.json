@@ -306,6 +306,10 @@
     "demoResposta": "Fazemos sim! Quer falar com o Gu agora?",
     "demoPainel": "Chamados hoje",
     "ver": "Quero esse",
-    "msgServico": "Olá, Gustavo! Vim pelo seu portfólio e quero um orçamento de: {servico}."
+    "msgServico": "Olá, Gustavo! Vim pelo seu portfólio e quero um orçamento de: {servico}.",
+    "ctaFreelaTag": "Tem um projeto?",
+    "ctaFreelaSub": "Me conta a ideia e eu te respondo com um orçamento.",
+    "ctaVagaTag": "É recrutador?",
+    "ctaVagaSub": "Veja meu resumo em 30 segundos e baixe o currículo."
   }
 }
