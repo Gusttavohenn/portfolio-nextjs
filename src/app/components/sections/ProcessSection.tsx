@@ -2,7 +2,7 @@
 
 import type { IconType } from "react-icons";
 import { useLocale, useTranslations } from "next-intl";
-import { TbMessages, TbFileText, TbCode, TbRocket, TbPlus, TbBrandWhatsapp } from "react-icons/tb";
+import { TbMessages, TbFileText, TbCode, TbRocket, TbPlus } from "react-icons/tb";
 import { cv, toLang } from "@/lib/cv";
 
 // "Como eu trabalho": etapas e perguntas frequentes vêm de content/cv.json (o Deploy com IA usa os mesmos textos).
@@ -13,12 +13,9 @@ const ICONS: Record<string, IconType> = {
   entrega: TbRocket,
 };
 
-const WHATSAPP_NUMBER = "5537998730908";
-
 export default function ProcessSection() {
   const t = useTranslations("Processo");
   const lang = toLang(useLocale());
-  const ask = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t("msg"))}`;
 
   return (
     <section id="processo" className="section process-section">
@@ -53,12 +50,6 @@ export default function ProcessSection() {
               <p>{f.a[lang]}</p>
             </details>
           ))}
-        </div>
-        <div className="faq-more">
-          <span>{t("faqMais")}</span>
-          <a href={ask} target="_blank" rel="noopener noreferrer">
-            <TbBrandWhatsapp aria-hidden="true" /> {t("faqBotao")}
-          </a>
         </div>
       </div>
     </section>
