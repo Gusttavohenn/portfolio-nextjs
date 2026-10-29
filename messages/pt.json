@@ -97,7 +97,8 @@
       "projetos": "Esse Fang aqui o Gu fez do zero",
       "certificados": "Estudando sem parar, esse aí.",
       "contato": "Última parada! Manda um oi pro Gu",
-      "servicos": "Site, sistema, app, automação... o Gu faz de tudo!"
+      "servicos": "Site, sistema, app, automação... o Gu faz de tudo!",
+      "processo": "Sem enrolação: conversa, proposta, código e entrega."
     },
     "aria": "Deploy, o mascote — clique para ele pular",
     "title": "Eu sou o Deploy! Clica em mim :)",
@@ -311,5 +312,14 @@
     "ctaFreelaSub": "Me conta a ideia e eu te respondo com um orçamento.",
     "ctaVagaTag": "É recrutador?",
     "ctaVagaSub": "Veja meu resumo em 30 segundos e baixe o currículo."
+  },
+  "Processo": {
+    "titulo": "Como eu trabalho",
+    "subtitulo": "Do primeiro oi até o projeto no ar, sem surpresa no meio do caminho.",
+    "faqTitulo": "Perguntas frequentes",
+    "faqMais": "Ficou alguma dúvida?",
+    "faqBotao": "Pergunte no WhatsApp",
+    "msg": "Olá, Gustavo! Vim pelo seu portfólio e tenho uma dúvida sobre como você trabalha.",
+    "etapa": "Etapa"
   }
 }

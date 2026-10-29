@@ -9,6 +9,7 @@ import HeroSection from '../components/sections/HeroSection';
 import TechMarquee from '../components/TechMarquee';
 import AboutSection from '../components/sections/AboutSection';
 import ServicesSection from '../components/sections/ServicesSection';
+import ProcessSection from '../components/sections/ProcessSection';
 import TimelineSection from '../components/sections/TimelineSection';
 import SkillsSection from '../components/sections/SkillsSection';
 import ProjectsSection from '../components/sections/ProjectsSection';
@@ -28,6 +29,7 @@ export default function Home() {
     gsap.utils.toArray<HTMLElement>(".timeline-item").forEach(item => { gsap.from(item, { x: item.offsetLeft > 0 ? 100 : -100, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 80%", toggleActions: "play none none none" } }); });
     gsap.utils.toArray<HTMLElement>(".skill-category").forEach(category => { gsap.from(category, { y: 50, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: category, start: "top 85%", toggleActions: "play none none none" } }); });
     gsap.from(".service-card", { y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: "power3.out", clearProps: "all", scrollTrigger: { trigger: ".services-grid", start: "top 82%", toggleActions: "play none none none" } });
+    gsap.from(".process-step", { y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: "power3.out", clearProps: "all", scrollTrigger: { trigger: ".process-steps", start: "top 82%", toggleActions: "play none none none" } });
     gsap.from(".project-card", { y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", clearProps: "all", scrollTrigger: { trigger: ".project-grid", start: "top 80%", toggleActions: "play none none none" } });
 
     // LÓGICA DO ACTIVE LINK NA NAVBAR COM SCROLL
@@ -65,6 +67,7 @@ export default function Home() {
       <TechMarquee />
       <AboutSection />
       <ServicesSection />
+      <ProcessSection />
       <TimelineSection />
       <SkillsSection />
       <ProjectsSection />
