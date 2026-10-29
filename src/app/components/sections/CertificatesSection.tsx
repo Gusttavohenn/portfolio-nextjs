@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import FaIcon from '../FaIcon';
 
 interface Certificate {
   title: string;
@@ -65,11 +66,11 @@ export default function CertificatesSection() {
             <div key={id} className={`cert-group ${openId === id ? 'open' : ''}`}>
               <button className="cert-group-header" onClick={() => toggle(id)} aria-expanded={openId === id} aria-label={`${openId === id ? 'Fechar' : 'Abrir'} categoria ${t(labelKey as Parameters<typeof t>[0])}`}>
                 <span className="cert-group-title">
-                  <i className={icon} aria-hidden="true"></i>
+                  <FaIcon name={icon} />
                   {t(labelKey as Parameters<typeof t>[0])}
                   <span className="cert-count">{certs.length}</span>
                 </span>
-                <i className="fa-solid fa-chevron-down cert-chevron" aria-hidden="true"></i>
+                <FaIcon name="fa-solid fa-chevron-down cert-chevron" />
               </button>
 
               <div className="cert-group-body">
@@ -90,7 +91,7 @@ export default function CertificatesSection() {
                       </span>
                       <h3 className="certificate-title">{cert.title}</h3>
                       <span className="certificate-hours">
-                        {cert.hours} <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8rem', marginLeft: '5px' }}></i>
+                        {cert.hours} <FaIcon name="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8rem', marginLeft: '5px' }} />
                       </span>
                     </a>
                   ))}

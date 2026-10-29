@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { socialLinks } from '@/lib/social-links';
 import { TbDeviceGamepad2 } from 'react-icons/tb';
 import { AchievementsCounter } from './Achievements';
+import FaIcon from './FaIcon';
 
 export default function Footer() {
     const t = useTranslations('Footer');
@@ -12,9 +13,9 @@ export default function Footer() {
     return (
         <footer>
             <div className="social-links">
-                <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fab fa-github"></i></a>
-                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-                <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
+                <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaIcon name="fab fa-github" /></a>
+                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaIcon name="fab fa-linkedin-in" /></a>
+                <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaIcon name="fab fa-whatsapp" /></a>
             </div>
             <p>&copy; {new Date().getFullYear()} Gustavo Oliveira. {t('direitos')}</p>
             <button

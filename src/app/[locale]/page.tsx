@@ -1,9 +1,6 @@
 "use client";
 
-// Importações de libs e componentes
 import { useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import HeroSection from '../components/sections/HeroSection';
 import TechMarquee from '../components/TechMarquee';
@@ -16,49 +13,70 @@ import ProjectsSection from '../components/sections/ProjectsSection';
 import CertificatesSection from '../components/sections/CertificatesSection';
 import ContactSection from '../components/sections/ContactSection';
 
+/*
+ * Animações de entrada ao rolar + link ativo do menu.
+ * Antes era GSAP/ScrollTrigger; agora é IntersectionObserver + CSS (mais leve e sem "reflow forçado").
+ */
+const REVEAL_GROUPS: { selector: string; from: string; stagger: number }[] = [
+  { selector: '.service-card', from: 'up', stagger: 90 },
+  { selector: '.process-step', from: 'up', stagger: 110 },
+  { selector: '.skill-category', from: 'up', stagger: 0 },
+  { selector: '.project-card', from: 'up', stagger: 140 },
+  { selector: '.timeline-item', from: 'side', stagger: 0 },
+];
+
 export default function Home() {
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const timers: number[] = [];
+    let revealObs: IntersectionObserver | null = null;
 
-    // Tudo dentro de um gsap.context: na limpeza, ctx.revert() desfaz as animações
-    // (evita cards "presos" deslocados quando o efeito roda duas vezes no modo dev).
-    const ctx = gsap.context(() => {
-    // ANIMAÇÕES DE ENTRADA COM GSAP
-    gsap.from(".hero-name, .hero-role, .hero-tagline, .hero .button-group", { delay: 0.3, duration: 1, y: 30, opacity: 0, stagger: 0.15, ease: "power3.out" });
-    gsap.utils.toArray<HTMLElement>(".timeline-item").forEach(item => { gsap.from(item, { x: item.offsetLeft > 0 ? 100 : -100, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 80%", toggleActions: "play none none none" } }); });
-    gsap.utils.toArray<HTMLElement>(".skill-category").forEach(category => { gsap.from(category, { y: 50, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: category, start: "top 85%", toggleActions: "play none none none" } }); });
-    gsap.from(".service-card", { y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: "power3.out", clearProps: "all", scrollTrigger: { trigger: ".services-grid", start: "top 82%", toggleActions: "play none none none" } });
-    gsap.from(".process-step", { y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: "power3.out", clearProps: "all", scrollTrigger: { trigger: ".process-steps", start: "top 82%", toggleActions: "play none none none" } });
-    gsap.from(".project-card", { y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out", clearProps: "all", scrollTrigger: { trigger: ".project-grid", start: "top 80%", toggleActions: "play none none none" } });
-
-    // LÓGICA DO ACTIVE LINK NA NAVBAR COM SCROLL
-    const sections = gsap.utils.toArray<HTMLElement>('.section');
-    const navLinks = gsap.utils.toArray<HTMLAnchorElement>('.navbar nav a');
-
-    sections.forEach(section => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top center",
-        end: "bottom center",
-        onToggle: self => {
-          if (self.isActive) {
-            const id = section.getAttribute('id');
-            navLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-              }
-            });
-          }
-        }
+    if (!reduce && 'IntersectionObserver' in window) {
+      const items: HTMLElement[] = [];
+      REVEAL_GROUPS.forEach(({ selector, from, stagger }) => {
+        document.querySelectorAll<HTMLElement>(selector).forEach((el, i) => {
+          // timeline: itens da direita vêm da direita, os da esquerda da esquerda
+          const dir = from === 'side' ? (el.offsetLeft > 0 ? 'right' : 'left') : 'up';
+          el.classList.add('reveal', `reveal-${dir}`);
+          el.style.transitionDelay = `${stagger * (i % 6)}ms`;
+          items.push(el);
+        });
       });
-    });
 
-    });
+      revealObs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          revealObs?.unobserve(el);
+          el.classList.add('in');
+          // depois da animação, devolve o elemento ao estado normal (hover etc. voltam a funcionar)
+          const delay = parseFloat(el.style.transitionDelay) || 0;
+          timers.push(window.setTimeout(() => {
+            el.classList.remove('reveal', 'reveal-up', 'reveal-left', 'reveal-right', 'in');
+            el.style.transitionDelay = '';
+          }, 900 + delay));
+        });
+      }, { rootMargin: '0px 0px -15% 0px' });
+      items.forEach((el) => revealObs?.observe(el));
+    }
 
-    // desfaz animações e triggers ao sair da página
-    return () => ctx.revert();
+    // link ativo do menu: a seção que cruza o meio da tela
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.navbar nav a'));
+    const navObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+    document.querySelectorAll('section.section[id]').forEach((sec) => navObs.observe(sec));
+
+    return () => {
+      revealObs?.disconnect();
+      navObs.disconnect();
+      timers.forEach((t) => window.clearTimeout(t));
+    };
   }, []);
 
   return (

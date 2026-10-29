@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { socialLinks } from '@/lib/social-links';
+import FaIcon from '../FaIcon';
 
 export default function ContactSection() {
   const t = useTranslations('ContactSection');
@@ -100,19 +101,19 @@ export default function ContactSection() {
                   className={`contact-card ${c.highlight ? 'highlight' : ''}`}
                   {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
-                  <span className="contact-card-icon"><i className={c.icon} aria-hidden="true"></i></span>
+                  <span className="contact-card-icon"><FaIcon name={c.icon} /></span>
                   <span className="contact-card-text">
                     <span className="contact-card-label">{c.label}</span>
                     <span className="contact-card-value">{c.value}</span>
                   </span>
-                  <i className="fa-solid fa-arrow-right contact-card-arrow" aria-hidden="true"></i>
+                  <FaIcon name="fa-solid fa-arrow-right contact-card-arrow" />
                 </a>
               </li>
             ))}
           </ul>
 
           <p className="contact-location">
-            <i className="fa-solid fa-location-dot" aria-hidden="true"></i> {t('local')}
+            <FaIcon name="fa-solid fa-location-dot" /> {t('local')}
           </p>
         </div>
 

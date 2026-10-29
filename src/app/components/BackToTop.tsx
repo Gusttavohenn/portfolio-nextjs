@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import FaIcon from './FaIcon';
 
 export default function BackToTop() {
   const c = useTranslations('Common');
@@ -21,7 +22,7 @@ export default function BackToTop() {
       className="back-to-top"
       aria-label={c('topo')}
     >
-      <i className="fa-solid fa-chevron-up" aria-hidden="true"></i>
+      <FaIcon name="fa-solid fa-chevron-up" />
     </button>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from 'next/navigation';
 import { SITE_URL } from "@/lib/site-url";
 import { Poppins } from "next/font/google";
-import Script from "next/script";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 
@@ -12,12 +11,9 @@ import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 import MascotPixel from "../components/MascotPixel";
 import WhatsAppButton from "../components/WhatsAppButton";
-import HiddenTerminal from "../components/HiddenTerminal";
 import ConsoleGreeting from "../components/ConsoleGreeting";
-import Arcade from "../components/Arcade";
-import DeployChat from "../components/DeployChat";
-import QuickSummary from "../components/QuickSummary";
 import Achievements from "../components/Achievements";
+import LazyOverlays from "../components/LazyOverlays";
 
 // Importação do CSS Global
 import "../styles/style.css";
@@ -148,7 +144,6 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -166,16 +161,10 @@ export default async function RootLayout({
           <BackToTop />
           <MascotPixel />
           <WhatsAppButton />
-          <HiddenTerminal />
           <ConsoleGreeting />
-          <Arcade />
-          <DeployChat />
-          <QuickSummary />
+          <LazyOverlays />
           <Achievements />
         </NextIntlClientProvider>
-        
-        {/* Font Awesome via CDN — ícones usados em todo o site */}
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" strategy="afterInteractive" />
       </body>
     </html>
   );

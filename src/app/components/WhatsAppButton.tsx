@@ -2,6 +2,7 @@
 
 import { socialLinks } from '@/lib/social-links';
 import { useTranslations } from 'next-intl';
+import FaIcon from './FaIcon';
 
 export default function WhatsAppButton() {
   const c = useTranslations('Common');
@@ -14,7 +15,7 @@ export default function WhatsAppButton() {
       aria-label={c('whats')}
       title={c('whats')}
     >
-      <i className="fab fa-whatsapp" aria-hidden="true"></i>
+      <FaIcon name="fab fa-whatsapp" />
     </a>
   );
 }
