@@ -78,19 +78,11 @@ export default function ServicesSection() {
           const wide = WIDE.has(s.id);
           return (
             <li key={s.id} className={`service-card${wide ? " wide" : ""}`}>
-              <a
-                className="service-link"
-                href={wa(t("msgServico", { servico: s.title[lang] }))}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <div className="service-link">
                 <div className="service-text">
                   <div className="service-head">
                     <span className="service-icon" aria-hidden="true"><Icon /></span>
-                    <span className="service-corner">
-                      <span className="service-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="service-go">{t("ver")} <TbArrowUpRight aria-hidden="true" /></span>
-                    </span>
+                    <span className="service-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                   </div>
                   <h3>{s.title[lang]}</h3>
                   <p>{s.desc[lang]}</p>
@@ -100,7 +92,7 @@ export default function ServicesSection() {
                 </div>
                 {s.id === "sistemas" && <DashboardDemo label={t("demoPainel")} />}
                 {s.id === "ia" && <ChatDemo q={t("demoPergunta")} a={t("demoResposta")} />}
-              </a>
+              </div>
             </li>
           );
         })}

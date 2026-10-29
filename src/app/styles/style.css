@@ -2419,20 +2419,7 @@ html { overflow-x: clip; }
   font-size: 0.74rem;
   color: var(--text-secondary);
 }
-.service-corner { position: relative; display: inline-flex; justify-content: flex-end; min-height: 1.2rem; }
-.service-num { transition: opacity 0.25s ease; }
-.service-go {
-  position: absolute; right: 0; top: -2px;
-  display: inline-flex; align-items: center; gap: 0.2rem; white-space: nowrap;
-  font-size: 0.8rem; font-weight: 700;
-  color: var(--accent-color);
-  opacity: 0; translate: 0 6px;
-  transition: opacity 0.3s ease, translate 0.3s ease;
-}
-.service-go svg { font-size: 1rem; }
-.service-link:hover .service-go, .service-link:focus-visible .service-go { opacity: 1; translate: 0 0; }
-.service-link:hover .service-num, .service-link:focus-visible .service-num { opacity: 0; }
-@media (hover: none) { .service-go { display: none; } }
+
 
 /* mini demonstrações dos cards largos */
 .svc-demo {
@@ -2482,7 +2469,7 @@ html { overflow-x: clip; }
 
 @media (prefers-reduced-motion: reduce) {
   .svc-typing i { animation: none; }
-  .service-link, .service-link::before, .svc-dash-chart i, .service-icon, .service-go { transition: none; }
+  .service-link, .service-link::before, .svc-dash-chart i, .service-icon { transition: none; }
 }
 
 .services-cta {
@@ -2618,17 +2605,7 @@ section[id] { scroll-margin-top: 90px; }
 .faq-item p { margin: 0; padding: 0 1.2rem 1.1rem; font-size: 0.93rem; line-height: 1.65; color: var(--text-secondary); }
 .faq-item[open] p { animation: faqIn 0.3s ease; }
 @keyframes faqIn { from { opacity: 0; translate: 0 -4px; } to { opacity: 1; translate: 0 0; } }
-.faq-more {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem 1rem;
-  margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.95rem;
-}
-.faq-more a {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-weight: 700; color: #25d366; text-decoration: none;
-  border-bottom: 1px dashed currentColor;
-}
-.faq-more a:hover { border-bottom-style: solid; }
-body.light-mode .faq-more a { color: #15803d; }
+
 @media (prefers-reduced-motion: reduce) {
   .process-icon, .faq-plus { transition: none; }
   .faq-item[open] p { animation: none; }

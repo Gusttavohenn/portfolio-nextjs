@@ -27,9 +27,6 @@ export default function AboutSection() {
           <a href={`mailto:${socialLinks.email}`} className="about-social-link" aria-label="E-mail">
             <i className="fa-solid fa-envelope" aria-hidden="true"></i> E-mail
           </a>
-          <a href={socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" className="about-social-link" aria-label="WhatsApp">
-            <i className="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-          </a>
         </div>
 
         <div className="about-cards">

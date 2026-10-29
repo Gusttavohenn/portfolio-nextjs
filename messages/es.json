@@ -306,8 +306,6 @@
     "demoPergunta": "¿Hacen sistemas a medida?",
     "demoResposta": "¡Sí! ¿Quieres hablar con Gu ahora?",
     "demoPainel": "Tickets hoy",
-    "ver": "Quiero esto",
-    "msgServico": "¡Hola, Gustavo! Vi tu portafolio y quiero un presupuesto de: {servico}.",
     "ctaFreelaTag": "¿Tienes un proyecto?",
     "ctaFreelaSub": "Cuéntame la idea y te respondo con un presupuesto.",
     "ctaVagaTag": "¿Eres reclutador?",
@@ -317,9 +315,6 @@
     "titulo": "Cómo trabajo",
     "subtitulo": "Del primer hola al proyecto publicado, sin sorpresas en el camino.",
     "faqTitulo": "Preguntas frecuentes",
-    "faqMais": "¿Te quedó alguna duda?",
-    "faqBotao": "Pregunta por WhatsApp",
-    "msg": "¡Hola, Gustavo! Vi tu portafolio y tengo una duda sobre cómo trabajas.",
     "etapa": "Etapa"
   }
 }
