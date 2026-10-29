@@ -307,8 +307,11 @@
     "demoResposta": "We sure do! Want to talk to Gu now?",
     "demoPainel": "Tickets today",
     "ver": "I want this",
-<<<<<<< HEAD
-    "msgServico": "Hi, Gustavo! I found your portfolio and I'd like a quote for: {servico}."
+    "msgServico": "Hi, Gustavo! I found your portfolio and I'd like a quote for: {servico}.",
+    "ctaFreelaTag": "Got a project?",
+    "ctaFreelaSub": "Tell me the idea and I'll get back to you with a quote.",
+    "ctaVagaTag": "Recruiting?",
+    "ctaVagaSub": "See my 30-second summary and download my resume."
   },
   "Processo": {
     "titulo": "How I work",
@@ -318,12 +321,5 @@
     "faqBotao": "Ask on WhatsApp",
     "msg": "Hi, Gustavo! I found your portfolio and I have a question about how you work.",
     "etapa": "Step"
-=======
-    "msgServico": "Hi, Gustavo! I found your portfolio and I'd like a quote for: {servico}.",
-    "ctaFreelaTag": "Got a project?",
-    "ctaFreelaSub": "Tell me the idea and I'll get back to you with a quote.",
-    "ctaVagaTag": "Recruiting?",
-    "ctaVagaSub": "See my 30-second summary and download my resume."
->>>>>>> origin/main
   }
 }
