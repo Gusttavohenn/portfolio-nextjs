@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from 'next/navigation';
 import { SITE_URL } from "@/lib/site-url";
-import { Poppins } from "next/font/google";
+import { Poppins, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 
@@ -22,6 +22,14 @@ import "../styles/style.css";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
+});
+
+// fonte "de código" (balão do Deploy, tags, terminal): baixada junto com o site,
+// antes só aparecia em quem tinha a JetBrains Mono instalada no computador
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono",
 });
 
 // Metadados por locale
@@ -149,7 +157,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={poppins.className}>
+      <body className={`${poppins.className} ${mono.variable}`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main-content" className="skip-link">{c('pular')}</a>
           <div className="blob"></div>
