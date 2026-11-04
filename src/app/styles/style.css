@@ -915,7 +915,7 @@ footer p {
   padding: 0 1rem;
 }
 .hero-name {
-  font-size: clamp(2.3rem, 8vw, 5.5rem);
+  font-size: clamp(2.3rem, 8vw, 7.5rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -2688,3 +2688,20 @@ section[id] { scroll-margin-top: 90px; }
   .hero-role, .hero-tagline, .hero .button-group, .hero-name { animation: none; }
 }
 .blob { will-change: transform; }
+
+/* nome do topo: letras que "decodificam" e pulam no hover */
+.hero-name .word { white-space: nowrap; }
+.hero-name .ch {
+  display: inline-block; position: relative;
+  transition: translate 0.25s cubic-bezier(.2,.8,.2,1), color 0.25s ease;
+}
+.hero-name .ch:hover { translate: 0 -0.1em; color: var(--accent-color); }
+.hero-name .ch.scr { color: transparent; text-shadow: none; }
+.hero-name .ch.scr::after {
+  content: attr(data-g);
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  color: var(--accent-color);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 700; font-size: 0.85em;
+}

@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { TbSparkles } from 'react-icons/tb';
 import { getCompany } from '@/lib/visit';
 import ParticleField from '../ParticleField';
+import ScrambleName from '../ScrambleName';
 import FaIcon from '../FaIcon';
 
 export default function HeroSection() {
@@ -27,7 +28,7 @@ export default function HeroSection() {
         {company && (
           <p className="hero-company"><TbSparkles aria-hidden="true" /> {t('paraEmpresa', { empresa: company })}</p>
         )}
-        <h1 className="hero-name">GUSTAVO OLIVEIRA</h1>
+        <ScrambleName className="hero-name" text="GUSTAVO OLIVEIRA" />
         <p className="hero-role">{t('subtitulo')}</p>
         <p className="hero-tagline">{t('saudacao')}</p>
 
