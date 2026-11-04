@@ -182,6 +182,16 @@ export default function MascotPixel() {
       return Math.min(hi, Math.max(lo, st.x + (Math.random() - 0.5) * 160));
     };
 
+    // comenta a seção onde ele pousou (uma vez por seção)
+    const maybeComment = (plat: Element | null) => {
+      // perguntas frequentes têm fala própria, separada da seção "Como eu trabalho"
+      const section = plat?.closest(".faq") ? "faq" : plat?.closest("section[id]")?.id;
+      if (section && greetDone.current && !bubbleActive.current && !commented.current.has(section) && t.has(`secao.${section}`)) {
+        commented.current.add(section);
+        showBubble(t(`secao.${section}`), 3600);
+      }
+    };
+
     const loop = (now: number) => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
@@ -259,12 +269,7 @@ export default function MascotPixel() {
             st.y = floorY;
           }
           if (st.mode === "ground") {
-            // perguntas frequentes têm fala própria, separada da seção "Como eu trabalho"
-            const section = st.plat?.closest(".faq") ? "faq" : st.plat?.closest("section[id]")?.id;
-            if (section && greetDone.current && !bubbleActive.current && !commented.current.has(section) && t.has(`secao.${section}`)) {
-              commented.current.add(section);
-              showBubble(t(`secao.${section}`), 3600);
-            }
+            maybeComment(st.plat);
             st.vx = 0;
             st.vy = 0;
             st.squashUntil = now + 140;
@@ -289,13 +294,39 @@ export default function MascotPixel() {
       raf = requestAnimationFrame(loop);
     };
 
-    if (reduced) {
-      st.x = window.innerWidth - 50;
-      st.y = window.innerHeight - 14;
+    // "Reduzir animações" ligado no sistema: ele continua acompanhando a página, mas sem andar
+    // nem pular — some de um texto e aparece no próximo, parado em pé.
+    const calm = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      if (frame++ % 90 === 0) refresh();
+      const plats = visiblePlats(vw, vh);
+      const cur = st.plat ? plats.find((p) => p.el === st.plat) : undefined;
+      if (cur) {
+        st.y = cur.top;                                   // rola junto com o texto
+      } else {
+        const p = pickTarget(plats, null);
+        if (p) {
+          st.plat = p.el;
+          st.x = landX(p);
+          st.y = p.top;
+          st.onFloor = false;
+          maybeComment(p.el);
+        } else {
+          st.plat = null;
+          st.onFloor = true;
+          st.x = Math.min(Math.max(st.x, W / 2 + 6), vw - W / 2 - 6);
+          st.y = vh - 14;
+        }
+      }
+      st.mode = "ground";
       root.style.transform = `translate3d(${st.x - W / 2}px, ${st.y - H}px, 0)`;
-    } else {
-      raf = requestAnimationFrame(loop);
-    }
+      root.classList.toggle("bubble-left", st.x > vw - 170);
+      root.classList.toggle("bubble-right", st.x < 170);
+      raf = requestAnimationFrame(calm);
+    };
+
+    raf = requestAnimationFrame(reduced ? calm : loop);
 
     const onKey = (e: KeyboardEvent) => {
       const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
