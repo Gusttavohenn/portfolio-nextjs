@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from 'next/navigation';
 import { SITE_URL } from "@/lib/site-url";
-import { Poppins, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 
@@ -19,17 +19,26 @@ import LazyOverlays from "../components/LazyOverlays";
 import "../styles/style.css";
 
 // Configuração da Fonte
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
+// Fontes hospedadas no próprio site (src/fonts), sem depender do Google Fonts
+const poppins = localFont({
+  src: [
+    { path: "../../fonts/poppins-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/poppins-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "../../fonts/poppins-latin-900-normal.woff2", weight: "900", style: "normal" },
+  ],
+  display: "swap",
+  fallback: ["system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
 });
 
-// fonte "de código" (balão do Deploy, tags, terminal): baixada junto com o site,
-// antes só aparecia em quem tinha a JetBrains Mono instalada no computador
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
+// fonte "de código" (balão do Deploy, tags, terminal)
+const mono = localFont({
+  src: [
+    { path: "../../fonts/jetbrains-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/jetbrains-mono-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
+  display: "swap",
   variable: "--font-mono",
+  fallback: ["ui-monospace", "Menlo", "Consolas", "monospace"],
 });
 
 // Metadados por locale
