@@ -6,6 +6,7 @@ import { TbSparkles } from 'react-icons/tb';
 import { getCompany } from '@/lib/visit';
 import ParticleField from '../ParticleField';
 import ScrambleName from '../ScrambleName';
+import TypeRotator from '../TypeRotator';
 import FaIcon from '../FaIcon';
 
 export default function HeroSection() {
@@ -29,7 +30,7 @@ export default function HeroSection() {
           <p className="hero-company"><TbSparkles aria-hidden="true" /> {t('paraEmpresa', { empresa: company })}</p>
         )}
         <ScrambleName className="hero-name" text="GUSTAVO OLIVEIRA" />
-        <p className="hero-role">{t('subtitulo')}</p>
+        <TypeRotator className="hero-role" phrases={t.raw('rotacao') as string[]} />
         <p className="hero-tagline">{t('saudacao')}</p>
 
         <div className="button-group">

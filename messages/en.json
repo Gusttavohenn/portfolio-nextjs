@@ -15,7 +15,13 @@
     "saudacao": "I turn manual processes into systems that run on their own.",
     "explorar": "VIEW PROJECTS",
     "downloadCV": "DOWNLOAD CV",
-    "paraEmpresa": "Portfolio prepared for the {empresa} team"
+    "paraEmpresa": "Portfolio prepared for the {empresa} team",
+    "rotacao": [
+      "Automation & AI Integrations",
+      "Custom web systems",
+      "Apps for Android and iOS",
+      "AI chatbots and assistants"
+    ]
   },
   "SkillsSection": {
     "titulo": "My Skills",

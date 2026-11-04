@@ -15,7 +15,13 @@
     "saudacao": "Transformo processo manual em sistema que roda sozinho.",
     "explorar": "VER PROJETOS",
     "downloadCV": "BAIXAR CV",
-    "paraEmpresa": "Portfólio preparado para a equipe da {empresa}"
+    "paraEmpresa": "Portfólio preparado para a equipe da {empresa}",
+    "rotacao": [
+      "Automação & Integrações com IA",
+      "Sistemas web sob medida",
+      "Apps para Android e iOS",
+      "Chatbots e assistentes com IA"
+    ]
   },
   "SkillsSection": {
     "titulo": "Minhas Skills",
