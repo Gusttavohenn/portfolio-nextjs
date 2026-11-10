@@ -21,7 +21,7 @@ const REVEAL_GROUPS: { selector: string; from: string; stagger: number }[] = [
   { selector: '.service-card', from: 'up', stagger: 90 },
   { selector: '.process-step', from: 'up', stagger: 110 },
   { selector: '.skill-category', from: 'up', stagger: 0 },
-  { selector: '.project-card', from: 'up', stagger: 140 },
+  { selector: '.project-card', from: 'up', stagger: 0 },
   { selector: '.timeline-item', from: 'side', stagger: 0 },
 ];
 

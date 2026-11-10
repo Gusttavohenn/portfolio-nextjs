@@ -58,7 +58,8 @@
     "todos": "Todos",
     "verProjeto": "Ver Proyecto",
     "verDemo": "Demo",
-    "verCodigo": "Código"
+    "verCodigo": "Código",
+    "verMais": "Ver {n} proyectos más"
   },
   "ProjectDetail": {
     "voltar": "Volver a proyectos",
