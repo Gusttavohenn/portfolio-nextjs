@@ -40,7 +40,7 @@ export default function ProjectsSection() {
           <div key={project.slug} className="project-card">
             <Link href={`/${locale}/projects/${project.slug}`} className="project-card-link">
               <div className="project-image-container">
-                <Image src={project.imageUrl} alt={project.title[lang]} fill style={{ objectFit: 'cover' }} />
+                <Image src={`${project.cover}-${lang}.webp`} alt={project.title[lang]} fill sizes="(max-width: 900px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
                 <div className="project-hover-overlay">
                   <span>{t('verProjeto')}</span>
                 </div>

@@ -29,10 +29,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <h1>{project.title[lang]}</h1>
         <p className="short-description">{project.shortDescription[lang]}</p>
         <Image
-          src={project.imageUrl}
+          src={`${project.cover}-${lang}.webp`}
           alt={c('imagem', { nome: project.title[lang] })}
-          width={900}
-          height={0}
+          width={1600}
+          height={900}
+          priority
           style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 10px 30px var(--shadow-color)' }}
         />
       </div>
@@ -59,6 +60,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <h3><FaIcon name="fa-solid fa-lightbulb" /> {t('solucao')}</h3>
           <p>{project.solution[lang]}</p>
         </section>
+
+        {/* Print real do sistema */}
+        {project.screenshot && (
+          <section className="case-study-section">
+            <h3><FaIcon name="fa-solid fa-display" /> {t('naPratica')}</h3>
+            <Image
+              src={project.screenshot}
+              alt={c('imagem', { nome: project.title[lang] })}
+              width={1600}
+              height={900}
+              style={{ width: '100%', height: 'auto', borderRadius: '12px', border: '1px solid var(--border-color)' }}
+            />
+          </section>
+        )}
 
         {/* Aprendizados */}
         <section className="case-study-section">

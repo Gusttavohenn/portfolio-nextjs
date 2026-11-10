@@ -69,7 +69,8 @@
     "verAoVivo": "VIEW LIVE",
     "verCodigo": "VIEW CODE",
     "anterior": "Previous",
-    "proximo": "Next"
+    "proximo": "Next",
+    "naPratica": "In action"
   },
   "NotFound": {
     "titulo": "Oops! I got lost...",

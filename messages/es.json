@@ -69,7 +69,8 @@
     "verAoVivo": "VER EN VIVO",
     "verCodigo": "VER CÓDIGO",
     "anterior": "Anterior",
-    "proximo": "Siguiente"
+    "proximo": "Siguiente",
+    "naPratica": "En la práctica"
   },
   "NotFound": {
     "titulo": "¡Ups! Me perdí por aquí...",
