@@ -77,7 +77,21 @@
     "voltar": "VOLTAR AO INÍCIO"
   },
   "Footer": {
-    "direitos": "Todos os direitos reservados."
+    "direitos": "Todos os direitos reservados.",
+    "chamada": "Vamos construir algo?",
+    "sub": "Tem um projeto, uma vaga ou só quer trocar uma ideia? Me manda um e-mail.",
+    "copiar": "Copiar e-mail",
+    "copiado": "E-mail copiado!",
+    "status": "Disponível para vagas e freelas",
+    "agora": "Agora em Itaúna, MG",
+    "navegar": "Navegar",
+    "contato": "Contato",
+    "extras": "Extras",
+    "resumo": "Resumo em 30s",
+    "cv": "Baixar currículo",
+    "terminal": "Terminal secreto",
+    "feito": "Feito com Next.js, café e um robô chamado Deploy.",
+    "topo": "Voltar ao topo"
   },
   "Mascot": {
     "greetFirst": "{saudacao}! Eu sou o Deploy, robô desenvolvido pelo meu mestre Gu, e vou te acompanhar pelo site",
@@ -105,7 +119,8 @@
       "contato": "Última parada! Manda um oi pro Gu",
       "servicos": "Escolhe aí! Site, sistema, app... o Gu faz de tudo.",
       "processo": "Sem enrolação: conversa, proposta, código e entrega.",
-      "faq": "Ficou com dúvida? Clica numa pergunta que eu abro pra você!"
+      "faq": "Ficou com dúvida? Clica numa pergunta que eu abro pra você!",
+      "rodape": "Chegou no fim! Valeu pela visita. Bora conversar com o Gu?"
     },
     "aria": "Deploy, o mascote — clique para ele pular",
     "title": "Eu sou o Deploy! Clica em mim :)",
@@ -131,7 +146,8 @@
         "Anota aí!",
         "Pergunta de quem já tá quase fechando, hein?",
         "O Gu respondeu essa com carinho."
-      ]
+      ],
+      "emailCopiado": "E-mail copiado! Agora é só colar."
     }
   },
   "ContactSection": {

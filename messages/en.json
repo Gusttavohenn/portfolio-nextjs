@@ -77,7 +77,21 @@
     "voltar": "BACK TO HOME"
   },
   "Footer": {
-    "direitos": "All rights reserved."
+    "direitos": "All rights reserved.",
+    "chamada": "Let's build something?",
+    "sub": "Got a project, a job opening or just want to chat? Send me an email.",
+    "copiar": "Copy email",
+    "copiado": "Email copied!",
+    "status": "Open to jobs and freelance",
+    "agora": "Right now in Itaúna, Brazil",
+    "navegar": "Navigate",
+    "contato": "Contact",
+    "extras": "Extras",
+    "resumo": "30-second summary",
+    "cv": "Download resume",
+    "terminal": "Secret terminal",
+    "feito": "Made with Next.js, coffee and a robot named Deploy.",
+    "topo": "Back to top"
   },
   "Mascot": {
     "greetFirst": "{saudacao}! I'm Deploy, a robot built by my master Gu, and I'll walk you through the site",
@@ -105,7 +119,8 @@
       "contato": "Last stop! Say hi to Gu",
       "servicos": "Pick one! Site, system, app... Gu does it all.",
       "processo": "No fluff: chat, proposal, code and launch.",
-      "faq": "Got a question? Click one and I will open it for you!"
+      "faq": "Got a question? Click one and I will open it for you!",
+      "rodape": "You made it to the end! Thanks for visiting. Go talk to Gu!"
     },
     "aria": "Deploy, the mascot — click to make him jump",
     "title": "I'm Deploy! Click me :)",
@@ -131,7 +146,8 @@
         "Take notes!",
         "Sounds like someone is ready to hire, huh?",
         "Gu answered that one with care."
-      ]
+      ],
+      "emailCopiado": "Email copied! Just paste it."
     }
   },
   "ContactSection": {

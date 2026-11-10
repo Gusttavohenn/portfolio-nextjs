@@ -77,7 +77,21 @@
     "voltar": "VOLVER AL INICIO"
   },
   "Footer": {
-    "direitos": "Todos los derechos reservados."
+    "direitos": "Todos los derechos reservados.",
+    "chamada": "¿Construimos algo?",
+    "sub": "¿Tienes un proyecto, una vacante o solo quieres charlar? Envíame un correo.",
+    "copiar": "Copiar correo",
+    "copiado": "¡Correo copiado!",
+    "status": "Disponible para empleos y freelance",
+    "agora": "Ahora en Itaúna, Brasil",
+    "navegar": "Navegar",
+    "contato": "Contacto",
+    "extras": "Extras",
+    "resumo": "Resumen en 30s",
+    "cv": "Descargar CV",
+    "terminal": "Terminal secreta",
+    "feito": "Hecho con Next.js, café y un robot llamado Deploy.",
+    "topo": "Volver arriba"
   },
   "Mascot": {
     "greetFirst": "¡{saudacao}! Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio",
@@ -105,7 +119,8 @@
       "contato": "¡Última parada! Saluda a Gu",
       "servicos": "¡Elige! Sitio, sistema, app... Gu hace de todo.",
       "processo": "Sin vueltas: charla, propuesta, código y entrega.",
-      "faq": "¿Tienes dudas? ¡Haz clic en una pregunta y te la abro!"
+      "faq": "¿Tienes dudas? ¡Haz clic en una pregunta y te la abro!",
+      "rodape": "¡Llegaste al final! Gracias por la visita. ¡Habla con Gu!"
     },
     "aria": "Deploy, la mascota — haz clic para que salte",
     "title": "¡Soy Deploy! Haz clic en mí :)",
@@ -131,7 +146,8 @@
         "¡Toma nota!",
         "Parece que alguien ya casi cierra trato, ¿eh?",
         "Gu respondió esa con cariño."
-      ]
+      ],
+      "emailCopiado": "¡Correo copiado! Solo pégalo."
     }
   },
   "ContactSection": {

@@ -28,7 +28,7 @@ const NAV_FALLBACK = 84;  // altura padrão da navbar fixa (medida de verdade em
 const SELECTOR = [
   "h1", "h2", "h3",
   ".about-card", ".skill-category", ".project-card",
-  ".cert-group-header", ".service-card", ".process-step", ".faq-item", ".contact-card", ".contact-terminal", ".cta-button",
+  ".cert-group-header", ".service-card", ".process-step", ".faq-item", ".footer-big", ".footer-col h3", ".contact-card", ".contact-terminal", ".cta-button",
   ".contact-form input", ".contact-form textarea",
 ].join(", ");
 
@@ -185,7 +185,7 @@ export default function MascotPixel() {
     // comenta a seção onde ele pousou (uma vez por seção)
     const maybeComment = (plat: Element | null) => {
       // perguntas frequentes têm fala própria, separada da seção "Como eu trabalho"
-      const section = plat?.closest(".faq") ? "faq" : plat?.closest("section[id]")?.id;
+      const section = plat?.closest(".faq") ? "faq" : plat?.closest("footer") ? "rodape" : plat?.closest("section[id]")?.id;
       if (section && greetDone.current && !bubbleActive.current && !commented.current.has(section) && t.has(`secao.${section}`)) {
         commented.current.add(section);
         showBubble(t(`secao.${section}`), 3600);
