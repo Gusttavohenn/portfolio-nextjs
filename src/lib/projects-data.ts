@@ -7,6 +7,10 @@ export interface Project {
   description: Localized;
   tags: string[];
   imageUrl: string;
+  /** capa do card: /capas/<nome>-<idioma>.webp */
+  cover: string;
+  /** print real do sistema, mostrado na página do projeto */
+  screenshot?: string;
   problem: Localized;
   solution: Localized;
   learnings: Localized;
@@ -34,6 +38,7 @@ export const projects: Project[] = [
     },
     tags: ["python", "flask", "security", "sqlite"],
     imageUrl: "/fang.png",
+    cover: "/capas/fang-security",
     problem: {
       pt: "Rodar um pentest completo normalmente exige juntar várias ferramentas separadas e montar o relatório na mão. Eu queria um único painel que fizesse o reconhecimento, a varredura e a documentação do começo ao fim.",
       en: "Running a full pentest usually means stitching together several separate tools and writing the report by hand. I wanted a single dashboard that handled reconnaissance, scanning and documentation from start to finish.",
@@ -71,6 +76,8 @@ export const projects: Project[] = [
     },
     tags: ["node.js", "express.js", "postgresql", "javascript"],
     imageUrl: "/nexo.png",
+    cover: "/capas/plataforma-nexo",
+    screenshot: "/nexo.png",
     problem: {
       pt: "O desafio era criar uma plataforma na qual pudesse registrar toda minha receita para melhor controle financeiro.",
       en: "The challenge was to create a platform where I could record all my income for better financial control.",
@@ -108,6 +115,8 @@ export const projects: Project[] = [
     },
     tags: ["java", "spring boot"],
     imageUrl: "/api-carteira-digital-java.png",
+    cover: "/capas/api-carteira-digital",
+    screenshot: "/api-carteira-digital-java.png",
     problem: {
       pt: "Necessidade de uma API robusta para simular operações de carteira digital com cadastro de usuários, consulta de saldo e transferências entre contas.",
       en: "The need for a robust API to simulate digital wallet operations with user registration, balance checks and transfers between accounts.",
