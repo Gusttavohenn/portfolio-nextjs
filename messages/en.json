@@ -58,7 +58,8 @@
     "todos": "All",
     "verProjeto": "View Project",
     "verDemo": "Demo",
-    "verCodigo": "Code"
+    "verCodigo": "Code",
+    "verMais": "See {n} more projects"
   },
   "ProjectDetail": {
     "voltar": "Back to projects",

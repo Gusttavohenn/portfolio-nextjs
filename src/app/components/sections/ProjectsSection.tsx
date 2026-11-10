@@ -1,27 +1,33 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
-import { TbArrowRight, TbArrowUpRight } from 'react-icons/tb';
+import { TbArrowRight, TbArrowUpRight, TbChevronDown } from 'react-icons/tb';
 import { projects } from '@/lib/projects-data';
 import { toLang } from '@/lib/cv';
 
 // Projetos em lista: capa grande de um lado, texto do outro (o lado alterna a cada projeto).
+// Mostra os primeiros INITIAL; o resto aparece no botão "ver mais" (a lista não fica gigante).
+const INITIAL = 4;
 export default function ProjectsSection() {
   const locale = useLocale();
   const lang = toLang(locale);
   const t = useTranslations('ProjectsSection');
+  const [open, setOpen] = useState(false);
+  const shown = open ? projects : projects.slice(0, INITIAL);
+  const hidden = projects.length - INITIAL;
 
   return (
     <section id="projetos" className="section projects-section">
       <h2 className="section-title">{t('titulo')}</h2>
 
       <ol className="proj-list">
-        {projects.map((project, i) => {
+        {shown.map((project, i) => {
           const href = `/${locale}/projects/${project.slug}`;
           return (
-            <li key={project.slug} className="project-card proj-row">
+            <li key={project.slug} className={`project-card proj-row${i >= INITIAL ? ' proj-new' : ''}`}>
               <Link href={href} className="proj-cover" aria-label={`${t('verProjeto')}: ${project.title[lang]}`}>
                 <Image
                   src={`${project.cover}-${lang}.webp`}
@@ -57,6 +63,12 @@ export default function ProjectsSection() {
           );
         })}
       </ol>
+
+      {hidden > 0 && !open && (
+        <button type="button" className="proj-more" onClick={() => setOpen(true)}>
+          {t('verMais', { n: hidden })} <TbChevronDown aria-hidden="true" />
+        </button>
+      )}
     </section>
   );
 }
