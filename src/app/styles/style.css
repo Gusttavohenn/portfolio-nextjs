@@ -218,7 +218,7 @@ body {
   position: relative;
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
-  padding: 5rem clamp(16px, 5vw, 64px) 1.5rem;
+  padding: 3rem clamp(16px, 5vw, 64px) 1.5rem;
   overflow: hidden;
 }
 .footer-hero { max-width: 1140px; margin: 0 auto; text-align: left; }
@@ -257,9 +257,8 @@ body {
 .footer-copy.ok { background: #16a34a; border-color: #16a34a; }
 
 .footer-cols {
-  max-width: 1140px; margin: 4rem auto 0; padding-top: 2.5rem;
-  border-top: 1px dashed var(--border-color);
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; text-align: left;
+  max-width: 1140px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.3fr 1fr 0.8fr; gap: 2rem; text-align: left;
 }
 .footer-col h3 {
   margin: 0 0 1rem; font-family: var(--font-mono), ui-monospace, monospace;
@@ -295,8 +294,10 @@ body {
 .footer-top:hover { color: var(--accent-color); }
 
 @media (max-width: 860px) { .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.footer-clock { justify-self: end; text-align: right; }
+@media (max-width: 860px) { .footer-clock { justify-self: start; text-align: left; } }
 @media (max-width: 480px) {
-  .site-footer { padding-top: 3.5rem; }
+  .site-footer { padding-top: 2.5rem; }
   .footer-cols { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
   .footer-mail-addr { font-size: 0.85rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; padding-bottom: 4.5rem; }
