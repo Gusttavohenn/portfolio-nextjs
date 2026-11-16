@@ -23,9 +23,6 @@ const ICONS: Record<string, IconType> = {
 const ORDER = ["sistemas", "sites", "apps", "automacao", "integracoes", "ia"];
 const WIDE = new Set(["sistemas", "ia"]);
 
-// pede pro Deploy comentar (cada card fala uma vez, sem atropelar outras falas)
-const say = (key: string) => window.dispatchEvent(new CustomEvent("deploy-say", { detail: { key } }));
-
 const WHATSAPP_NUMBER = "5537998730908";
 const wa = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
@@ -51,12 +48,13 @@ function DashboardDemo({ label }: { label: string }) {
   );
 }
 
-function ChatDemo({ q, a }: { q: string; a: string }) {
+// demonstração do serviço de IA: o que acontece com uma mensagem, em formato de log
+function AiDemo({ lines }: { lines: string[] }) {
   return (
-    <div className="svc-demo svc-chat" aria-hidden="true">
-      <p className="svc-msg user">{q}</p>
-      <p className="svc-msg bot"><TbMessageChatbot /> {a}</p>
-      <p className="svc-typing"><i /><i /><i /></p>
+    <div className="svc-demo svc-log" aria-hidden="true">
+      {lines.map((l, i) => (
+        <p key={i} className={i === lines.length - 1 ? "ok" : undefined}>{l}</p>
+      ))}
     </div>
   );
 }
@@ -83,7 +81,6 @@ export default function ServicesSection() {
             <li
               key={s.id}
               className={`service-card${wide ? " wide" : ""}`}
-              onMouseEnter={() => say(`svc.${s.id}`)}
             >
               <div className="service-link">
                 <div className="service-text">
@@ -94,11 +91,11 @@ export default function ServicesSection() {
                   <h3>{s.title[lang]}</h3>
                   <p>{s.desc[lang]}</p>
                   <div className="service-foot">
-                    <span className="service-tags">{s.tags.join("  ·  ")}</span>
+                    <span className="service-tags">{s.tags.join(" · ")}</span>
                   </div>
                 </div>
                 {s.id === "sistemas" && <DashboardDemo label={t("demoPainel")} />}
-                {s.id === "ia" && <ChatDemo q={t("demoPergunta")} a={t("demoResposta")} />}
+                {s.id === "ia" && <AiDemo lines={[t("demoIa1"), t("demoIa2"), t("demoIa3")]} />}
               </div>
             </li>
           );
@@ -109,8 +106,8 @@ export default function ServicesSection() {
         <a className="svc-cta freela" href={wa(t("msgOrcamento"))} target="_blank" rel="noopener noreferrer">
           <span className="svc-cta-icon" aria-hidden="true"><TbBrandWhatsapp /></span>
           <span className="svc-cta-text">
-            <small>{t("ctaFreelaTag")}</small>
-            <strong>{t("orcamento")}</strong>
+            <small>{t("ctaFreelaTag")}</small>{" "}
+            <strong>{t("orcamento")}</strong>{" "}
             <span>{t("ctaFreelaSub")}</span>
           </span>
           <TbArrowUpRight className="svc-cta-arrow" aria-hidden="true" />
@@ -118,8 +115,8 @@ export default function ServicesSection() {
         <button type="button" className="svc-cta vaga" onClick={() => window.dispatchEvent(new Event("open-summary"))}>
           <span className="svc-cta-icon" aria-hidden="true"><TbBriefcase /></span>
           <span className="svc-cta-text">
-            <small>{t("ctaVagaTag")}</small>
-            <strong>{t("vaga")}</strong>
+            <small>{t("ctaVagaTag")}</small>{" "}
+            <strong>{t("vaga")}</strong>{" "}
             <span>{t("ctaVagaSub")}</span>
           </span>
           <TbArrowRight className="svc-cta-arrow" aria-hidden="true" />

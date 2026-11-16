@@ -7,7 +7,10 @@
     "projetos": "Proyectos",
     "certificados": "Certificados",
     "contato": "Contacto",
-    "servicos": "Servicios"
+    "servicos": "Servicios",
+    "mais": "Más opciones",
+    "deployChamar": "Llamar a Deploy",
+    "deployEsconder": "Ocultar a Deploy"
   },
   "HeroSection": {
     "paraEmpresa": "Portafolio preparado para el equipo de {empresa}",
@@ -59,7 +62,10 @@
     "catTools": "Herramientas & DevOps",
     "catCsharp": "C# / .NET",
     "catAI": "Inteligencia Artificial",
-    "rotulo": "Certificados"
+    "rotulo": "Certificados",
+    "verTodos": "Ver todos los demás ({n})",
+    "verMenos": "Mostrar menos",
+    "abrir": "Abrir certificado (nueva pestaña)"
   },
   "ProjectsSection": {
     "titulo": "Sistemas que funcionan todos los días",
@@ -131,18 +137,6 @@
       "¿Te gustó? Hablemos, el botón verde está ahí abajo",
       "El 404 es mi lugar favorito. ¿Ya lo viste?"
     ],
-    "secao": {
-      "sobre": "Ese es Gu, mi maestro. Buena gente, lo prometo.",
-      "jornada": "De la Municipalidad hasta Gox... ¡qué subida!",
-      "skills": "PHP, C#, Python... habla más lenguajes que yo.",
-      "projetos": "Este Fang lo hizo Gu desde cero",
-      "certificados": "Este no para de estudiar.",
-      "contato": "¡Última parada! Saluda a Gu",
-      "servicos": "¡Elige! Sitio, sistema, app... Gu hace de todo.",
-      "processo": "Sin vueltas: charla, propuesta, código y entrega.",
-      "faq": "¿Tienes dudas? ¡Haz clic en una pregunta y te la abro!",
-      "rodape": "¡Llegaste al final! Gracias por la visita. ¡Habla con Gu!"
-    },
     "aria": "Deploy, la mascota — haz clic para que salte",
     "title": "¡Soy Deploy! Haz clic en mí :)",
     "manha": "Buenos días",
@@ -151,16 +145,7 @@
     "greetLate": "Trabajando hasta tarde, ¿eh? Soy Deploy, un robot creado por mi maestro Gu, y te voy a acompañar por el sitio",
     "greetBackLate": "¿Tú otra vez, y de madrugada? Ya me conoces, ¡sigamos!",
     "greetCompany": "¡{saudacao}, equipo de {empresa}! Soy Deploy, y Gu me pidió que les mostrara su trabajo.",
-    "acordei": "¡Ups! Me quedé dormido... ¿Seguimos?",
     "falas": {
-      "svc": {
-        "sites": "¿Un sitio rápido que aparece en Google? Eso es con Gu.",
-        "sistemas": "Ese panel es solo una muestra de lo que hace.",
-        "apps": "Apps para celular, Android e iOS. ¿Ya imaginaste la tuya?",
-        "automacao": "¿Tarea repetitiva? Gu la convierte en robot. ¡Como yo!",
-        "ia": "¿Esta tarjeta? Yo soy la prueba viva.",
-        "integracoes": "¿Sistemas que no se hablan? Él lo resuelve."
-      },
       "faqAbriu": [
         "¡Buena pregunta!",
         "Esa la pregunta todo el mundo.",
@@ -364,14 +349,15 @@
     "orcamento": "Pedir presupuesto por WhatsApp",
     "vaga": "Contratarme para un puesto",
     "msgOrcamento": "¡Hola, Gustavo! Vi tu portafolio y quiero un presupuesto para un proyecto.",
-    "demoPergunta": "¿Hacen sistemas a medida?",
-    "demoResposta": "¡Sí! ¿Quieres hablar con Gu ahora?",
     "demoPainel": "Tickets hoy",
     "ctaFreelaTag": "¿Tienes un proyecto?",
     "ctaFreelaSub": "Cuéntame la idea y te respondo con un presupuesto.",
     "ctaVagaTag": "¿Eres reclutador?",
     "ctaVagaSub": "Mira mi resumen en 30 segundos y descarga mi CV.",
-    "rotulo": "Servicios"
+    "rotulo": "Servicios",
+    "demoIa1": "mensaje recibido en WhatsApp",
+    "demoIa2": "tema: segunda vía de la factura",
+    "demoIa3": "factura enviada en 3s"
   },
   "Processo": {
     "titulo": "Cuatro etapas, del primer contacto a la entrega",

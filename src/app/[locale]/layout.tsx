@@ -8,7 +8,6 @@ import { getMessages, getTranslations } from 'next-intl/server';
 // Importação de Componentes
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import BackToTop from "../components/BackToTop";
 import MascotPixel from "../components/MascotPixel";
 import WhatsAppButton from "../components/WhatsAppButton";
 import ConsoleGreeting from "../components/ConsoleGreeting";
@@ -174,7 +173,6 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
-          <BackToTop />
           <MascotPixel />
           <WhatsAppButton />
           <ConsoleGreeting />
