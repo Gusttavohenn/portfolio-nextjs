@@ -16,13 +16,13 @@ import ContactSection from '../components/sections/ContactSection';
 /*
  * Animações de entrada ao rolar + link ativo do menu.
  * Antes era GSAP/ScrollTrigger; agora é IntersectionObserver + CSS (mais leve e sem "reflow forçado").
+ * A entrada é só um deslocamento leve: o conteúdo nunca fica invisível esperando a rolagem.
  */
 const REVEAL_GROUPS: { selector: string; from: string; stagger: number }[] = [
   { selector: '.service-card', from: 'up', stagger: 90 },
   { selector: '.process-step', from: 'up', stagger: 110 },
-  { selector: '.skill-category', from: 'up', stagger: 0 },
   { selector: '.project-card', from: 'up', stagger: 0 },
-  { selector: '.timeline-item', from: 'side', stagger: 0 },
+  { selector: '.jr-item', from: 'up', stagger: 60 },
 ];
 
 export default function Home() {

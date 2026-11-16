@@ -27,11 +27,14 @@
   },
   "SkillsSection": {
     "titulo": "Tools I work with",
-    "catBackend": "Back-end & Languages",
-    "catFrontend": "Front-end",
-    "catTools": "Databases & DevOps",
-    "catInfra": "Infrastructure & Networks",
-    "rotulo": "Skills"
+    "rotulo": "Skills",
+    "todoDia": "I use every day",
+    "jaUsei": "Used in past projects",
+    "grpLinguagens": "Languages",
+    "grpFront": "Front-end",
+    "grpDados": "Databases",
+    "grpInfra": "Infrastructure",
+    "grpIA": "AI"
   },
   "AboutSection": {
     "titulo": "From helpdesk to back-end",

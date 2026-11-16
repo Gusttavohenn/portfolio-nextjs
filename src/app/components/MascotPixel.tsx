@@ -27,7 +27,7 @@ const SLEEP_AFTER_MS = 25000; // cochila depois de 25s sem nenhuma interação
 const NAV_FALLBACK = 84;  // altura padrão da navbar fixa (medida de verdade em runtime)
 const SELECTOR = [
   "h1", "h2", "h3",
-  ".about-card", ".skill-category", ".project-card",
+  ".about-card", ".sk-daily", ".sk-used", ".project-card",
   ".cert-group-header", ".service-card", ".process-step", ".faq-item", ".footer-big", ".footer-col h3", ".contact-card", ".contact-terminal", ".cta-button",
   ".contact-form input", ".contact-form textarea",
 ].join(", ");
