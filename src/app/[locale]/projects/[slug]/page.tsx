@@ -61,8 +61,27 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <p>{project.solution[lang]}</p>
         </section>
 
+        {/* Mockups de apresentação */}
+        {project.gallery && (
+          <section className="case-study-section">
+            <h3><FaIcon name="fa-solid fa-display" /> {t('naPratica')}</h3>
+            <div className="case-gallery">
+              {project.gallery.map((src) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={c('imagem', { nome: project.title[lang] })}
+                  width={1600}
+                  height={900}
+                  style={{ width: '100%', height: 'auto', borderRadius: '12px', border: '1px solid var(--border-color)' }}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Print real do sistema */}
-        {project.screenshot && (
+        {!project.gallery && project.screenshot && (
           <section className="case-study-section">
             <h3><FaIcon name="fa-solid fa-display" /> {t('naPratica')}</h3>
             <Image

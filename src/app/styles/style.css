@@ -2842,3 +2842,4 @@ section[id] { scroll-margin-top: 90px; }
 .proj-more svg { transition: translate 0.2s ease; }
 .proj-more:hover svg { translate: 0 3px; }
 @media (prefers-reduced-motion: reduce) { .proj-new { animation: none; } }
+.case-gallery { display: grid; gap: 1rem; margin-top: 0.5rem; }
