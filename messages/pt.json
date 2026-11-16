@@ -59,8 +59,12 @@
     "verProjeto": "Ver Projeto",
     "verDemo": "Demo",
     "verCodigo": "Código",
-    "verMais": "Ver mais {n, plural, one {# projeto} other {# projetos}}",
-    "producao": "Em produção · uso diário"
+    "producao": "Em produção · uso diário",
+    "filtrar": "Filtrar projetos",
+    "filtro_todos": "Todos",
+    "filtro_producao": "Em produção",
+    "filtro_sistema": "Sistemas",
+    "filtro_site": "Sites"
   },
   "ProjectDetail": {
     "voltar": "Voltar aos projetos",
