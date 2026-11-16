@@ -10,18 +10,20 @@
     "servicos": "Services"
   },
   "HeroSection": {
-    "titulo": "Back-end Dev",
-    "subtitulo": "Automation & AI Integrations",
-    "saudacao": "I turn manual processes into systems that run on their own.",
-    "explorar": "VIEW PROJECTS",
-    "downloadCV": "DOWNLOAD CV",
     "paraEmpresa": "Portfolio prepared for the {empresa} team",
-    "rotacao": [
-      "Automation & AI Integrations",
-      "Custom web systems",
-      "Apps for Android and iOS",
-      "AI chatbots and assistants"
-    ]
+    "tese": "I turn manual processes into systems that run on their own.",
+    "cargo": "Systems Analyst IV at Gox Internet",
+    "lead": "I connect ERPs, ticketing, phone systems and WhatsApp so the team stops doing by hand what a system can do.",
+    "stackLabel": "Main stack",
+    "tenhoProjeto": "I have a project",
+    "souRecrutador": "I'm a recruiter",
+    "msgProjeto": "Hi, Gustavo! I found your portfolio and I have a project to discuss.",
+    "emProducao": "Running in production right now",
+    "stripLabel": "Automation example: a spreadsheet row becomes an API call and a WhatsApp message with confirmation.",
+    "stripPlanilha": "Schedule.xlsx",
+    "stripPendente": "Pending",
+    "stripConfirmado": "Confirmed",
+    "stripMensagem": "Hi, Mariana! Your appointment is tomorrow at 10 a.m. Reply 1 to confirm."
   },
   "SkillsSection": {
     "titulo": "My Skills",

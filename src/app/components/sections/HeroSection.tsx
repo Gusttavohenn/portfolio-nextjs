@@ -1,61 +1,59 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
-import { TbSparkles } from 'react-icons/tb';
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { TbSparkles, TbBrandWhatsapp, TbBriefcase } from 'react-icons/tb';
 import { getCompany } from '@/lib/visit';
-import ParticleField from '../ParticleField';
-import ScrambleName from '../ScrambleName';
-import TypeRotator from '../TypeRotator';
-import FaIcon from '../FaIcon';
+import { PROFILE_PHOTO } from '@/lib/profile';
+import AutomationStrip from '../AutomationStrip';
+import ProductionPreview from '../ProductionPreview';
+
+const WHATSAPP_NUMBER = '5537998730908';
 
 export default function HeroSection() {
   const t = useTranslations('HeroSection');
-  const tc = useTranslations('Chat');
-  const c = useTranslations('Common');
-  const locale = useLocale();
   const [company, setCompany] = useState<string | null>(null);
   useEffect(() => { setCompany(getCompany()); }, []);
-
-  const cvFile = `Gustavo_Oliveira_${locale.toUpperCase()}.pdf`;
+  const quote = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('msgProjeto'))}`;
 
   return (
-    <section id="home" className="hero section">
-      <div className="hero-particle-wrap" aria-hidden="true">
-        <ParticleField color="#8b5cf6" />
-      </div>
+    <section id="home" className="section hero-v2">
+      <div className="hero-grid">
+        <div className="hero-main">
+          {company && (
+            <p className="hero-company"><TbSparkles aria-hidden="true" /> {t('paraEmpresa', { empresa: company })}</p>
+          )}
+          <div className="hero-who">
+            <span className="hero-photo" aria-hidden={!PROFILE_PHOTO}>
+              {PROFILE_PHOTO
+                ? <Image src={PROFILE_PHOTO} alt="Gustavo Oliveira" width={112} height={112} priority />
+                : <span>GO</span>}
+            </span>
+            <span>
+              <span className="hero-person">Gustavo Oliveira</span>
+              <span className="hero-job">{t('cargo')}</span>
+            </span>
+          </div>
 
-      <div className="hero-content">
-        {company && (
-          <p className="hero-company"><TbSparkles aria-hidden="true" /> {t('paraEmpresa', { empresa: company })}</p>
-        )}
-        <ScrambleName className="hero-name" text="GUSTAVO OLIVEIRA" />
-        <TypeRotator className="hero-role" phrases={t.raw('rotacao') as string[]} />
-        <p className="hero-tagline">{t('saudacao')}</p>
+          <h1 className="hero-thesis">{t('tese')}</h1>
+          <p className="hero-lead">{t('lead')}</p>
+          <p className="hero-stack"><span className="sr-only">{t('stackLabel')}: </span>PHP/Laravel · C#/.NET · Node.js · SQL</p>
 
-        <div className="button-group">
-          <a href="#projetos" className="cta-button">{t('explorar')}</a>
-          <a
-            href={`/${cvFile}`}
-            download
-            className="cta-button secondary"
-          >
-            {t('downloadCV')}
-          </a>
+          <div className="hero-ctas">
+            <a className="hero-btn primary" href={quote} target="_blank" rel="noopener noreferrer">
+              <TbBrandWhatsapp aria-hidden="true" /> {t('tenhoProjeto')}
+            </a>
+            <button type="button" className="hero-btn" onClick={() => window.dispatchEvent(new Event('open-summary'))}>
+              <TbBriefcase aria-hidden="true" /> {t('souRecrutador')}
+            </button>
+          </div>
         </div>
 
-        <button
-          className="hero-chat-btn"
-          onClick={() => window.dispatchEvent(new Event('open-chat'))}
-        >
-          <span className="hero-chat-dot" aria-hidden="true"></span>
-          {tc('abrir')}
-        </button>
+        <ProductionPreview />
       </div>
 
-      <a href="#sobre" className="scroll-indicator" aria-label={c('rolar')}>
-        <FaIcon name="fa-solid fa-chevron-down" />
-      </a>
+      <AutomationStrip />
     </section>
   );
 }
