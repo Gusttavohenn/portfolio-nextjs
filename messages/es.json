@@ -10,18 +10,20 @@
     "servicos": "Servicios"
   },
   "HeroSection": {
-    "titulo": "Dev Back-end",
-    "subtitulo": "Automatización & Integraciones con IA",
-    "saudacao": "Convierto procesos manuales en sistemas que funcionan solos.",
-    "explorar": "VER PROYECTOS",
-    "downloadCV": "DESCARGAR CV",
     "paraEmpresa": "Portafolio preparado para el equipo de {empresa}",
-    "rotacao": [
-      "Automatización & Integraciones con IA",
-      "Sistemas web a medida",
-      "Apps para Android e iOS",
-      "Chatbots y asistentes con IA"
-    ]
+    "tese": "Convierto procesos manuales en sistemas que funcionan solos.",
+    "cargo": "Analista de Sistemas IV en Gox Internet",
+    "lead": "Integro ERP, tickets, telefonía y WhatsApp para que el equipo deje de hacer a mano lo que el sistema puede hacer.",
+    "stackLabel": "Stack principal",
+    "tenhoProjeto": "Tengo un proyecto",
+    "souRecrutador": "Soy reclutador",
+    "msgProjeto": "¡Hola, Gustavo! Vi tu portafolio y tengo un proyecto para conversar.",
+    "emProducao": "Funcionando ahora en producción",
+    "stripLabel": "Ejemplo de automatización: una fila de la hoja de cálculo se convierte en una llamada a la API y un mensaje de WhatsApp con confirmación.",
+    "stripPlanilha": "Agenda.xlsx",
+    "stripPendente": "Pendiente",
+    "stripConfirmado": "Confirmado",
+    "stripMensagem": "¡Hola, Mariana! Tu cita es mañana a las 10 h. Responde 1 para confirmar."
   },
   "SkillsSection": {
     "titulo": "Mis Skills",
