@@ -35,27 +35,27 @@
       "start": "2026-05",
       "end": null,
       "summary": {
-        "pt": "Automação e integração no provedor: trabalho com o ERP IXC e assistentes de IA no WhatsApp (OPA Suite), desenvolvi o Gox Assina (assinatura eletrônica de contratos), plugins para o GLPI e um agente de diagnóstico automatizado para a rede.",
-        "en": "Automation and integration at the ISP: I work with the IXC ERP and AI-powered WhatsApp assistants (OPA Suite), built Gox Assina (electronic contract signing), GLPI plugins and an automated network diagnostic agent.",
-        "es": "Automatización e integración en el proveedor: trabajo con el ERP IXC y asistentes de IA en WhatsApp (OPA Suite), desarrollé Gox Assina (firma electrónica de contratos), plugins para GLPI y un agente de diagnóstico automatizado para la red."
+        "pt": "Automação e integração no provedor: trabalho com o ERP IXC e assistentes de IA no WhatsApp (OPA Suite), desenvolvi o Assina (assinatura eletrônica de contratos), plugins para o GLPI e um agente de diagnóstico automatizado para a rede.",
+        "en": "Automation and integration at the ISP: I work with the IXC ERP and AI-powered WhatsApp assistants (OPA Suite), built Assina (electronic contract signing), GLPI plugins and an automated network diagnostic agent.",
+        "es": "Automatización e integración en el proveedor: trabajo con el ERP IXC y asistentes de IA en WhatsApp (OPA Suite), desarrollé Assina (firma electrónica de contratos), plugins para GLPI y un agente de diagnóstico automatizado para la red."
       },
       "bullets": {
         "pt": [
-          "Desenvolvi o Gox Assina, plataforma de assinatura eletrônica de contratos",
+          "Desenvolvi o Assina, plataforma de assinatura eletrônica de contratos",
           "Otimizei os prompts e o roteamento de intenção dos assistentes de IA no WhatsApp (OPA Suite), propondo arquitetura com sub-assistentes por categoria",
           "Criei verificação facial por selfie (CompreFace) na confirmação de contratos pelo WhatsApp",
           "Desenvolvi plugins para o GLPI: portal simplificado de abertura de chamados e fluxo de revogação de acessos em férias",
           "Construí um agente de diagnóstico automatizado para reclamações de instabilidade de rede usando ACS"
         ],
         "en": [
-          "Built Gox Assina, an electronic contract signing platform",
+          "Built Assina, an electronic contract signing platform",
           "Optimized prompts and intent routing for the AI-powered WhatsApp assistants (OPA Suite), proposing an architecture with sub-assistants per category",
           "Created selfie-based facial verification (CompreFace) for contract confirmation over WhatsApp",
           "Developed GLPI plugins: a simplified ticket-opening portal and a workflow to revoke employee access during vacations",
           "Built an automated diagnostic agent for network instability complaints using ACS"
         ],
         "es": [
-          "Desarrollé Gox Assina, plataforma de firma electrónica de contratos",
+          "Desarrollé Assina, plataforma de firma electrónica de contratos",
           "Optimicé los prompts y el enrutamiento de intención de los asistentes de IA en WhatsApp (OPA Suite), proponiendo una arquitectura con subasistentes por categoría",
           "Creé verificación facial por selfie (CompreFace) en la confirmación de contratos por WhatsApp",
           "Desarrollé plugins para GLPI: un portal simplificado para abrir tickets y un flujo de revocación de accesos en vacaciones",
@@ -489,17 +489,17 @@
     ],
     "achievements": {
       "pt": [
-        "Criou o Gox Assina, plataforma de assinatura eletrônica de contratos",
+        "Criou o Assina, plataforma de assinatura eletrônica de contratos",
         "Trabalha com assistentes de IA no WhatsApp e plugins para o GLPI",
         "Participou da migração de servidores físicos para o Microsoft Azure"
       ],
       "en": [
-        "Built Gox Assina, an electronic contract signing platform",
+        "Built Assina, an electronic contract signing platform",
         "Works with AI-powered WhatsApp assistants and GLPI plugins",
         "Took part in migrating physical servers to Microsoft Azure"
       ],
       "es": [
-        "Creó Gox Assina, plataforma de firma electrónica de contratos",
+        "Creó Assina, plataforma de firma electrónica de contratos",
         "Trabaja con asistentes de IA en WhatsApp y plugins para GLPI",
         "Participó en la migración de servidores físicos a Microsoft Azure"
       ]

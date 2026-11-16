@@ -1,91 +1,56 @@
+import type { IconType } from 'react-icons';
 import { useTranslations } from 'next-intl';
-
-// Importe todos os ícones necessários dos pacotes corretos
 import {
-  SiNextdotjs, SiTypescript, SiMongodb, SiGrafana, SiCisco,
-  SiMikrotik, SiPfsense, SiFortinet, SiGnubash, SiMysql, SiVeeam, SiBlazor,
-  SiDotnet, SiSharp,
-} from "react-icons/si";
-import { VscTerminalPowershell } from "react-icons/vsc"; // Ícone corrigido para PowerShell
-import FaIcon from '../FaIcon';
+  SiPhp, SiLaravel, SiSharp, SiDotnet, SiNodedotjs, SiMysql, SiGit, SiLinux, SiDocker, SiAsterisk,
+} from 'react-icons/si';
+import { TbApi, TbDatabase, TbTicket, TbRouter, TbActivityHeartbeat } from 'react-icons/tb';
 import SectionHead from '../SectionHead';
+
+/*
+ * Skills em dois blocos: o que uso todo dia (com ícone) e o que já usei em projetos (lista simples).
+ * Cada tecnologia aparece uma vez só.
+ */
+const DAILY: [string, IconType][] = [
+  ['PHP', SiPhp], ['Laravel', SiLaravel], ['C#', SiSharp], ['.NET', SiDotnet], ['Node.js', SiNodedotjs],
+  ['MySQL', SiMysql], ['SQL Server', TbDatabase], ['APIs REST', TbApi],
+  ['GLPI', TbTicket], ['IXC Provedor', TbRouter], ['Zabbix', TbActivityHeartbeat], ['Asterisk', SiAsterisk],
+  ['Git', SiGit], ['Linux', SiLinux], ['Docker', SiDocker],
+];
+
+const USED: { key: string; items: string[] }[] = [
+  { key: 'grpLinguagens', items: ['Python', 'Java', 'TypeScript', 'JavaScript'] },
+  { key: 'grpFront', items: ['React', 'Next.js', 'Blazor', 'HTML', 'CSS'] },
+  { key: 'grpDados', items: ['PostgreSQL', 'MariaDB', 'MongoDB', 'Oracle'] },
+  { key: 'grpInfra', items: ['Windows Server', 'Microsoft Azure', 'Grafana'] },
+  { key: 'grpIA', items: ['Claude', 'OpenAI', 'OPA Suite'] },
+];
 
 export default function SkillsSection() {
   const t = useTranslations('SkillsSection');
-  const c = useTranslations('Common');
 
   return (
     <section id="skills" className="section">
       <SectionHead label={t('rotulo')} title={t('titulo')} />
-      <div className="skills-container">
-
-        {/* --- Categoria Backend --- */}
-        <div className="skill-category">
-          <h3><FaIcon name="fa-solid fa-server" /> {t('catBackend')}</h3>
-          <div className="skills-list">
-            <span className="skill-item"><FaIcon name="fab fa-php" /> PHP</span>
-            <span className="skill-item"><FaIcon name="fab fa-laravel" /> Laravel</span>
-            <span className="skill-item"><SiSharp aria-hidden="true" /> C#</span>
-            <span className="skill-item"><SiDotnet aria-hidden="true" /> .NET</span>
-            <span className="skill-item"><FaIcon name="fab fa-python" /> Python</span>
-            <span className="skill-item"><FaIcon name="fab fa-node-js" /> Node.js</span>
-            <span className="skill-item"><FaIcon name="fab fa-java" /> Java</span>
-            <span className="skill-item"><FaIcon name="fa-solid fa-plug" /> {c('apis')}</span>
-            <span className="skill-item"><FaIcon name="fa-solid fa-robot" /> {c('automacao')}</span>
-          </div>
+      <div className="sk-wrap">
+        <div className="sk-daily">
+          <h3 className="sk-h">{t('todoDia')}</h3>
+          <ul className="sk-chips">
+            {DAILY.map(([name, Icon]) => (
+              <li key={name} className="sk-chip"><Icon aria-hidden="true" /> {name}</li>
+            ))}
+          </ul>
         </div>
-
-        {/* --- Categoria Frontend --- */}
-        <div className="skill-category">
-          <h3><FaIcon name="fa-solid fa-code" /> {t('catFrontend')}</h3>
-          <div className="skills-list">
-            <span className="skill-item"><FaIcon name="fab fa-react" /> React</span>
-            <span className="skill-item"><SiNextdotjs aria-hidden="true" /> Next.js</span>
-            <span className="skill-item"><SiTypescript aria-hidden="true" /> TypeScript</span>
-            <span className="skill-item"><FaIcon name="fab fa-js" /> JavaScript</span>
-            <span className="skill-item"><FaIcon name="fab fa-html5" /> HTML5</span>
-            <span className="skill-item"><FaIcon name="fab fa-css3-alt" /> CSS3</span>
-            <span className="skill-item"><SiBlazor aria-hidden="true" /> Blazor</span>
-          </div>
+        <div className="sk-used">
+          <h3 className="sk-h">{t('jaUsei')}</h3>
+          <dl className="sk-groups">
+            {USED.map((g) => (
+              <div key={g.key} className="sk-group">
+                <dt>{t(g.key)}</dt>
+                <dd>{g.items.join(' · ')}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-
-        {/* --- Categoria Banco de Dados & DevOps --- */}
-        <div className="skill-category">
-          <h3><FaIcon name="fa-solid fa-database" /> {t('catTools')}</h3>
-          <div className="skills-list">
-            <span className="skill-item"><SiMysql aria-hidden="true" /> MySQL</span>
-            <span className="skill-item"><FaIcon name="fa-solid fa-database" /> SQL Server</span>
-            <span className="skill-item"><FaIcon name="fa-solid fa-database" /> PostgreSQL</span>
-            <span className="skill-item"><FaIcon name="fa-solid fa-database" /> MariaDB</span>
-            <span className="skill-item"><SiMongodb aria-hidden="true" /> MongoDB</span>
-            <span className="skill-item"><FaIcon name="fab fa-docker" /> Docker</span>
-            <span className="skill-item"><FaIcon name="fab fa-git-alt" /> Git</span>
-            <span className="skill-item"><FaIcon name="fab fa-github" /> GitHub</span>
-          </div>
-        </div>
-
-        {/* --- Categoria TI & Infraestrutura --- */}
-        <div className="skill-category">
-            <h3><FaIcon name="fa-solid fa-network-wired" /> {t('catInfra')}</h3>
-            <div className="skills-list">
-                <span className="skill-item"><FaIcon name="fa-solid fa-chart-line" /> Zabbix</span>
-                <span className="skill-item"><SiGrafana aria-hidden="true" /> Grafana</span>
-                <span className="skill-item"><SiCisco aria-hidden="true" /> Cisco</span>
-                <span className="skill-item"><SiMikrotik aria-hidden="true" /> MikroTik</span>
-                <span className="skill-item"><FaIcon name="fa-solid fa-shield-halved" /> Sophos</span>
-                <span className="skill-item"><SiPfsense aria-hidden="true" /> pfSense</span>
-                <span className="skill-item"><SiFortinet aria-hidden="true" /> Fortinet</span>
-                <span className="skill-item"><FaIcon name="fa-solid fa-user-secret" /> VPNs</span>
-                <span className="skill-item"><FaIcon name="fa-solid fa-shield-halved" /> Hardening</span>
-                <span className="skill-item"><FaIcon name="fab fa-windows" /> Windows Server</span>
-                <span className="skill-item"><SiGnubash aria-hidden="true" /> Bash</span>
-                <span className="skill-item"><VscTerminalPowershell aria-hidden="true" /> PowerShell</span>
-                <span className="skill-item"><SiVeeam aria-hidden="true" /> Veeam Backup</span>
-                <span className="skill-item"><FaIcon name="fa-solid fa-arrows-rotate" /> rsync</span>
-                <span className="skill-item"><FaIcon name="fa-solid fa-headset" /> {c('suporte')}</span>
-            </div>
-        </div>
-
       </div>
     </section>
   );
