@@ -65,6 +65,49 @@ export const projects: Project[] = [
     liveUrl: "https://clinica-ipe-plum.vercel.app/",
   },
   {
+    slug: "esmalte-odontologia",
+    title: {
+      pt: "Esmalte — Clínica Odontológica",
+      en: "Esmalte — Dental Clinic",
+      es: "Esmalte — Clínica Odontológica",
+    },
+    shortDescription: {
+      pt: "NEXT.JS, REACT, TYPESCRIPT",
+      en: "NEXT.JS, REACT, TYPESCRIPT",
+      es: "NEXT.JS, REACT, TYPESCRIPT",
+    },
+    description: {
+      pt: "Site de clínica odontológica com odontograma interativo (\"onde dói?\"), simulador de clareamento pela escala Vita, tratamentos com valor e duração e pedido de avaliação.",
+      en: "Dental clinic website with an interactive tooth chart (\"where does it hurt?\"), a whitening simulator based on the Vita shade guide, treatments with price and duration, and an appointment request form.",
+      es: "Sitio de clínica odontológica con odontograma interactivo (\"¿dónde duele?\"), simulador de blanqueamiento con la escala Vita, tratamientos con precio y duración y solicitud de evaluación.",
+    },
+    tags: ["next.js", "react", "typescript", "css"],
+    imageUrl: "/capas/esmalte-odontologia-pt.webp",
+    cover: "/capas/esmalte-odontologia",
+    gallery: [
+      "/projetos/esmalte/desk.webp",
+      "/projetos/esmalte/phones.webp",
+      "/projetos/esmalte/clar.webp",
+      "/projetos/esmalte/dark.webp",
+    ],
+    problem: {
+      pt: "Quem procura dentista geralmente sente algo e não sabe o que é, quanto vai custar nem quanto tempo leva. Site de clínica raramente ajuda nisso antes da primeira consulta.",
+      en: "People looking for a dentist usually feel something without knowing what it is, how much it will cost or how long it takes. Clinic websites rarely help with that before the first visit.",
+      es: "Quien busca un dentista suele sentir algo sin saber qué es, cuánto costará ni cuánto tarda. El sitio de una clínica casi nunca ayuda con eso antes de la primera consulta.",
+    },
+    solution: {
+      pt: "Odontograma com a numeração FDI (11 a 48): o paciente toca no dente, escolhe o que sente e vê o problema provável, o tratamento, a especialidade e a urgência — no celular vira uma ficha por arcada. Simulador de clareamento com a escala Vita (B1 a C4), três métodos e comparador antes e depois. Tratamentos em abas com duração, sessões e valor; equipe com selo \"atende hoje\"; pedido de avaliação com validação e máscara de celular; tema claro e escuro.",
+      en: "Tooth chart with FDI numbering (11 to 48): patients tap a tooth, pick what they feel and see the likely problem, treatment, specialty and urgency — on mobile it becomes a per-arch list. Whitening simulator with the Vita shade guide (B1 to C4), three methods and a before/after slider. Tabbed treatments with duration, sessions and price; team with an \"available today\" badge; appointment request with validation and phone mask; light and dark themes.",
+      es: "Odontograma con numeración FDI (11 a 48): el paciente toca el diente, elige lo que siente y ve el problema probable, el tratamiento, la especialidad y la urgencia; en el celular se vuelve una ficha por arcada. Simulador de blanqueamiento con la escala Vita (B1 a C4), tres métodos y comparador antes y después. Tratamientos en pestañas con duración, sesiones y precio; equipo con sello \"atiende hoy\"; solicitud de evaluación con validación y máscara de celular; tema claro y oscuro.",
+    },
+    learnings: {
+      pt: "Transformar conhecimento técnico (numeração dos dentes, escala de cor) em algo que o paciente entende sozinho, e adaptar uma interface complexa como o odontograma para a tela do celular.",
+      en: "Turning technical knowledge (tooth numbering, shade guides) into something patients understand on their own, and adapting a complex interface like the tooth chart to a phone screen.",
+      es: "Convertir conocimiento técnico (numeración de dientes, escala de color) en algo que el paciente entiende solo, y adaptar una interfaz compleja como el odontograma a la pantalla del celular.",
+    },
+    liveUrl: "https://esmalte-odontologia.vercel.app/",
+  },
+  {
     slug: "fang-security",
     title: {
       pt: "Fang — Web Security Scanner",

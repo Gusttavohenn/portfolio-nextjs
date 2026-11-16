@@ -59,7 +59,7 @@
     "verProjeto": "View Project",
     "verDemo": "Demo",
     "verCodigo": "Code",
-    "verMais": "See {n} more projects"
+    "verMais": "See {n, plural, one {# more project} other {# more projects}}"
   },
   "ProjectDetail": {
     "voltar": "Back to projects",
