@@ -1,7 +1,17 @@
 import type { Localized } from './cv';
 
+export type Category = 'producao' | 'sistema' | 'site';
+
 export interface Project {
   slug: string;
+  /** filtro: em produção, sistema ou site */
+  category: Category;
+  /** destaque grande no topo da seção */
+  featured?: boolean;
+  /** uma linha para o card da grade */
+  summary: Localized;
+  /** resultado real (só preencher com informação verdadeira) */
+  result?: Localized;
   title: Localized;
   shortDescription: Localized;
   description: Localized;
@@ -25,6 +35,13 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "alerta-plantao",
+    category: "producao",
+    featured: true,
+    summary: {
+      pt: "Evento crítico no Zabbix vira ligação para a equipe até alguém reconhecer.",
+      en: "Critical Zabbix events become calls to the team until someone acknowledges.",
+      es: "Un evento crítico en Zabbix se vuelve llamada al equipo hasta que alguien lo reconoce.",
+    },
     title: {
       pt: "Alerta de plantão — Zabbix + Asterisk",
       en: "On-call alert — Zabbix + Asterisk",
@@ -61,7 +78,143 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "assina-contratos",
+    category: "producao",
+    featured: true,
+    summary: {
+      pt: "Contratos assinados pelo celular, com o status de cada um num painel.",
+      en: "Contracts signed on the phone, with each one’s status on a dashboard.",
+      es: "Contratos firmados desde el celular, con el estado de cada uno en un panel.",
+    },
+    title: {
+      pt: "Assina — Assinatura Digital de Contratos",
+      en: "Assina — Digital Contract Signing",
+      es: "Assina — Firma Digital de Contratos",
+    },
+    shortDescription: {
+      pt: "ASSINATURA DIGITAL, PAINEL WEB",
+      en: "DIGITAL SIGNATURE, WEB DASHBOARD",
+      es: "FIRMA DIGITAL, PANEL WEB",
+    },
+    description: {
+      pt: "Painel de assinatura digital de contratos: o contrato é enviado ao cliente, que assina pelo celular, e a equipe acompanha no painel o que está pendente e o que já foi assinado.",
+      en: "Digital contract signing dashboard: the contract is sent to the customer, who signs on their phone, and the team tracks what is pending and what is signed.",
+      es: "Panel de firma digital de contratos: el contrato se envía al cliente, que firma desde el celular, y el equipo sigue en el panel lo pendiente y lo firmado.",
+    },
+    tags: ["assinatura digital", "painel web"],
+    imageUrl: "/capas/assina-contratos-pt.webp",
+    cover: "/capas/assina-contratos",
+    production: true,
+    problem: {
+      pt: "Contrato em papel atrasa a ativação do cliente e é difícil saber quais ainda faltam assinar.",
+      en: "Paper contracts delay customer activation, and it’s hard to know which ones are still unsigned.",
+      es: "El contrato en papel retrasa la activación del cliente y es difícil saber cuáles faltan firmar.",
+    },
+    solution: {
+      pt: "Um painel web em que a equipe envia o contrato, o cliente assina pelo celular e cada contrato aparece como pendente ou assinado.",
+      en: "A web dashboard where the team sends the contract, the customer signs on their phone and each contract shows as pending or signed.",
+      es: "Un panel web en el que el equipo envía el contrato, el cliente firma desde el celular y cada contrato aparece como pendiente o firmado.",
+    },
+    learnings: {
+      pt: "Pensar no fluxo de quem assina pelo celular, sem instalar nada, e dar à equipe uma visão clara do status de cada contrato.",
+      en: "Designing for people signing on their phone without installing anything, and giving the team a clear view of each contract’s status.",
+      es: "Pensar en quien firma desde el celular sin instalar nada, y dar al equipo una visión clara del estado de cada contrato.",
+    },
+  },
+  {
+    slug: "painel-chamados",
+    category: "producao",
+    summary: {
+      pt: "Fila de chamados do GLPI na TV, com aviso por voz a cada chamado novo.",
+      en: "GLPI ticket queue on the TV, with a voice alert for every new ticket.",
+      es: "Cola de tickets de GLPI en la TV, con aviso por voz en cada ticket nuevo.",
+    },
+    title: {
+      pt: "Painel de chamados na TV, com aviso por voz",
+      en: "Ticket board on TV, with voice alert",
+      es: "Panel de tickets en TV, con aviso por voz",
+    },
+    shortDescription: {
+      pt: "GLPI, API REST, PHP",
+      en: "GLPI, REST API, PHP",
+      es: "GLPI, API REST, PHP",
+    },
+    description: {
+      pt: "Painel que mostra numa TV os chamados abertos no GLPI e anuncia por voz “Atenção! Novo chamado” quando entra um novo. A equipe vê a fila sem precisar abrir o sistema.",
+      en: "A board that shows open GLPI tickets on a TV and announces “Attention! New ticket” by voice when a new one comes in. The team sees the queue without opening the system.",
+      es: "Panel que muestra en una TV los tickets abiertos en GLPI y anuncia por voz “¡Atención! Nuevo ticket” cuando entra uno nuevo. El equipo ve la cola sin abrir el sistema.",
+    },
+    tags: ["glpi", "api rest", "php", "javascript"],
+    imageUrl: "/capas/painel-chamados-pt.webp",
+    cover: "/capas/painel-chamados",
+    production: true,
+    problem: {
+      pt: "A tela do GLPI aberta na TV dependia de uma sessão logada, que expirava, e chamado novo podia ficar parado sem ninguém perceber.",
+      en: "Showing the GLPI screen on the TV depended on a logged-in session that kept expiring, and new tickets could sit unnoticed.",
+      es: "Mostrar la pantalla de GLPI en la TV dependía de una sesión iniciada que expiraba, y un ticket nuevo podía quedar sin que nadie lo notara.",
+    },
+    solution: {
+      pt: "Troquei a sessão do navegador por um proxy em PHP que consulta a API REST do GLPI, e uma página própria para a TV que lista os chamados abertos e fala em voz alta quando chega um novo.",
+      en: "I replaced the browser session with a PHP proxy that queries the GLPI REST API, plus a dedicated TV page that lists open tickets and speaks out loud when a new one arrives.",
+      es: "Reemplacé la sesión del navegador por un proxy en PHP que consulta la API REST de GLPI, y una página propia para la TV que lista los tickets abiertos y habla en voz alta cuando llega uno nuevo.",
+    },
+    learnings: {
+      pt: "Para tela que fica ligada o dia inteiro, buscar os dados pela API é bem mais estável do que depender de uma sessão de usuário.",
+      en: "For a screen that stays on all day, fetching data through the API is far more reliable than depending on a user session.",
+      es: "Para una pantalla que está encendida todo el día, consultar los datos por la API es mucho más estable que depender de una sesión de usuario.",
+    },
+  },
+  {
+    slug: "plugins-glpi",
+    category: "producao",
+    summary: {
+      pt: "Portal simples para abrir chamado e fluxo de férias com revogação de acessos.",
+      en: "A simple portal to open tickets and a vacation flow that revokes access.",
+      es: "Portal simple para abrir tickets y flujo de vacaciones con revocación de accesos.",
+    },
+    title: {
+      pt: "Plugins do GLPI — Meu Painel e Férias",
+      en: "GLPI plugins — My Panel and Vacation",
+      es: "Plugins de GLPI — Mi Panel y Vacaciones",
+    },
+    shortDescription: {
+      pt: "GLPI, PHP",
+      en: "GLPI, PHP",
+      es: "GLPI, PHP",
+    },
+    description: {
+      pt: "Dois plugins para o GLPI: um portal mais simples para abrir e acompanhar chamados, e um fluxo de férias em que o RH abre o chamado e a TI suspende e depois reativa os acessos de cada pessoa.",
+      en: "Two GLPI plugins: a simpler portal to open and follow tickets, and a vacation flow where HR opens a ticket and IT suspends and later restores each person’s access.",
+      es: "Dos plugins para GLPI: un portal más simple para abrir y seguir tickets, y un flujo de vacaciones en el que RR. HH. abre el ticket y TI suspende y luego reactiva los accesos de cada persona.",
+    },
+    tags: ["glpi", "php"],
+    imageUrl: "/capas/plugins-glpi-pt.webp",
+    cover: "/capas/plugins-glpi",
+    production: true,
+    problem: {
+      pt: "Abrir chamado na tela padrão do GLPI não era simples para quem não é da TI. E nas férias de um funcionário, os acessos a salas e sistemas precisavam ser suspensos e reativados no retorno, cada pessoa com acessos diferentes.",
+      en: "Opening a ticket on the standard GLPI screen wasn’t easy for non-IT staff. And when an employee went on vacation, their access to rooms and systems had to be suspended and restored on return, with different access for each person.",
+      es: "Abrir un ticket en la pantalla estándar de GLPI no era sencillo para quien no es de TI. Y en las vacaciones de un empleado, los accesos a salas y sistemas tenían que suspenderse y reactivarse al regreso, con accesos distintos para cada persona.",
+    },
+    solution: {
+      pt: "Meu Painel: um portal dentro do GLPI com dois caminhos claros, “Meu Painel” e “Abrir Chamado”. Férias: o RH abre o chamado de suspensão e a TI segue um checklist com os acessos daquela pessoa, revogando na saída e reativando no retorno.",
+      en: "My Panel: a portal inside GLPI with two clear paths, “My Panel” and “Open a Ticket”. Vacation: HR opens the suspension ticket and IT follows a checklist of that person’s access, revoking it on departure and restoring it on return.",
+      es: "Mi Panel: un portal dentro de GLPI con dos caminos claros, “Mi Panel” y “Abrir Ticket”. Vacaciones: RR. HH. abre el ticket de suspensión y TI sigue un checklist con los accesos de esa persona, revocándolos a la salida y reactivándolos al regreso.",
+    },
+    learnings: {
+      pt: "Estender a ferramenta que a empresa já usa, como plugin, em vez de criar um sistema separado, e começar com checklist antes de automatizar.",
+      en: "Extending the tool the company already uses, as a plugin, instead of building a separate system, and starting with a checklist before automating.",
+      es: "Extender la herramienta que la empresa ya usa, como plugin, en vez de crear un sistema aparte, y empezar con un checklist antes de automatizar.",
+    },
+  },
+  {
     slug: "clinica-ipe",
+    category: "site",
+    summary: {
+      pt: "Agendamento de consulta em 3 passos, pensado para o celular.",
+      en: "3-step appointment booking, designed for phones.",
+      es: "Agenda de citas en 3 pasos, pensada para el celular.",
+    },
     title: {
       pt: "Clínica Ipê — Agendamento Online",
       en: "Clínica Ipê — Online Booking",
@@ -104,44 +257,13 @@ export const projects: Project[] = [
     liveUrl: "https://clinica-ipe-plum.vercel.app/",
   },
   {
-    slug: "painel-chamados",
-    title: {
-      pt: "Painel de chamados na TV, com aviso por voz",
-      en: "Ticket board on TV, with voice alert",
-      es: "Panel de tickets en TV, con aviso por voz",
-    },
-    shortDescription: {
-      pt: "GLPI, API REST, PHP",
-      en: "GLPI, REST API, PHP",
-      es: "GLPI, API REST, PHP",
-    },
-    description: {
-      pt: "Painel que mostra numa TV os chamados abertos no GLPI e anuncia por voz “Atenção! Novo chamado” quando entra um novo. A equipe vê a fila sem precisar abrir o sistema.",
-      en: "A board that shows open GLPI tickets on a TV and announces “Attention! New ticket” by voice when a new one comes in. The team sees the queue without opening the system.",
-      es: "Panel que muestra en una TV los tickets abiertos en GLPI y anuncia por voz “¡Atención! Nuevo ticket” cuando entra uno nuevo. El equipo ve la cola sin abrir el sistema.",
-    },
-    tags: ["glpi", "api rest", "php", "javascript"],
-    imageUrl: "/capas/painel-chamados-pt.webp",
-    cover: "/capas/painel-chamados",
-    production: true,
-    problem: {
-      pt: "A tela do GLPI aberta na TV dependia de uma sessão logada, que expirava, e chamado novo podia ficar parado sem ninguém perceber.",
-      en: "Showing the GLPI screen on the TV depended on a logged-in session that kept expiring, and new tickets could sit unnoticed.",
-      es: "Mostrar la pantalla de GLPI en la TV dependía de una sesión iniciada que expiraba, y un ticket nuevo podía quedar sin que nadie lo notara.",
-    },
-    solution: {
-      pt: "Troquei a sessão do navegador por um proxy em PHP que consulta a API REST do GLPI, e uma página própria para a TV que lista os chamados abertos e fala em voz alta quando chega um novo.",
-      en: "I replaced the browser session with a PHP proxy that queries the GLPI REST API, plus a dedicated TV page that lists open tickets and speaks out loud when a new one arrives.",
-      es: "Reemplacé la sesión del navegador por un proxy en PHP que consulta la API REST de GLPI, y una página propia para la TV que lista los tickets abiertos y habla en voz alta cuando llega uno nuevo.",
-    },
-    learnings: {
-      pt: "Para tela que fica ligada o dia inteiro, buscar os dados pela API é bem mais estável do que depender de uma sessão de usuário.",
-      en: "For a screen that stays on all day, fetching data through the API is far more reliable than depending on a user session.",
-      es: "Para una pantalla que está encendida todo el día, consultar los datos por la API es mucho más estable que depender de una sesión de usuario.",
-    },
-  },
-  {
     slug: "esmalte-odontologia",
+    category: "site",
+    summary: {
+      pt: "Odontograma interativo e simulador de clareamento para pacientes.",
+      en: "Interactive tooth chart and whitening simulator for patients.",
+      es: "Odontograma interactivo y simulador de blanqueamiento para pacientes.",
+    },
     title: {
       pt: "Esmalte — Clínica Odontológica",
       en: "Esmalte — Dental Clinic",
@@ -184,81 +306,13 @@ export const projects: Project[] = [
     liveUrl: "https://esmalte-odontologia.vercel.app/",
   },
   {
-    slug: "assina-contratos",
-    title: {
-      pt: "Assina — Assinatura Digital de Contratos",
-      en: "Assina — Digital Contract Signing",
-      es: "Assina — Firma Digital de Contratos",
-    },
-    shortDescription: {
-      pt: "ASSINATURA DIGITAL, PAINEL WEB",
-      en: "DIGITAL SIGNATURE, WEB DASHBOARD",
-      es: "FIRMA DIGITAL, PANEL WEB",
-    },
-    description: {
-      pt: "Painel de assinatura digital de contratos: o contrato é enviado ao cliente, que assina pelo celular, e a equipe acompanha no painel o que está pendente e o que já foi assinado.",
-      en: "Digital contract signing dashboard: the contract is sent to the customer, who signs on their phone, and the team tracks what is pending and what is signed.",
-      es: "Panel de firma digital de contratos: el contrato se envía al cliente, que firma desde el celular, y el equipo sigue en el panel lo pendiente y lo firmado.",
-    },
-    tags: ["assinatura digital", "painel web"],
-    imageUrl: "/capas/assina-contratos-pt.webp",
-    cover: "/capas/assina-contratos",
-    production: true,
-    problem: {
-      pt: "Contrato em papel atrasa a ativação do cliente e é difícil saber quais ainda faltam assinar.",
-      en: "Paper contracts delay customer activation, and it’s hard to know which ones are still unsigned.",
-      es: "El contrato en papel retrasa la activación del cliente y es difícil saber cuáles faltan firmar.",
-    },
-    solution: {
-      pt: "Um painel web em que a equipe envia o contrato, o cliente assina pelo celular e cada contrato aparece como pendente ou assinado.",
-      en: "A web dashboard where the team sends the contract, the customer signs on their phone and each contract shows as pending or signed.",
-      es: "Un panel web en el que el equipo envía el contrato, el cliente firma desde el celular y cada contrato aparece como pendiente o firmado.",
-    },
-    learnings: {
-      pt: "Pensar no fluxo de quem assina pelo celular, sem instalar nada, e dar à equipe uma visão clara do status de cada contrato.",
-      en: "Designing for people signing on their phone without installing anything, and giving the team a clear view of each contract’s status.",
-      es: "Pensar en quien firma desde el celular sin instalar nada, y dar al equipo una visión clara del estado de cada contrato.",
-    },
-  },
-  {
-    slug: "plugins-glpi",
-    title: {
-      pt: "Plugins do GLPI — Meu Painel e Férias",
-      en: "GLPI plugins — My Panel and Vacation",
-      es: "Plugins de GLPI — Mi Panel y Vacaciones",
-    },
-    shortDescription: {
-      pt: "GLPI, PHP",
-      en: "GLPI, PHP",
-      es: "GLPI, PHP",
-    },
-    description: {
-      pt: "Dois plugins para o GLPI: um portal mais simples para abrir e acompanhar chamados, e um fluxo de férias em que o RH abre o chamado e a TI suspende e depois reativa os acessos de cada pessoa.",
-      en: "Two GLPI plugins: a simpler portal to open and follow tickets, and a vacation flow where HR opens a ticket and IT suspends and later restores each person’s access.",
-      es: "Dos plugins para GLPI: un portal más simple para abrir y seguir tickets, y un flujo de vacaciones en el que RR. HH. abre el ticket y TI suspende y luego reactiva los accesos de cada persona.",
-    },
-    tags: ["glpi", "php"],
-    imageUrl: "/capas/plugins-glpi-pt.webp",
-    cover: "/capas/plugins-glpi",
-    production: true,
-    problem: {
-      pt: "Abrir chamado na tela padrão do GLPI não era simples para quem não é da TI. E nas férias de um funcionário, os acessos a salas e sistemas precisavam ser suspensos e reativados no retorno, cada pessoa com acessos diferentes.",
-      en: "Opening a ticket on the standard GLPI screen wasn’t easy for non-IT staff. And when an employee went on vacation, their access to rooms and systems had to be suspended and restored on return, with different access for each person.",
-      es: "Abrir un ticket en la pantalla estándar de GLPI no era sencillo para quien no es de TI. Y en las vacaciones de un empleado, los accesos a salas y sistemas tenían que suspenderse y reactivarse al regreso, con accesos distintos para cada persona.",
-    },
-    solution: {
-      pt: "Meu Painel: um portal dentro do GLPI com dois caminhos claros, “Meu Painel” e “Abrir Chamado”. Férias: o RH abre o chamado de suspensão e a TI segue um checklist com os acessos daquela pessoa, revogando na saída e reativando no retorno.",
-      en: "My Panel: a portal inside GLPI with two clear paths, “My Panel” and “Open a Ticket”. Vacation: HR opens the suspension ticket and IT follows a checklist of that person’s access, revoking it on departure and restoring it on return.",
-      es: "Mi Panel: un portal dentro de GLPI con dos caminos claros, “Mi Panel” y “Abrir Ticket”. Vacaciones: RR. HH. abre el ticket de suspensión y TI sigue un checklist con los accesos de esa persona, revocándolos a la salida y reactivándolos al regreso.",
-    },
-    learnings: {
-      pt: "Estender a ferramenta que a empresa já usa, como plugin, em vez de criar um sistema separado, e começar com checklist antes de automatizar.",
-      en: "Extending the tool the company already uses, as a plugin, instead of building a separate system, and starting with a checklist before automating.",
-      es: "Extender la herramienta que la empresa ya usa, como plugin, en vez de crear un sistema aparte, y empezar con un checklist antes de automatizar.",
-    },
-  },
-  {
     slug: "fang-security",
+    category: "sistema",
+    summary: {
+      pt: "Scanner de segurança web com reconhecimento, varredura e relatório CVSS.",
+      en: "Web security scanner with recon, scanning and CVSS reports.",
+      es: "Escáner de seguridad web con reconocimiento, escaneo e informe CVSS.",
+    },
     title: {
       pt: "Fang — Web Security Scanner",
       en: "Fang — Web Security Scanner",
@@ -297,6 +351,12 @@ export const projects: Project[] = [
   },
   {
     slug: "plataforma-nexo",
+    category: "sistema",
+    summary: {
+      pt: "Receitas, despesas e metas num dashboard visual.",
+      en: "Income, expenses and goals on a visual dashboard.",
+      es: "Ingresos, gastos y metas en un dashboard visual.",
+    },
     title: {
       pt: "Nexo — Plataforma Financeira",
       en: "Nexo — Finance Platform",
@@ -336,6 +396,12 @@ export const projects: Project[] = [
   },
   {
     slug: "API-carteira-digital-JAVA",
+    category: "sistema",
+    summary: {
+      pt: "API REST em Java para usuários, saldo e transferências.",
+      en: "Java REST API for users, balances and transfers.",
+      es: "API REST en Java para usuarios, saldo y transferencias.",
+    },
     title: {
       pt: "API Carteira Digital",
       en: "Digital Wallet API",

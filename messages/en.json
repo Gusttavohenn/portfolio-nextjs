@@ -59,8 +59,12 @@
     "verProjeto": "View Project",
     "verDemo": "Demo",
     "verCodigo": "Code",
-    "verMais": "See {n, plural, one {# more project} other {# more projects}}",
-    "producao": "In production · used daily"
+    "producao": "In production · used daily",
+    "filtrar": "Filter projects",
+    "filtro_todos": "All",
+    "filtro_producao": "In production",
+    "filtro_sistema": "Systems",
+    "filtro_site": "Websites"
   },
   "ProjectDetail": {
     "voltar": "Back to projects",
