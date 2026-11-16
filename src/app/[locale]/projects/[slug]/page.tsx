@@ -26,6 +26,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </Link>
 
       <div className="case-study-header">
+        {project.production && <p className="proj-badge case-badge"><span className="proj-dot" aria-hidden="true" />{t('producao')}</p>}
         <h1>{project.title[lang]}</h1>
         <p className="short-description">{project.shortDescription[lang]}</p>
         <Image

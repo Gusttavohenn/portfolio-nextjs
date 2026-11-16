@@ -59,7 +59,8 @@
     "verProjeto": "Ver Projeto",
     "verDemo": "Demo",
     "verCodigo": "Código",
-    "verMais": "Ver mais {n, plural, one {# projeto} other {# projetos}}"
+    "verMais": "Ver mais {n, plural, one {# projeto} other {# projetos}}",
+    "producao": "Em produção · uso diário"
   },
   "ProjectDetail": {
     "voltar": "Voltar aos projetos",
@@ -71,7 +72,8 @@
     "verCodigo": "VER CÓDIGO",
     "anterior": "Anterior",
     "proximo": "Próximo",
-    "naPratica": "Na prática"
+    "naPratica": "Na prática",
+    "producao": "Em produção · uso diário"
   },
   "NotFound": {
     "titulo": "Ops! Me perdi por aqui...",

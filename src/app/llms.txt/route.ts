@@ -19,7 +19,7 @@ function build(): string {
     .map((p) => {
       const link = p.liveUrl ?? p.codeUrl;
       const name = link ? `[${p.title.pt}](${link})` : p.title.pt;
-      return `- ${name}: ${p.description.pt} Tecnologias: ${p.tags.join(', ')}.`;
+      return `- ${name}${p.production ? ' (em produção, uso diário)' : ''}: ${p.description.pt} Tecnologias: ${p.tags.join(', ')}.`;
     })
     .join('\n');
   const edu = cv.education.map((e) => `- ${e.course.pt}, ${e.school} (${e.start}–${e.end})`).join('\n');
