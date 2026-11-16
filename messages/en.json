@@ -66,7 +66,11 @@
     "filtro_todos": "All",
     "filtro_producao": "In production",
     "filtro_sistema": "Systems",
-    "filtro_site": "Websites"
+    "filtro_site": "Websites",
+    "filtro_api": "APIs",
+    "outraTela": "Another screen of the project",
+    "qtd": "{n, plural, one {# project} other {# projects}}",
+    "mostrando": "Showing {n, plural, one {# project} other {# projects}}"
   },
   "ProjectDetail": {
     "voltar": "Back to projects",
