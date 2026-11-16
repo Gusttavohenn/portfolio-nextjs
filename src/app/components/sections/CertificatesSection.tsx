@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import FaIcon from '../FaIcon';
+import SectionHead from '../SectionHead';
 
 interface Certificate {
   title: string;
@@ -56,8 +57,7 @@ export default function CertificatesSection() {
 
   return (
     <section id="certificados" className="section">
-      <h2 className="section-title">{t('titulo')}</h2>
-      <p className="section-subtitle">{t('subtitulo')}</p>
+      <SectionHead label={t('rotulo')} title={t('titulo')} />
 
       <div className="cert-accordion">
         {categoryMeta.map(({ id, labelKey, icon }) => {

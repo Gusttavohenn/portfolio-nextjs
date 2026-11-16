@@ -4,6 +4,7 @@ import type { IconType } from "react-icons";
 import { useLocale, useTranslations } from "next-intl";
 import { TbMessages, TbFileText, TbCode, TbRocket, TbPlus } from "react-icons/tb";
 import { cv, toLang } from "@/lib/cv";
+import SectionHead from "../SectionHead";
 
 // "Como eu trabalho": etapas e perguntas frequentes vêm de content/cv.json (o Deploy com IA usa os mesmos textos).
 const ICONS: Record<string, IconType> = {
@@ -19,8 +20,7 @@ export default function ProcessSection() {
 
   return (
     <section id="processo" className="section process-section">
-      <h2 className="section-title">{t("titulo")}</h2>
-      <p className="section-subtitle">{t("subtitulo")}</p>
+      <SectionHead label={t("rotulo")} title={t("titulo")} />
 
       <div className="process-wrap">
       <div className="process-track" aria-hidden="true"><i className="process-fill" /></div>

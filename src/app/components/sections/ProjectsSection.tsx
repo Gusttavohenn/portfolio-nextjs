@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { TbArrowRight, TbArrowUpRight } from 'react-icons/tb';
 import { projects, type Project, type Category } from '@/lib/projects-data';
 import { toLang, type Lang } from '@/lib/cv';
+import SectionHead from '../SectionHead';
 
 /*
  * Projetos: filtros no topo, os destaques (featured) em formato grande e o resto numa grade.
@@ -100,7 +101,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projetos" className="section projects-section">
-      <h2 className="section-title">{t('titulo')}</h2>
+      <SectionHead label={t('rotulo')} title={t('titulo')} />
 
       <div className="proj-filters" role="group" aria-label={t('filtrar')}>
         {FILTERS.map((f, i) => (

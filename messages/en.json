@@ -26,37 +26,40 @@
     "stripMensagem": "Hi, Mariana! Your appointment is tomorrow at 10 a.m. Reply 1 to confirm."
   },
   "SkillsSection": {
-    "titulo": "My Skills",
+    "titulo": "Tools I work with",
     "catBackend": "Back-end & Languages",
     "catFrontend": "Front-end",
     "catTools": "Databases & DevOps",
-    "catInfra": "Infrastructure & Networks"
+    "catInfra": "Infrastructure & Networks",
+    "rotulo": "Skills"
   },
   "AboutSection": {
-    "titulo": "About Me",
+    "titulo": "From helpdesk to back-end",
     "bio1": "I'm a back-end developer focused on automation and systems integration. As a Systems Analyst at Gox Internet, I work with the ISP's ERP (IXC) and AI-powered WhatsApp assistants, build GLPI plugins, and create internal tools that remove manual work from the support, HR and IT teams.",
     "bio2": "My background spans infrastructure, front-end and ERP, so I see systems end to end: server, database and the person using the screen. I'm always eager to learn and grow, with a growing interest in AI applied to real-world processes.",
     "localLabel": "Location",
     "educacaoLabel": "Education",
     "idiomasLabel": "Languages",
     "focoLabel": "Current focus",
-    "emAndamento": "In progress"
+    "emAndamento": "In progress",
+    "rotulo": "About"
   },
   "TimelineSection": {
-    "titulo": "My Journey",
-    "atual": "Current"
+    "titulo": "In IT since 2021",
+    "atual": "Current",
+    "rotulo": "Journey"
   },
   "CertificatesSection": {
-    "titulo": "Certificates",
-    "subtitulo": "Courses and certifications completed throughout my journey.",
+    "titulo": "Courses and certifications",
     "catFrontend": "Frontend",
     "catDatabase": "Databases",
     "catTools": "Tools & DevOps",
     "catCsharp": "C# / .NET",
-    "catAI": "Artificial Intelligence"
+    "catAI": "Artificial Intelligence",
+    "rotulo": "Certificates"
   },
   "ProjectsSection": {
-    "titulo": "Projects",
+    "titulo": "Systems that run every day",
     "todos": "All",
     "verProjeto": "View Project",
     "verDemo": "Demo",
@@ -70,7 +73,8 @@
     "filtro_api": "APIs",
     "outraTela": "Another screen of the project",
     "qtd": "{n, plural, one {# project} other {# projects}}",
-    "mostrando": "Showing {n, plural, one {# project} other {# projects}}"
+    "mostrando": "Showing {n, plural, one {# project} other {# projects}}",
+    "rotulo": "Projects"
   },
   "ProjectDetail": {
     "voltar": "Back to projects",
@@ -165,8 +169,7 @@
     }
   },
   "ContactSection": {
-    "titulo": "Contact",
-    "subtitulo": "Got a project, a role or a process to automate? Let's talk.",
+    "titulo": "Got a project, a role or a process to automate?",
     "nomePlaceholder": "Your Name",
     "emailPlaceholder": "Your Email",
     "telefonePlaceholder": "Phone/WhatsApp | +00 (00) 90000-0000",
@@ -181,7 +184,8 @@
     "terminalTitle": "new-message.sh",
     "prompt": "send --to gustavo",
     "whatsValue": "Fastest reply",
-    "tentarNovamente": "TRY AGAIN"
+    "tentarNovamente": "TRY AGAIN",
+    "rotulo": "Contact"
   },
   "Arcade": {
     "titulo": "Deploy's Arcade",
@@ -363,12 +367,13 @@
     "ctaFreelaTag": "Got a project?",
     "ctaFreelaSub": "Tell me the idea and I'll get back to you with a quote.",
     "ctaVagaTag": "Recruiting?",
-    "ctaVagaSub": "See my 30-second summary and download my resume."
+    "ctaVagaSub": "See my 30-second summary and download my resume.",
+    "rotulo": "Services"
   },
   "Processo": {
-    "titulo": "How I work",
-    "subtitulo": "From the first hello to the project going live, no surprises along the way.",
+    "titulo": "Four steps, from first contact to delivery",
     "faqTitulo": "FAQ",
-    "etapa": "Step"
+    "etapa": "Step",
+    "rotulo": "How I work"
   }
 }

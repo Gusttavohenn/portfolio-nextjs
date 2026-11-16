@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { socialLinks } from '@/lib/social-links';
 import FaIcon from '../FaIcon';
+import SectionHead from '../SectionHead';
 
 export default function ContactSection() {
   const t = useTranslations('ContactSection');
@@ -82,8 +83,7 @@ export default function ContactSection() {
 
   return (
     <section id="contato" className="section contact-section">
-      <h2 className="section-title">{t('titulo')}</h2>
-      <p className="section-subtitle">{t('subtitulo')}</p>
+      <SectionHead label={t('rotulo')} title={t('titulo')} />
 
       <div className="contact-grid">
         {/* Coluna esquerda: canais de contato */}

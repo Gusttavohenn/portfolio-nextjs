@@ -7,6 +7,7 @@ import {
   TbMessageChatbot, TbPlugConnected, TbBrandWhatsapp, TbBriefcase, TbArrowUpRight, TbArrowRight,
 } from "react-icons/tb";
 import { cv, toLang } from "@/lib/cv";
+import SectionHead from "../SectionHead";
 
 // "O que eu construo": os serviços vêm de content/cv.json (a mesma fonte do currículo e da IA).
 const ICONS: Record<string, IconType> = {
@@ -72,8 +73,7 @@ export default function ServicesSection() {
 
   return (
     <section id="servicos" className="section services-section">
-      <h2 className="section-title">{t("titulo")}</h2>
-      <p className="section-subtitle">{t("subtitulo")}</p>
+      <SectionHead label={t("rotulo")} title={t("titulo")} lead={t("subtitulo")} />
 
       <ul className="services-grid">
         {services.map((s, i) => {
