@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import FaIcon from '../FaIcon';
+import { TbArrowUpRight, TbChevronDown } from 'react-icons/tb';
 import SectionHead from '../SectionHead';
 
 interface Certificate {
@@ -41,65 +41,61 @@ const certsByCategory: Record<string, Certificate[]> = {
   ],
 };
 
-const categoryMeta: { id: string; labelKey: string; icon: string }[] = [
-  { id: "frontend",  labelKey: "catFrontend", icon: "fa-solid fa-display"            },
-  { id: "database",  labelKey: "catDatabase", icon: "fa-solid fa-database"           },
-  { id: "tools",     labelKey: "catTools",    icon: "fa-solid fa-screwdriver-wrench" },
-  { id: "csharp",    labelKey: "catCsharp",   icon: "fa-solid fa-code"               },
-  { id: "ai",        labelKey: "catAI",       icon: "fa-solid fa-robot"              },
-];
+// IA e C#/.NET aparecem primeiro; o resto fica recolhido em "ver todos"
+const FIRST = ["ai", "csharp"] as const;
+const REST = ["frontend", "database", "tools"] as const;
+const LABEL: Record<string, string> = {
+  frontend: "catFrontend", database: "catDatabase", tools: "catTools", csharp: "catCsharp", ai: "catAI",
+};
+
+function CertList({ certs, open }: { certs: Certificate[]; open: string }) {
+  return (
+    <ul className="ct-list">
+      {certs.map((cert) => (
+        <li key={cert.title}>
+          <a href={cert.url} target="_blank" rel="noopener noreferrer" className="ct-row">
+            <span className="ct-title">{cert.title}</span>
+            <span className="ct-meta">{cert.platform}{cert.hours.trim() ? ` · ${cert.hours}` : ''}</span>
+            <TbArrowUpRight className="ct-arrow" aria-label={open} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function CertificatesSection() {
   const t = useTranslations('CertificatesSection');
-  const [openId, setOpenId] = useState<string | null>(null);
-
-  const toggle = (id: string) => setOpenId(prev => prev === id ? null : id);
+  const [all, setAll] = useState(false);
+  const label = (id: string) => t(LABEL[id] as Parameters<typeof t>[0]);
+  const restCount = REST.reduce((n, id) => n + (certsByCategory[id]?.length ?? 0), 0);
 
   return (
     <section id="certificados" className="section">
       <SectionHead label={t('rotulo')} title={t('titulo')} />
 
-      <div className="cert-accordion">
-        {categoryMeta.map(({ id, labelKey, icon }) => {
-          const certs = certsByCategory[id] ?? [];
-          return (
-            <div key={id} className={`cert-group ${openId === id ? 'open' : ''}`}>
-              <button className="cert-group-header" onClick={() => toggle(id)} aria-expanded={openId === id} aria-label={`${openId === id ? 'Fechar' : 'Abrir'} categoria ${t(labelKey as Parameters<typeof t>[0])}`}>
-                <span className="cert-group-title">
-                  <FaIcon name={icon} />
-                  {t(labelKey as Parameters<typeof t>[0])}
-                  <span className="cert-count">{certs.length}</span>
-                </span>
-                <FaIcon name="fa-solid fa-chevron-down cert-chevron" />
-              </button>
+      <div className="ct-wrap">
+        {FIRST.map((id) => (
+          <div key={id} className="ct-group">
+            <h3 className="ct-h">{label(id)}</h3>
+            <CertList certs={certsByCategory[id] ?? []} open={t('abrir')} />
+          </div>
+        ))}
 
-              <div className="cert-group-body">
-                <div className="certificates-grid">
-                  {certs.map(cert => (
-                    <a 
-                      key={cert.title} 
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="certificate-card"
-                      style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
-                    >
-                      <span
-                        className="certificate-platform"
-                      >
-                        {cert.platform}
-                      </span>
-                      <h3 className="certificate-title">{cert.title}</h3>
-                      <span className="certificate-hours">
-                        {cert.hours} <FaIcon name="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8rem', marginLeft: '5px' }} />
-                      </span>
-                    </a>
-                  ))}
-                </div>
+        <div className="ct-more">
+          <button type="button" className="ct-toggle" aria-expanded={all} aria-controls="certs-resto" onClick={() => setAll((v) => !v)}>
+            {all ? t('verMenos') : t('verTodos', { n: restCount })}
+            <TbChevronDown className={`ct-chev${all ? ' up' : ''}`} aria-hidden="true" />
+          </button>
+          <div id="certs-resto" hidden={!all}>
+            {REST.map((id) => (
+              <div key={id} className="ct-group">
+                <h3 className="ct-h">{label(id)}</h3>
+                <CertList certs={certsByCategory[id] ?? []} open={t('abrir')} />
               </div>
-            </div>
-          );
-        })}
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

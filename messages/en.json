@@ -7,7 +7,10 @@
     "projetos": "Projects",
     "certificados": "Certificates",
     "contato": "Contact",
-    "servicos": "Services"
+    "servicos": "Services",
+    "mais": "More options",
+    "deployChamar": "Call Deploy",
+    "deployEsconder": "Hide Deploy"
   },
   "HeroSection": {
     "paraEmpresa": "Portfolio prepared for the {empresa} team",
@@ -59,7 +62,10 @@
     "catTools": "Tools & DevOps",
     "catCsharp": "C# / .NET",
     "catAI": "Artificial Intelligence",
-    "rotulo": "Certificates"
+    "rotulo": "Certificates",
+    "verTodos": "See all the others ({n})",
+    "verMenos": "Show less",
+    "abrir": "Open certificate (new tab)"
   },
   "ProjectsSection": {
     "titulo": "Systems that run every day",
@@ -131,18 +137,6 @@
       "Liked it? Let's talk, the green button is right down there",
       "404 is my favorite place. Seen it yet?"
     ],
-    "secao": {
-      "sobre": "That's Gu, my master. Good guy, I promise.",
-      "jornada": "From City Hall all the way to Gox... what a climb!",
-      "skills": "PHP, C#, Python... he speaks more languages than me.",
-      "projetos": "Gu built this Fang one from scratch",
-      "certificados": "This guy never stops studying.",
-      "contato": "Last stop! Say hi to Gu",
-      "servicos": "Pick one! Site, system, app... Gu does it all.",
-      "processo": "No fluff: chat, proposal, code and launch.",
-      "faq": "Got a question? Click one and I will open it for you!",
-      "rodape": "You made it to the end! Thanks for visiting. Go talk to Gu!"
-    },
     "aria": "Deploy, the mascot — click to make him jump",
     "title": "I'm Deploy! Click me :)",
     "manha": "Good morning",
@@ -151,16 +145,7 @@
     "greetLate": "Working late, huh? I'm Deploy, a robot built by my master Gu, and I'll walk you through the site",
     "greetBackLate": "You again, and this late? You know me already, let's keep going!",
     "greetCompany": "{saudacao}, {empresa} team! I'm Deploy, and Gu asked me to show you his work.",
-    "acordei": "Oops! I dozed off... Shall we keep going?",
     "falas": {
-      "svc": {
-        "sites": "A fast site that shows up on Google? Gu has you covered.",
-        "sistemas": "That dashboard is just a taste of what he builds.",
-        "apps": "Mobile apps, Android and iOS. Picture yours?",
-        "automacao": "Repetitive task? Gu turns it into a robot. Like me!",
-        "ia": "This card? I am living proof.",
-        "integracoes": "Systems that do not talk to each other? He fixes that."
-      },
       "faqAbriu": [
         "Good question!",
         "Everyone asks that one.",
@@ -364,14 +349,15 @@
     "orcamento": "Request a quote on WhatsApp",
     "vaga": "Hire me for a role",
     "msgOrcamento": "Hi, Gustavo! I found your portfolio and I'd like a quote for a project.",
-    "demoPergunta": "Do you build custom systems?",
-    "demoResposta": "We sure do! Want to talk to Gu now?",
     "demoPainel": "Tickets today",
     "ctaFreelaTag": "Got a project?",
     "ctaFreelaSub": "Tell me the idea and I'll get back to you with a quote.",
     "ctaVagaTag": "Recruiting?",
     "ctaVagaSub": "See my 30-second summary and download my resume.",
-    "rotulo": "Services"
+    "rotulo": "Services",
+    "demoIa1": "message received on WhatsApp",
+    "demoIa2": "topic: invoice copy",
+    "demoIa3": "invoice sent in 3s"
   },
   "Processo": {
     "titulo": "Four steps, from first contact to delivery",

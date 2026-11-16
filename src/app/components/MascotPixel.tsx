@@ -8,16 +8,16 @@ import { play } from "@/lib/sound";
 import { dayPart, getCompany } from "@/lib/visit";
 
 /*
- * Deploy — o mascote de plataforma: anda em cima dos títulos, cards e botões da página.
- * Quando a plataforma em que ele está sai da tela (porque você rolou),
- * ele pula para o próximo texto visível, como num jogo 2D.
- * Clique nele: ele pula e fala. 5 cliques rápidos ou o Konami Code: festa.
- * Ao pousar numa seção nova ele comenta sobre ela (uma vez por seção).
- * Visitante que volta (mesmo navegador) recebe outro cumprimento — guardado
- * só no navegador da pessoa (localStorage), sem IP nem dado pessoal.
+ * Deploy — o mascote de plataforma. Só aparece quando a pessoa chama (ícone do robô no cabeçalho)
+ * e a escolha fica guardada neste navegador.
+ * Ele anda em cima dos cabeçalhos de seção (no espaço vazio acima do rótulo, sem cobrir texto);
+ * sem cabeçalho na tela, espera no canto inferior direito.
+ * Não fala sozinho: só responde quando é chamado, clicado ou quando a pessoa abre uma pergunta.
+ * 5 cliques rápidos ou o Konami Code: festa.
  */
 
 const VISITED_KEY = "deploy-visited";
+const ON_KEY = "deploy-on";
 
 const W = 40;            // largura do sprite (px)
 const H = 50;            // altura do sprite (px)
@@ -25,12 +25,8 @@ const G = 0.55;          // gravidade (px / frame²)
 const WALK = 1.1;        // velocidade andando (px / frame)
 const SLEEP_AFTER_MS = 25000; // cochila depois de 25s sem nenhuma interação
 const NAV_FALLBACK = 84;  // altura padrão da navbar fixa (medida de verdade em runtime)
-const SELECTOR = [
-  "h1", "h2", "h3",
-  ".about-card", ".sk-daily", ".sk-used", ".project-card",
-  ".cert-group-header", ".service-card", ".process-step", ".faq-item", ".footer-big", ".footer-col h3", ".contact-card", ".contact-terminal", ".cta-button",
-  ".contact-form input", ".contact-form textarea",
-].join(", ");
+// só blocos com espaço vazio acima, para ele nunca ficar em cima de um texto
+const SELECTOR = [".section-head", ".footer-big"].join(", ");
 
 const KONAMI = [
   "ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown",
@@ -51,7 +47,7 @@ function visibleRect(el: Element): DOMRect {
   return el.getBoundingClientRect();
 }
 
-export default function MascotPixel() {
+function Mascot({ greet: shouldGreet }: { greet: boolean }) {
   const t = useTranslations("Mascot");
   const rootRef = useRef<HTMLDivElement | null>(null);
   const bodyRef = useRef<HTMLDivElement | null>(null);
@@ -59,7 +55,6 @@ export default function MascotPixel() {
   const [hue, setHue] = useState(258);
   const bubbleTimer = useRef<number | undefined>(undefined);
   const bubbleActive = useRef(false);
-  const commented = useRef<Set<string>>(new Set());
   const greetDone = useRef(false);
 
   // physics state lives in a ref so the loop never re-renders React
@@ -182,16 +177,6 @@ export default function MascotPixel() {
       return Math.min(hi, Math.max(lo, st.x + (Math.random() - 0.5) * 160));
     };
 
-    // comenta a seção onde ele pousou (uma vez por seção)
-    const maybeComment = (plat: Element | null) => {
-      // perguntas frequentes têm fala própria, separada da seção "Como eu trabalho"
-      const section = plat?.closest(".faq") ? "faq" : plat?.closest("footer") ? "rodape" : plat?.closest("section[id]")?.id;
-      if (section && greetDone.current && !bubbleActive.current && !commented.current.has(section) && t.has(`secao.${section}`)) {
-        commented.current.add(section);
-        showBubble(t(`secao.${section}`), 3600);
-      }
-    };
-
     const loop = (now: number) => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
@@ -206,6 +191,7 @@ export default function MascotPixel() {
 
         if (st.onFloor) {
           st.y = floorY;
+          lo = vw - 120;                              // no chão ele fica no canto, longe do texto
           if (plats.length) leave = true;            // something to climb onto
         } else if (st.plat) {
           const r = visibleRect(st.plat);
@@ -225,7 +211,7 @@ export default function MascotPixel() {
         } else if (leave) {
           const target = pickTarget(plats, st.plat);
           if (target) jumpTo(landX(target), target.top);
-          else if (!st.onFloor) jumpTo(Math.min(vw - 60, Math.max(60, st.x)), floorY);
+          else if (!st.onFloor) jumpTo(vw - 50, floorY);
         } else if (now > st.nextHopAt && plats.length > 1) {
           // spontaneous hop to a nearby text, just for fun
           const near = plats.filter((p) => p.el !== st.plat && Math.abs(p.top - st.y) < 260);
@@ -269,7 +255,6 @@ export default function MascotPixel() {
             st.y = floorY;
           }
           if (st.mode === "ground") {
-            maybeComment(st.plat);
             st.vx = 0;
             st.vy = 0;
             st.squashUntil = now + 140;
@@ -311,11 +296,10 @@ export default function MascotPixel() {
           st.x = landX(p);
           st.y = p.top;
           st.onFloor = false;
-          maybeComment(p.el);
         } else {
           st.plat = null;
           st.onFloor = true;
-          st.x = Math.min(Math.max(st.x, W / 2 + 6), vw - W / 2 - 6);
+          st.x = vw - 50;
           st.y = vh - 14;
         }
       }
@@ -343,9 +327,10 @@ export default function MascotPixel() {
     const said = new Set<string>();
     const onSay = (e: Event) => {
       const { key, pick, force } = (e as CustomEvent<{ key: string; pick?: boolean; force?: boolean }>).detail ?? {};
-      if (!key || !greetDone.current || st.sleeping) return;
+      // só fala em resposta a uma ação explícita (ex.: abrir uma pergunta); hover não conta
+      if (!key || !force || !greetDone.current || st.sleeping) return;
       const now = performance.now();
-      if (!force && (bubbleActive.current || said.has(key) || now - lastSay < 4000)) return;
+      if (now - lastSay < 1500) return;
       let text: string | undefined;
       if (pick) {
         const list = t.raw(`falas.${key}`) as string[] | undefined;
@@ -371,7 +356,6 @@ export default function MascotPixel() {
       root.classList.remove("sleeping");
       if (st.mode === "ground") { st.vy = -7; st.vx = 0; st.mode = "air"; st.plat = null; st.onFloor = false; }
       play("wake");
-      showBubble(t("acordei"), 3000);
       unlock("acordou");
     };
     const activityEvents = ["pointermove", "pointerdown", "keydown", "scroll", "touchstart", "wheel"] as const;
@@ -394,11 +378,11 @@ export default function MascotPixel() {
       : returning
         ? (late ? t("greetBackLate") : t("greetBack", { saudacao }))
         : (late ? t("greetLate") : t("greetFirst", { saudacao }));
-    const greetMs = returning && !company ? 3800 : 6000;
+    // cumprimenta logo que é chamado (é a resposta ao clique no ícone)
+    greetDone.current = true;
     const greet = window.setTimeout(() => {
-      showBubble(hello, greetMs);
-      window.setTimeout(() => { greetDone.current = true; }, greetMs + 100);
-    }, 1800);
+      if (shouldGreet) showBubble(hello, 3800);
+    }, 700);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -453,4 +437,26 @@ export default function MascotPixel() {
       </button>
     </div>
   );
+}
+
+/** O Deploy só existe na página depois que a pessoa clica no ícone dele. */
+export default function MascotPixel() {
+  const [on, setOn] = useState(false);
+  // true quando foi chamado agora pelo clique; false quando volta ligado de outra visita (aí não cumprimenta)
+  const [summoned, setSummoned] = useState(false);
+  useEffect(() => {
+    try { if (window.localStorage.getItem(ON_KEY) === "1") setOn(true); } catch { /* sem storage: começa desligado */ }
+    const onToggle = () => {
+      setSummoned(true);
+      setOn((v) => {
+        const next = !v;
+        try { window.localStorage.setItem(ON_KEY, next ? "1" : "0"); } catch { /* ignore */ }
+        return next;
+      });
+    };
+    window.addEventListener("toggle-deploy", onToggle);
+    return () => window.removeEventListener("toggle-deploy", onToggle);
+  }, []);
+  useEffect(() => { window.dispatchEvent(new CustomEvent("deploy-state", { detail: on })); }, [on]);
+  return on ? <Mascot greet={summoned} /> : null;
 }
