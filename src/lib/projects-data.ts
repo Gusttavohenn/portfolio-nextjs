@@ -16,11 +16,50 @@ export interface Project {
   problem: Localized;
   solution: Localized;
   learnings: Localized;
+  /** sistema real em produção (sem link nem código) */
+  production?: boolean;
   liveUrl?: string;
   codeUrl?: string;
 }
 
 export const projects: Project[] = [
+  {
+    slug: "alerta-plantao",
+    title: {
+      pt: "Alerta de plantão — Zabbix + Asterisk",
+      en: "On-call alert — Zabbix + Asterisk",
+      es: "Alerta de guardia — Zabbix + Asterisk",
+    },
+    shortDescription: {
+      pt: "ZABBIX, ASTERISK, PABX",
+      en: "ZABBIX, ASTERISK, PBX",
+      es: "ZABBIX, ASTERISK, PBX",
+    },
+    description: {
+      pt: "Quando um evento crítico escolhido acontece no Zabbix, o PABX Asterisk liga para o telefone da equipe e uma voz diz qual é o problema. As ligações continuam até alguém reconhecer o alerta.",
+      en: "When a selected critical event happens in Zabbix, the Asterisk PBX calls the team’s phones and a voice says what the problem is. Calls keep coming until someone acknowledges the alert.",
+      es: "Cuando ocurre un evento crítico seleccionado en Zabbix, la central Asterisk llama al teléfono del equipo y una voz dice cuál es el problema. Las llamadas siguen hasta que alguien reconoce la alerta.",
+    },
+    tags: ["zabbix", "asterisk", "pabx"],
+    imageUrl: "/capas/alerta-plantao-pt.webp",
+    cover: "/capas/alerta-plantao",
+    production: true,
+    problem: {
+      pt: "Num provedor de internet, um evento crítico de madrugada pode passar despercebido: notificação por mensagem ou e-mail nem sempre acorda quem está de plantão.",
+      en: "At an internet provider, a critical event in the middle of the night can go unnoticed: a message or email doesn’t always wake whoever is on call.",
+      es: "En un proveedor de internet, un evento crítico de madrugada puede pasar desapercibido: un mensaje o correo no siempre despierta a quien está de guardia.",
+    },
+    solution: {
+      pt: "Integrei o Zabbix ao PABX Asterisk que a empresa já tinha. Eventos críticos escolhidos disparam ligações para a equipe; a ligação fala qual é o evento e se repete até alguém marcar o alerta como reconhecido.",
+      en: "I integrated Zabbix with the company’s existing Asterisk PBX. Selected critical events trigger calls to the team; the call says what the event is and repeats until someone marks the alert as acknowledged.",
+      es: "Integré Zabbix con la central Asterisk que la empresa ya tenía. Los eventos críticos seleccionados disparan llamadas al equipo; la llamada dice cuál es el evento y se repite hasta que alguien marca la alerta como reconocida.",
+    },
+    learnings: {
+      pt: "Escolher bem quais eventos merecem uma ligação, para o alerta continuar sendo levado a sério, e aproveitar a infraestrutura que já existia em vez de contratar outro serviço.",
+      en: "Choosing carefully which events deserve a call, so alerts keep being taken seriously, and reusing existing infrastructure instead of paying for another service.",
+      es: "Elegir bien qué eventos merecen una llamada, para que la alerta se siga tomando en serio, y aprovechar la infraestructura existente en vez de contratar otro servicio.",
+    },
+  },
   {
     slug: "clinica-ipe",
     title: {
@@ -65,6 +104,43 @@ export const projects: Project[] = [
     liveUrl: "https://clinica-ipe-plum.vercel.app/",
   },
   {
+    slug: "painel-chamados",
+    title: {
+      pt: "Painel de chamados na TV, com aviso por voz",
+      en: "Ticket board on TV, with voice alert",
+      es: "Panel de tickets en TV, con aviso por voz",
+    },
+    shortDescription: {
+      pt: "GLPI, API REST, PHP",
+      en: "GLPI, REST API, PHP",
+      es: "GLPI, API REST, PHP",
+    },
+    description: {
+      pt: "Painel que mostra numa TV os chamados abertos no GLPI e anuncia por voz “Atenção! Novo chamado” quando entra um novo. A equipe vê a fila sem precisar abrir o sistema.",
+      en: "A board that shows open GLPI tickets on a TV and announces “Attention! New ticket” by voice when a new one comes in. The team sees the queue without opening the system.",
+      es: "Panel que muestra en una TV los tickets abiertos en GLPI y anuncia por voz “¡Atención! Nuevo ticket” cuando entra uno nuevo. El equipo ve la cola sin abrir el sistema.",
+    },
+    tags: ["glpi", "api rest", "php", "javascript"],
+    imageUrl: "/capas/painel-chamados-pt.webp",
+    cover: "/capas/painel-chamados",
+    production: true,
+    problem: {
+      pt: "A tela do GLPI aberta na TV dependia de uma sessão logada, que expirava, e chamado novo podia ficar parado sem ninguém perceber.",
+      en: "Showing the GLPI screen on the TV depended on a logged-in session that kept expiring, and new tickets could sit unnoticed.",
+      es: "Mostrar la pantalla de GLPI en la TV dependía de una sesión iniciada que expiraba, y un ticket nuevo podía quedar sin que nadie lo notara.",
+    },
+    solution: {
+      pt: "Troquei a sessão do navegador por um proxy em PHP que consulta a API REST do GLPI, e uma página própria para a TV que lista os chamados abertos e fala em voz alta quando chega um novo.",
+      en: "I replaced the browser session with a PHP proxy that queries the GLPI REST API, plus a dedicated TV page that lists open tickets and speaks out loud when a new one arrives.",
+      es: "Reemplacé la sesión del navegador por un proxy en PHP que consulta la API REST de GLPI, y una página propia para la TV que lista los tickets abiertos y habla en voz alta cuando llega uno nuevo.",
+    },
+    learnings: {
+      pt: "Para tela que fica ligada o dia inteiro, buscar os dados pela API é bem mais estável do que depender de uma sessão de usuário.",
+      en: "For a screen that stays on all day, fetching data through the API is far more reliable than depending on a user session.",
+      es: "Para una pantalla que está encendida todo el día, consultar los datos por la API es mucho más estable que depender de una sesión de usuario.",
+    },
+  },
+  {
     slug: "esmalte-odontologia",
     title: {
       pt: "Esmalte — Clínica Odontológica",
@@ -106,6 +182,80 @@ export const projects: Project[] = [
       es: "Convertir conocimiento técnico (numeración de dientes, escala de color) en algo que el paciente entiende solo, y adaptar una interfaz compleja como el odontograma a la pantalla del celular.",
     },
     liveUrl: "https://esmalte-odontologia.vercel.app/",
+  },
+  {
+    slug: "assina-contratos",
+    title: {
+      pt: "Assina — Assinatura Digital de Contratos",
+      en: "Assina — Digital Contract Signing",
+      es: "Assina — Firma Digital de Contratos",
+    },
+    shortDescription: {
+      pt: "ASSINATURA DIGITAL, PAINEL WEB",
+      en: "DIGITAL SIGNATURE, WEB DASHBOARD",
+      es: "FIRMA DIGITAL, PANEL WEB",
+    },
+    description: {
+      pt: "Painel de assinatura digital de contratos: o contrato é enviado ao cliente, que assina pelo celular, e a equipe acompanha no painel o que está pendente e o que já foi assinado.",
+      en: "Digital contract signing dashboard: the contract is sent to the customer, who signs on their phone, and the team tracks what is pending and what is signed.",
+      es: "Panel de firma digital de contratos: el contrato se envía al cliente, que firma desde el celular, y el equipo sigue en el panel lo pendiente y lo firmado.",
+    },
+    tags: ["assinatura digital", "painel web"],
+    imageUrl: "/capas/assina-contratos-pt.webp",
+    cover: "/capas/assina-contratos",
+    production: true,
+    problem: {
+      pt: "Contrato em papel atrasa a ativação do cliente e é difícil saber quais ainda faltam assinar.",
+      en: "Paper contracts delay customer activation, and it’s hard to know which ones are still unsigned.",
+      es: "El contrato en papel retrasa la activación del cliente y es difícil saber cuáles faltan firmar.",
+    },
+    solution: {
+      pt: "Um painel web em que a equipe envia o contrato, o cliente assina pelo celular e cada contrato aparece como pendente ou assinado.",
+      en: "A web dashboard where the team sends the contract, the customer signs on their phone and each contract shows as pending or signed.",
+      es: "Un panel web en el que el equipo envía el contrato, el cliente firma desde el celular y cada contrato aparece como pendiente o firmado.",
+    },
+    learnings: {
+      pt: "Pensar no fluxo de quem assina pelo celular, sem instalar nada, e dar à equipe uma visão clara do status de cada contrato.",
+      en: "Designing for people signing on their phone without installing anything, and giving the team a clear view of each contract’s status.",
+      es: "Pensar en quien firma desde el celular sin instalar nada, y dar al equipo una visión clara del estado de cada contrato.",
+    },
+  },
+  {
+    slug: "plugins-glpi",
+    title: {
+      pt: "Plugins do GLPI — Meu Painel e Férias",
+      en: "GLPI plugins — My Panel and Vacation",
+      es: "Plugins de GLPI — Mi Panel y Vacaciones",
+    },
+    shortDescription: {
+      pt: "GLPI, PHP",
+      en: "GLPI, PHP",
+      es: "GLPI, PHP",
+    },
+    description: {
+      pt: "Dois plugins para o GLPI: um portal mais simples para abrir e acompanhar chamados, e um fluxo de férias em que o RH abre o chamado e a TI suspende e depois reativa os acessos de cada pessoa.",
+      en: "Two GLPI plugins: a simpler portal to open and follow tickets, and a vacation flow where HR opens a ticket and IT suspends and later restores each person’s access.",
+      es: "Dos plugins para GLPI: un portal más simple para abrir y seguir tickets, y un flujo de vacaciones en el que RR. HH. abre el ticket y TI suspende y luego reactiva los accesos de cada persona.",
+    },
+    tags: ["glpi", "php"],
+    imageUrl: "/capas/plugins-glpi-pt.webp",
+    cover: "/capas/plugins-glpi",
+    production: true,
+    problem: {
+      pt: "Abrir chamado na tela padrão do GLPI não era simples para quem não é da TI. E nas férias de um funcionário, os acessos a salas e sistemas precisavam ser suspensos e reativados no retorno, cada pessoa com acessos diferentes.",
+      en: "Opening a ticket on the standard GLPI screen wasn’t easy for non-IT staff. And when an employee went on vacation, their access to rooms and systems had to be suspended and restored on return, with different access for each person.",
+      es: "Abrir un ticket en la pantalla estándar de GLPI no era sencillo para quien no es de TI. Y en las vacaciones de un empleado, los accesos a salas y sistemas tenían que suspenderse y reactivarse al regreso, con accesos distintos para cada persona.",
+    },
+    solution: {
+      pt: "Meu Painel: um portal dentro do GLPI com dois caminhos claros, “Meu Painel” e “Abrir Chamado”. Férias: o RH abre o chamado de suspensão e a TI segue um checklist com os acessos daquela pessoa, revogando na saída e reativando no retorno.",
+      en: "My Panel: a portal inside GLPI with two clear paths, “My Panel” and “Open a Ticket”. Vacation: HR opens the suspension ticket and IT follows a checklist of that person’s access, revoking it on departure and restoring it on return.",
+      es: "Mi Panel: un portal dentro de GLPI con dos caminos claros, “Mi Panel” y “Abrir Ticket”. Vacaciones: RR. HH. abre el ticket de suspensión y TI sigue un checklist con los accesos de esa persona, revocándolos a la salida y reactivándolos al regreso.",
+    },
+    learnings: {
+      pt: "Estender a ferramenta que a empresa já usa, como plugin, em vez de criar um sistema separado, e começar com checklist antes de automatizar.",
+      en: "Extending the tool the company already uses, as a plugin, instead of building a separate system, and starting with a checklist before automating.",
+      es: "Extender la herramienta que la empresa ya usa, como plugin, en vez de crear un sistema aparte, y empezar con un checklist antes de automatizar.",
+    },
   },
   {
     slug: "fang-security",

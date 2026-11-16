@@ -2843,3 +2843,12 @@ section[id] { scroll-margin-top: 90px; }
 .proj-more:hover svg { translate: 0 3px; }
 @media (prefers-reduced-motion: reduce) { .proj-new { animation: none; } }
 .case-gallery { display: grid; gap: 1rem; margin-top: 0.5rem; }
+/* selo "Em produção" nos projetos reais */
+.proj-meta { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+.proj-badge {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.25rem 0.7rem; border-radius: 999px; border: 1px solid var(--border-color);
+  font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.74rem; color: var(--text-secondary);
+}
+.proj-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+.case-badge { margin: 0 0 0.9rem; }

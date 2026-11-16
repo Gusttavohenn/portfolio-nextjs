@@ -59,7 +59,8 @@
     "verProjeto": "View Project",
     "verDemo": "Demo",
     "verCodigo": "Code",
-    "verMais": "See {n, plural, one {# more project} other {# more projects}}"
+    "verMais": "See {n, plural, one {# more project} other {# more projects}}",
+    "producao": "In production · used daily"
   },
   "ProjectDetail": {
     "voltar": "Back to projects",
@@ -71,7 +72,8 @@
     "verCodigo": "VIEW CODE",
     "anterior": "Previous",
     "proximo": "Next",
-    "naPratica": "In action"
+    "naPratica": "In action",
+    "producao": "In production · used daily"
   },
   "NotFound": {
     "titulo": "Oops! I got lost...",

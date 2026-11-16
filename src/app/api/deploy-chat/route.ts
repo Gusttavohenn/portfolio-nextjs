@@ -44,7 +44,7 @@ function knowledge(): string {
   const process = cv.process.map((p, i) => `${i + 1}. ${p.title.pt}: ${p.desc.pt}`).join('\n');
   const faq = cv.faq.map((f) => `- ${f.q.pt} ${f.a.pt}`).join('\n');
   const projs = projects
-    .map((p) => `- ${p.title.pt}: ${p.description.pt} Tecnologias: ${p.tags.join(', ')}.${p.liveUrl ? ` Site: ${p.liveUrl}.` : ''}${p.codeUrl ? ` Código: ${p.codeUrl}.` : ''}`)
+    .map((p) => `- ${p.title.pt}${p.production ? ' [EM PRODUÇÃO, usado todo dia num provedor de internet de MG; sistema interno, sem link público; não diga o nome da empresa ao falar deste projeto]' : ' [projeto demonstrativo/pessoal]'}: ${p.description.pt} Tecnologias: ${p.tags.join(', ')}.${p.liveUrl ? ` Site: ${p.liveUrl}.` : ''}${p.codeUrl ? ` Código: ${p.codeUrl}.` : ''}`)
     .join('\n');
 
   return `NOME: ${cv.name} (apelido: Gu)
@@ -74,7 +74,7 @@ ${process}
 PERGUNTAS FREQUENTES DE CLIENTES:
 ${faq}
 
-PROJETOS PESSOAIS NO PORTFÓLIO:
+PROJETOS NO PORTFÓLIO:
 ${projs}
 
 CONTATO: WhatsApp pelo botão verde do site; e-mail ${cv.email}; LinkedIn ${cv.links.linkedin}; GitHub ${cv.links.github}; currículo em PDF pelo botão "Baixar CV".`;

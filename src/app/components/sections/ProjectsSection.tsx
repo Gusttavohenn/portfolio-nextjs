@@ -39,7 +39,10 @@ export default function ProjectsSection() {
               </Link>
 
               <div className="proj-body">
-                <span className="proj-num">{String(i + 1).padStart(2, '0')}</span>
+                <div className="proj-meta">
+                  <span className="proj-num">{String(i + 1).padStart(2, '0')}</span>
+                  {project.production && <span className="proj-badge"><span className="proj-dot" aria-hidden="true" />{t('producao')}</span>}
+                </div>
                 <h3 className="proj-title"><Link href={href}>{project.title[lang]}</Link></h3>
                 <p className="proj-desc">{project.description[lang]}</p>
                 <p className="proj-stack">{project.tags.join('  ·  ')}</p>
