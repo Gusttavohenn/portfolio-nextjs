@@ -1,10 +1,10 @@
 import type { Localized } from './cv';
 
-export type Category = 'producao' | 'sistema' | 'site';
+export type Category = 'producao' | 'sistema' | 'site' | 'api';
 
 export interface Project {
   slug: string;
-  /** filtro: em produção, sistema ou site */
+  /** filtro: em produção, sistema, site ou API */
   category: Category;
   /** destaque grande no topo da seção */
   featured?: boolean;
@@ -396,7 +396,7 @@ export const projects: Project[] = [
   },
   {
     slug: "API-carteira-digital-JAVA",
-    category: "sistema",
+    category: "api",
     summary: {
       pt: "API REST em Java para usuários, saldo e transferências.",
       en: "Java REST API for users, balances and transfers.",

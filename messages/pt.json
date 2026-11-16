@@ -66,7 +66,11 @@
     "filtro_todos": "Todos",
     "filtro_producao": "Em produção",
     "filtro_sistema": "Sistemas",
-    "filtro_site": "Sites"
+    "filtro_site": "Sites",
+    "filtro_api": "APIs",
+    "outraTela": "Outra tela do projeto",
+    "qtd": "{n, plural, one {# projeto} other {# projetos}}",
+    "mostrando": "Mostrando {n, plural, one {# projeto} other {# projetos}}"
   },
   "ProjectDetail": {
     "voltar": "Voltar aos projetos",
