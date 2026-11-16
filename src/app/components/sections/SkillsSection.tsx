@@ -8,6 +8,7 @@ import {
 } from "react-icons/si";
 import { VscTerminalPowershell } from "react-icons/vsc"; // Ícone corrigido para PowerShell
 import FaIcon from '../FaIcon';
+import SectionHead from '../SectionHead';
 
 export default function SkillsSection() {
   const t = useTranslations('SkillsSection');
@@ -15,7 +16,7 @@ export default function SkillsSection() {
 
   return (
     <section id="skills" className="section">
-      <h2 className="section-title">{t('titulo')}</h2>
+      <SectionHead label={t('rotulo')} title={t('titulo')} />
       <div className="skills-container">
 
         {/* --- Categoria Backend --- */}

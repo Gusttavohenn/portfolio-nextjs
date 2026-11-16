@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { experienceChrono, loc, toLang, yearsPeriod } from '@/lib/cv';
+import SectionHead from '../SectionHead';
 
 // A jornada vem de content/cv.json — a mesma fonte dos PDFs do currículo.
 export default function TimelineSection() {
@@ -11,7 +12,7 @@ export default function TimelineSection() {
 
   return (
     <section id="jornada" className="section">
-      <h2 className="section-title">{t('titulo')}</h2>
+      <SectionHead label={t('rotulo')} title={t('titulo')} />
       <div className="timeline">
         {jobs.map((job) => {
           const isCurrent = job.end === null;

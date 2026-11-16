@@ -169,7 +169,6 @@ export default async function RootLayout({
       <body className={`${poppins.className} ${mono.variable}`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main-content" className="skip-link">{c('pular')}</a>
-          <div className="blob"></div>
           <Navbar />
           <main id="main-content">
             {children}

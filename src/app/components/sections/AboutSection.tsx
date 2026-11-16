@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { socialLinks } from '@/lib/social-links';
 import FaIcon from '../FaIcon';
+import SectionHead from '../SectionHead';
 
 export default function AboutSection() {
   const t = useTranslations('AboutSection');
@@ -10,7 +11,7 @@ export default function AboutSection() {
 
   return (
     <section id="sobre" className="section">
-      <h2 className="section-title">{t('titulo')}</h2>
+      <SectionHead label={t('rotulo')} title={t('titulo')} />
       <div className="about-container">
 
         <div className="about-text">
