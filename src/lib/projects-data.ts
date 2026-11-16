@@ -11,6 +11,8 @@ export interface Project {
   cover: string;
   /** print real do sistema, mostrado na página do projeto */
   screenshot?: string;
+  /** mockups de apresentação mostrados na página do projeto */
+  gallery?: string[];
   problem: Localized;
   solution: Localized;
   learnings: Localized;
@@ -19,6 +21,49 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "clinica-ipe",
+    title: {
+      pt: "Clínica Ipê — Agendamento Online",
+      en: "Clínica Ipê — Online Booking",
+      es: "Clínica Ipê — Agenda en Línea",
+    },
+    shortDescription: {
+      pt: "NEXT.JS, REACT, TYPESCRIPT",
+      en: "NEXT.JS, REACT, TYPESCRIPT",
+      es: "NEXT.JS, REACT, TYPESCRIPT",
+    },
+    description: {
+      pt: "Site de clínica com agendamento em 3 passos, busca por sintoma, verificador de convênio e equipe filtrável. Pensado para o paciente marcar a consulta em menos de um minuto, principalmente pelo celular.",
+      en: "Clinic website with 3-step booking, symptom search, insurance checker and a filterable team. Built so patients can book in under a minute, especially on their phone.",
+      es: "Sitio de clínica con agenda en 3 pasos, búsqueda por síntoma, verificador de seguro médico y equipo filtrable. Pensado para que el paciente reserve en menos de un minuto, sobre todo desde el celular.",
+    },
+    tags: ["next.js", "react", "typescript", "css"],
+    imageUrl: "/capas/clinica-ipe-pt.webp",
+    cover: "/capas/clinica-ipe",
+    gallery: [
+      "/projetos/clinica-ipe/desk.webp",
+      "/projetos/clinica-ipe/phones.webp",
+      "/projetos/clinica-ipe/esp.webp",
+      "/projetos/clinica-ipe/dark.webp",
+    ],
+    problem: {
+      pt: "Site de clínica costuma ser só um cartão de visita: o paciente não sabe se o plano é aceito, quanto custa nem se tem horário, e acaba ligando ou desistindo.",
+      en: "Clinic websites are usually just a business card: patients can't tell if their insurance is accepted, how much it costs or whether there are open slots, so they call or give up.",
+      es: "El sitio de una clínica suele ser solo una tarjeta de presentación: el paciente no sabe si aceptan su seguro, cuánto cuesta ni si hay horarios, y termina llamando o desistiendo.",
+    },
+    solution: {
+      pt: "Agendamento em 3 passos (especialidade, dia e horário, dados) com vagas por dia, celular validado e protocolo no final; busca por sintoma que leva à especialidade certa; verificador de convênio; equipe filtrável por dia; status \"aberto agora\" no fuso de Brasília; tema claro e escuro; página própria para cada profissional; botão de adicionar ao Google Agenda e mapa do quarteirão em SVG.",
+      en: "3-step booking (specialty, day and time, details) with slots per day, phone validation and a confirmation code; symptom search that points to the right specialty; insurance checker; team filter by weekday; \"open now\" status in Brasília time; light and dark themes; a page for each professional; add-to-Google-Calendar button and an SVG block map.",
+      es: "Agenda en 3 pasos (especialidad, día y horario, datos) con cupos por día, celular validado y protocolo al final; búsqueda por síntoma que lleva a la especialidad correcta; verificador de seguro; equipo filtrable por día; estado \"abierto ahora\" en horario de Brasilia; tema claro y oscuro; página para cada profesional; botón para agregar a Google Calendar y mapa de la manzana en SVG.",
+    },
+    learnings: {
+      pt: "Pensar primeiro no celular e no que o paciente precisa decidir, e simular uma agenda realista sem backend, de forma determinística, para o site parecer vivo.",
+      en: "Designing mobile-first around the decisions patients need to make, and simulating a realistic schedule deterministically with no backend so the site feels alive.",
+      es: "Diseñar primero para el celular según lo que el paciente necesita decidir, y simular una agenda realista sin backend, de forma determinística, para que el sitio parezca vivo.",
+    },
+    liveUrl: "https://clinica-ipe-plum.vercel.app/",
+  },
   {
     slug: "fang-security",
     title: {
